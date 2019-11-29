@@ -392,6 +392,10 @@
 		0601E49C238FAEF000403C95 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601E319238FAEEF00403C95 /* SignInViewController.m */; };
 		0601E49D238FAEF000403C95 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601E31C238FAEEF00403C95 /* WelcomeViewController.m */; };
 		0633A786239109E60094219D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0633A785239109E60094219D /* HomeViewController.m */; };
+		0633A78A239113080094219D /* OTPCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0633A789239113080094219D /* OTPCheckViewController.m */; };
+		0633A78D239113D50094219D /* AccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0633A78C239113D50094219D /* AccountInfoViewController.m */; };
+		0633A790239117890094219D /* CreatePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0633A78F239117890094219D /* CreatePasswordViewController.m */; };
+		0633A793239117E00094219D /* LoginWithPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0633A792239117E00094219D /* LoginWithPasswordViewController.m */; };
 		0658BEB9238FAC7800CBBAD1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658BEB8238FAC7800CBBAD1 /* AppDelegate.m */; };
 		0658BEBC238FAC7800CBBAD1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658BEBB238FAC7800CBBAD1 /* ViewController.m */; };
 		0658BEBF238FAC7800CBBAD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0658BEBD238FAC7800CBBAD1 /* Main.storyboard */; };
@@ -792,6 +796,14 @@
 		062061C82390B94300956FF4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		0633A784239109E60094219D /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		0633A785239109E60094219D /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		0633A788239113080094219D /* OTPCheckViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OTPCheckViewController.h; sourceTree = "<group>"; };
+		0633A789239113080094219D /* OTPCheckViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OTPCheckViewController.m; sourceTree = "<group>"; };
+		0633A78B239113D50094219D /* AccountInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountInfoViewController.h; sourceTree = "<group>"; };
+		0633A78C239113D50094219D /* AccountInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountInfoViewController.m; sourceTree = "<group>"; };
+		0633A78E239117890094219D /* CreatePasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreatePasswordViewController.h; sourceTree = "<group>"; };
+		0633A78F239117890094219D /* CreatePasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreatePasswordViewController.m; sourceTree = "<group>"; };
+		0633A791239117E00094219D /* LoginWithPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginWithPasswordViewController.h; sourceTree = "<group>"; };
+		0633A792239117E00094219D /* LoginWithPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginWithPasswordViewController.m; sourceTree = "<group>"; };
 		0658BEB4238FAC7800CBBAD1 /* JupViec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JupViec.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0658BEB7238FAC7800CBBAD1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0658BEB8238FAC7800CBBAD1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1229,6 +1241,14 @@
 			children = (
 				0601E318238FAEEF00403C95 /* SignInViewController.h */,
 				0601E319238FAEEF00403C95 /* SignInViewController.m */,
+				0633A788239113080094219D /* OTPCheckViewController.h */,
+				0633A789239113080094219D /* OTPCheckViewController.m */,
+				0633A78B239113D50094219D /* AccountInfoViewController.h */,
+				0633A78C239113D50094219D /* AccountInfoViewController.m */,
+				0633A78E239117890094219D /* CreatePasswordViewController.h */,
+				0633A78F239117890094219D /* CreatePasswordViewController.m */,
+				0633A791239117E00094219D /* LoginWithPasswordViewController.h */,
+				0633A792239117E00094219D /* LoginWithPasswordViewController.m */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -1751,10 +1771,14 @@
 			files = (
 				0601E49C238FAEF000403C95 /* SignInViewController.m in Sources */,
 				0658BEBC238FAC7800CBBAD1 /* ViewController.m in Sources */,
+				0633A78A239113080094219D /* OTPCheckViewController.m in Sources */,
 				0658BEC7238FAC7800CBBAD1 /* main.m in Sources */,
 				0658BEB9238FAC7800CBBAD1 /* AppDelegate.m in Sources */,
 				0601E49D238FAEF000403C95 /* WelcomeViewController.m in Sources */,
+				0633A790239117890094219D /* CreatePasswordViewController.m in Sources */,
+				0633A78D239113D50094219D /* AccountInfoViewController.m in Sources */,
 				0633A786239109E60094219D /* HomeViewController.m in Sources */,
+				0633A793239117E00094219D /* LoginWithPasswordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
