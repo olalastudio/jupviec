@@ -403,6 +403,8 @@
 		0658BEC4238FAC7800CBBAD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0658BEC2238FAC7800CBBAD1 /* LaunchScreen.storyboard */; };
 		0658BEC7238FAC7800CBBAD1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658BEC6238FAC7800CBBAD1 /* main.m */; };
 		066603502390BBA30036847C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0666034E2390BB110036847C /* CoreLocation.framework */; };
+		CEA83F1723911F60001C1512 /* APIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA83F1523911F5F001C1512 /* APIRequest.m */; };
+		CEA83F1B239120BE001C1512 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA83F19239120BE001C1512 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -815,6 +817,10 @@
 		0658BEC5238FAC7800CBBAD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0658BEC6238FAC7800CBBAD1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0666034E2390BB110036847C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CEA83F1523911F5F001C1512 /* APIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIRequest.m; sourceTree = "<group>"; };
+		CEA83F1623911F60001C1512 /* APIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIRequest.h; sourceTree = "<group>"; };
+		CEA83F19239120BE001C1512 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		CEA83F1A239120BE001C1512 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1283,6 +1289,8 @@
 		0658BEAB238FAC7800CBBAD1 = {
 			isa = PBXGroup;
 			children = (
+				CEA83F1823912052001C1512 /* User */,
+				CEA83F1423911F32001C1512 /* API */,
 				0601E197238FAEEE00403C95 /* Resource */,
 				0601E193238FAEEE00403C95 /* Until */,
 				0601E316238FAEEF00403C95 /* View */,
@@ -1314,6 +1322,24 @@
 				0658BEC6238FAC7800CBBAD1 /* main.m */,
 			);
 			path = JupViec;
+			sourceTree = "<group>";
+		};
+		CEA83F1423911F32001C1512 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				CEA83F1623911F60001C1512 /* APIRequest.h */,
+				CEA83F1523911F5F001C1512 /* APIRequest.m */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		CEA83F1823912052001C1512 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				CEA83F1A239120BE001C1512 /* User.h */,
+				CEA83F19239120BE001C1512 /* User.m */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1776,6 +1802,8 @@
 				0658BEB9238FAC7800CBBAD1 /* AppDelegate.m in Sources */,
 				0601E49D238FAEF000403C95 /* WelcomeViewController.m in Sources */,
 				0633A790239117890094219D /* CreatePasswordViewController.m in Sources */,
+				CEA83F1723911F60001C1512 /* APIRequest.m in Sources */,
+				CEA83F1B239120BE001C1512 /* User.m in Sources */,
 				0633A78D239113D50094219D /* AccountInfoViewController.m in Sources */,
 				0633A786239109E60094219D /* HomeViewController.m in Sources */,
 				0633A793239117E00094219D /* LoginWithPasswordViewController.m in Sources */,

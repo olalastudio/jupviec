@@ -14,7 +14,8 @@
 
 #pragma mark API
 #define ADDRESS_SERVER      @"http://52.221.107.104:8080"
-#define API_GETOTP          @"%@/get-otp"
+#define API_GETOTP          @"get-otp"
+#define API_REGISTER        @"register"
 
 #define ID_WELCOME_VIEW     @"idwelcomeview"
 

@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    user = [[User alloc]init];
 }
 
 /*
@@ -29,4 +30,11 @@
 }
 */
 
+- (IBAction)didClickLoginButton:(id)sender {
+    if (![user userPhoneNum])
+    {
+        //change to view register
+        [self performSegueWithIdentifier:@"idlogin" sender:self];
+    }
+}
 @end

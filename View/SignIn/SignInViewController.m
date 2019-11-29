@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [_txtPhone setDelegate:self];
 }
 
 /*
@@ -29,35 +30,31 @@
 }
 */
 
-- (IBAction)didPressCloseButton:(id)sender {
+//TextField delegate
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+
+-(void)didSuccessGetOTP:(NSString*)strOTP
+{
+    [self performSegueWithIdentifier:@"idcheckotp" sender:self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
 }
 
 - (IBAction)didPressNextButton:(id)sender {
-    NSString *strPhone = @"968300660";  //[_txtPhone text];
-    NSString *strAPI = [NSString stringWithFormat:API_GETOTP,ADDRESS_SERVER];
-    
-    NSURLComponents *components = [NSURLComponents componentsWithString:strAPI];
-    NSURLQueryItem *phone = [NSURLQueryItem queryItemWithName:@"phone" value:strPhone];
-    NSURLQueryItem *type = [NSURLQueryItem queryItemWithName:@"type" value:@"register"];
-    
-    components.queryItems = @[phone, type];
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:components.URL];
-    [request setHTTPMethod:@"GET"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
-    NSURLSessionDataTask *responseData = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
-        NSString *strResponse = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        
-        NSLog(@"OTP %@",strResponse);
-    }];
-    
-    [responseData resume];
+    if ([_txtPhone text])
+    {
+        APIRequest* apiRequest = [[APIRequest alloc]init];
+        [apiRequest requestGetOTP:[_txtPhone text] completionHandler:^(NSString * _Nonnull otpStr, NSError * _Nonnull err) {
+            NSLog(@"otp: %@", otpStr);
+            [self didSuccessGetOTP:otpStr];
+            //handle
+        }];
+    }
 }
 @end
