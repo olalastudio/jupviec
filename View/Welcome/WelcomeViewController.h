@@ -10,23 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol WelcomeViewControllerDelegate <NSObject>
-
--(void)getStart;
-
-@end
-
 @interface WelcomeViewController : UIViewController
 
 @property (assign, nonatomic) NSInteger      index;
-@property id<WelcomeViewControllerDelegate>  delegate;
 
 @property (weak, nonatomic) IBOutlet UILabel *txtWelcome;
-@property (weak, nonatomic) IBOutlet UIButton *btskip;
-@property (weak, nonatomic) IBOutlet UIButton *btStart;
-
-- (IBAction)didPressSkipButton:(id)sender;
-- (IBAction)didPressStartButton:(id)sender;
 
 @end
 

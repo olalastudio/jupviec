@@ -2,7 +2,7 @@
 //  ViewController.m
 //  JupViec
 //
-//  Created by KienVu on 11/25/19.
+//  Created by KienVu on 11/28/19.
 //  Copyright © 2019 Olala. All rights reserved.
 //
 
@@ -31,7 +31,7 @@
     self.pageController.delegate = self;
     self.pageController.dataSource = self;
     
-    [[self.pageController view] setFrame:[[self view] bounds]];
+    [[self.pageController view] setFrame:[[self contentArea] bounds]];
     
     WelcomeViewController *initialViewController = [self viewControllerAtIndex:0];
     
@@ -40,17 +40,19 @@
     [self.pageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     
     [self addChildViewController:self.pageController];
-    [[self view] addSubview:[self.pageController view]];
+    [[self contentArea] addSubview:[self.pageController view]];
     
     [self.pageController didMoveToParentViewController:self];
     [self addPageControll];
+    
+    [_btskip setHidden:NO];
+    [_btStart setHidden:YES];
 }
 
 -(WelcomeViewController*)viewControllerAtIndex:(NSInteger)index
 {
     WelcomeViewController *welcomeViewController = [self.storyboard instantiateViewControllerWithIdentifier:ID_WELCOME_VIEW];
     [welcomeViewController setIndex:index];
-    [welcomeViewController setDelegate:self];
     [welcomeViewController.view setFrame:[self.view frame]];
     
     return welcomeViewController;
@@ -82,6 +84,19 @@
     
     [self.pageControll setCurrentPage:[welcomeviewcontroller index]];
     [self.pageControll updateCurrentPageDisplay];
+    
+    switch ([welcomeviewcontroller index]) {
+        case 0:
+        case 1:
+            [_btStart setHidden:YES];
+            [_btskip setHidden:NO];
+            break;
+        case 2:
+            [_btStart setHidden:NO];
+            [_btskip setHidden:YES];
+        default:
+            break;
+    }
 }
 
 -(UIViewController*)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
@@ -90,6 +105,7 @@
     
     index++;
     if (index > 2) {
+        
         return nil;
     }
     
@@ -101,6 +117,8 @@
     NSInteger index = [(WelcomeViewController*)viewController index];
     
     if (index == 0) {
+        [_btskip setHidden:NO];
+        [_btStart setHidden:YES];
         return nil;
     }
     
@@ -113,16 +131,26 @@
 -(void)getStart
 {
     NSLog(@"did press start or skip");
-    
-    UITabBarController *tabController = (UITabBarController*)[self.storyboard instantiateViewControllerWithIdentifier:@"idTabBarView"];
-    
-    [self presentViewController:tabController animated:NO completion:^{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        AppDelegate *appdelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        UITabBarController *tabController = (UITabBarController*)[self.storyboard instantiateViewControllerWithIdentifier:@"idTabBarView"];
         
-    }];
+        appdelegate.window.rootViewController = tabController;
+        [appdelegate.window makeKeyAndVisible];
+    });
     
     [self.pageController removeFromParentViewController];
     [self.pageController.view removeFromSuperview];
     [self.pageControll removeFromSuperview];
 }
 
+- (IBAction)didPressSkipButton:(id)sender
+{
+    [self getStart];
+}
+
+- (IBAction)didPressStartButton:(id)sender
+{
+    [self getStart];
+}
 @end

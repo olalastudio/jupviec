@@ -9,7 +9,12 @@
 #ifndef CommonDefines_h
 #define CommonDefines_h
 
-
+//Sever 107.113.174.139:8088
 #endif /* CommonDefines_h */
 
+#pragma mark API
+#define ADDRESS_SERVER      @"http://52.221.107.104:8080"
+#define API_GETOTP          @"%@/get-otp"
+
 #define ID_WELCOME_VIEW     @"idwelcomeview"
+

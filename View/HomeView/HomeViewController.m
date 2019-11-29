@@ -1,24 +1,22 @@
 //
-//  WelcomeViewController.m
+//  HomeViewController.m
 //  JupViec
 //
-//  Created by KienVu on 11/25/19.
+//  Created by KienVu on 11/29/19.
 //  Copyright © 2019 Olala. All rights reserved.
 //
 
-#import "WelcomeViewController.h"
+#import "HomeViewController.h"
 
-@interface WelcomeViewController ()
+@interface HomeViewController ()
 
 @end
 
-@implementation WelcomeViewController
+@implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [_txtWelcome setText:[NSString stringWithFormat:@"Welcome view %ld",(long)_index]];
 }
 
 /*
@@ -30,4 +28,5 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 @end
