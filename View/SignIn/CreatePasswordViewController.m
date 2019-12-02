@@ -7,6 +7,7 @@
 //
 
 #import "CreatePasswordViewController.h"
+#import "APIRequest.h"
 
 @interface CreatePasswordViewController ()
 
@@ -17,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [_txtInputPassword setDelegate:self];
 }
 
 /*
@@ -29,4 +31,35 @@
 }
 */
 
+//UITextFieldDelegate
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+
+- (IBAction)didClickRegisterBtn:(id)sender {
+    if ([[_txtInputPassword text] isEqualToString:[_txtReInputPassword text]])
+    {
+        APIRequest* apiRequest = [[APIRequest alloc]init];
+        [apiRequest requestAPIRegister:_strPhoneNum password:[_txtInputPassword text] completionHandler:^(User * _Nonnull user, NSError * _Nonnull err) {
+            if (err.code == 200)
+            {
+                NSLog(@"Register success");
+                dispatch_async(dispatch_get_main_queue(), ^{
+                [self performSegueWithIdentifier:@"idUserHomeVC" sender:self];
+                });
+            }
+        }];
+    }else{
+        NSLog(@"password is not match");
+        UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Popup" message:@"Nhập lại mật khẩu cần trùng khớp" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *alertAct = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self->_txtReInputPassword setText:@""];
+        }];
+        [alertController addAction:alertAct];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self presentViewController:alertController animated:YES completion:nil];
+        });
+    }
+}
 @end

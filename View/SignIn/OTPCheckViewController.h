@@ -10,12 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface OTPCheckViewController : UIViewController
+@interface OTPCheckViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *txtOTPInput;
-@property (weak, nonatomic) IBOutlet UILabel *lbFailCheckOTP;
-@property (weak, nonatomic) IBOutlet UIButton *btnReGetOTP;
 @property (weak, nonatomic) IBOutlet UIButton *btnContinue;
+@property (nonatomic, assign) NSString* strOTPServer;
+@property (nonatomic, assign) NSString* strPhoneNum;
+
+- (IBAction)didClickCheckOTPNumber:(id)sender;
 
 @end
 

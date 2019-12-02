@@ -13,10 +13,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SignInViewController : UIViewController <UITextFieldDelegate>
+{
+    NSString* strOTPServer;
+    NSString* strPhoneNumber;
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *txtPhone;
 
-- (IBAction)didPressCloseButton:(id)sender;
 - (IBAction)didPressNextButton:(id)sender;
 
 @end

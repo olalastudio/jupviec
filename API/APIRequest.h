@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,8 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, weak) id delegate;
 
-- (void)requestGetOTP:(NSString*)phoneNum completionHandler:(void(^)(NSString* otpStr, NSError* err))completionHandler;
-+ (void)requestRegister:(NSString*)phoneNum password:(NSString*)password;
+- (void)requestAPIGetOTP:(NSString*)phoneNum completionHandler:(void(^)(NSString* otpStr, NSError* err))completionHandler;
+- (void)requestAPIRegister:(NSString*)phoneNum password:(NSString*)password completionHandler:(nonnull void (^)(User * user, NSError * error))completionHandler;
+- (void)requestAPILogin:(NSString*)phoneNum password:(NSString*)password completionHandler:(nonnull void (^)(NSString * token, NSError * error))completionHandler;
 @end
 
 NS_ASSUME_NONNULL_END

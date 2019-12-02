@@ -10,7 +10,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LoginWithPasswordViewController : UIViewController
+@interface LoginWithPasswordViewController : UIViewController <UITextFieldDelegate>
+{
+    NSString* strUserphone;
+    NSString* strUserPass;
+}
+
+@property (weak, nonatomic) IBOutlet UITextField *txtInputUserPhone;
+@property (weak, nonatomic) IBOutlet UITextField *txtInputUserPass;
+
+- (IBAction)didClickedFogetPassword:(id)sender;
+- (IBAction)didClickedRegisterNewAcc:(id)sender;
+- (IBAction)didClickedLogin:(id)sender;
 
 @end
 

@@ -10,15 +10,9 @@
 
 @implementation User
 @synthesize userIDStr;
-@synthesize userAgeStr;
-@synthesize userSexStr;
 @synthesize userNameStr;
 @synthesize userRoleStr;
-@synthesize userBirthStr;
 @synthesize userPhoneNum;
-@synthesize userAddressStr;
-@synthesize userHomeTownStr;
-@synthesize userIdentifyCardStr;
 
 -(id)initUserWithInfoData:(NSDictionary *)infoDict
 {
@@ -28,13 +22,9 @@
         userIDStr = [infoDict objectForKey:@"id"];
         userPhoneNum = [infoDict objectForKey:@"phone"];
         userRoleStr = [infoDict objectForKey:@"role"];
-        userNameStr = [infoDict objectForKey:@"name"];
-        userAgeStr = [infoDict objectForKey:@"age"];
-        userBirthStr = [infoDict objectForKey:@"birth"];
-        userSexStr = [infoDict objectForKey:@"sex"];
-        userAddressStr = [infoDict objectForKey:@"address"];
-        userIdentifyCardStr = [infoDict objectForKey:@"identity_card"];
-        userHomeTownStr = [infoDict objectForKey:@"home_town"];
+        userNameStr = [infoDict objectForKey:@"username"];
+        _dictUserInfo = [infoDict objectForKey:@"general_information"];
+        
     }
     
     return self;
