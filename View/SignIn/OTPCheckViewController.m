@@ -7,6 +7,7 @@
 //
 
 #import "OTPCheckViewController.h"
+#import "CreatePasswordViewController.h"
 
 @interface OTPCheckViewController ()
 
@@ -17,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [_txtOTPInput setDelegate:self];
 }
 
 /*
@@ -29,4 +31,38 @@
 }
 */
 
+// UITextFieldDelegate
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"idcreatepassword"])
+    {
+        CreatePasswordViewController* createPassVC = segue.destinationViewController;
+        createPassVC.strPhoneNum = _strPhoneNum;
+    }
+}
+
+- (IBAction)didClickCheckOTPNumber:(id)sender
+{
+    if (_strOTPServer && [_strOTPServer isEqualToString:[_txtOTPInput text]])
+    {
+        NSLog(@"otp correct");
+        [self performSegueWithIdentifier:@"idcreatepassword" sender:self];
+    }
+    else
+    {
+        UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Popup" message:@"Mã OTP chưa chính xác vui lòng nhập lại" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            NSLog(@"otp incorrect, re-input");
+            [self->_txtOTPInput setText:@""];
+        }];
+        [alertController addAction:okAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+        
+}
 @end

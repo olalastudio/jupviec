@@ -15,12 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSNumber* userPhoneNum;
 @property (nonatomic, assign) NSString* userRoleStr;
 @property (nonatomic, assign) NSString* userNameStr;
-@property (nonatomic, assign) NSString* userAgeStr;
-@property (nonatomic, assign) NSString* userBirthStr;
-@property (nonatomic, assign) NSString* userSexStr;
-@property (nonatomic, assign) NSString* userAddressStr;
-@property (nonatomic, assign) NSString* userIdentifyCardStr;
-@property (nonatomic, assign) NSString* userHomeTownStr;
+@property (nonatomic, weak) NSDictionary* dictUserInfo;
+
 
 -(id)initUserWithInfoData:(NSDictionary*)infoDict;
 
