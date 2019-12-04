@@ -10,6 +10,7 @@
 #import "HomeTaskTableViewCell.h"
 #import "HomePromotionTableViewCell.h"
 #import "HomePromotionHeaderViewCell.h"
+#import "SignInViewController.h"
 
 @interface HomeViewController ()
 
@@ -40,6 +41,15 @@
 }
 */
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"idlogin"])
+    {
+        SignInViewController* signInVC = segue.destinationViewController;
+        signInVC.intActionMode = MODE_REGISTER_NEW_ACC;
+    }
+}
+
 - (IBAction)didClickLoginButton:(id)sender {
     if (![user userPhoneNum])
     {
@@ -47,6 +57,7 @@
         [self performSegueWithIdentifier:@"idlogin" sender:self];
     }
 }
+
 
 #pragma mark - UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -100,4 +111,5 @@
     
     return 150;
 }
+
 @end

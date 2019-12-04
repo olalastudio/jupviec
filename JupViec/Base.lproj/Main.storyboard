@@ -447,7 +447,6 @@
                     <connections>
                         <outlet property="txtPhone" destination="uZS-IX-Rms" id="bhO-nd-QSh"/>
                         <segue destination="bCY-wj-dQo" kind="show" identifier="idcheckotp" id="cLV-es-nns"/>
-                        <segue destination="5Xw-Bf-1Ys" kind="show" identifier="idloginpassword" id="lbz-A3-i15"/>
                         <segue destination="KoS-9M-EeF" kind="show" identifier="idLogin" id="KEM-np-h1P"/>
                     </connections>
                 </viewController>
@@ -645,7 +644,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Uu3-Fc-we9">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="So dien thoai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMO-Gf-p5c">
                                 <rect key="frame" x="44" y="230" width="113" height="24"/>
@@ -811,5 +810,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="HSN-bQ-dHO"/>
         <segue reference="NIO-A5-TnJ"/>
+        <segue reference="KEM-np-h1P"/>
+        <segue reference="blz-vp-CYD"/>
+        <segue reference="h00-uX-wNY"/>
     </inferredMetricsTieBreakers>
 </document>

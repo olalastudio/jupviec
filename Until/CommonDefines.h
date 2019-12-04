@@ -17,6 +17,11 @@
 #define API_GETOTP          @"get-otp"
 #define API_REGISTER        @"register"
 #define API_LOGIN           @"login"
+#define API_FORGOT_PASS     @"forgot"
+#define API_UPDATE_PASS     @"update-password"
 
 #define ID_WELCOME_VIEW     @"idwelcomeview"
+
+#define MODE_REGISTER_NEW_ACC   1
+#define MODE_FORGOT_PASSWORD    2
 
