@@ -25,3 +25,14 @@
 #define MODE_REGISTER_NEW_ACC   1
 #define MODE_FORGOT_PASSWORD    2
 
+typedef enum : NSUInteger {
+    TYPE_DUNGLE,
+    TYPE_DUNGDINHKY,
+    TYPE_TONGVESINH,
+    TYPE_JUPSOFA,
+} TYPE_TASK;
+
+typedef enum : NSUInteger {
+    SESSION_TASK,
+    SESSION_PROMOTION,
+} SESSION_TYPE;

@@ -30,8 +30,6 @@
     [_tbSelectionTask setDelegate:self];
     [_tbSelectionTask setDataSource:self];
     [_tbSelectionTask setBackgroundColor:[UIColor clearColor]];
-    
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -79,17 +77,21 @@
 #pragma mark - UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 5;
+    return 2;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    if (section == 1) {
+        return 1;
+    }
+    
+    return 4;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 4)
+    if (indexPath.section == 1)
     {
         HomePromotionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idhomepromotioncell"];
         
@@ -103,7 +105,7 @@
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if (section == 4) {
+    if (section == 1) {
         HomePromotionHeaderViewCell *headercell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"idhomepromotionheadercell"];
 
         return headercell;
@@ -121,7 +123,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 4)
+    if (indexPath.section == 1)
     {
         return 150;
     }
@@ -131,11 +133,13 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (section == 4) {
-        return 20;
+
+    if (section == 1)
+    {
+        return 30;
     }
     
-    return 10;
+    return 20;
 }
 
 @end
