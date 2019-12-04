@@ -391,6 +391,16 @@
 		0601E49B238FAEF000403C95 /* zoom-out.png in Resources */ = {isa = PBXBuildFile; fileRef = 0601E315238FAEEF00403C95 /* zoom-out.png */; };
 		0601E49C238FAEF000403C95 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601E319238FAEEF00403C95 /* SignInViewController.m */; };
 		0601E49D238FAEF000403C95 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601E31C238FAEEF00403C95 /* WelcomeViewController.m */; };
+		0612A380239617C100A82BB9 /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0612A37F239617C100A82BB9 /* NoticeViewController.m */; };
+		0612A384239617DA00A82BB9 /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0612A383239617DA00A82BB9 /* InformationViewController.m */; };
+		0612A38623961D7E00A82BB9 /* NoticeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0612A38523961D7E00A82BB9 /* NoticeCell.xib */; };
+		0612A38823961D8A00A82BB9 /* CouponCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0612A38723961D8A00A82BB9 /* CouponCell.xib */; };
+		0612A38B23961DA800A82BB9 /* NoticeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0612A38A23961DA800A82BB9 /* NoticeTableViewCell.m */; };
+		0612A38E23961DB900A82BB9 /* CouponTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0612A38D23961DB900A82BB9 /* CouponTableViewCell.m */; };
+		0612A390239621AE00A82BB9 /* InformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0612A38F239621AE00A82BB9 /* InformationCell.xib */; };
+		0612A393239621F500A82BB9 /* InformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0612A392239621F500A82BB9 /* InformationTableViewCell.m */; };
+		0612A3992396531500A82BB9 /* NoticeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0612A3982396531500A82BB9 /* NoticeDetailViewController.m */; };
+		0612A39C239657E700A82BB9 /* InformationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0612A39B239657E700A82BB9 /* InformationDetailViewController.m */; };
 		0633A786239109E60094219D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0633A785239109E60094219D /* HomeViewController.m */; };
 		0633A78A239113080094219D /* OTPCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0633A789239113080094219D /* OTPCheckViewController.m */; };
 		0633A78D239113D50094219D /* AccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0633A78C239113D50094219D /* AccountInfoViewController.m */; };
@@ -402,6 +412,10 @@
 		0658BEC4238FAC7800CBBAD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0658BEC2238FAC7800CBBAD1 /* LaunchScreen.storyboard */; };
 		0658BEC7238FAC7800CBBAD1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658BEC6238FAC7800CBBAD1 /* main.m */; };
 		066603502390BBA30036847C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0666034E2390BB110036847C /* CoreLocation.framework */; };
+		06FEA1DF2394BCC0005D58B9 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1DE2394BCC0005D58B9 /* HistoryViewController.m */; };
+		06FEA1E12394CBCC005D58B9 /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06FEA1E02394CBCC005D58B9 /* HistoryCell.xib */; };
+		06FEA1E42394CC0E005D58B9 /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1E32394CC0E005D58B9 /* HistoryTableViewCell.m */; };
+		06FEA1E8239544F2005D58B9 /* DetailOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1E7239544F2005D58B9 /* DetailOrderViewController.m */; };
 		CEA83F1723911F60001C1512 /* APIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA83F1523911F5F001C1512 /* APIRequest.m */; };
 		CEA83F1B239120BE001C1512 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA83F19239120BE001C1512 /* User.m */; };
 		CEFD75B22394FAD80040699B /* CreatePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFD75B12394FAD80040699B /* CreatePasswordViewController.m */; };
@@ -795,6 +809,23 @@
 		0601E319238FAEEF00403C95 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		0601E31B238FAEEF00403C95 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		0601E31C238FAEEF00403C95 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		0612A37E239617C100A82BB9 /* NoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeViewController.h; sourceTree = "<group>"; };
+		0612A37F239617C100A82BB9 /* NoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeViewController.m; sourceTree = "<group>"; };
+		0612A382239617DA00A82BB9 /* InformationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
+		0612A383239617DA00A82BB9 /* InformationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
+		0612A38523961D7E00A82BB9 /* NoticeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeCell.xib; sourceTree = "<group>"; };
+		0612A38723961D8A00A82BB9 /* CouponCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CouponCell.xib; sourceTree = "<group>"; };
+		0612A38923961DA800A82BB9 /* NoticeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeTableViewCell.h; sourceTree = "<group>"; };
+		0612A38A23961DA800A82BB9 /* NoticeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeTableViewCell.m; sourceTree = "<group>"; };
+		0612A38C23961DB900A82BB9 /* CouponTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CouponTableViewCell.h; sourceTree = "<group>"; };
+		0612A38D23961DB900A82BB9 /* CouponTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CouponTableViewCell.m; sourceTree = "<group>"; };
+		0612A38F239621AE00A82BB9 /* InformationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationCell.xib; sourceTree = "<group>"; };
+		0612A391239621F500A82BB9 /* InformationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InformationTableViewCell.h; sourceTree = "<group>"; };
+		0612A392239621F500A82BB9 /* InformationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InformationTableViewCell.m; sourceTree = "<group>"; };
+		0612A3972396531500A82BB9 /* NoticeDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeDetailViewController.h; sourceTree = "<group>"; };
+		0612A3982396531500A82BB9 /* NoticeDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeDetailViewController.m; sourceTree = "<group>"; };
+		0612A39A239657E700A82BB9 /* InformationDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InformationDetailViewController.h; sourceTree = "<group>"; };
+		0612A39B239657E700A82BB9 /* InformationDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InformationDetailViewController.m; sourceTree = "<group>"; };
 		062061C82390B94300956FF4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		0633A784239109E60094219D /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		0633A785239109E60094219D /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
@@ -816,6 +847,13 @@
 		0658BEC5238FAC7800CBBAD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0658BEC6238FAC7800CBBAD1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0666034E2390BB110036847C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		06FEA1DD2394BCC0005D58B9 /* HistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		06FEA1DE2394BCC0005D58B9 /* HistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		06FEA1E02394CBCC005D58B9 /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
+		06FEA1E22394CC0E005D58B9 /* HistoryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewCell.h; sourceTree = "<group>"; };
+		06FEA1E32394CC0E005D58B9 /* HistoryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewCell.m; sourceTree = "<group>"; };
+		06FEA1E6239544F2005D58B9 /* DetailOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailOrderViewController.h; sourceTree = "<group>"; };
+		06FEA1E7239544F2005D58B9 /* DetailOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailOrderViewController.m; sourceTree = "<group>"; };
 		CEA83F1523911F5F001C1512 /* APIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIRequest.m; sourceTree = "<group>"; };
 		CEA83F1623911F60001C1512 /* APIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIRequest.h; sourceTree = "<group>"; };
 		CEA83F19239120BE001C1512 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -1235,6 +1273,10 @@
 		0601E316238FAEEF00403C95 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0612A381239617C500A82BB9 /* Information */,
+				0612A37D239617C100A82BB9 /* Notice */,
+				06FEA1E5239544D1005D58B9 /* DetailOder */,
+				06FEA1DC2394BCAD005D58B9 /* History */,
 				0633A783239109CC0094219D /* HomeView */,
 				0601E317238FAEEF00403C95 /* SignIn */,
 				0601E31A238FAEEF00403C95 /* Welcome */,
@@ -1266,6 +1308,37 @@
 				0601E31C238FAEEF00403C95 /* WelcomeViewController.m */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		0612A37D239617C100A82BB9 /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				0612A37E239617C100A82BB9 /* NoticeViewController.h */,
+				0612A37F239617C100A82BB9 /* NoticeViewController.m */,
+				0612A38523961D7E00A82BB9 /* NoticeCell.xib */,
+				0612A38723961D8A00A82BB9 /* CouponCell.xib */,
+				0612A38923961DA800A82BB9 /* NoticeTableViewCell.h */,
+				0612A38A23961DA800A82BB9 /* NoticeTableViewCell.m */,
+				0612A38C23961DB900A82BB9 /* CouponTableViewCell.h */,
+				0612A38D23961DB900A82BB9 /* CouponTableViewCell.m */,
+				0612A3972396531500A82BB9 /* NoticeDetailViewController.h */,
+				0612A3982396531500A82BB9 /* NoticeDetailViewController.m */,
+			);
+			path = Notice;
+			sourceTree = "<group>";
+		};
+		0612A381239617C500A82BB9 /* Information */ = {
+			isa = PBXGroup;
+			children = (
+				0612A382239617DA00A82BB9 /* InformationViewController.h */,
+				0612A383239617DA00A82BB9 /* InformationViewController.m */,
+				0612A38F239621AE00A82BB9 /* InformationCell.xib */,
+				0612A391239621F500A82BB9 /* InformationTableViewCell.h */,
+				0612A392239621F500A82BB9 /* InformationTableViewCell.m */,
+				0612A39A239657E700A82BB9 /* InformationDetailViewController.h */,
+				0612A39B239657E700A82BB9 /* InformationDetailViewController.m */,
+			);
+			path = Information;
 			sourceTree = "<group>";
 		};
 		062061C72390B94300956FF4 /* Frameworks */ = {
@@ -1322,6 +1395,27 @@
 				0658BEC6238FAC7800CBBAD1 /* main.m */,
 			);
 			path = JupViec;
+			sourceTree = "<group>";
+		};
+		06FEA1DC2394BCAD005D58B9 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				06FEA1DD2394BCC0005D58B9 /* HistoryViewController.h */,
+				06FEA1DE2394BCC0005D58B9 /* HistoryViewController.m */,
+				06FEA1E02394CBCC005D58B9 /* HistoryCell.xib */,
+				06FEA1E22394CC0E005D58B9 /* HistoryTableViewCell.h */,
+				06FEA1E32394CC0E005D58B9 /* HistoryTableViewCell.m */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		06FEA1E5239544D1005D58B9 /* DetailOder */ = {
+			isa = PBXGroup;
+			children = (
+				06FEA1E6239544F2005D58B9 /* DetailOrderViewController.h */,
+				06FEA1E7239544F2005D58B9 /* DetailOrderViewController.m */,
+			);
+			path = DetailOder;
 			sourceTree = "<group>";
 		};
 		CEA83F1423911F32001C1512 /* API */ = {
@@ -1532,6 +1626,7 @@
 				0601E472238FAEF000403C95 /* television.png in Resources */,
 				0601E3CF238FAEEF00403C95 /* locked-4.png in Resources */,
 				0601E3A5238FAEEF00403C95 /* funnel.png in Resources */,
+				06FEA1E12394CBCC005D58B9 /* HistoryCell.xib in Resources */,
 				0601E3BE238FAEEF00403C95 /* info.png in Resources */,
 				0601E372238FAEEF00403C95 /* divide.png in Resources */,
 				0601E34C238FAEEF00403C95 /* calendar.png in Resources */,
@@ -1646,6 +1741,7 @@
 				0601E34E238FAEEF00403C95 /* checked.png in Resources */,
 				0601E439238FAEF000403C95 /* share-1.png in Resources */,
 				0601E497238FAEF000403C95 /* wireless-internet.png in Resources */,
+				0612A38823961D8A00A82BB9 /* CouponCell.xib in Resources */,
 				0601E3C8238FAEEF00403C95 /* list-1.png in Resources */,
 				0601E360238FAEEF00403C95 /* controls-2.png in Resources */,
 				0601E38A238FAEEF00403C95 /* flag-1.png in Resources */,
@@ -1662,6 +1758,7 @@
 				0601E399238FAEEF00403C95 /* folder-18.png in Resources */,
 				0601E48D238FAEF000403C95 /* volume-control-1.png in Resources */,
 				0601E3F6238FAEEF00403C95 /* next.png in Resources */,
+				0612A390239621AE00A82BB9 /* InformationCell.xib in Resources */,
 				0601E326238FAEEF00403C95 /* alarm.png in Resources */,
 				0601E49B238FAEF000403C95 /* zoom-out.png in Resources */,
 				0601E33D238FAEEF00403C95 /* bluetooth-1.png in Resources */,
@@ -1687,6 +1784,7 @@
 				0601E3B1238FAEEF00403C95 /* hourglass-2.png in Resources */,
 				0601E42B238FAEF000403C95 /* server-1.png in Resources */,
 				0601E3F5238FAEEF00403C95 /* newspaper.png in Resources */,
+				0612A38623961D7E00A82BB9 /* NoticeCell.xib in Resources */,
 				0601E434238FAEF000403C95 /* settings-6.png in Resources */,
 				0601E487238FAEF000403C95 /* video-player-1.png in Resources */,
 				0601E43B238FAEF000403C95 /* share.png in Resources */,
@@ -1795,17 +1893,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0612A39C239657E700A82BB9 /* InformationDetailViewController.m in Sources */,
+				0612A3992396531500A82BB9 /* NoticeDetailViewController.m in Sources */,
 				0601E49C238FAEF000403C95 /* SignInViewController.m in Sources */,
+				0612A384239617DA00A82BB9 /* InformationViewController.m in Sources */,
 				0658BEBC238FAC7800CBBAD1 /* ViewController.m in Sources */,
+				0612A380239617C100A82BB9 /* NoticeViewController.m in Sources */,
 				0633A78A239113080094219D /* OTPCheckViewController.m in Sources */,
 				CEFD75B22394FAD80040699B /* CreatePasswordViewController.m in Sources */,
 				0658BEC7238FAC7800CBBAD1 /* main.m in Sources */,
+				06FEA1E42394CC0E005D58B9 /* HistoryTableViewCell.m in Sources */,
 				0658BEB9238FAC7800CBBAD1 /* AppDelegate.m in Sources */,
 				0601E49D238FAEF000403C95 /* WelcomeViewController.m in Sources */,
+				06FEA1DF2394BCC0005D58B9 /* HistoryViewController.m in Sources */,
+				0612A38E23961DB900A82BB9 /* CouponTableViewCell.m in Sources */,
+				0633A790239117890094219D /* CreatePasswordViewController.m in Sources */,
 				CEA83F1723911F60001C1512 /* APIRequest.m in Sources */,
 				CEA83F1B239120BE001C1512 /* User.m in Sources */,
+				0612A393239621F500A82BB9 /* InformationTableViewCell.m in Sources */,
 				0633A78D239113D50094219D /* AccountInfoViewController.m in Sources */,
 				0633A786239109E60094219D /* HomeViewController.m in Sources */,
+				0612A38B23961DA800A82BB9 /* NoticeTableViewCell.m in Sources */,
+				06FEA1E8239544F2005D58B9 /* DetailOrderViewController.m in Sources */,
 				0633A793239117E00094219D /* LoginWithPasswordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
