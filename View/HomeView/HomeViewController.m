@@ -30,6 +30,7 @@
     [_tbSelectionTask setDelegate:self];
     [_tbSelectionTask setDataSource:self];
     [_tbSelectionTask setBackgroundColor:[UIColor clearColor]];
+    [_tbSelectionTask setSeparatorColor:[UIColor clearColor]];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -91,14 +92,36 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 1)
+    //promotion
+    if (indexPath.section == SESSION_PROMOTION)
     {
         HomePromotionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idhomepromotioncell"];
+        [cell setSessionType:SESSION_PROMOTION];
         
         return cell;
     }
     
+    //Task
     HomeTaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idhometaskcell"];
+    
+    switch (indexPath.row) {
+        case TYPE_DUNGLE:
+            [cell setTaskType:TYPE_DUNGLE];
+            break;
+        case TYPE_DUNGDINHKY:
+            [cell setTaskType:TYPE_DUNGDINHKY];
+            break;
+        case TYPE_TONGVESINH:
+            [cell setTaskType:TYPE_TONGVESINH];
+            break;
+        case TYPE_JUPSOFA:
+            [cell setTaskType:TYPE_JUPSOFA];
+            break;
+        default:
+            break;
+    }
+    
+    [cell setSessionType:SESSION_TASK];
     
     return cell;
 }

@@ -412,6 +412,9 @@
 		0658BEC4238FAC7800CBBAD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0658BEC2238FAC7800CBBAD1 /* LaunchScreen.storyboard */; };
 		0658BEC7238FAC7800CBBAD1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658BEC6238FAC7800CBBAD1 /* main.m */; };
 		066603502390BBA30036847C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0666034E2390BB110036847C /* CoreLocation.framework */; };
+		06B620BA2397B34D0036DCF9 /* HomePromotionCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B620B92397B34D0036DCF9 /* HomePromotionCollectionCell.xib */; };
+		06B620BD2397B3930036DCF9 /* HomePromotionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */; };
+		06B620BF2397B4540036DCF9 /* makhuyenmai.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B620BE2397B4540036DCF9 /* makhuyenmai.png */; };
 		06EC9F1D2396734A00474EE3 /* HomeTaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06EC9F1C2396734A00474EE3 /* HomeTaskCell.xib */; };
 		06EC9F202396736200474EE3 /* HomeTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EC9F1F2396736200474EE3 /* HomeTaskTableViewCell.m */; };
 		06EC9F222396784100474EE3 /* HomePromotionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06EC9F212396784100474EE3 /* HomePromotionCell.xib */; };
@@ -853,6 +856,10 @@
 		0658BEC5238FAC7800CBBAD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0658BEC6238FAC7800CBBAD1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0666034E2390BB110036847C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		06B620B92397B34D0036DCF9 /* HomePromotionCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePromotionCollectionCell.xib; sourceTree = "<group>"; };
+		06B620BB2397B3930036DCF9 /* HomePromotionCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePromotionCollectionViewCell.h; sourceTree = "<group>"; };
+		06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePromotionCollectionViewCell.m; sourceTree = "<group>"; };
+		06B620BE2397B4540036DCF9 /* makhuyenmai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = makhuyenmai.png; sourceTree = "<group>"; };
 		06EC9F1C2396734A00474EE3 /* HomeTaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTaskCell.xib; sourceTree = "<group>"; };
 		06EC9F1E2396736200474EE3 /* HomeTaskTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTaskTableViewCell.h; sourceTree = "<group>"; };
 		06EC9F1F2396736200474EE3 /* HomeTaskTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTaskTableViewCell.m; sourceTree = "<group>"; };
@@ -899,6 +906,7 @@
 		0601E197238FAEEE00403C95 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				06B620BE2397B4540036DCF9 /* makhuyenmai.png */,
 				0601E198238FAEEE00403C95 /* add-1.png */,
 				0601E199238FAEEE00403C95 /* add-2.png */,
 				0601E19A238FAEEE00403C95 /* add-3.png */,
@@ -1379,6 +1387,9 @@
 				06EC9F2623968A6200474EE3 /* HomePromotionHeaderCell.xib */,
 				06EC9F2B23968C7000474EE3 /* HomePromotionHeaderViewCell.h */,
 				06EC9F2C23968C7000474EE3 /* HomePromotionHeaderViewCell.m */,
+				06B620B92397B34D0036DCF9 /* HomePromotionCollectionCell.xib */,
+				06B620BB2397B3930036DCF9 /* HomePromotionCollectionViewCell.h */,
+				06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -1577,6 +1588,7 @@
 				0601E471238FAEF000403C95 /* television-1.png in Resources */,
 				0601E464238FAEF000403C95 /* substract.png in Resources */,
 				0601E469238FAEF000403C95 /* switch-4.png in Resources */,
+				06B620BF2397B4540036DCF9 /* makhuyenmai.png in Resources */,
 				0601E395238FAEEF00403C95 /* folder-14.png in Resources */,
 				0601E46C238FAEF000403C95 /* switch-7.png in Resources */,
 				0601E43E238FAEF000403C95 /* shutdown.png in Resources */,
@@ -1656,6 +1668,7 @@
 				0601E372238FAEEF00403C95 /* divide.png in Resources */,
 				0601E34C238FAEEF00403C95 /* calendar.png in Resources */,
 				0601E484238FAEF000403C95 /* users.png in Resources */,
+				06B620BA2397B34D0036DCF9 /* HomePromotionCollectionCell.xib in Resources */,
 				0601E39C238FAEEF00403C95 /* folder-3.png in Resources */,
 				0601E353238FAEEF00403C95 /* cloud-computing-2.png in Resources */,
 				0601E3F1238FAEEF00403C95 /* muted.png in Resources */,
@@ -1929,6 +1942,7 @@
 				0633A78A239113080094219D /* OTPCheckViewController.m in Sources */,
 				CEFD75B22394FAD80040699B /* CreatePasswordViewController.m in Sources */,
 				06EC9F2D23968C7000474EE3 /* HomePromotionHeaderViewCell.m in Sources */,
+				06B620BD2397B3930036DCF9 /* HomePromotionCollectionViewCell.m in Sources */,
 				0658BEC7238FAC7800CBBAD1 /* main.m in Sources */,
 				06FEA1E42394CC0E005D58B9 /* HistoryTableViewCell.m in Sources */,
 				06EC9F252396786100474EE3 /* HomePromotionTableViewCell.m in Sources */,

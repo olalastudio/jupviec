@@ -7,10 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonDefines.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomePromotionTableViewCell : UITableViewCell
+@interface HomePromotionTableViewCell : UITableViewCell <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+{
+    TASK_TYPE       _taskType;
+    SESSION_TYPE    _sessionType;
+}
+
+@property (weak, nonatomic) IBOutlet UICollectionView *clPromotionCode;
+
+
+-(void)setTaskType:(TASK_TYPE)task;
+-(void)setSessionType:(SESSION_TYPE)session;
+
+-(TASK_TYPE)taskType;
+-(SESSION_TYPE)sessionType;
 
 @end
 
