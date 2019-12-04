@@ -412,6 +412,12 @@
 		0658BEC4238FAC7800CBBAD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0658BEC2238FAC7800CBBAD1 /* LaunchScreen.storyboard */; };
 		0658BEC7238FAC7800CBBAD1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658BEC6238FAC7800CBBAD1 /* main.m */; };
 		066603502390BBA30036847C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0666034E2390BB110036847C /* CoreLocation.framework */; };
+		06EC9F1D2396734A00474EE3 /* HomeTaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06EC9F1C2396734A00474EE3 /* HomeTaskCell.xib */; };
+		06EC9F202396736200474EE3 /* HomeTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EC9F1F2396736200474EE3 /* HomeTaskTableViewCell.m */; };
+		06EC9F222396784100474EE3 /* HomePromotionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06EC9F212396784100474EE3 /* HomePromotionCell.xib */; };
+		06EC9F252396786100474EE3 /* HomePromotionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EC9F242396786100474EE3 /* HomePromotionTableViewCell.m */; };
+		06EC9F2723968A6200474EE3 /* HomePromotionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06EC9F2623968A6200474EE3 /* HomePromotionHeaderCell.xib */; };
+		06EC9F2D23968C7000474EE3 /* HomePromotionHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EC9F2C23968C7000474EE3 /* HomePromotionHeaderViewCell.m */; };
 		06FEA1DF2394BCC0005D58B9 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1DE2394BCC0005D58B9 /* HistoryViewController.m */; };
 		06FEA1E12394CBCC005D58B9 /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06FEA1E02394CBCC005D58B9 /* HistoryCell.xib */; };
 		06FEA1E42394CC0E005D58B9 /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1E32394CC0E005D58B9 /* HistoryTableViewCell.m */; };
@@ -847,6 +853,15 @@
 		0658BEC5238FAC7800CBBAD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0658BEC6238FAC7800CBBAD1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0666034E2390BB110036847C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		06EC9F1C2396734A00474EE3 /* HomeTaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTaskCell.xib; sourceTree = "<group>"; };
+		06EC9F1E2396736200474EE3 /* HomeTaskTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTaskTableViewCell.h; sourceTree = "<group>"; };
+		06EC9F1F2396736200474EE3 /* HomeTaskTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTaskTableViewCell.m; sourceTree = "<group>"; };
+		06EC9F212396784100474EE3 /* HomePromotionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePromotionCell.xib; sourceTree = "<group>"; };
+		06EC9F232396786100474EE3 /* HomePromotionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePromotionTableViewCell.h; sourceTree = "<group>"; };
+		06EC9F242396786100474EE3 /* HomePromotionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePromotionTableViewCell.m; sourceTree = "<group>"; };
+		06EC9F2623968A6200474EE3 /* HomePromotionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePromotionHeaderCell.xib; sourceTree = "<group>"; };
+		06EC9F2B23968C7000474EE3 /* HomePromotionHeaderViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePromotionHeaderViewCell.h; sourceTree = "<group>"; };
+		06EC9F2C23968C7000474EE3 /* HomePromotionHeaderViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePromotionHeaderViewCell.m; sourceTree = "<group>"; };
 		06FEA1DD2394BCC0005D58B9 /* HistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		06FEA1DE2394BCC0005D58B9 /* HistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
 		06FEA1E02394CBCC005D58B9 /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
@@ -1355,6 +1370,15 @@
 			children = (
 				0633A784239109E60094219D /* HomeViewController.h */,
 				0633A785239109E60094219D /* HomeViewController.m */,
+				06EC9F1C2396734A00474EE3 /* HomeTaskCell.xib */,
+				06EC9F1E2396736200474EE3 /* HomeTaskTableViewCell.h */,
+				06EC9F1F2396736200474EE3 /* HomeTaskTableViewCell.m */,
+				06EC9F212396784100474EE3 /* HomePromotionCell.xib */,
+				06EC9F232396786100474EE3 /* HomePromotionTableViewCell.h */,
+				06EC9F242396786100474EE3 /* HomePromotionTableViewCell.m */,
+				06EC9F2623968A6200474EE3 /* HomePromotionHeaderCell.xib */,
+				06EC9F2B23968C7000474EE3 /* HomePromotionHeaderViewCell.h */,
+				06EC9F2C23968C7000474EE3 /* HomePromotionHeaderViewCell.m */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -1563,6 +1587,7 @@
 				0601E3FC238FAEEF00403C95 /* notebook-5.png in Resources */,
 				0601E485238FAEF000403C95 /* video-camera-1.png in Resources */,
 				0601E390238FAEEF00403C95 /* folder-1.png in Resources */,
+				06EC9F2723968A6200474EE3 /* HomePromotionHeaderCell.xib in Resources */,
 				0601E3E9238FAEEF00403C95 /* more.png in Resources */,
 				0601E37C238FAEEF00403C95 /* equal.png in Resources */,
 				0601E49A238FAEF000403C95 /* zoom-in.png in Resources */,
@@ -1810,6 +1835,7 @@
 				0601E450238FAEF000403C95 /* speaker-3.png in Resources */,
 				0601E380238FAEEF00403C95 /* exit.png in Resources */,
 				0601E48E238FAEF000403C95 /* volume-control.png in Resources */,
+				06EC9F1D2396734A00474EE3 /* HomeTaskCell.xib in Resources */,
 				0601E3A8238FAEEF00403C95 /* garbage.png in Resources */,
 				0601E493238FAEF000403C95 /* windows-2.png in Resources */,
 				0601E479238FAEF000403C95 /* unlocked.png in Resources */,
@@ -1868,6 +1894,7 @@
 				0601E44D238FAEF000403C95 /* smartphone.png in Resources */,
 				0601E3B5238FAEEF00403C95 /* id-card-1.png in Resources */,
 				0601E327238FAEEF00403C95 /* albums.png in Resources */,
+				06EC9F222396784100474EE3 /* HomePromotionCell.xib in Resources */,
 				0601E402238FAEEF00403C95 /* paper-plane-1.png in Resources */,
 				0601E48C238FAEF000403C95 /* view.png in Resources */,
 				0601E34A238FAEEF00403C95 /* calendar-6.png in Resources */,
@@ -1901,16 +1928,18 @@
 				0612A380239617C100A82BB9 /* NoticeViewController.m in Sources */,
 				0633A78A239113080094219D /* OTPCheckViewController.m in Sources */,
 				CEFD75B22394FAD80040699B /* CreatePasswordViewController.m in Sources */,
+				06EC9F2D23968C7000474EE3 /* HomePromotionHeaderViewCell.m in Sources */,
 				0658BEC7238FAC7800CBBAD1 /* main.m in Sources */,
 				06FEA1E42394CC0E005D58B9 /* HistoryTableViewCell.m in Sources */,
+				06EC9F252396786100474EE3 /* HomePromotionTableViewCell.m in Sources */,
 				0658BEB9238FAC7800CBBAD1 /* AppDelegate.m in Sources */,
 				0601E49D238FAEF000403C95 /* WelcomeViewController.m in Sources */,
 				06FEA1DF2394BCC0005D58B9 /* HistoryViewController.m in Sources */,
 				0612A38E23961DB900A82BB9 /* CouponTableViewCell.m in Sources */,
-				0633A790239117890094219D /* CreatePasswordViewController.m in Sources */,
 				CEA83F1723911F60001C1512 /* APIRequest.m in Sources */,
 				CEA83F1B239120BE001C1512 /* User.m in Sources */,
 				0612A393239621F500A82BB9 /* InformationTableViewCell.m in Sources */,
+				06EC9F202396736200474EE3 /* HomeTaskTableViewCell.m in Sources */,
 				0633A78D239113D50094219D /* AccountInfoViewController.m in Sources */,
 				0633A786239109E60094219D /* HomeViewController.m in Sources */,
 				0612A38B23961DA800A82BB9 /* NoticeTableViewCell.m in Sources */,

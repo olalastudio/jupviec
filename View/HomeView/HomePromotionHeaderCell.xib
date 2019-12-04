@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15508"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="idhomepromotionheadercell" rowHeight="20" id="miX-Lt-tO4" customClass="HomePromotionTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="miX-Lt-tO4" id="pbq-Ti-q3I">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Khuyễn Mãi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7c-gd-JjV">
+                        <rect key="frame" x="20" y="3" width="67.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMb-sN-tJt">
+                        <rect key="frame" x="326" y="-2" width="68" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <state key="normal" title="Xem Thêm &gt;&gt;"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="gMb-sN-tJt" secondAttribute="trailing" constant="20" id="6Ue-MT-VQw"/>
+                    <constraint firstItem="y7c-gd-JjV" firstAttribute="leading" secondItem="pbq-Ti-q3I" secondAttribute="leading" constant="20" id="WgF-KB-MN5"/>
+                    <constraint firstItem="gMb-sN-tJt" firstAttribute="centerY" secondItem="pbq-Ti-q3I" secondAttribute="centerY" id="vgV-Oh-lvY"/>
+                    <constraint firstItem="y7c-gd-JjV" firstAttribute="centerY" secondItem="pbq-Ti-q3I" secondAttribute="centerY" id="xc1-MV-v2y"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-81" y="19"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -10,6 +10,11 @@
 #import "DetailOrderViewController.h"
 
 @interface HistoryViewController ()
+{
+    NSMutableArray *_listDungLe;
+    NSMutableArray *_listDungDKy;
+    NSMutableArray *_listTongVS;
+}
 
 @end
 
@@ -24,6 +29,10 @@
     
     //register cell
     [_tbHistory registerNib:[UINib nibWithNibName:@"HistoryCell" bundle:nil] forCellReuseIdentifier:@"idhistorycell"];
+    
+    _listDungLe = [[NSMutableArray alloc] initWithCapacity:0];
+    _listDungDKy = [[NSMutableArray alloc] initWithCapacity:0];
+    _listTongVS = [[NSMutableArray alloc] initWithCapacity:0];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -58,6 +67,27 @@
 }
 */
 
+-(NSMutableArray*)showSelectedList
+{
+    if ([_sgSelection selectedSegmentIndex] == 0)
+    {
+        //Dung le
+        return _listDungLe;
+    }
+    else if ([_sgSelection selectedSegmentIndex] == 1)
+    {
+        //dung dinh ky
+        return _listDungDKy;
+    }
+    else if ([_sgSelection selectedSegmentIndex] == 3)
+    {
+        //tong ve sinh
+        return _listTongVS;
+    }
+
+    return [NSMutableArray arrayWithCapacity:0];
+}
+
 #pragma mark - TableView Delegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -65,7 +95,7 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return [[self showSelectedList] count];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -86,49 +116,5 @@
     DetailOrderViewController *detailviewController = [self.storyboard instantiateViewControllerWithIdentifier:@"iddetailoder"];
     
     [self.navigationController pushViewController:detailviewController animated:YES];
-}
-
-- (void)encodeWithCoder:(nonnull NSCoder *)coder {
-    
-}
-
-- (void)traitCollectionDidChange:(nullable UITraitCollection *)previousTraitCollection {
-    
-}
-
-- (void)preferredContentSizeDidChangeForChildContentContainer:(nonnull id<UIContentContainer>)container {
-    
-}
-
-//- (CGSize)sizeForChildContentContainer:(nonnull id<UIContentContainer>)container withParentContainerSize:(CGSize)parentSize {
-//    
-//}
-
-- (void)systemLayoutFittingSizeDidChangeForChildContentContainer:(nonnull id<UIContentContainer>)container {
-
-}
-
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator {
-    
-}
-
-- (void)willTransitionToTraitCollection:(nonnull UITraitCollection *)newCollection withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator {
-    
-}
-
-- (void)didUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context withAnimationCoordinator:(nonnull UIFocusAnimationCoordinator *)coordinator {
-    
-}
-
-- (void)setNeedsFocusUpdate {
-    
-}
-
-//- (BOOL)shouldUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context {
-//    
-//}
-
-- (void)updateFocusIfNeeded {
-    
 }
 @end
