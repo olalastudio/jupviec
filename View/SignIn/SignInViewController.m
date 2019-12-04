@@ -21,6 +21,13 @@
     [_txtPhone setDelegate:self];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.tabBarController.tabBar setHidden:YES];
+}
+
 /*
 #pragma mark - Navigation
 

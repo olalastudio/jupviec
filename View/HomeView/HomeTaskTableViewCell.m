@@ -10,13 +10,18 @@
 
 @implementation HomeTaskTableViewCell
 
+-(void)drawRect:(CGRect)rect
+{
+    [super drawRect:rect];
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
     
-    self.backgroundColor = [UIColor clearColor];
+    [self setBackgroundColor:[UIColor grayColor]];
     
-    self.layer.cornerRadius = 10.0;
+    self.layer.cornerRadius = 12.0;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 

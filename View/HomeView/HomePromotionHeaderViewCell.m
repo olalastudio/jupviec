@@ -18,4 +18,9 @@
 }
 */
 
+
+- (IBAction)didPressViewMoreButton:(id)sender
+{
+    NSLog(@"did click view more button");
+}
 @end
