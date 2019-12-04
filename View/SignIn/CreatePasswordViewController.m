@@ -41,15 +41,27 @@
     if ([[_txtInputPassword text] isEqualToString:[_txtReInputPassword text]])
     {
         APIRequest* apiRequest = [[APIRequest alloc]init];
-        [apiRequest requestAPIRegister:_strPhoneNum password:[_txtInputPassword text] completionHandler:^(User * _Nonnull user, NSError * _Nonnull err) {
-            if (err.code == 200)
-            {
-                NSLog(@"Register success");
+        if (_intActionMode == MODE_FORGOT_PASSWORD)
+        {
+            [apiRequest requestAPIUpdatePassword:_strPhoneNum password:[_txtInputPassword text] token:_strToken completionHandler:^(User * _Nonnull user, NSError * _Nonnull error) {
+                NSLog(@"change password success");
                 dispatch_async(dispatch_get_main_queue(), ^{
-                [self performSegueWithIdentifier:@"idUserHomeVC" sender:self];
+                    [self performSegueWithIdentifier:@"idUserHomeVC" sender:self];
                 });
-            }
-        }];
+            }];
+        }
+        else if (_intActionMode == MODE_REGISTER_NEW_ACC)
+        {
+            [apiRequest requestAPIRegister:_strPhoneNum password:[_txtInputPassword text] completionHandler:^(User * _Nonnull user, NSError * _Nonnull err) {
+                if (err.code == 200)
+                {
+                    NSLog(@"Register success");
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self performSegueWithIdentifier:@"idUserHomeVC" sender:self];
+                    });
+                }
+            }];
+        }
     }else{
         NSLog(@"password is not match");
         UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Popup" message:@"Nhập lại mật khẩu cần trùng khớp" preferredStyle:UIAlertControllerStyleAlert];

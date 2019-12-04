@@ -37,10 +37,17 @@
     [self.view endEditing:YES];
 }
 
--(void)didSuccessGetOTP:(NSString*)strOTP error:(NSInteger)errCode
+-(void)didSuccessGetRequest:(NSString*)strOTP error:(NSInteger)errCode
 {
     strOTPServer = strOTP;
-    if (errCode == 400)
+    if (errCode == 200)
+    {
+        NSLog(@"sdt chua dang ky, tiep tuc dang ky");
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self performSegueWithIdentifier:@"idcheckotp" sender:self];
+        });
+    }
+    else if (errCode == 400 && _intActionMode == MODE_REGISTER_NEW_ACC)
     {
         //show alert
         UIAlertController *alertControler = [UIAlertController alertControllerWithTitle:@"Popup" message:@"Số điện thoại đã được đăng ký. Bạn có muốn đăng nhập không." preferredStyle:UIAlertControllerStyleAlert];
@@ -58,15 +65,18 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self presentViewController:alertControler animated:YES completion:nil];
         });
-    } else if (errCode == 200)
-    {
-        NSLog(@"sdt chua dang ky, tiep tuc dang ky");
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self performSegueWithIdentifier:@"idcheckotp" sender:self];
-        });
-        
     }
-    
+    else if (errCode == 400 && _intActionMode == MODE_FORGOT_PASSWORD)
+    {
+        UIAlertController *alertControler = [UIAlertController alertControllerWithTitle:@"Popup" message:@"Account is not existed" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* alertAct = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            NSLog(@"Account is not existed");
+        }];
+        [alertControler addAction:alertAct];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self presentViewController:alertControler animated:YES completion:nil];
+        });
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -76,6 +86,11 @@
         OTPCheckViewController* otpCheckVC = segue.destinationViewController;
         otpCheckVC.strOTPServer = strOTPServer;
         otpCheckVC.strPhoneNum = strPhoneNumber;
+        otpCheckVC.intActionMode = _intActionMode;
+        if (_intActionMode == MODE_FORGOT_PASSWORD && strToken)
+        {
+            otpCheckVC.strToken = strToken;
+        }
     }
 }
 
@@ -84,11 +99,26 @@
     {
         strPhoneNumber = [_txtPhone text];
         APIRequest* apiRequest = [[APIRequest alloc]init];
-        [apiRequest requestAPIGetOTP:strPhoneNumber completionHandler:^(NSString * _Nonnull otpStr, NSError * _Nonnull err) {
-            NSLog(@"otp: %@", otpStr);
-            [self didSuccessGetOTP:otpStr error:err.code];
-            //handle
-        }];
+        
+        if (_intActionMode == MODE_REGISTER_NEW_ACC)
+        {
+            [apiRequest requestAPIGetOTP:strPhoneNumber completionHandler:^(NSString * _Nonnull otpStr, NSError * _Nonnull err) {
+                NSLog(@"otp: %@", otpStr);
+                [self didSuccessGetRequest:otpStr error:err.code];
+                //handle
+            }];
+        } else if (_intActionMode == MODE_FORGOT_PASSWORD)
+        {
+            [apiRequest requestAPIForgotPassword:strPhoneNumber completionHandler:^(NSDictionary * _Nonnull data, NSError * _Nonnull err) {
+                if (err.code == 200)
+                {
+                    NSString* otp = [data objectForKey:@"otp"];
+                    NSString* token = [data objectForKey:@"token"];
+                    self->strToken = token;
+                    [self didSuccessGetRequest:otp error:err.code];
+                }
+            }];
+        }
     }
 }
 @end

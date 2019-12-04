@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "SignInViewController.h"
 
 @interface HomeViewController ()
 
@@ -30,6 +31,15 @@
 }
 */
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"idlogin"])
+    {
+        SignInViewController* signInVC = segue.destinationViewController;
+        signInVC.intActionMode = MODE_REGISTER_NEW_ACC;
+    }
+}
+
 - (IBAction)didClickLoginButton:(id)sender {
     if (![user userPhoneNum])
     {
@@ -37,4 +47,5 @@
         [self performSegueWithIdentifier:@"idlogin" sender:self];
     }
 }
+
 @end

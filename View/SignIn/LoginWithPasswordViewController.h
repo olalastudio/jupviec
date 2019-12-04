@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonDefines.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 {
     NSString* strUserphone;
     NSString* strUserPass;
+    NSInteger intActionMode;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *txtInputUserPhone;

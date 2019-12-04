@@ -251,7 +251,6 @@
                     <connections>
                         <outlet property="txtPhone" destination="uZS-IX-Rms" id="bhO-nd-QSh"/>
                         <segue destination="bCY-wj-dQo" kind="show" identifier="idcheckotp" id="cLV-es-nns"/>
-                        <segue destination="5Xw-Bf-1Ys" kind="show" identifier="idloginpassword" id="lbz-A3-i15"/>
                         <segue destination="KoS-9M-EeF" kind="show" identifier="idLogin" id="KEM-np-h1P"/>
                     </connections>
                 </viewController>
@@ -315,42 +314,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0DZ-XQ-wML" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="863.768115942029" y="1589.7321428571429"/>
-        </scene>
-        <!--Login With Password View Controller-->
-        <scene sceneID="3BX-7N-joz">
-            <objects>
-                <viewController id="5Xw-Bf-1Ys" customClass="LoginWithPasswordViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="eya-f8-K8e">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Đăng nhập với mật khẩu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3s-re-49j">
-                                <rect key="frame" x="36" y="163" width="185" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="42W-PJ-0ot">
-                                <rect key="frame" x="36" y="192" width="338" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPe-vB-Af5">
-                                <rect key="frame" x="169" y="809" width="77" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Đăng Nhập"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="meW-ov-pWw"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="2YE-yt-7Db"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RVW-5P-7lo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="154" y="2279"/>
         </scene>
         <!--Create Password View Controller-->
         <scene sceneID="xeQ-uP-xse">
@@ -435,6 +398,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Uu3-Fc-we9">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="So dien thoai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMO-Gf-p5c">
                                 <rect key="frame" x="44" y="274" width="113" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -480,9 +446,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Uu3-Fc-we9">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -592,6 +555,7 @@
         <image name="background.jpg" width="720" height="1480"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="KEM-np-h1P"/>
         <segue reference="blz-vp-CYD"/>
         <segue reference="h00-uX-wNY"/>
     </inferredMetricsTieBreakers>

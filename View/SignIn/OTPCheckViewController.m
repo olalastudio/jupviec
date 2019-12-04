@@ -43,6 +43,11 @@
     {
         CreatePasswordViewController* createPassVC = segue.destinationViewController;
         createPassVC.strPhoneNum = _strPhoneNum;
+        createPassVC.intActionMode = _intActionMode;
+        if (_intActionMode == MODE_FORGOT_PASSWORD && _strToken)
+        {
+            createPassVC.strToken = _strToken;
+        }
     }
 }
 
@@ -61,7 +66,9 @@
             [self->_txtOTPInput setText:@""];
         }];
         [alertController addAction:okAction];
-        [self presentViewController:alertController animated:YES completion:nil];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self presentViewController:alertController animated:YES completion:nil];
+        });
     }
         
 }

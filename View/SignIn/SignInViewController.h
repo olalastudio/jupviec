@@ -16,8 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 {
     NSString* strOTPServer;
     NSString* strPhoneNumber;
+    NSString* strToken;
 }
 
+@property (nonatomic, assign) NSInteger intActionMode;
 @property (weak, nonatomic) IBOutlet UITextField *txtPhone;
 
 - (IBAction)didPressNextButton:(id)sender;

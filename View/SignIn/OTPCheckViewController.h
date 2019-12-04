@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonDefines.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *btnContinue;
 @property (nonatomic, assign) NSString* strOTPServer;
 @property (nonatomic, assign) NSString* strPhoneNum;
+@property (nonatomic, assign) NSString* strToken;
+@property (nonatomic, assign) NSInteger intActionMode;
 
 - (IBAction)didClickCheckOTPNumber:(id)sender;
 

@@ -8,6 +8,7 @@
 
 #import "LoginWithPasswordViewController.h"
 #import "APIRequest.h"
+#import "SignInViewController.h"
 
 @interface LoginWithPasswordViewController ()
 
@@ -58,11 +59,27 @@
     });
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"idLoginToNewRegister"])
+    {
+        SignInViewController* signInVC = segue.destinationViewController;
+        [signInVC setIntActionMode:intActionMode];
+    }
+}
+
 #pragma - Actions
 - (IBAction)didClickedFogetPassword:(id)sender {
+    NSLog(@"clicked forget password");
+    intActionMode = MODE_FORGOT_PASSWORD;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self performSegueWithIdentifier:@"idLoginToNewRegister" sender:self];
+    });
 }
 
 - (IBAction)didClickedRegisterNewAcc:(id)sender {
+    intActionMode = MODE_REGISTER_NEW_ACC;
+    NSLog(@"create new account");
     dispatch_async(dispatch_get_main_queue(), ^{
         [self performSegueWithIdentifier:@"idLoginToNewRegister" sender:self];
     });
