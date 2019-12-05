@@ -109,21 +109,22 @@
         
         if (_intActionMode == MODE_REGISTER_NEW_ACC)
         {
-            [apiRequest requestAPIGetOTP:strPhoneNumber completionHandler:^(NSString * _Nonnull otpStr, NSError * _Nonnull err) {
+            [apiRequest requestAPIGetOTP:strPhoneNumber completionHandler:^(NSString * _Nullable otpStr, NSError * _Nonnull err) {
                 NSLog(@"otp: %@", otpStr);
                 [self didSuccessGetRequest:otpStr error:err.code];
                 //handle
             }];
         } else if (_intActionMode == MODE_FORGOT_PASSWORD)
         {
-            [apiRequest requestAPIForgotPassword:strPhoneNumber completionHandler:^(NSDictionary * _Nonnull data, NSError * _Nonnull err) {
+            [apiRequest requestAPIForgotPassword:strPhoneNumber completionHandler:^(NSDictionary * _Nullable data, NSError * _Nonnull err) {
                 if (err.code == 200)
                 {
                     NSString* otp = [data objectForKey:@"otp"];
                     NSString* token = [data objectForKey:@"token"];
                     self->strToken = token;
                     [self didSuccessGetRequest:otp error:err.code];
-                }
+                } else
+                    [self didSuccessGetRequest:nil error:err.code];
             }];
         }
     }

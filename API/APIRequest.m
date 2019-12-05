@@ -52,18 +52,22 @@
     return bodyData;
 }
 
-- (void)requestAPIGetOTP:(NSString *)phoneNum completionHandler:(void (^)(NSString * _Nonnull, NSError * _Nonnull))completionHandler
+- (void)requestAPIGetOTP:(NSString *)phoneNum completionHandler:(void (^)(NSString * _Nullable, NSError * _Nonnull))completionHandler
 {
     [self requestAPIGetOTPWith:phoneNum type:API_REGISTER completionHandler:^(NSDictionary *otpDict, NSError *error) {
-        if (error)
+        if (error.code == 200)
         {
             NSString* strOTP = [[otpDict objectForKey:@"otp"]stringValue];
             completionHandler(strOTP, error);
+        } else if (error.code == 400)
+        {
+            NSLog(@"account exist");
+            completionHandler(nil, error);
         }
     }];
 }
 
-- (void)requestAPIGetOTPWith:(NSString *)phoneNum type:(NSString*)type completionHandler:(void (^)(NSDictionary* otpDict , NSError * error))completionHandler
+- (void)requestAPIGetOTPWith:(NSString *)phoneNum type:(NSString*)type completionHandler:(void (^)(NSDictionary* _Nullable otpDict , NSError * error))completionHandler
 {
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
     config.timeoutIntervalForRequest = 30.0;
@@ -79,26 +83,18 @@
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        // handle response
-        if (data)
+        if (response)
         {
+            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
             NSDictionary* resultDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-            
-            if (resultDict)
-            {
-                error = [NSError errorWithDomain:@"test_domain" code:200 userInfo:@{NSLocalizedDescriptionKey:@"successful operation"}];     //test
-                completionHandler(resultDict, error);
-            } else
-            {
-                error = [NSError errorWithDomain:@"test_domain" code:400 userInfo:@{NSLocalizedDescriptionKey:@"successful operation"}];     //test
-                completionHandler(nil, error);
-            }
+             error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"successful operation"}];
+            completionHandler(resultDict, error);
         }
         
     }]resume];
 }
 
-- (void)requestAPIRegister:(NSString*)phoneNum password:(NSString*)password completionHandler:(void (^)(User * user, NSError * error))completionHandler
+- (void)requestAPIRegister:(NSString *)phoneNum password:(NSString *)password completionHandler:(void (^)(User * _Nullable, NSError * _Nonnull))completionHandler
 {
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
     config.timeoutIntervalForRequest = 30.0;
@@ -115,17 +111,29 @@
     
     [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         //handle response
-        if (data)
+        if (response)
         {
+            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
             NSDictionary* resultDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-            User* newUser = [[User alloc]initUserWithInfoData:resultDict];
-            error = [NSError errorWithDomain:@"test_domain" code:200 userInfo:@{NSLocalizedDescriptionKey:@"successful operation"}];     //test
-            completionHandler(newUser, error);
+            NSLog(@"request response: %@", resultDict);
+            
+            if ([httpResponse statusCode] == 200)
+            {
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"successful operation"}];
+                User* newUser = [[User alloc]initUserWithInfoData:resultDict];
+                completionHandler(newUser, error);
+            }
+            else
+            {
+                NSLog(@"register fail with: %@", [resultDict objectForKey:@"messages"]);
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                completionHandler(nil, error);
+            }
         }
     }]resume];
 }
 
-- (void)requestAPILogin:(NSString *)phoneNum password:(NSString *)password completionHandler:(void (^)(NSString * _Nonnull, NSError * _Nonnull))completionHandler
+- (void)requestAPILogin:(NSString *)phoneNum password:(NSString *)password completionHandler:(void (^)(NSString * _Nullable, NSError * _Nonnull))completionHandler
 {
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
     config.timeoutIntervalForRequest = 30.0;
@@ -142,38 +150,49 @@
     [request setHTTPBody:bodyData];
     
     [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        // handle response
-        if (data)
+        if (response)
         {
+            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
             NSDictionary* resultDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-            NSString* strToken = [resultDict objectForKey:@"token"];
-            if (strToken)
+            NSLog(@"login: %@", resultDict);
+            
+            if ([httpResponse statusCode] == 200)
             {
-                error = [NSError errorWithDomain:@"test_domain" code:200 userInfo:@{NSLocalizedDescriptionKey:@"successful operation"}];     //test
+                NSLog(@"login success");
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"successful operation"}];
+                NSString* strToken = [resultDict objectForKey:@"token"];
                 completionHandler(strToken, error);
-                NSLog(@"GET_OTP success");
-            } else
-                NSLog(@"GET_OTP fail");
+            }
+            else
+            {
+                NSLog(@"Login fail with: %@", [resultDict objectForKey:@"messages"]);
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                completionHandler(nil, error);
+            }
+            
         }
         
     }]resume];
 }
 
-- (void)requestAPIForgotPassword:(NSString *)phoneNum completionHandler:(void (^)(NSDictionary * _Nonnull, NSError * _Nonnull))completionHandler
+- (void)requestAPIForgotPassword:(NSString *)phoneNum completionHandler:(void (^)(NSDictionary * _Nullable, NSError * _Nonnull))completionHandler
 {
     [self requestAPIGetOTPWith:phoneNum type:API_FORGOT_PASS completionHandler:^(NSDictionary *otpDict, NSError *error) {
-        if (error)
+        if ([error code] == 200)
         {
-            NSLog(@"%@", otpDict);
             NSString* strOTP = [[otpDict objectForKey:@"otp"]stringValue];
             NSMutableDictionary* dict = [otpDict mutableCopy];
             [dict setObject:strOTP forKey:@"otp"];
             completionHandler(dict, error);
         }
+        else
+        {
+            completionHandler(otpDict, error);
+        }
     }];
 }
 
-- (void)requestAPIUpdatePassword:(NSString *)phoneNum password:(NSString *)password token:(NSString *)token completionHandler:(void (^)(User * _Nonnull, NSError * _Nonnull))completionHandler
+- (void)requestAPIUpdatePassword:(NSString *)phoneNum password:(NSString *)password token:(NSString *)token completionHandler:(void (^)(User * _Nullable, NSError * _Nonnull))completionHandler
 {
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
     config.timeoutIntervalForRequest = 30.0;
@@ -191,13 +210,24 @@
     
     [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         //handle response
-        if (data)
+        if (response)
         {
+            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
             NSDictionary* resultDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
             NSLog(@"update pass:%@", resultDict);
-            User* newUser = [[User alloc]initUserWithInfoData:resultDict];
-            error = [NSError errorWithDomain:@"test_domain" code:200 userInfo:@{NSLocalizedDescriptionKey:@"successful operation"}];     //test
-            completionHandler(newUser, error);
+            if ([httpResponse statusCode] == 200)
+            {
+                User* newUser = [[User alloc]initUserWithInfoData:resultDict];
+                error = [NSError errorWithDomain:@"test_domain" code:200 userInfo:@{NSLocalizedDescriptionKey:@"successful operation"}];
+                completionHandler(newUser, error);
+            }
+            else
+            {
+                NSLog(@"update password fail with: %@", [resultDict objectForKey:@"messages"]);
+                error = [NSError errorWithDomain:@"test_domain" code:200 userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                completionHandler(nil, error);
+            }
+            
         }
     }]resume];
 }

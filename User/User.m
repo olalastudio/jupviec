@@ -18,9 +18,7 @@
         _userIDStr = [infoDict objectForKey:@"id"];
         _userPhoneNum = [infoDict objectForKey:@"phone"];
         _userRoleStr = [infoDict objectForKey:@"role"];
-        if ([infoDict objectForKey:@"username"]) {
-            _userNameStr = [[infoDict objectForKey:@"username"]stringValue];
-        }
+        _userNameStr = [infoDict objectForKey:@"username"];
         _dictUserInfo = [infoDict objectForKey:@"general_information"];
         if ([infoDict objectForKey:@"status"]) {
             _userStatus = [[infoDict objectForKey:@"status"]integerValue];

@@ -50,7 +50,7 @@
         APIRequest* apiRequest = [[APIRequest alloc]init];
         if (_intActionMode == MODE_FORGOT_PASSWORD)
         {
-            [apiRequest requestAPIUpdatePassword:_strPhoneNum password:[_txtInputPassword text] token:_strToken completionHandler:^(User * _Nonnull user, NSError * _Nonnull error) {
+            [apiRequest requestAPIUpdatePassword:_strPhoneNum password:[_txtInputPassword text] token:_strToken completionHandler:^(User * _Nullable user, NSError * _Nonnull error) {
                 NSLog(@"change password success");
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self performSegueWithIdentifier:@"idUserHomeVC" sender:self];
@@ -59,7 +59,7 @@
         }
         else if (_intActionMode == MODE_REGISTER_NEW_ACC)
         {
-            [apiRequest requestAPIRegister:_strPhoneNum password:[_txtInputPassword text] completionHandler:^(User * _Nonnull user, NSError * _Nonnull err) {
+            [apiRequest requestAPIRegister:_strPhoneNum password:[_txtInputPassword text] completionHandler:^(User * _Nonnull user, NSError * _Nullable err) {
                 if (err.code == 200)
                 {
                     NSLog(@"Register success");
