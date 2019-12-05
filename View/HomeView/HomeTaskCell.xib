@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dùng Lẻ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Fx-lc-pxU">
-                        <rect key="frame" x="93" y="13" width="83" height="27"/>
+                        <rect key="frame" x="93" y="13" width="307" height="27"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                         <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -37,7 +37,12 @@
                 </subviews>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <point key="canvasLocation" x="51" y="19"/>
+            <connections>
+                <outlet property="imgIcon" destination="zh4-q3-cOk" id="cVy-ti-UNl"/>
+                <outlet property="txtDescription" destination="Kng-PO-3sD" id="D0y-sx-cI5"/>
+                <outlet property="txtTitle" destination="8Fx-lc-pxU" id="nwF-N2-zmj"/>
+            </connections>
+            <point key="canvasLocation" x="50.724637681159422" y="18.75"/>
         </tableViewCell>
     </objects>
     <resources>

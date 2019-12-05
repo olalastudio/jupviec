@@ -26,11 +26,11 @@
 #define MODE_FORGOT_PASSWORD    2
 
 typedef enum : NSUInteger {
-    TYPE_DUNGLE,
-    TYPE_DUNGDINHKY,
-    TYPE_TONGVESINH,
-    TYPE_JUPSOFA,
-} TYPE_TASK;
+    TYPE_DUNGLE = 0,
+    TYPE_DUNGDINHKY = 1,
+    TYPE_TONGVESINH = 2,
+    TYPE_JUPSOFA = 3,
+} TASK_TYPE;
 
 typedef enum : NSUInteger {
     SESSION_TASK,

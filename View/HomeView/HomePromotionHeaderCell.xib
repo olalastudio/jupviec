@@ -45,7 +45,6 @@
                     <constraint firstItem="y7c-gd-JjV" firstAttribute="centerY" secondItem="pbq-Ti-q3I" secondAttribute="centerY" id="xc1-MV-v2y"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <connections>
                 <outlet property="btViewMore" destination="gMb-sN-tJt" id="0Bq-xy-GKU"/>
                 <outlet property="txtPromotion" destination="y7c-gd-JjV" id="hCE-h8-moL"/>

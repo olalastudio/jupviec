@@ -16,16 +16,28 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Promotion area" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aR-Bd-6ab">
-                        <rect key="frame" x="149" y="50" width="117" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="GKJ-yd-rPr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KN0-lA-Vdy">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="20" minY="10" maxX="20" maxY="10"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="GKJ-yd-rPr" firstAttribute="leading" secondItem="mmf-PK-7R0" secondAttribute="leading" id="HSg-KE-UVY"/>
+                    <constraint firstItem="GKJ-yd-rPr" firstAttribute="top" secondItem="mmf-PK-7R0" secondAttribute="top" id="Sgn-Yh-FaJ"/>
+                    <constraint firstAttribute="trailing" secondItem="GKJ-yd-rPr" secondAttribute="trailing" id="hmh-TD-Ob8"/>
+                    <constraint firstAttribute="bottom" secondItem="GKJ-yd-rPr" secondAttribute="bottom" id="vIs-hU-km1"/>
+                </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="-25" y="46"/>
+            <connections>
+                <outlet property="clPromotionCode" destination="GKJ-yd-rPr" id="NDV-Ap-1jg"/>
+            </connections>
+            <point key="canvasLocation" x="133" y="48"/>
         </tableViewCell>
     </objects>
 </document>
