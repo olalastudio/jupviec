@@ -97,9 +97,12 @@
         strUserPass = [_txtInputUserPass text];
         strUserphone = [_txtInputUserPhone text];
         APIRequest *request = [[APIRequest alloc]init];
-        [request requestAPILogin:strUserphone password:strUserPass completionHandler:^(NSString * _Nonnull token, NSError * _Nonnull error) {
+        [request requestAPILogin:strUserphone password:strUserPass completionHandler:^(NSString * _Nullable token, NSError * _Nonnull error) {
             if (error.code == 200)
             {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self performSegueWithIdentifier:@"idLoginToHomeView" sender:self];
+                });
                 NSLog(@"lofin success: go to home view");
                 
             } else if (error.code == 404)

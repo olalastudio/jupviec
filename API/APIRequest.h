@@ -19,11 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, weak) id delegate;
 
-- (void)requestAPIGetOTP:(NSString*)phoneNum completionHandler:(void(^)(NSString* otpStr, NSError* err))completionHandler;
-- (void)requestAPIRegister:(NSString*)phoneNum password:(NSString*)password completionHandler:(void (^)(User * user, NSError * error))completionHandler;
-- (void)requestAPILogin:(NSString*)phoneNum password:(NSString*)password completionHandler:(void (^)(NSString * token, NSError * error))completionHandler;
-- (void)requestAPIForgotPassword:(NSString*)phoneNum completionHandler:(void(^)(NSDictionary* data, NSError* err))completionHandler;
-- (void)requestAPIUpdatePassword:(NSString*)phoneNum password:(NSString*)password token:(NSString*)token completionHandler:(void(^)(User* user, NSError* error))completionHandler;
+- (void)requestAPIGetOTP:(NSString*)phoneNum completionHandler:(void(^)(NSString* _Nullable otpStr, NSError* err))completionHandler;
+- (void)requestAPIRegister:(NSString*)phoneNum password:(NSString*)password completionHandler:(void (^)(User * _Nullable user, NSError * error))completionHandler;
+- (void)requestAPILogin:(NSString*)phoneNum password:(NSString*)password completionHandler:(void (^)(NSString * _Nullable token, NSError * error))completionHandler;
+- (void)requestAPIForgotPassword:(NSString*)phoneNum completionHandler:(void(^)(NSDictionary* _Nullable data, NSError* err))completionHandler;
+- (void)requestAPIUpdatePassword:(NSString*)phoneNum password:(NSString*)password token:(NSString*)token completionHandler:(void(^)(User* _Nullable user, NSError* error))completionHandler;
 @end
 
 NS_ASSUME_NONNULL_END
