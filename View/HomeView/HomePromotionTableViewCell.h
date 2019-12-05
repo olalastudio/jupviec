@@ -11,6 +11,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol HomePromotionProtocol <NSObject>
+
+
+
+@end
+
 @interface HomePromotionTableViewCell : UITableViewCell <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
     TASK_TYPE       _taskType;

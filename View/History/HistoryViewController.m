@@ -69,6 +69,7 @@
 
 -(NSMutableArray*)showSelectedList
 {
+    
     if ([_sgSelection selectedSegmentIndex] == 0)
     {
         //Dung le
@@ -95,7 +96,7 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[self showSelectedList] count];
+    return 5; //[[self showSelectedList] count];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -108,7 +109,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    return 150;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
