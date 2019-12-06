@@ -10,6 +10,9 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,CLLocationManagerDelegate>
+{
+    CLLocation  *currentLocation;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 

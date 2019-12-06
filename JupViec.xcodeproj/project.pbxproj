@@ -412,6 +412,9 @@
 		0658BEC4238FAC7800CBBAD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0658BEC2238FAC7800CBBAD1 /* LaunchScreen.storyboard */; };
 		0658BEC7238FAC7800CBBAD1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658BEC6238FAC7800CBBAD1 /* main.m */; };
 		066603502390BBA30036847C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0666034E2390BB110036847C /* CoreLocation.framework */; };
+		068DDEED23990D8C009484E7 /* PlaceOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 068DDEEC23990D8C009484E7 /* PlaceOrderViewController.m */; };
+		068DDEF023991431009484E7 /* CommonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 068DDEEF23991431009484E7 /* CommonCell.xib */; };
+		068DDEF32399144C009484E7 /* PlaceOrderCommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 068DDEF22399144C009484E7 /* PlaceOrderCommonTableViewCell.m */; };
 		06B620BA2397B34D0036DCF9 /* HomePromotionCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B620B92397B34D0036DCF9 /* HomePromotionCollectionCell.xib */; };
 		06B620BD2397B3930036DCF9 /* HomePromotionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */; };
 		06B620BF2397B4540036DCF9 /* makhuyenmai.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B620BE2397B4540036DCF9 /* makhuyenmai.png */; };
@@ -856,6 +859,11 @@
 		0658BEC5238FAC7800CBBAD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0658BEC6238FAC7800CBBAD1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0666034E2390BB110036847C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		068DDEEB23990D8C009484E7 /* PlaceOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceOrderViewController.h; sourceTree = "<group>"; };
+		068DDEEC23990D8C009484E7 /* PlaceOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceOrderViewController.m; sourceTree = "<group>"; };
+		068DDEEF23991431009484E7 /* CommonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonCell.xib; sourceTree = "<group>"; };
+		068DDEF12399144C009484E7 /* PlaceOrderCommonTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceOrderCommonTableViewCell.h; sourceTree = "<group>"; };
+		068DDEF22399144C009484E7 /* PlaceOrderCommonTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceOrderCommonTableViewCell.m; sourceTree = "<group>"; };
 		06B620B92397B34D0036DCF9 /* HomePromotionCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePromotionCollectionCell.xib; sourceTree = "<group>"; };
 		06B620BB2397B3930036DCF9 /* HomePromotionCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePromotionCollectionViewCell.h; sourceTree = "<group>"; };
 		06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePromotionCollectionViewCell.m; sourceTree = "<group>"; };
@@ -1376,20 +1384,11 @@
 		0633A783239109CC0094219D /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				068DDEF5239915EE009484E7 /* Header */,
+				068DDEF4239915DC009484E7 /* Cell */,
+				068DDEEA23990D62009484E7 /* PlaceOrder */,
 				0633A784239109E60094219D /* HomeViewController.h */,
 				0633A785239109E60094219D /* HomeViewController.m */,
-				06EC9F1C2396734A00474EE3 /* HomeTaskCell.xib */,
-				06EC9F1E2396736200474EE3 /* HomeTaskTableViewCell.h */,
-				06EC9F1F2396736200474EE3 /* HomeTaskTableViewCell.m */,
-				06EC9F212396784100474EE3 /* HomePromotionCell.xib */,
-				06EC9F232396786100474EE3 /* HomePromotionTableViewCell.h */,
-				06EC9F242396786100474EE3 /* HomePromotionTableViewCell.m */,
-				06EC9F2623968A6200474EE3 /* HomePromotionHeaderCell.xib */,
-				06EC9F2B23968C7000474EE3 /* HomePromotionHeaderViewCell.h */,
-				06EC9F2C23968C7000474EE3 /* HomePromotionHeaderViewCell.m */,
-				06B620B92397B34D0036DCF9 /* HomePromotionCollectionCell.xib */,
-				06B620BB2397B3930036DCF9 /* HomePromotionCollectionViewCell.h */,
-				06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -1430,6 +1429,52 @@
 				0658BEC6238FAC7800CBBAD1 /* main.m */,
 			);
 			path = JupViec;
+			sourceTree = "<group>";
+		};
+		068DDEEA23990D62009484E7 /* PlaceOrder */ = {
+			isa = PBXGroup;
+			children = (
+				068DDEEE23991393009484E7 /* Cell */,
+				068DDEEB23990D8C009484E7 /* PlaceOrderViewController.h */,
+				068DDEEC23990D8C009484E7 /* PlaceOrderViewController.m */,
+			);
+			path = PlaceOrder;
+			sourceTree = "<group>";
+		};
+		068DDEEE23991393009484E7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				068DDEEF23991431009484E7 /* CommonCell.xib */,
+				068DDEF12399144C009484E7 /* PlaceOrderCommonTableViewCell.h */,
+				068DDEF22399144C009484E7 /* PlaceOrderCommonTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		068DDEF4239915DC009484E7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				06EC9F1C2396734A00474EE3 /* HomeTaskCell.xib */,
+				06EC9F1E2396736200474EE3 /* HomeTaskTableViewCell.h */,
+				06EC9F1F2396736200474EE3 /* HomeTaskTableViewCell.m */,
+				06EC9F212396784100474EE3 /* HomePromotionCell.xib */,
+				06EC9F232396786100474EE3 /* HomePromotionTableViewCell.h */,
+				06EC9F242396786100474EE3 /* HomePromotionTableViewCell.m */,
+				06B620B92397B34D0036DCF9 /* HomePromotionCollectionCell.xib */,
+				06B620BB2397B3930036DCF9 /* HomePromotionCollectionViewCell.h */,
+				06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		068DDEF5239915EE009484E7 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				06EC9F2623968A6200474EE3 /* HomePromotionHeaderCell.xib */,
+				06EC9F2B23968C7000474EE3 /* HomePromotionHeaderViewCell.h */,
+				06EC9F2C23968C7000474EE3 /* HomePromotionHeaderViewCell.m */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 		06FEA1DC2394BCAD005D58B9 /* History */ = {
@@ -1568,6 +1613,7 @@
 				0601E47D238FAEF000403C95 /* user-3.png in Resources */,
 				0601E337238FAEEF00403C95 /* battery-7.png in Resources */,
 				0601E332238FAEEF00403C95 /* battery-2.png in Resources */,
+				068DDEF023991431009484E7 /* CommonCell.xib in Resources */,
 				0601E3AA238FAEEF00403C95 /* help.png in Resources */,
 				0601E41D238FAEEF00403C95 /* radar.png in Resources */,
 				0601E3B4238FAEEF00403C95 /* house.png in Resources */,
@@ -1944,6 +1990,7 @@
 				06EC9F2D23968C7000474EE3 /* HomePromotionHeaderViewCell.m in Sources */,
 				06B620BD2397B3930036DCF9 /* HomePromotionCollectionViewCell.m in Sources */,
 				0658BEC7238FAC7800CBBAD1 /* main.m in Sources */,
+				068DDEF32399144C009484E7 /* PlaceOrderCommonTableViewCell.m in Sources */,
 				06FEA1E42394CC0E005D58B9 /* HistoryTableViewCell.m in Sources */,
 				06EC9F252396786100474EE3 /* HomePromotionTableViewCell.m in Sources */,
 				0658BEB9238FAC7800CBBAD1 /* AppDelegate.m in Sources */,
@@ -1951,6 +1998,7 @@
 				06FEA1DF2394BCC0005D58B9 /* HistoryViewController.m in Sources */,
 				0612A38E23961DB900A82BB9 /* CouponTableViewCell.m in Sources */,
 				CEA83F1723911F60001C1512 /* APIRequest.m in Sources */,
+				068DDEED23990D8C009484E7 /* PlaceOrderViewController.m in Sources */,
 				CEA83F1B239120BE001C1512 /* User.m in Sources */,
 				0612A393239621F500A82BB9 /* InformationTableViewCell.m in Sources */,
 				06EC9F202396736200474EE3 /* HomeTaskTableViewCell.m in Sources */,

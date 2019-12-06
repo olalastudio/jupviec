@@ -12,6 +12,8 @@
 #import "HomePromotionHeaderViewCell.h"
 #import "SignInViewController.h"
 
+#import "PlaceOrderViewController.h"
+
 @interface HomeViewController ()
 
 @end
@@ -83,11 +85,16 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 1) {
+    if (section == SESSION_TASK)
+    {
+        return 4;
+    }
+    else if (section == SESSION_PROMOTION)
+    {
         return 1;
     }
     
-    return 4;
+    return 0;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -128,25 +135,60 @@
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if (section == 1) {
+    if (section == SESSION_TASK)
+    {
+        UIView *headerview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 10)];
+        return headerview;
+    }
+    else if (section == SESSION_PROMOTION)
+    {
         HomePromotionHeaderViewCell *headercell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"idhomepromotionheadercell"];
-
         return headercell;
     }
     
-    UIView *headerview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 10)];
-    
-    return headerview;
+    return nil;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"did select row at index %@",indexPath);
+    
+    if (indexPath.section == SESSION_TASK) //task session
+    {
+        PlaceOrderViewController *oderview = [self.storyboard instantiateViewControllerWithIdentifier:@"idplaceorder"];
+        
+        switch (indexPath.row) {
+            case TYPE_DUNGLE:
+                [oderview setTaskType:TYPE_DUNGLE];
+                break;
+            case TYPE_DUNGDINHKY:
+                [oderview setTaskType:TYPE_DUNGDINHKY];
+            break;
+            case TYPE_TONGVESINH:
+                [oderview setTaskType:TYPE_TONGVESINH];
+            break;
+            case TYPE_JUPSOFA:
+                [oderview setTaskType:TYPE_JUPSOFA];
+            break;
+            default:
+                break;
+        }
+        
+        [self.navigationController pushViewController:oderview animated:YES];
+    }
+    else if (indexPath.section == SESSION_PROMOTION) //promotion session
+    {
+        
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 1)
+    if (indexPath.section == SESSION_TASK)
+    {
+         return 100;
+    }
+    else if (indexPath.section == SESSION_PROMOTION)
     {
         return 150;
     }
@@ -156,8 +198,11 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-
-    if (section == 1)
+    if (section == SESSION_TASK)
+    {
+        return 20;
+    }
+    else if (section == SESSION_PROMOTION)
     {
         return 30;
     }
