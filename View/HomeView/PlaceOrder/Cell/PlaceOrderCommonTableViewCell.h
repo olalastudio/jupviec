@@ -12,15 +12,16 @@
 
 @protocol PlaceOrderCommonCellProtocol <NSObject>
 
--(void)didPressSelectLocation:(CLLocation*_Nullable)currentLocation;
+-(void)didPressCellAtIndexPath:(NSIndexPath*_Nonnull)index attributeType:(ORDER_ATTRIBUTE)attribute;
 
 @end
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PlaceOrderCommonTableViewCell : UITableViewCell
+@interface PlaceOrderCommonTableViewCell : UITableViewCell <UITextFieldDelegate>
 {
     ORDER_ATTRIBUTE     _ordeAttribute;
+    NSIndexPath         *_indexPath;
 }
 
 @property id<PlaceOrderCommonCellProtocol>      delegate;
@@ -31,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 -(void)setOderAttribute:(ORDER_ATTRIBUTE)attribute;
+-(void)setIndexPath:(NSIndexPath*)index;
 @end
 
 NS_ASSUME_NONNULL_END

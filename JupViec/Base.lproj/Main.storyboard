@@ -693,7 +693,43 @@
             </objects>
             <point key="canvasLocation" x="-1255" y="1969"/>
         </scene>
-        <!--Place Order View Controller-->
+        <!--Title-->
+        <scene sceneID="b19-3l-oe0">
+            <objects>
+                <viewController storyboardIdentifier="idmapsview" id="5Ro-h2-h7c" customClass="MapsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RB3-F5-owA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="IwB-Ur-J9z">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="W6w-VF-FbT">
+                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="W6w-VF-FbT" firstAttribute="trailing" secondItem="sqn-Z8-7MM" secondAttribute="trailing" id="ADG-qw-zGv"/>
+                            <constraint firstItem="W6w-VF-FbT" firstAttribute="leading" secondItem="sqn-Z8-7MM" secondAttribute="leading" id="Dz4-7W-1GT"/>
+                            <constraint firstItem="W6w-VF-FbT" firstAttribute="top" secondItem="IwB-Ur-J9z" secondAttribute="bottom" id="PBu-ch-eHX"/>
+                            <constraint firstItem="IwB-Ur-J9z" firstAttribute="leading" secondItem="sqn-Z8-7MM" secondAttribute="leading" id="a73-cn-juQ"/>
+                            <constraint firstItem="IwB-Ur-J9z" firstAttribute="trailing" secondItem="sqn-Z8-7MM" secondAttribute="trailing" id="eU5-55-TsE"/>
+                            <constraint firstItem="IwB-Ur-J9z" firstAttribute="top" secondItem="sqn-Z8-7MM" secondAttribute="top" id="koZ-74-1Cq"/>
+                            <constraint firstItem="W6w-VF-FbT" firstAttribute="bottom" secondItem="sqn-Z8-7MM" secondAttribute="bottom" id="sqd-Xk-776"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sqn-Z8-7MM"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="usn-nA-PY3"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="faP-Am-LdL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1988.4057971014495" y="1275.6696428571429"/>
+        </scene>
+        <!--Title-->
         <scene sceneID="34y-3X-P6Q">
             <objects>
                 <viewController storyboardIdentifier="idplaceorder" id="8bY-K0-a9O" customClass="PlaceOrderViewController" sceneMemberID="viewController">
@@ -750,6 +786,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J5d-gl-bIL"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="XpU-qy-kTr"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tbPlaceOrderContent" destination="GUU-bI-mfb" id="pWh-YG-I3W"/>

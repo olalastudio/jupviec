@@ -418,6 +418,7 @@
 		06B620BA2397B34D0036DCF9 /* HomePromotionCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B620B92397B34D0036DCF9 /* HomePromotionCollectionCell.xib */; };
 		06B620BD2397B3930036DCF9 /* HomePromotionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */; };
 		06B620BF2397B4540036DCF9 /* makhuyenmai.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B620BE2397B4540036DCF9 /* makhuyenmai.png */; };
+		06D6BF19239E39B000AB52DB /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6BF18239E39B000AB52DB /* MapsViewController.m */; };
 		06EC9F1D2396734A00474EE3 /* HomeTaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06EC9F1C2396734A00474EE3 /* HomeTaskCell.xib */; };
 		06EC9F202396736200474EE3 /* HomeTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EC9F1F2396736200474EE3 /* HomeTaskTableViewCell.m */; };
 		06EC9F222396784100474EE3 /* HomePromotionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06EC9F212396784100474EE3 /* HomePromotionCell.xib */; };
@@ -868,6 +869,8 @@
 		06B620BB2397B3930036DCF9 /* HomePromotionCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePromotionCollectionViewCell.h; sourceTree = "<group>"; };
 		06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePromotionCollectionViewCell.m; sourceTree = "<group>"; };
 		06B620BE2397B4540036DCF9 /* makhuyenmai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = makhuyenmai.png; sourceTree = "<group>"; };
+		06D6BF17239E39B000AB52DB /* MapsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapsViewController.h; sourceTree = "<group>"; };
+		06D6BF18239E39B000AB52DB /* MapsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapsViewController.m; sourceTree = "<group>"; };
 		06EC9F1C2396734A00474EE3 /* HomeTaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTaskCell.xib; sourceTree = "<group>"; };
 		06EC9F1E2396736200474EE3 /* HomeTaskTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTaskTableViewCell.h; sourceTree = "<group>"; };
 		06EC9F1F2396736200474EE3 /* HomeTaskTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTaskTableViewCell.m; sourceTree = "<group>"; };
@@ -1434,6 +1437,7 @@
 		068DDEEA23990D62009484E7 /* PlaceOrder */ = {
 			isa = PBXGroup;
 			children = (
+				06D6BF16239E399000AB52DB /* Maps */,
 				068DDEEE23991393009484E7 /* Cell */,
 				068DDEEB23990D8C009484E7 /* PlaceOrderViewController.h */,
 				068DDEEC23990D8C009484E7 /* PlaceOrderViewController.m */,
@@ -1475,6 +1479,15 @@
 				06EC9F2C23968C7000474EE3 /* HomePromotionHeaderViewCell.m */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		06D6BF16239E399000AB52DB /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				06D6BF17239E39B000AB52DB /* MapsViewController.h */,
+				06D6BF18239E39B000AB52DB /* MapsViewController.m */,
+			);
+			path = Maps;
 			sourceTree = "<group>";
 		};
 		06FEA1DC2394BCAD005D58B9 /* History */ = {
@@ -2006,6 +2019,7 @@
 				0633A786239109E60094219D /* HomeViewController.m in Sources */,
 				0612A38B23961DA800A82BB9 /* NoticeTableViewCell.m in Sources */,
 				06FEA1E8239544F2005D58B9 /* DetailOrderViewController.m in Sources */,
+				06D6BF19239E39B000AB52DB /* MapsViewController.m in Sources */,
 				0633A793239117E00094219D /* LoginWithPasswordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

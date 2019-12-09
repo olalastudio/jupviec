@@ -151,8 +151,6 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"did select row at index %@",indexPath);
-    
     if (indexPath.section == SESSION_TASK) //task session
     {
         PlaceOrderViewController *oderview = [self.storyboard instantiateViewControllerWithIdentifier:@"idplaceorder"];

@@ -7,7 +7,7 @@
 //
 
 #import "PlaceOrderViewController.h"
-#import "PlaceOrderCommonTableViewCell.h"
+#import "MapsViewController.h"
 
 @interface PlaceOrderViewController (){
     NSArray *attributeListDungLe;
@@ -67,6 +67,23 @@
     NSLog(@"show place order view for task %lu",(unsigned long)_tasktype);
     
     [self.tabBarController.tabBar setHidden:YES];
+
+    switch (_tasktype) {
+        case TYPE_DUNGLE:
+            [self setTitle:@"Dùng lẻ"];
+            break;
+        case TYPE_DUNGDINHKY:
+            [self setTitle:@"Dùng định kỳ"];
+            break;
+        case TYPE_TONGVESINH:
+            [self setTitle:@"Tổng vệ sinh"];
+            break;
+        case TYPE_JUPSOFA:
+            [self setTitle:@"Đặt JupSofa"];
+            break;
+        default:
+            break;
+    }
 }
 
 -(void)setTaskType:(TASK_TYPE)type
@@ -121,6 +138,7 @@
 {
     PlaceOrderCommonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idplaceordercommoncell"];
     [cell setDelegate:self];
+    [cell setIndexPath:indexPath];
     
     NSNumber *row = [[self getlistDichVu] objectAtIndex:indexPath.row];
     
@@ -171,5 +189,40 @@
 }
 
 #pragma mark - PlaceOrderCommonCellDelegate
-
+-(void)didPressCellAtIndexPath:(NSIndexPath *)index attributeType:(ORDER_ATTRIBUTE)attribute
+{
+    NSLog(@"did press on order cell %lu",(unsigned long)attribute);
+    
+    switch (attribute) {
+        case ATTRIBUTE_DIADIEM:
+        {
+            MapsViewController *mapsview = [self.storyboard instantiateViewControllerWithIdentifier:@"idmapsview"];
+            
+            [self.navigationController pushViewController:mapsview animated:YES];
+        }
+            break;
+        case ATTRIBUTE_SONHACANHO:
+            break;
+        case ATTRIBUTE_NGAYLAMVIEC:
+            break;
+        case ATTRIBUTE_NGAYLAMTRONGTUAN:
+            break;
+        case ATTRIBUTE_NGAYKHAOSAT:
+            break;
+        case ATTRIBUTE_GIOKHAOSAT:
+            break;
+        case ATTRIBUTE_GIOLAMVIEC:
+            break;
+        case ATTRIBUTE_DICHVUKEMTHEO:
+            break;
+        case ATTRIBUTE_HINHTHUCTHANHTOAN:
+            break;
+        case ATTRIBUTE_BANGGIADICHVU:
+            break;
+        case ATTRIBUTE_GHICHU:
+            break;
+        default:
+            break;
+    }
+}
 @end

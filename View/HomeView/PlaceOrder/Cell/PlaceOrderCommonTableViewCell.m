@@ -18,7 +18,10 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     [_txtContent setUserInteractionEnabled:YES];
-    [_txtContent addTarget:self action:@selector(didTapOnContentView) forControlEvents:UIControlEventTouchDown];
+    [_txtContent setSelected:YES];
+    [_txtContent setEnabled:YES];
+    
+    [_txtContent setDelegate:self];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -97,9 +100,22 @@
     }
 }
 
-#pragma mark - Gesture
--(void)didTapOnContentView
+-(void)setIndexPath:(NSIndexPath *)index
 {
-    NSLog(@"did tap on content view");
+    _indexPath = index;
+}
+
+#pragma mark - UITextFieldDelegate
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if (_ordeAttribute == ATTRIBUTE_GHICHU) {
+        return YES;
+    }
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(didPressCellAtIndexPath:attributeType:)]) {
+        [_delegate didPressCellAtIndexPath:_indexPath attributeType:_ordeAttribute];
+    }
+    
+    return NO;
 }
 @end
