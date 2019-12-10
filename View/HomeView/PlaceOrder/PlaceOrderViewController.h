@@ -8,13 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "CommonDefines.h"
+#import "Order.h"
 #import "PlaceOrderCommonTableViewCell.h"
+#import "MapsViewController.h"
+#import "TextDetailPopupController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PlaceOrderViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, PlaceOrderCommonCellProtocol>
+@interface PlaceOrderViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, PlaceOrderCommonCellProtocol, TextDetailPopupDelegate>
 {
-    TASK_TYPE _tasktype;
+    TASK_TYPE       _tasktype;
+    Order           *order;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tbPlaceOrderContent;

@@ -18,7 +18,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PlaceOrderCommonTableViewCell : UITableViewCell <UITextFieldDelegate>
+@interface PlaceOrderCommonTableViewCell : UITableViewCell <UITextViewDelegate>
 {
     ORDER_ATTRIBUTE     _ordeAttribute;
     NSIndexPath         *_indexPath;
@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgIcon;
 @property (weak, nonatomic) IBOutlet UILabel *txtTitle;
-@property (weak, nonatomic) IBOutlet UITextField *txtContent;
+@property (weak, nonatomic) IBOutlet UITextView *txtContent;
 
 
 -(void)setOderAttribute:(ORDER_ATTRIBUTE)attribute;

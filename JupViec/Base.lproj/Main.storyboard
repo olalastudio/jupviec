@@ -601,6 +601,85 @@
             </objects>
             <point key="canvasLocation" x="1050.7246376811595" y="1969.4196428571427"/>
         </scene>
+        <!--Text Detail Popup Controller-->
+        <scene sceneID="qOu-Kv-RpP">
+            <objects>
+                <viewController storyboardIdentifier="idtextdetailpopup" modalPresentationStyle="overCurrentContext" id="yQX-Kl-Ldo" customClass="TextDetailPopupController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PjQ-91-kBx" customClass="TextDetailPopupView">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mT2-OT-21W">
+                                <rect key="frame" x="32" y="298" width="350" height="300"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKx-fh-2yn">
+                                        <rect key="frame" x="14" y="15" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="OS6-8D-V6W"/>
+                                            <constraint firstAttribute="height" constant="24" id="m50-jy-iEW"/>
+                                        </constraints>
+                                        <state key="normal" image="multiply.png"/>
+                                        <connections>
+                                            <action selector="didPressClosePopupButtom:" destination="yQX-Kl-Ldo" eventType="touchUpInside" id="0cj-rG-wyb"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Số nhà/Căn hộ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ku-6A-bdI">
+                                        <rect key="frame" x="119" y="17" width="113" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Số nhà/Căn hộ" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4h-CK-Mu5">
+                                        <rect key="frame" x="21" y="60" width="309" height="146"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.92784569300518138" green="0.92784569300518138" blue="0.92784569300518138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1 Phạm văn Bạch, Yên Hoà Cầu Giấy, Hà Nội, Việt Nam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9n-yP-dJ6">
+                                        <rect key="frame" x="21" y="214" width="309" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aB8-KE-SSB">
+                                        <rect key="frame" x="143" y="262" width="64" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Xác nhận"/>
+                                        <connections>
+                                            <action selector="didPressConfirmButtom:" destination="yQX-Kl-Ldo" eventType="touchUpInside" id="yTI-LN-Jg8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="wKx-fh-2yn" firstAttribute="top" secondItem="mT2-OT-21W" secondAttribute="top" constant="15" id="Mlo-Wt-LBA"/>
+                                    <constraint firstAttribute="width" constant="350" id="RYx-ZN-Pnx"/>
+                                    <constraint firstItem="wKx-fh-2yn" firstAttribute="leading" secondItem="mT2-OT-21W" secondAttribute="leading" constant="14" id="Rz1-tr-C0A"/>
+                                    <constraint firstAttribute="height" constant="300" id="vhA-U9-WZe"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mT2-OT-21W" firstAttribute="centerX" secondItem="PjQ-91-kBx" secondAttribute="centerX" id="ejx-hY-wCp"/>
+                            <constraint firstItem="mT2-OT-21W" firstAttribute="centerY" secondItem="PjQ-91-kBx" secondAttribute="centerY" id="eyG-UW-var"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WAm-fS-fHZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="txtContent" destination="i4h-CK-Mu5" id="LT0-pe-Ewb"/>
+                        <outlet property="txtCurrentLocation" destination="u9n-yP-dJ6" id="EbA-fx-vxd"/>
+                        <outlet property="txtTitle" destination="7ku-6A-bdI" id="NC9-WH-jcV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8ld-Vf-Lhn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1945" y="1276"/>
+        </scene>
         <!--Login With Password View Controller-->
         <scene sceneID="0cf-5I-yNE">
             <objects>
@@ -727,7 +806,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="faP-Am-LdL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1988.4057971014495" y="1275.6696428571429"/>
+            <point key="canvasLocation" x="-2629" y="1276"/>
         </scene>
         <!--Title-->
         <scene sceneID="34y-3X-P6Q">
@@ -878,6 +957,7 @@
     </scenes>
     <resources>
         <image name="background.jpg" width="720" height="1480"/>
+        <image name="multiply.png" width="24.891288757324219" height="24.891288757324219"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cEH-79-B1x"/>

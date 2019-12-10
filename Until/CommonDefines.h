@@ -26,6 +26,7 @@
 #define MODE_FORGOT_PASSWORD    2
 
 typedef enum : NSUInteger {
+    TYPE_NONE = -1,
     TYPE_DUNGLE = 0,
     TYPE_DUNGDINHKY = 1,
     TYPE_TONGVESINH = 2,

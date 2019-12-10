@@ -17,10 +17,6 @@
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    [_txtContent setUserInteractionEnabled:YES];
-    [_txtContent setSelected:YES];
-    [_txtContent setEnabled:YES];
-    
     [_txtContent setDelegate:self];
 }
 
@@ -106,7 +102,7 @@
 }
 
 #pragma mark - UITextFieldDelegate
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+-(BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
     if (_ordeAttribute == ATTRIBUTE_GHICHU) {
         return YES;

@@ -7,7 +7,6 @@
 //
 
 #import "PlaceOrderViewController.h"
-#import "MapsViewController.h"
 
 @interface PlaceOrderViewController (){
     NSArray *attributeListDungLe;
@@ -60,12 +59,12 @@
                             [NSNumber numberWithInt:ATTRIBUTE_GIOLAMVIEC],
                              [NSNumber numberWithInt:ATTRIBUTE_BANGGIADICHVU],
                             [NSNumber numberWithInt:ATTRIBUTE_GHICHU]];
+    
+    order = [[Order alloc] init];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"show place order view for task %lu",(unsigned long)_tasktype);
-    
     [self.tabBarController.tabBar setHidden:YES];
 
     switch (_tasktype) {
@@ -90,6 +89,7 @@
 {
     _tasktype = type;
 }
+
 /*
 #pragma mark - Navigation
 
@@ -202,6 +202,16 @@
         }
             break;
         case ATTRIBUTE_SONHACANHO:
+        {
+            TextDetailPopupController *detailpopup = [self.storyboard instantiateViewControllerWithIdentifier:@"idtextdetailpopup"];
+            [detailpopup setDelegate:self];
+            [detailpopup setOrderAttribute:ATTRIBUTE_SONHACANHO];
+            [detailpopup setPopupCurrentLocation:[order workAddress]];
+            [detailpopup setPopupContent:[order homeNumber]];
+            
+            [self setModalPresentationStyle:UIModalPresentationCurrentContext];
+            [self presentViewController:detailpopup animated:YES completion:nil];
+        }
             break;
         case ATTRIBUTE_NGAYLAMVIEC:
             break;
@@ -220,6 +230,22 @@
         case ATTRIBUTE_BANGGIADICHVU:
             break;
         case ATTRIBUTE_GHICHU:
+            break;
+        default:
+            break;
+    }
+}
+
+#pragma mark - MapsCell Delegate
+
+#pragma mark - Popup Delegate
+-(void)didPressConfirmDetailPopup:(ORDER_ATTRIBUTE)sender withReturnValue:(NSString *)str
+{
+    switch (sender) {
+        case ATTRIBUTE_SONHACANHO:
+        {
+            [order setHomeNumber:str];
+        }
             break;
         default:
             break;
