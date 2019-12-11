@@ -19,6 +19,7 @@
 #define API_LOGIN           @"login"
 #define API_FORGOT_PASS     @"forgot"
 #define API_UPDATE_PASS     @"update-password"
+#define API_REQUEST         @"request"
 
 #define ID_WELCOME_VIEW     @"idwelcomeview"
 
