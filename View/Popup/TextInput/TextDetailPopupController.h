@@ -11,7 +11,7 @@
 
 @protocol TextDetailPopupDelegate <NSObject>
 
--(void)didPressConfirmDetailPopup:(ORDER_ATTRIBUTE)sender withReturnValue:(NSString*_Nullable)str;
+-(void)didPressConfirmDetailPopup:(ORDER_ATTRIBUTE)sender index:(NSIndexPath*_Nonnull)index withReturnValue:(NSString*_Nullable)str;
 
 @end
 
@@ -20,12 +20,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TextDetailPopupController : UIViewController
 {
     ORDER_ATTRIBUTE     _orderAttribute;
+    NSIndexPath         *_index;
     NSString            *_strContent;
     NSString            *_strCurrentLocation;
 }
 
 @property id<TextDetailPopupDelegate>       delegate;
 @property ORDER_ATTRIBUTE                   orderAttribute;
+@property (nonatomic) NSIndexPath           *index;
 
 @property (weak, nonatomic) IBOutlet UILabel *txtTitle;
 @property (weak, nonatomic) IBOutlet UITextView *txtContent;

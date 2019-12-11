@@ -6,13 +6,14 @@
 //  Copyright © 2019 Olala. All rights reserved.
 //
 
-#import "TextDetailPopupView.h"
+#import "PopupView.h"
 
-@implementation TextDetailPopupView
+@implementation PopupView
 
 -(void)drawRect:(CGRect)rect
 {
     [super drawRect:rect];
+
 }
 
 /*
@@ -27,7 +28,8 @@
     [super awakeFromNib];
     // Initialization code
     
-    [self setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2]];
+    [self setBackgroundColor:[UIColor whiteColor]];
+    
+    self.layer.cornerRadius = 10;
 }
-
 @end

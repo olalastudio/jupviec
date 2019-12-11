@@ -14,6 +14,7 @@
 
 @implementation TextDetailPopupController
 @synthesize delegate = _delegate;
+@synthesize index = _index;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,6 +27,20 @@
     
     [_txtContent setText:_strContent];
     [_txtCurrentLocation setText:_strCurrentLocation];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2]];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self.view setBackgroundColor:[UIColor clearColor]];
 }
 /*
 #pragma mark - Navigation
@@ -47,6 +62,16 @@
     return _orderAttribute;
 }
 
+-(void)setIndexPath:(NSIndexPath*)index
+{
+    _index = index;
+}
+
+-(NSIndexPath*)index
+{
+    return _index;
+}
+
 -(void)setPopupContent:(NSString *)str
 {
     _strContent = str;
@@ -64,10 +89,15 @@
 - (IBAction)didPressConfirmButtom:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:^{
-        if (self.delegate && [self.delegate respondsToSelector:@selector(didPressConfirmDetailPopup:withReturnValue:)])
+        if (self.delegate && [self.delegate respondsToSelector:@selector(didPressConfirmDetailPopup:index:withReturnValue:)])
         {
-            [self.delegate didPressConfirmDetailPopup:self.orderAttribute withReturnValue:[self.txtContent text]];
+            [self.delegate didPressConfirmDetailPopup:self.orderAttribute index:self.index withReturnValue:[self.txtContent text]];
         }
     }];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
 }
 @end

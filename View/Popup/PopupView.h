@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TextDetailPopupView : UIView
+@interface PopupView : UIView
 
 @end
 

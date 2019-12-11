@@ -7,6 +7,7 @@
 //
 
 #import "PlaceOrderCommonTableViewCell.h"
+#import "Order.h"
 
 @implementation PlaceOrderCommonTableViewCell
 @synthesize delegate = _delegate;
@@ -29,8 +30,11 @@
 -(void)setOderAttribute:(ORDER_ATTRIBUTE)attribute
 {
     _ordeAttribute = attribute;
-    
-    [self reloadViewContent];
+}
+
+-(void)setOrder:(Order *)order
+{
+    _order = order;
 }
 
 -(void)reloadViewContent
@@ -39,17 +43,24 @@
         case ATTRIBUTE_DIADIEM:
             [_imgIcon setImage:[UIImage imageNamed:@"placeholder-3"]];
             [_txtTitle setText:@"ĐỊA ĐIỂM LÀM VIỆC"];
-            [_txtContent setText:@"1 Phạm Văn Bạch, Yên Hoà, Cầu Giấy, Hà Nội"];
+            [_txtContent setText:[_order workAddress]];
             break;
         case ATTRIBUTE_SONHACANHO:
             [_imgIcon setImage:[UIImage imageNamed:@"home-1"]];
             [_txtTitle setText:@"SỐ NHÀ/CĂN HỘ"];
-            [_txtContent setText:@"Phòng 501 H3"];
+            [_txtContent setText:[_order homeNumber]];
             break;
         case ATTRIBUTE_NGAYLAMVIEC:
+        {
             [_imgIcon setImage:[UIImage imageNamed:@"calendar"]];
             [_txtTitle setText:@"NGÀY LÀM VIỆC"];
-            [_txtContent setText:@"Ngày mai, 07/12/2019"];
+            
+            NSDateFormatter *format = [[NSDateFormatter alloc] init];
+            [format setDateFormat:@"EEEE, dd/MM/yyyy"];
+            [format setLocale:[NSLocale localeWithLocaleIdentifier:@"vi_VN"]];
+            
+            [_txtContent setText:[format stringFromDate:[_order workDate]]];
+        }
             break;
         case ATTRIBUTE_NGAYLAMTRONGTUAN:
             [_imgIcon setImage:[UIImage imageNamed:@"calendar"]];

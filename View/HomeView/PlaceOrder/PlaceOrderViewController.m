@@ -24,6 +24,8 @@
     // Do any additional setup after loading the view.
     
     [_tbPlaceOrderContent registerNib:[UINib nibWithNibName:@"CommonCell" bundle:nil] forCellReuseIdentifier:@"idplaceordercommoncell"];
+    [_tbPlaceOrderContent registerNib:[UINib nibWithNibName:@"TimeSelectionCell" bundle:nil] forCellReuseIdentifier:@"idplaceordertimeselectioncell"];
+    [_tbPlaceOrderContent registerNib:[UINib nibWithNibName:@"DaySelectionCell" bundle:nil] forCellReuseIdentifier:@"idplaceorderdayselectioncell"];
     
     [_tbPlaceOrderContent setDelegate:self];
     [_tbPlaceOrderContent setDataSource:self];
@@ -139,6 +141,7 @@
     PlaceOrderCommonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idplaceordercommoncell"];
     [cell setDelegate:self];
     [cell setIndexPath:indexPath];
+    [cell setOrder:order];
     
     NSNumber *row = [[self getlistDichVu] objectAtIndex:indexPath.row];
     
@@ -153,7 +156,15 @@
             [cell setOderAttribute:ATTRIBUTE_NGAYLAMVIEC];
             break;
         case ATTRIBUTE_NGAYLAMTRONGTUAN:
-            [cell setOderAttribute:ATTRIBUTE_NGAYLAMTRONGTUAN];
+        {
+            DaySelectionTableViewCell *daycell = [tableView dequeueReusableCellWithIdentifier:@"idplaceorderdayselectioncell"];
+            [daycell setDelegate:self];
+            [daycell setOderAttribute:ATTRIBUTE_NGAYLAMTRONGTUAN];
+            [daycell setIndexPath:indexPath];
+            [daycell setOrder:order];
+            
+            return daycell;
+        }
             break;
         case ATTRIBUTE_NGAYKHAOSAT:
            [cell setOderAttribute:ATTRIBUTE_NGAYKHAOSAT];
@@ -162,7 +173,15 @@
             [cell setOderAttribute:ATTRIBUTE_GIOKHAOSAT];
             break;
         case ATTRIBUTE_GIOLAMVIEC:
-            [cell setOderAttribute:ATTRIBUTE_GIOLAMVIEC];
+        {
+            TimeSelectionTableViewCell *timeCell = [tableView dequeueReusableCellWithIdentifier:@"idplaceordertimeselectioncell"];
+            [timeCell setDelegate:self];
+            [timeCell setOderAttribute:ATTRIBUTE_GIOLAMVIEC];
+            [timeCell setIndexPath:indexPath];
+            [timeCell setOrder:order];
+            
+            return timeCell;
+        }
             break;
         case ATTRIBUTE_DICHVUKEMTHEO:
             [cell setOderAttribute:ATTRIBUTE_DICHVUKEMTHEO];
@@ -180,11 +199,26 @@
             break;
     }
     
+    [cell reloadViewContent];
+    
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSNumber *row = [[self getlistDichVu] objectAtIndex:indexPath.row];
+    
+    switch ([row intValue]) {
+        case ATTRIBUTE_GIOLAMVIEC:
+            return 110;
+            break;
+        case ATTRIBUTE_NGAYLAMTRONGTUAN:
+            return 120;
+            break;
+        default:
+            break;
+    }
+    
     return 90;
 }
 
@@ -208,12 +242,16 @@
             [detailpopup setOrderAttribute:ATTRIBUTE_SONHACANHO];
             [detailpopup setPopupCurrentLocation:[order workAddress]];
             [detailpopup setPopupContent:[order homeNumber]];
+            [detailpopup setIndex:index];
             
             [self setModalPresentationStyle:UIModalPresentationCurrentContext];
             [self presentViewController:detailpopup animated:YES completion:nil];
         }
             break;
         case ATTRIBUTE_NGAYLAMVIEC:
+        {
+            [self didClickChangeDaySelection:index];
+        }
             break;
         case ATTRIBUTE_NGAYLAMTRONGTUAN:
             break;
@@ -236,12 +274,40 @@
     }
 }
 
+#pragma mark - TimeSelectionCell Delegate
+-(void)didClickChangeTimeSelection:(NSIndexPath*)index
+{
+    NSLog(@"did click change Time");
+    DateTimePickerPopupController *datepicker = [self.storyboard instantiateViewControllerWithIdentifier:@"iddatetimepicker"];
+    [datepicker setOrderAttribute:ATTRIBUTE_GIOLAMVIEC];
+    [datepicker setIndexPath:index];
+    [datepicker setDelegate:self];
+    
+    [self setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [self presentViewController:datepicker animated:YES completion:nil];
+}
+
+-(void)didClickChangeDaySelection:(NSIndexPath*)index
+{
+    NSLog(@"did click change day");
+    
+    DateTimePickerPopupController *datepicker = [self.storyboard instantiateViewControllerWithIdentifier:@"iddatetimepicker"];
+    [datepicker setOrderAttribute:ATTRIBUTE_NGAYLAMVIEC];
+    [datepicker setIndexPath:index];
+    [datepicker setDelegate:self];
+    [datepicker setSelectedDate:[order workDate]];
+    
+    [self setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [self presentViewController:datepicker animated:YES completion:nil];
+}
+
 #pragma mark - MapsCell Delegate
 
 #pragma mark - Popup Delegate
--(void)didPressConfirmDetailPopup:(ORDER_ATTRIBUTE)sender withReturnValue:(NSString *)str
+-(void)didPressConfirmDetailPopup:(ORDER_ATTRIBUTE)sender index:(NSIndexPath *)index withReturnValue:(NSString *)str
 {
-    switch (sender) {
+    switch (sender)
+    {
         case ATTRIBUTE_SONHACANHO:
         {
             [order setHomeNumber:str];
@@ -250,5 +316,23 @@
         default:
             break;
     }
+    
+    [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+-(void)didSelectDate:(ORDER_ATTRIBUTE)sender date:(NSDate *)date indexPath:(NSIndexPath *)index
+{
+    switch (sender)
+    {
+        case ATTRIBUTE_NGAYLAMVIEC:
+        {
+            [order setWorkDate:date];
+        }
+            break;
+        default:
+            break;
+    }
+    
+    [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
 }
 @end
