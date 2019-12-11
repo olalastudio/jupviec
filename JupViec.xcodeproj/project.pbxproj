@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -401,6 +401,9 @@
 		0612A393239621F500A82BB9 /* InformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0612A392239621F500A82BB9 /* InformationTableViewCell.m */; };
 		0612A3992396531500A82BB9 /* NoticeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0612A3982396531500A82BB9 /* NoticeDetailViewController.m */; };
 		0612A39C239657E700A82BB9 /* InformationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0612A39B239657E700A82BB9 /* InformationDetailViewController.m */; };
+		06222E24239E489C00AE24C5 /* TextDetailPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06222E23239E489C00AE24C5 /* TextDetailPopupController.m */; };
+		06222E27239E4A7200AE24C5 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06222E26239E4A7200AE24C5 /* PopupView.m */; };
+		06222E2A239E64F100AE24C5 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 06222E29239E64F100AE24C5 /* Order.m */; };
 		0633A786239109E60094219D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0633A785239109E60094219D /* HomeViewController.m */; };
 		0633A78A239113080094219D /* OTPCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0633A789239113080094219D /* OTPCheckViewController.m */; };
 		0633A78D239113D50094219D /* AccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0633A78C239113D50094219D /* AccountInfoViewController.m */; };
@@ -412,19 +415,29 @@
 		0658BEC4238FAC7800CBBAD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0658BEC2238FAC7800CBBAD1 /* LaunchScreen.storyboard */; };
 		0658BEC7238FAC7800CBBAD1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658BEC6238FAC7800CBBAD1 /* main.m */; };
 		066603502390BBA30036847C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0666034E2390BB110036847C /* CoreLocation.framework */; };
+		0668482A239F9DC900A463A7 /* DateTimePickerPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06684829239F9DC900A463A7 /* DateTimePickerPopupController.m */; };
+		068DDEED23990D8C009484E7 /* PlaceOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 068DDEEC23990D8C009484E7 /* PlaceOrderViewController.m */; };
+		068DDEF023991431009484E7 /* CommonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 068DDEEF23991431009484E7 /* CommonCell.xib */; };
+		068DDEF32399144C009484E7 /* PlaceOrderCommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 068DDEF22399144C009484E7 /* PlaceOrderCommonTableViewCell.m */; };
 		06B620BA2397B34D0036DCF9 /* HomePromotionCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B620B92397B34D0036DCF9 /* HomePromotionCollectionCell.xib */; };
 		06B620BD2397B3930036DCF9 /* HomePromotionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */; };
 		06B620BF2397B4540036DCF9 /* makhuyenmai.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B620BE2397B4540036DCF9 /* makhuyenmai.png */; };
+		06D6BF19239E39B000AB52DB /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6BF18239E39B000AB52DB /* MapsViewController.m */; };
 		06EC9F1D2396734A00474EE3 /* HomeTaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06EC9F1C2396734A00474EE3 /* HomeTaskCell.xib */; };
 		06EC9F202396736200474EE3 /* HomeTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EC9F1F2396736200474EE3 /* HomeTaskTableViewCell.m */; };
 		06EC9F222396784100474EE3 /* HomePromotionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06EC9F212396784100474EE3 /* HomePromotionCell.xib */; };
 		06EC9F252396786100474EE3 /* HomePromotionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EC9F242396786100474EE3 /* HomePromotionTableViewCell.m */; };
 		06EC9F2723968A6200474EE3 /* HomePromotionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06EC9F2623968A6200474EE3 /* HomePromotionHeaderCell.xib */; };
 		06EC9F2D23968C7000474EE3 /* HomePromotionHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EC9F2C23968C7000474EE3 /* HomePromotionHeaderViewCell.m */; };
+		06ED4C1123A0EDD10072EB15 /* TimeSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06ED4C1023A0EDD10072EB15 /* TimeSelectionCell.xib */; };
+		06ED4C1423A0EDE90072EB15 /* TimeSelectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED4C1323A0EDE90072EB15 /* TimeSelectionTableViewCell.m */; };
+		06ED4C1623A0FD130072EB15 /* DaySelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06ED4C1523A0FD130072EB15 /* DaySelectionCell.xib */; };
+		06ED4C1923A0FD220072EB15 /* DaySelectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED4C1823A0FD220072EB15 /* DaySelectionTableViewCell.m */; };
 		06FEA1DF2394BCC0005D58B9 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1DE2394BCC0005D58B9 /* HistoryViewController.m */; };
 		06FEA1E12394CBCC005D58B9 /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06FEA1E02394CBCC005D58B9 /* HistoryCell.xib */; };
 		06FEA1E42394CC0E005D58B9 /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1E32394CC0E005D58B9 /* HistoryTableViewCell.m */; };
 		06FEA1E8239544F2005D58B9 /* DetailOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1E7239544F2005D58B9 /* DetailOrderViewController.m */; };
+		46CAF70896EA60D414CFC77A /* Pods_JupViec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3C72A5BA82C14B92E726941 /* Pods_JupViec.framework */; };
 		CEA83F1723911F60001C1512 /* APIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA83F1523911F5F001C1512 /* APIRequest.m */; };
 		CEA83F1B239120BE001C1512 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA83F19239120BE001C1512 /* User.m */; };
 		CEFD75B22394FAD80040699B /* CreatePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFD75B12394FAD80040699B /* CreatePasswordViewController.m */; };
@@ -836,6 +849,12 @@
 		0612A39A239657E700A82BB9 /* InformationDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InformationDetailViewController.h; sourceTree = "<group>"; };
 		0612A39B239657E700A82BB9 /* InformationDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InformationDetailViewController.m; sourceTree = "<group>"; };
 		062061C82390B94300956FF4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		06222E22239E489C00AE24C5 /* TextDetailPopupController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextDetailPopupController.h; sourceTree = "<group>"; };
+		06222E23239E489C00AE24C5 /* TextDetailPopupController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextDetailPopupController.m; sourceTree = "<group>"; };
+		06222E25239E4A7200AE24C5 /* PopupView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopupView.h; sourceTree = "<group>"; };
+		06222E26239E4A7200AE24C5 /* PopupView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopupView.m; sourceTree = "<group>"; };
+		06222E28239E64F100AE24C5 /* Order.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		06222E29239E64F100AE24C5 /* Order.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
 		0633A784239109E60094219D /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		0633A785239109E60094219D /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		0633A788239113080094219D /* OTPCheckViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OTPCheckViewController.h; sourceTree = "<group>"; };
@@ -856,10 +875,19 @@
 		0658BEC5238FAC7800CBBAD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0658BEC6238FAC7800CBBAD1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0666034E2390BB110036847C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		06684828239F9DC900A463A7 /* DateTimePickerPopupController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateTimePickerPopupController.h; sourceTree = "<group>"; };
+		06684829239F9DC900A463A7 /* DateTimePickerPopupController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateTimePickerPopupController.m; sourceTree = "<group>"; };
+		068DDEEB23990D8C009484E7 /* PlaceOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceOrderViewController.h; sourceTree = "<group>"; };
+		068DDEEC23990D8C009484E7 /* PlaceOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceOrderViewController.m; sourceTree = "<group>"; };
+		068DDEEF23991431009484E7 /* CommonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonCell.xib; sourceTree = "<group>"; };
+		068DDEF12399144C009484E7 /* PlaceOrderCommonTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceOrderCommonTableViewCell.h; sourceTree = "<group>"; };
+		068DDEF22399144C009484E7 /* PlaceOrderCommonTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceOrderCommonTableViewCell.m; sourceTree = "<group>"; };
 		06B620B92397B34D0036DCF9 /* HomePromotionCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePromotionCollectionCell.xib; sourceTree = "<group>"; };
 		06B620BB2397B3930036DCF9 /* HomePromotionCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePromotionCollectionViewCell.h; sourceTree = "<group>"; };
 		06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePromotionCollectionViewCell.m; sourceTree = "<group>"; };
 		06B620BE2397B4540036DCF9 /* makhuyenmai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = makhuyenmai.png; sourceTree = "<group>"; };
+		06D6BF17239E39B000AB52DB /* MapsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapsViewController.h; sourceTree = "<group>"; };
+		06D6BF18239E39B000AB52DB /* MapsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapsViewController.m; sourceTree = "<group>"; };
 		06EC9F1C2396734A00474EE3 /* HomeTaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTaskCell.xib; sourceTree = "<group>"; };
 		06EC9F1E2396736200474EE3 /* HomeTaskTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTaskTableViewCell.h; sourceTree = "<group>"; };
 		06EC9F1F2396736200474EE3 /* HomeTaskTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTaskTableViewCell.m; sourceTree = "<group>"; };
@@ -869,6 +897,12 @@
 		06EC9F2623968A6200474EE3 /* HomePromotionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePromotionHeaderCell.xib; sourceTree = "<group>"; };
 		06EC9F2B23968C7000474EE3 /* HomePromotionHeaderViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePromotionHeaderViewCell.h; sourceTree = "<group>"; };
 		06EC9F2C23968C7000474EE3 /* HomePromotionHeaderViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePromotionHeaderViewCell.m; sourceTree = "<group>"; };
+		06ED4C1023A0EDD10072EB15 /* TimeSelectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeSelectionCell.xib; sourceTree = "<group>"; };
+		06ED4C1223A0EDE90072EB15 /* TimeSelectionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeSelectionTableViewCell.h; sourceTree = "<group>"; };
+		06ED4C1323A0EDE90072EB15 /* TimeSelectionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeSelectionTableViewCell.m; sourceTree = "<group>"; };
+		06ED4C1523A0FD130072EB15 /* DaySelectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DaySelectionCell.xib; sourceTree = "<group>"; };
+		06ED4C1723A0FD220072EB15 /* DaySelectionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DaySelectionTableViewCell.h; sourceTree = "<group>"; };
+		06ED4C1823A0FD220072EB15 /* DaySelectionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DaySelectionTableViewCell.m; sourceTree = "<group>"; };
 		06FEA1DD2394BCC0005D58B9 /* HistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		06FEA1DE2394BCC0005D58B9 /* HistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
 		06FEA1E02394CBCC005D58B9 /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
@@ -876,11 +910,14 @@
 		06FEA1E32394CC0E005D58B9 /* HistoryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewCell.m; sourceTree = "<group>"; };
 		06FEA1E6239544F2005D58B9 /* DetailOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailOrderViewController.h; sourceTree = "<group>"; };
 		06FEA1E7239544F2005D58B9 /* DetailOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailOrderViewController.m; sourceTree = "<group>"; };
+		A439FB650960B4F1DC9ED183 /* Pods-JupViec.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JupViec.debug.xcconfig"; path = "Target Support Files/Pods-JupViec/Pods-JupViec.debug.xcconfig"; sourceTree = "<group>"; };
+		C11212276C0A28E5B7124618 /* Pods-JupViec.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JupViec.release.xcconfig"; path = "Target Support Files/Pods-JupViec/Pods-JupViec.release.xcconfig"; sourceTree = "<group>"; };
 		CEA83F1523911F5F001C1512 /* APIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIRequest.m; sourceTree = "<group>"; };
 		CEA83F1623911F60001C1512 /* APIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIRequest.h; sourceTree = "<group>"; };
 		CEA83F19239120BE001C1512 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		CEA83F1A239120BE001C1512 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		CEFD75B12394FAD80040699B /* CreatePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatePasswordViewController.m; sourceTree = "<group>"; };
+		F3C72A5BA82C14B92E726941 /* Pods_JupViec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JupViec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -889,6 +926,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				066603502390BBA30036847C /* CoreLocation.framework in Frameworks */,
+				46CAF70896EA60D414CFC77A /* Pods_JupViec.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1296,6 +1334,7 @@
 		0601E316238FAEEF00403C95 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				06222E21239E47F200AE24C5 /* Popup */,
 				0612A381239617C500A82BB9 /* Information */,
 				0612A37D239617C100A82BB9 /* Notice */,
 				06FEA1E5239544D1005D58B9 /* DetailOder */,
@@ -1369,27 +1408,30 @@
 			children = (
 				0666034E2390BB110036847C /* CoreLocation.framework */,
 				062061C82390B94300956FF4 /* MapKit.framework */,
+				F3C72A5BA82C14B92E726941 /* Pods_JupViec.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		06222E21239E47F200AE24C5 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				06684827239F9D9F00A463A7 /* DateTime */,
+				0668482B239FAB7D00A463A7 /* TextInput */,
+				06222E25239E4A7200AE24C5 /* PopupView.h */,
+				06222E26239E4A7200AE24C5 /* PopupView.m */,
+			);
+			path = Popup;
 			sourceTree = "<group>";
 		};
 		0633A783239109CC0094219D /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				068DDEF5239915EE009484E7 /* Header */,
+				068DDEF4239915DC009484E7 /* Cell */,
+				068DDEEA23990D62009484E7 /* PlaceOrder */,
 				0633A784239109E60094219D /* HomeViewController.h */,
 				0633A785239109E60094219D /* HomeViewController.m */,
-				06EC9F1C2396734A00474EE3 /* HomeTaskCell.xib */,
-				06EC9F1E2396736200474EE3 /* HomeTaskTableViewCell.h */,
-				06EC9F1F2396736200474EE3 /* HomeTaskTableViewCell.m */,
-				06EC9F212396784100474EE3 /* HomePromotionCell.xib */,
-				06EC9F232396786100474EE3 /* HomePromotionTableViewCell.h */,
-				06EC9F242396786100474EE3 /* HomePromotionTableViewCell.m */,
-				06EC9F2623968A6200474EE3 /* HomePromotionHeaderCell.xib */,
-				06EC9F2B23968C7000474EE3 /* HomePromotionHeaderViewCell.h */,
-				06EC9F2C23968C7000474EE3 /* HomePromotionHeaderViewCell.m */,
-				06B620B92397B34D0036DCF9 /* HomePromotionCollectionCell.xib */,
-				06B620BB2397B3930036DCF9 /* HomePromotionCollectionViewCell.h */,
-				06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -1397,7 +1439,7 @@
 		0658BEAB238FAC7800CBBAD1 = {
 			isa = PBXGroup;
 			children = (
-				CEA83F1823912052001C1512 /* User */,
+				CEA83F1823912052001C1512 /* Model */,
 				CEA83F1423911F32001C1512 /* API */,
 				0601E197238FAEEE00403C95 /* Resource */,
 				0601E193238FAEEE00403C95 /* Until */,
@@ -1405,6 +1447,7 @@
 				0658BEB6238FAC7800CBBAD1 /* JupViec */,
 				0658BEB5238FAC7800CBBAD1 /* Products */,
 				062061C72390B94300956FF4 /* Frameworks */,
+				D1E8393A2937EB5096E7DFB8 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1430,6 +1473,86 @@
 				0658BEC6238FAC7800CBBAD1 /* main.m */,
 			);
 			path = JupViec;
+			sourceTree = "<group>";
+		};
+		06684827239F9D9F00A463A7 /* DateTime */ = {
+			isa = PBXGroup;
+			children = (
+				06684828239F9DC900A463A7 /* DateTimePickerPopupController.h */,
+				06684829239F9DC900A463A7 /* DateTimePickerPopupController.m */,
+			);
+			path = DateTime;
+			sourceTree = "<group>";
+		};
+		0668482B239FAB7D00A463A7 /* TextInput */ = {
+			isa = PBXGroup;
+			children = (
+				06222E22239E489C00AE24C5 /* TextDetailPopupController.h */,
+				06222E23239E489C00AE24C5 /* TextDetailPopupController.m */,
+			);
+			path = TextInput;
+			sourceTree = "<group>";
+		};
+		068DDEEA23990D62009484E7 /* PlaceOrder */ = {
+			isa = PBXGroup;
+			children = (
+				06D6BF16239E399000AB52DB /* Maps */,
+				068DDEEE23991393009484E7 /* Cell */,
+				068DDEEB23990D8C009484E7 /* PlaceOrderViewController.h */,
+				068DDEEC23990D8C009484E7 /* PlaceOrderViewController.m */,
+			);
+			path = PlaceOrder;
+			sourceTree = "<group>";
+		};
+		068DDEEE23991393009484E7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				068DDEEF23991431009484E7 /* CommonCell.xib */,
+				068DDEF12399144C009484E7 /* PlaceOrderCommonTableViewCell.h */,
+				068DDEF22399144C009484E7 /* PlaceOrderCommonTableViewCell.m */,
+				06ED4C1023A0EDD10072EB15 /* TimeSelectionCell.xib */,
+				06ED4C1223A0EDE90072EB15 /* TimeSelectionTableViewCell.h */,
+				06ED4C1323A0EDE90072EB15 /* TimeSelectionTableViewCell.m */,
+				06ED4C1523A0FD130072EB15 /* DaySelectionCell.xib */,
+				06ED4C1723A0FD220072EB15 /* DaySelectionTableViewCell.h */,
+				06ED4C1823A0FD220072EB15 /* DaySelectionTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		068DDEF4239915DC009484E7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				06EC9F1C2396734A00474EE3 /* HomeTaskCell.xib */,
+				06EC9F1E2396736200474EE3 /* HomeTaskTableViewCell.h */,
+				06EC9F1F2396736200474EE3 /* HomeTaskTableViewCell.m */,
+				06EC9F212396784100474EE3 /* HomePromotionCell.xib */,
+				06EC9F232396786100474EE3 /* HomePromotionTableViewCell.h */,
+				06EC9F242396786100474EE3 /* HomePromotionTableViewCell.m */,
+				06B620B92397B34D0036DCF9 /* HomePromotionCollectionCell.xib */,
+				06B620BB2397B3930036DCF9 /* HomePromotionCollectionViewCell.h */,
+				06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		068DDEF5239915EE009484E7 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				06EC9F2623968A6200474EE3 /* HomePromotionHeaderCell.xib */,
+				06EC9F2B23968C7000474EE3 /* HomePromotionHeaderViewCell.h */,
+				06EC9F2C23968C7000474EE3 /* HomePromotionHeaderViewCell.m */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		06D6BF16239E399000AB52DB /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				06D6BF17239E39B000AB52DB /* MapsViewController.h */,
+				06D6BF18239E39B000AB52DB /* MapsViewController.m */,
+			);
+			path = Maps;
 			sourceTree = "<group>";
 		};
 		06FEA1DC2394BCAD005D58B9 /* History */ = {
@@ -1462,13 +1585,24 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		CEA83F1823912052001C1512 /* User */ = {
+		CEA83F1823912052001C1512 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				CEA83F1A239120BE001C1512 /* User.h */,
 				CEA83F19239120BE001C1512 /* User.m */,
+				06222E28239E64F100AE24C5 /* Order.h */,
+				06222E29239E64F100AE24C5 /* Order.m */,
 			);
-			path = User;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D1E8393A2937EB5096E7DFB8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A439FB650960B4F1DC9ED183 /* Pods-JupViec.debug.xcconfig */,
+				C11212276C0A28E5B7124618 /* Pods-JupViec.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1478,9 +1612,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0658BECA238FAC7800CBBAD1 /* Build configuration list for PBXNativeTarget "JupViec" */;
 			buildPhases = (
+				6FF66EC3291E8B22B7DA2716 /* [CP] Check Pods Manifest.lock */,
 				0658BEB0238FAC7800CBBAD1 /* Sources */,
 				0658BEB1238FAC7800CBBAD1 /* Frameworks */,
 				0658BEB2238FAC7800CBBAD1 /* Resources */,
+				963F9C77E7AC9D57284C5DAC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1568,6 +1704,7 @@
 				0601E47D238FAEF000403C95 /* user-3.png in Resources */,
 				0601E337238FAEEF00403C95 /* battery-7.png in Resources */,
 				0601E332238FAEEF00403C95 /* battery-2.png in Resources */,
+				068DDEF023991431009484E7 /* CommonCell.xib in Resources */,
 				0601E3AA238FAEEF00403C95 /* help.png in Resources */,
 				0601E41D238FAEEF00403C95 /* radar.png in Resources */,
 				0601E3B4238FAEEF00403C95 /* house.png in Resources */,
@@ -1655,6 +1792,7 @@
 				0601E418238FAEEF00403C95 /* power.png in Resources */,
 				0601E31F238FAEEF00403C95 /* add-2.png in Resources */,
 				0601E36D238FAEEF00403C95 /* diamond.png in Resources */,
+				06ED4C1123A0EDD10072EB15 /* TimeSelectionCell.xib in Resources */,
 				0601E342238FAEEF00403C95 /* broken-link.png in Resources */,
 				0601E385238FAEEF00403C95 /* file-1.png in Resources */,
 				0601E330238FAEEF00403C95 /* background.jpg in Resources */,
@@ -1909,6 +2047,7 @@
 				0601E327238FAEEF00403C95 /* albums.png in Resources */,
 				06EC9F222396784100474EE3 /* HomePromotionCell.xib in Resources */,
 				0601E402238FAEEF00403C95 /* paper-plane-1.png in Resources */,
+				06ED4C1623A0FD130072EB15 /* DaySelectionCell.xib in Resources */,
 				0601E48C238FAEF000403C95 /* view.png in Resources */,
 				0601E34A238FAEEF00403C95 /* calendar-6.png in Resources */,
 				0601E3A6238FAEEF00403C95 /* garbage-1.png in Resources */,
@@ -1928,6 +2067,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6FF66EC3291E8B22B7DA2716 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JupViec-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		963F9C77E7AC9D57284C5DAC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JupViec/Pods-JupViec-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JupViec/Pods-JupViec-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JupViec/Pods-JupViec-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0658BEB0238FAC7800CBBAD1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1935,15 +2116,19 @@
 			files = (
 				0612A39C239657E700A82BB9 /* InformationDetailViewController.m in Sources */,
 				0612A3992396531500A82BB9 /* NoticeDetailViewController.m in Sources */,
+				06222E27239E4A7200AE24C5 /* PopupView.m in Sources */,
 				0601E49C238FAEF000403C95 /* SignInViewController.m in Sources */,
 				0612A384239617DA00A82BB9 /* InformationViewController.m in Sources */,
+				06ED4C1423A0EDE90072EB15 /* TimeSelectionTableViewCell.m in Sources */,
 				0658BEBC238FAC7800CBBAD1 /* ViewController.m in Sources */,
 				0612A380239617C100A82BB9 /* NoticeViewController.m in Sources */,
 				0633A78A239113080094219D /* OTPCheckViewController.m in Sources */,
+				0668482A239F9DC900A463A7 /* DateTimePickerPopupController.m in Sources */,
 				CEFD75B22394FAD80040699B /* CreatePasswordViewController.m in Sources */,
 				06EC9F2D23968C7000474EE3 /* HomePromotionHeaderViewCell.m in Sources */,
 				06B620BD2397B3930036DCF9 /* HomePromotionCollectionViewCell.m in Sources */,
 				0658BEC7238FAC7800CBBAD1 /* main.m in Sources */,
+				068DDEF32399144C009484E7 /* PlaceOrderCommonTableViewCell.m in Sources */,
 				06FEA1E42394CC0E005D58B9 /* HistoryTableViewCell.m in Sources */,
 				06EC9F252396786100474EE3 /* HomePromotionTableViewCell.m in Sources */,
 				0658BEB9238FAC7800CBBAD1 /* AppDelegate.m in Sources */,
@@ -1951,13 +2136,18 @@
 				06FEA1DF2394BCC0005D58B9 /* HistoryViewController.m in Sources */,
 				0612A38E23961DB900A82BB9 /* CouponTableViewCell.m in Sources */,
 				CEA83F1723911F60001C1512 /* APIRequest.m in Sources */,
+				068DDEED23990D8C009484E7 /* PlaceOrderViewController.m in Sources */,
+				06222E24239E489C00AE24C5 /* TextDetailPopupController.m in Sources */,
 				CEA83F1B239120BE001C1512 /* User.m in Sources */,
 				0612A393239621F500A82BB9 /* InformationTableViewCell.m in Sources */,
 				06EC9F202396736200474EE3 /* HomeTaskTableViewCell.m in Sources */,
 				0633A78D239113D50094219D /* AccountInfoViewController.m in Sources */,
 				0633A786239109E60094219D /* HomeViewController.m in Sources */,
 				0612A38B23961DA800A82BB9 /* NoticeTableViewCell.m in Sources */,
+				06ED4C1923A0FD220072EB15 /* DaySelectionTableViewCell.m in Sources */,
 				06FEA1E8239544F2005D58B9 /* DetailOrderViewController.m in Sources */,
+				06D6BF19239E39B000AB52DB /* MapsViewController.m in Sources */,
+				06222E2A239E64F100AE24C5 /* Order.m in Sources */,
 				0633A793239117E00094219D /* LoginWithPasswordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2100,6 +2290,7 @@
 		};
 		0658BECB238FAC7800CBBAD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A439FB650960B4F1DC9ED183 /* Pods-JupViec.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -2121,6 +2312,7 @@
 		};
 		0658BECC238FAC7800CBBAD1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C11212276C0A28E5B7124618 /* Pods-JupViec.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

@@ -21,7 +21,7 @@
     self.layer.shadowColor = [UIColor grayColor].CGColor;
     self.layer.shadowOffset = CGSizeMake(0, 2.0);
     self.layer.shadowRadius = 2.0;
-    self.layer.shadowOpacity = 1.0;
+    self.layer.shadowOpacity = 0.6;
     self.layer.masksToBounds = false;
     self.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:self.contentView.layer.cornerRadius].CGPath;
 }

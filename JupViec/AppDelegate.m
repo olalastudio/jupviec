@@ -77,7 +77,8 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
-    NSLog(@"location %@",locations);
+    NSLog(@"Current location %@",locations);
+    currentLocation = [locations objectAtIndex:0];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status

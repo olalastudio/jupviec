@@ -31,6 +31,9 @@
     [_tbNotice setDataSource:self];
     [_tbCoupon setDelegate:self];
     [_tbCoupon setDataSource:self];
+    
+    [_tbNotice setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [_tbCoupon setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -115,11 +118,11 @@
 {
     if ([[tableView restorationIdentifier] isEqualToString:@"idnoticetable"])
     {
-        return 70;
+        return 90;
     }
     else if ([[tableView restorationIdentifier] isEqualToString:@"idcoupontable"])
     {
-        return 85;
+        return 120;
     }
     
     return 50;
