@@ -25,6 +25,9 @@
 #define MODE_REGISTER_NEW_ACC   1
 #define MODE_FORGOT_PASSWORD    2
 
+#define ATTRIBUTE_START_TIME    @"starttime"
+#define ATTRIBUTE_END_TIME      @"endtime"
+
 typedef enum : NSUInteger {
     TYPE_NONE = -1,
     TYPE_DUNGLE = 0,
@@ -51,3 +54,9 @@ typedef enum : NSUInteger {
     ATTRIBUTE_BANGGIADICHVU = 9,
     ATTRIBUTE_GHICHU = 10,
 } ORDER_ATTRIBUTE;
+
+typedef enum : NSUInteger {
+    SHIFT_WORK_MORNING = 0,
+    SHIFT_WORK_AFTERNOON = 1,
+    SHIFT_WORK_EVENING = 2,
+} SHIFT_WORK;

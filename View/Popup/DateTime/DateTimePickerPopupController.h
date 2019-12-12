@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "CommonDefines.h"
+#import "Order.h"
 #import <FSCalendar/FSCalendar.h>
 
 @protocol DateTimePickerDelegate <NSObject>
 
 -(void)didSelectDate:(ORDER_ATTRIBUTE)sender date:(NSDate*_Nullable)date indexPath:(NSIndexPath*_Nonnull)index;
+-(void)didSelectTime:(ORDER_ATTRIBUTE)sender indexPath:(NSIndexPath*_Nonnull)index workTime:(NSDictionary*_Nonnull)worktime;
 
 @end
 
@@ -22,14 +24,14 @@ NS_ASSUME_NONNULL_BEGIN
 {
     ORDER_ATTRIBUTE _orderAttribute;
     NSIndexPath     *_index;
-    NSDate          *_selectedDate;
+    Order           *_order;
 }
 
 @property id<DateTimePickerDelegate>        delegate;
 
-@property (weak, nonatomic) IBOutlet UILabel *txtTitle;
+@property (weak, nonatomic) IBOutlet UILabel    *txtTitle;
 @property (weak, nonatomic) IBOutlet FSCalendar *calendarPicker;
-@property (weak, nonatomic) IBOutlet UIButton *btnConfirm;
+@property (weak, nonatomic) IBOutlet UIButton   *btnConfirm;
 
 @property (weak, nonatomic) IBOutlet UIPickerView *startTime;
 @property (weak, nonatomic) IBOutlet UIPickerView *endTime;
@@ -40,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)setOrderAttribute:(ORDER_ATTRIBUTE)attribute;
 -(void)setIndexPath:(NSIndexPath*)index;
--(void)setSelectedDate:(NSDate*)date;
+-(void)setOrder:(Order*)order;
 
 @end
 

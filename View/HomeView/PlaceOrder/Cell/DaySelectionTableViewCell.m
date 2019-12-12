@@ -45,4 +45,14 @@
         [_delegate didClickChangeDaySelection:_indexPath];
     }
 }
+
+-(void)showDay
+{
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"EEEE, dd/MM/yyyy"];
+    [format setLocale:[NSLocale localeWithLocaleIdentifier:@"vi_VN"]];
+    
+    [_btWorkDayValue setTitle:[format stringFromDate:[_order workDate]] forState:UIControlStateNormal];
+}
+
 @end
