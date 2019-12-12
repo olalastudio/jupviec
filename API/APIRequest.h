@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)requestAPILogin:(NSString*)phoneNum password:(NSString*)password completionHandler:(void (^)(NSString * _Nullable token, NSError * error))completionHandler;
 - (void)requestAPIForgotPassword:(NSString*)phoneNum completionHandler:(void(^)(NSDictionary* _Nullable data, NSError* err))completionHandler;
 - (void)requestAPIUpdatePassword:(NSString*)phoneNum password:(NSString*)password token:(NSString*)token completionHandler:(void(^)(User* _Nullable user, NSError* error))completionHandler;
+- (void)requestAPIBookService:(NSString*)strToken detailService:(NSDictionary*)detailService completionhandler:(void(^)(NSDictionary* _Nullable serviceInfo, NSError* error))completionHandler;
 @end
 
 NS_ASSUME_NONNULL_END

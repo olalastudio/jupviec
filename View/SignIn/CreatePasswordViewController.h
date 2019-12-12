@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "CommonDefines.h"
+#import "User.h"
+#import "HomeViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CreatePasswordViewController : UIViewController <UITextFieldDelegate>
+{
+    User* user;
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *txtInputPassword;
 @property (weak, nonatomic) IBOutlet UITextField *txtReInputPassword;

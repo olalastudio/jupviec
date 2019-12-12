@@ -224,11 +224,48 @@
             else
             {
                 NSLog(@"update password fail with: %@", [resultDict objectForKey:@"messages"]);
-                error = [NSError errorWithDomain:@"test_domain" code:200 userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
                 completionHandler(nil, error);
             }
             
         }
     }]resume];
+}
+
+-(void)requestAPIBookService:(NSString *)strToken detailService:(NSDictionary *)detailService completionhandler:(void (^)(NSDictionary * _Nullable, NSError * _Nonnull))completionHandler
+{
+    NSURLSessionConfiguration* config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    config.timeoutIntervalForRequest = 30.0;
+    config.timeoutIntervalForResource = 60.0;
+    config.requestCachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+    
+    NSData* bodyData = [self createBodyRequest:detailService];
+    NSMutableURLRequest* request = [self createURLRequest:API_REQUEST withParam:nil];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[@"Bearer "stringByAppendingString:strToken] forHTTPHeaderField:@"Authorization"];
+    [request setHTTPBody:bodyData];
+    
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (response)
+        {
+            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+            NSDictionary* resultDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            NSLog(@"update pass:%@", resultDict);
+            if ([httpResponse statusCode] == 200)
+            {
+                error = [NSError errorWithDomain:@"test_domain" code:200 userInfo:@{NSLocalizedDescriptionKey:@"successful operation"}];
+                completionHandler(resultDict, error);
+            }
+            else
+            {
+                NSLog(@"book service fail with: %@", [resultDict objectForKey:@"messages"]);
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                completionHandler(nil, error);
+            }
+        }
+    }]resume];
+    
 }
 @end

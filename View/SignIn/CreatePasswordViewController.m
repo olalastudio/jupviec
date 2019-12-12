@@ -44,6 +44,30 @@
     [self.view endEditing:YES];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"idUserHomeVC"])
+    {
+        HomeViewController* homeVC = [segue destinationViewController];
+        homeVC.user = user;
+        homeVC.srtUserToken = _strToken;
+    }
+}
+
+- (void)requestLogin
+{
+    APIRequest* apiRequest = [[APIRequest alloc]init];
+    [apiRequest requestAPILogin:_strPhoneNum password:[_txtInputPassword text] completionHandler:^(NSString * _Nullable token, NSError * _Nonnull error) {
+        if (error.code == 200)
+        {
+            self->_strToken = token;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self performSegueWithIdentifier:@"idUserHomeVC" sender:self];
+            });
+        }
+    }];
+}
+
 - (IBAction)didClickRegisterBtn:(id)sender {
     if ([[_txtInputPassword text] isEqualToString:[_txtReInputPassword text]])
     {
@@ -51,10 +75,13 @@
         if (_intActionMode == MODE_FORGOT_PASSWORD)
         {
             [apiRequest requestAPIUpdatePassword:_strPhoneNum password:[_txtInputPassword text] token:_strToken completionHandler:^(User * _Nullable user, NSError * _Nonnull error) {
-                NSLog(@"change password success");
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self performSegueWithIdentifier:@"idUserHomeVC" sender:self];
-                });
+                if (error.code == 200)
+                {
+                    NSLog(@"change password success");
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self performSegueWithIdentifier:@"idUserHomeVC" sender:self];
+                    });
+                }
             }];
         }
         else if (_intActionMode == MODE_REGISTER_NEW_ACC)
@@ -63,9 +90,9 @@
                 if (err.code == 200)
                 {
                     NSLog(@"Register success");
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self performSegueWithIdentifier:@"idUserHomeVC" sender:self];
-                    });
+                    self->user = user;
+                    //login to get token
+                    [self requestLogin];
                 }
             }];
         }
