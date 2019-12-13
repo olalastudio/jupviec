@@ -230,9 +230,9 @@
     switch (attribute) {
         case ATTRIBUTE_DIADIEM:
         {
-            MapsViewController *mapsview = [self.storyboard instantiateViewControllerWithIdentifier:@"idmapsview"];
+            ChooseAddressViewController *chooseAddressView = [self.storyboard instantiateViewControllerWithIdentifier:@"idchooseaddressview"];
             
-            [self.navigationController pushViewController:mapsview animated:YES];
+            [self.navigationController pushViewController:chooseAddressView animated:YES];
         }
             break;
         case ATTRIBUTE_SONHACANHO:

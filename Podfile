@@ -7,5 +7,7 @@ target 'JupViec' do
 
   # Pods for JupViec
   pod 'FSCalendar'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
 
 end
