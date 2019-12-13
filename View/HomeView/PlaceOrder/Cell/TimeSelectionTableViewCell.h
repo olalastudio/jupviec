@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol TimeSelectionTableViewCellDelegate <NSObject>
 
 -(void)didClickChangeTimeSelection:(NSIndexPath*)index;
+-(void)didClickChangeWorkShift:(SHIFT_WORK)workshift workTime:(NSMutableDictionary*)worktime index:(NSIndexPath*)index;
 
 @end
 
@@ -34,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *btWorkTimeValue;
 
 - (IBAction)didPressWorkTimeButton:(id)sender;
+- (IBAction)didSelectWorkShiftSegment:(id)sender;
 
 -(void)setOderAttribute:(ORDER_ATTRIBUTE)attribute;
 -(void)setIndexPath:(NSIndexPath*)index;

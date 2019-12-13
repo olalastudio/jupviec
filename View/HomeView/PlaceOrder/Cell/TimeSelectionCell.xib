@@ -53,6 +53,9 @@
                             <segment title="Chiều"/>
                             <segment title="Tối"/>
                         </segments>
+                        <connections>
+                            <action selector="didSelectWorkShiftSegment:" destination="Gui-Wm-lrN" eventType="valueChanged" id="YHA-3A-FlE"/>
+                        </connections>
                     </segmentedControl>
                 </subviews>
                 <constraints>

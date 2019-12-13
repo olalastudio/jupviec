@@ -20,11 +20,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property   NSMutableArray      *workDayInWeek;
 @property   NSDate              *dayOfExamine;
 @property   NSMutableDictionary    *timeOfExamine;
+@property   SHIFT_WORK             workShift;
 @property   NSMutableDictionary    *workTime;
 @property   NSMutableDictionary    *extraOption;
 @property   NSMutableDictionary    *paymentMethod;
 @property   NSMutableDictionary    *priceTags;
-@property   NSString            *note;
+@property   NSString               *note;
 
 @end
 

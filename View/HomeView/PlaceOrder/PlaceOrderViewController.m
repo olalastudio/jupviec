@@ -275,11 +275,20 @@
 }
 
 #pragma mark - TimeSelectionCell Delegate
+-(void)didClickChangeWorkShift:(SHIFT_WORK)workshift workTime:(NSMutableDictionary *)worktime index:(NSIndexPath *)index
+{
+    [order setWorkShift:workshift];
+    [order setWorkTime:worktime];
+    
+    [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+}
+
 -(void)didClickChangeTimeSelection:(NSIndexPath*)index
 {
     NSLog(@"did click change Time");
     DateTimePickerPopupController *datepicker = [self.storyboard instantiateViewControllerWithIdentifier:@"iddatetimepicker"];
     [datepicker setOrderAttribute:ATTRIBUTE_GIOLAMVIEC];
+    [datepicker setOrder:order];
     [datepicker setIndexPath:index];
     [datepicker setDelegate:self];
     
@@ -293,9 +302,9 @@
     
     DateTimePickerPopupController *datepicker = [self.storyboard instantiateViewControllerWithIdentifier:@"iddatetimepicker"];
     [datepicker setOrderAttribute:ATTRIBUTE_NGAYLAMVIEC];
+    [datepicker setOrder:order];
     [datepicker setIndexPath:index];
     [datepicker setDelegate:self];
-    [datepicker setSelectedDate:[order workDate]];
     
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
     [self presentViewController:datepicker animated:YES completion:nil];
@@ -327,6 +336,21 @@
         case ATTRIBUTE_NGAYLAMVIEC:
         {
             [order setWorkDate:date];
+        }
+            break;
+        default:
+            break;
+    }
+    
+    [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+-(void)didSelectTime:(ORDER_ATTRIBUTE)sender indexPath:(NSIndexPath *)index workTime:(NSDictionary *)worktime
+{
+    switch (sender) {
+        case ATTRIBUTE_GIOLAMVIEC:
+        {
+            [order setWorkTime:[NSMutableDictionary dictionaryWithDictionary:worktime]];
         }
             break;
         default:

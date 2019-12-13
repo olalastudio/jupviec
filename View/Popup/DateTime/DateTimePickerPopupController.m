@@ -26,6 +26,9 @@
     [_startTime setDataSource:self];
     [_endTime setDelegate:self];
     [_endTime setDataSource:self];
+    
+    [_startTime setRestorationIdentifier:@"starttimepicker"];
+    [_endTime setRestorationIdentifier:@"endtimepicker"];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -39,7 +42,7 @@
 {
     [super viewWillAppear:animated];
     
-    [_calendarPicker selectDate:_selectedDate];
+    [_calendarPicker selectDate:[_order workDate]];
     
     if (_orderAttribute == ATTRIBUTE_NGAYLAMVIEC)
     {
@@ -60,8 +63,7 @@
         [_txtTitle setText:@"Giờ làm việc"];
     }
     
-    [_startTime selectRow:0 inComponent:0 animated:YES];
-    [_endTime selectRow:3 inComponent:0 animated:YES];
+    [self setSelectedTime];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -81,9 +83,81 @@
     _index = index;
 }
 
--(void)setSelectedDate:(NSDate *)date
+-(void)setOrder:(Order*)order
 {
-    _selectedDate = date;
+    _order = order;
+}
+
+-(NSArray*)startTimeArray
+{
+    SHIFT_WORK shiftWork = [_order workShift];
+    
+    switch (shiftWork) {
+        case SHIFT_WORK_MORNING:
+            return @[@"08:00",@"08:30",@"09:00",@"09:30",@"10:00"];
+            break;
+        case SHIFT_WORK_AFTERNOON:
+            return @[@"13:00",@"13:30",@"14:00",@"14:30",@"15:00"];
+            break;
+            case SHIFT_WORK_EVENING:
+            return @[@"17:00",@"17:30",@"18:00",@"18:30",@"19:00"];
+            break;
+        default:
+            break;
+    }
+    
+    return nil;
+}
+
+-(NSArray*)endTimeArray
+{
+    SHIFT_WORK shiftWork = [_order workShift];
+    
+    switch (shiftWork) {
+        case SHIFT_WORK_MORNING:
+            return @[@"10:00",@"10:30",@"11:00",@"11:30",@"12:00"];
+            break;
+        case SHIFT_WORK_AFTERNOON:
+            return @[@"15:00",@"15:30",@"16:00",@"16:30",@"17:00"];
+            break;
+            case SHIFT_WORK_EVENING:
+            return @[@"19:00",@"19:30",@"20:00",@"20:30",@"21:00"];
+            break;
+        default:
+            break;
+    }
+    
+    return nil;
+}
+
+-(void)setSelectedTime
+{
+    NSMutableDictionary *worktime = [_order workTime];
+    NSString *starttime = [worktime objectForKey:ATTRIBUTE_START_TIME];
+    NSString *endtime = [worktime objectForKey:ATTRIBUTE_END_TIME];
+    
+    NSArray *startArray = [self startTimeArray];
+    NSArray *endArray = [self endTimeArray];
+    
+    //start time
+    for (int i=0; i < startArray.count; i++)
+    {
+        if ([starttime isEqualToString:[startArray objectAtIndex:i]])
+        {
+            [_startTime selectRow:i inComponent:0 animated:YES];
+            break;
+        }
+    }
+    
+    //end time
+    for (int i=0; i < endArray.count; i++)
+    {
+        if ([endtime isEqualToString:[endArray objectAtIndex:i]])
+        {
+            [_endTime selectRow:i inComponent:0 animated:YES];
+            break;
+        }
+    }
 }
 /*
 #pragma mark - Navigation
@@ -100,7 +174,16 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)didPressConfirmTimeButton:(id)sender {
+- (IBAction)didPressConfirmTimeButton:(id)sender
+{
+    NSString *startTime = [[self startTimeArray] objectAtIndex:[_startTime selectedRowInComponent:0]];
+    NSString *endTime = [[self endTimeArray] objectAtIndex:[_endTime selectedRowInComponent:0]];
+    
+    NSDictionary *worktime = [NSDictionary dictionaryWithObjectsAndKeys:startTime,ATTRIBUTE_START_TIME, endTime, ATTRIBUTE_END_TIME, nil];
+
+    if (_delegate && [_delegate respondsToSelector:@selector(didSelectTime:indexPath:workTime:)]) {
+        [_delegate didSelectTime:_orderAttribute indexPath:_index workTime:worktime];
+    }
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -130,34 +213,24 @@
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return 7;
+    if ([[pickerView restorationIdentifier] isEqualToString:@"starttimepicker"]) {
+        return [[self startTimeArray] count];
+    }
+    
+    return [[self endTimeArray] count];
 }
 
 -(NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    if (row == 0) {
-        return @"06:00";
+    NSArray *list;
+    if ([[pickerView restorationIdentifier] isEqualToString:@"starttimepicker"]) {
+        list = [self startTimeArray];
     }
-    else if (row == 1){
-        return @"07:00";
-    }
-    else if (row == 2){
-        return @"08:00";
-    }
-    else if (row == 3){
-        return @"09:00";
-    }
-    else if (row == 4){
-        return @"10:00";
-    }
-    else if (row == 5){
-        return @"11:00";
-    }
-    else if (row == 6){
-        return @"12:00";
+    else{
+        list = [self endTimeArray];
     }
     
-    return @"";
+    return [list objectAtIndex:row];
 }
 
 @end
