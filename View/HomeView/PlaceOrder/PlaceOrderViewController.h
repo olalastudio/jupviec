@@ -12,7 +12,7 @@
 #import "PlaceOrderCommonTableViewCell.h"
 #import "TimeSelectionTableViewCell.h"
 #import "DaySelectionTableViewCell.h"
-#import "MapsViewController.h"
+#import "ChooseAddressViewController.h"
 #import "TextDetailPopupController.h"
 #import "DateTimePickerPopupController.h"
 

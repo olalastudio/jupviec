@@ -419,7 +419,6 @@
 		068DDEED23990D8C009484E7 /* PlaceOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 068DDEEC23990D8C009484E7 /* PlaceOrderViewController.m */; };
 		068DDEF023991431009484E7 /* CommonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 068DDEEF23991431009484E7 /* CommonCell.xib */; };
 		068DDEF32399144C009484E7 /* PlaceOrderCommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 068DDEF22399144C009484E7 /* PlaceOrderCommonTableViewCell.m */; };
-		06B620BA2397B34D0036DCF9 /* HomePromotionCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B620B92397B34D0036DCF9 /* HomePromotionCollectionCell.xib */; };
 		06B620BD2397B3930036DCF9 /* HomePromotionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */; };
 		06B620BF2397B4540036DCF9 /* makhuyenmai.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B620BE2397B4540036DCF9 /* makhuyenmai.png */; };
 		06D6BF19239E39B000AB52DB /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6BF18239E39B000AB52DB /* MapsViewController.m */; };
@@ -439,6 +438,8 @@
 		06FEA1E42394CC0E005D58B9 /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1E32394CC0E005D58B9 /* HistoryTableViewCell.m */; };
 		06FEA1E8239544F2005D58B9 /* DetailOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1E7239544F2005D58B9 /* DetailOrderViewController.m */; };
 		46CAF70896EA60D414CFC77A /* Pods_JupViec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3C72A5BA82C14B92E726941 /* Pods_JupViec.framework */; };
+		CE8F00ED23A1EF60000235D1 /* ChooseAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8F00EC23A1EF60000235D1 /* ChooseAddressViewController.m */; };
+		CE8F00EF23A23524000235D1 /* HomePromotionCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8F00EE23A23524000235D1 /* HomePromotionCollectionCell.xib */; };
 		CEA83F1723911F60001C1512 /* APIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA83F1523911F5F001C1512 /* APIRequest.m */; };
 		CEA83F1B239120BE001C1512 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA83F19239120BE001C1512 /* User.m */; };
 		CEFD75B22394FAD80040699B /* CreatePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFD75B12394FAD80040699B /* CreatePasswordViewController.m */; };
@@ -883,7 +884,6 @@
 		068DDEEF23991431009484E7 /* CommonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonCell.xib; sourceTree = "<group>"; };
 		068DDEF12399144C009484E7 /* PlaceOrderCommonTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceOrderCommonTableViewCell.h; sourceTree = "<group>"; };
 		068DDEF22399144C009484E7 /* PlaceOrderCommonTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceOrderCommonTableViewCell.m; sourceTree = "<group>"; };
-		06B620B92397B34D0036DCF9 /* HomePromotionCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePromotionCollectionCell.xib; sourceTree = "<group>"; };
 		06B620BB2397B3930036DCF9 /* HomePromotionCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePromotionCollectionViewCell.h; sourceTree = "<group>"; };
 		06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePromotionCollectionViewCell.m; sourceTree = "<group>"; };
 		06B620BE2397B4540036DCF9 /* makhuyenmai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = makhuyenmai.png; sourceTree = "<group>"; };
@@ -915,6 +915,9 @@
 		06FEA1E7239544F2005D58B9 /* DetailOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailOrderViewController.m; sourceTree = "<group>"; };
 		A439FB650960B4F1DC9ED183 /* Pods-JupViec.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JupViec.debug.xcconfig"; path = "Target Support Files/Pods-JupViec/Pods-JupViec.debug.xcconfig"; sourceTree = "<group>"; };
 		C11212276C0A28E5B7124618 /* Pods-JupViec.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JupViec.release.xcconfig"; path = "Target Support Files/Pods-JupViec/Pods-JupViec.release.xcconfig"; sourceTree = "<group>"; };
+		CE8F00EB23A1EF60000235D1 /* ChooseAddressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseAddressViewController.h; sourceTree = "<group>"; };
+		CE8F00EC23A1EF60000235D1 /* ChooseAddressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseAddressViewController.m; sourceTree = "<group>"; };
+		CE8F00EE23A23524000235D1 /* HomePromotionCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePromotionCollectionCell.xib; sourceTree = "<group>"; };
 		CEA83F1523911F5F001C1512 /* APIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIRequest.m; sourceTree = "<group>"; };
 		CEA83F1623911F60001C1512 /* APIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIRequest.h; sourceTree = "<group>"; };
 		CEA83F19239120BE001C1512 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -1533,9 +1536,9 @@
 				06EC9F212396784100474EE3 /* HomePromotionCell.xib */,
 				06EC9F232396786100474EE3 /* HomePromotionTableViewCell.h */,
 				06EC9F242396786100474EE3 /* HomePromotionTableViewCell.m */,
-				06B620B92397B34D0036DCF9 /* HomePromotionCollectionCell.xib */,
 				06B620BB2397B3930036DCF9 /* HomePromotionCollectionViewCell.h */,
 				06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */,
+				CE8F00EE23A23524000235D1 /* HomePromotionCollectionCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1555,6 +1558,8 @@
 			children = (
 				06D6BF17239E39B000AB52DB /* MapsViewController.h */,
 				06D6BF18239E39B000AB52DB /* MapsViewController.m */,
+				CE8F00EB23A1EF60000235D1 /* ChooseAddressViewController.h */,
+				CE8F00EC23A1EF60000235D1 /* ChooseAddressViewController.m */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -1630,6 +1635,7 @@
 				0658BEB1238FAC7800CBBAD1 /* Frameworks */,
 				0658BEB2238FAC7800CBBAD1 /* Resources */,
 				963F9C77E7AC9D57284C5DAC /* [CP] Embed Pods Frameworks */,
+				8630249AFF81E76B2C94C666 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1819,7 +1825,6 @@
 				0601E372238FAEEF00403C95 /* divide.png in Resources */,
 				0601E34C238FAEEF00403C95 /* calendar.png in Resources */,
 				0601E484238FAEF000403C95 /* users.png in Resources */,
-				06B620BA2397B34D0036DCF9 /* HomePromotionCollectionCell.xib in Resources */,
 				0601E39C238FAEEF00403C95 /* folder-3.png in Resources */,
 				0601E353238FAEEF00403C95 /* cloud-computing-2.png in Resources */,
 				0601E3F1238FAEEF00403C95 /* muted.png in Resources */,
@@ -2009,6 +2014,7 @@
 				0601E392238FAEEF00403C95 /* folder-11.png in Resources */,
 				0601E3B9238FAEEF00403C95 /* id-card-5.png in Resources */,
 				0601E3D7238FAEEF00403C95 /* magnet.png in Resources */,
+				CE8F00EF23A23524000235D1 /* HomePromotionCollectionCell.xib in Resources */,
 				0601E461238FAEF000403C95 /* street-1.png in Resources */,
 				0601E3BF238FAEEF00403C95 /* internet.png in Resources */,
 				0601E474238FAEF000403C95 /* trash.png in Resources */,
@@ -2103,6 +2109,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8630249AFF81E76B2C94C666 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JupViec/Pods-JupViec-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JupViec/Pods-JupViec-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JupViec/Pods-JupViec-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		963F9C77E7AC9D57284C5DAC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2133,6 +2156,7 @@
 				0601E49C238FAEF000403C95 /* SignInViewController.m in Sources */,
 				0612A384239617DA00A82BB9 /* InformationViewController.m in Sources */,
 				06ED4C1423A0EDE90072EB15 /* TimeSelectionTableViewCell.m in Sources */,
+				CE8F00ED23A1EF60000235D1 /* ChooseAddressViewController.m in Sources */,
 				0658BEBC238FAC7800CBBAD1 /* ViewController.m in Sources */,
 				0612A380239617C100A82BB9 /* NoticeViewController.m in Sources */,
 				0633A78A239113080094219D /* OTPCheckViewController.m in Sources */,
@@ -2309,13 +2333,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KREB2MXHVA;
+				DEVELOPMENT_TEAM = 6R752XT6V5;
 				INFOPLIST_FILE = JupViec/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Olala.JupViec;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kk.jupviec;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Until/JupViec-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2331,13 +2355,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KREB2MXHVA;
+				DEVELOPMENT_TEAM = 6R752XT6V5;
 				INFOPLIST_FILE = JupViec/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Olala.JupViec;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kk.jupviec;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Until/JupViec-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
