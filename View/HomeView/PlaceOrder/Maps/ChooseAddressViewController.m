@@ -20,8 +20,6 @@
     shouldShowSearchResult = NO;
     _filteredFullAddressArr = [[NSMutableArray alloc]init];
     _filteredPrimaryAddressArr = [[NSMutableArray alloc]init];
-    [GMSPlacesClient provideAPIKey:@"AIzaSyB1Qo46kfokUCUb9pTGUb0QV5aoKmPV6qE"];
-    [GMSServices provideAPIKey:@"AIzaSyB1Qo46kfokUCUb9pTGUb0QV5aoKmPV6qE"];
     _placesClient = [GMSPlacesClient sharedClient];
     _addressSearchBar.delegate = self;
 }

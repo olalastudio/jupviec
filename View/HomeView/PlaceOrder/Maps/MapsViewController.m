@@ -24,14 +24,19 @@
     [_mapView setDelegate:self];
 }
 
+- (IBAction)didPressConfirmLocationButton:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - LocationDelegate
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
-    if (status == kCLAuthorizationStatusAuthorizedWhenInUse)
+    if (status == kCLAuthorizationStatusAuthorizedWhenInUse || status == kCLAuthorizationStatusAuthorizedAlways)
     {
         [_locationManager startUpdatingLocation];
         [_mapView setMyLocationEnabled:YES];
         [_mapView.settings setMyLocationButton:YES];
-        
     }
 }
 
@@ -77,4 +82,5 @@
             return;
     }];
 }
+
 @end

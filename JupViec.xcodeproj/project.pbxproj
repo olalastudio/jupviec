@@ -408,6 +408,7 @@
 		0633A78A239113080094219D /* OTPCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0633A789239113080094219D /* OTPCheckViewController.m */; };
 		0633A78D239113D50094219D /* AccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0633A78C239113D50094219D /* AccountInfoViewController.m */; };
 		0633A793239117E00094219D /* LoginWithPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0633A792239117E00094219D /* LoginWithPasswordViewController.m */; };
+		065105E723A33F0500B5339B /* HomePromotionCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 065105E623A33F0500B5339B /* HomePromotionCollectionCell.xib */; };
 		0658BEB9238FAC7800CBBAD1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658BEB8238FAC7800CBBAD1 /* AppDelegate.m */; };
 		0658BEBC238FAC7800CBBAD1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658BEBB238FAC7800CBBAD1 /* ViewController.m */; };
 		0658BEBF238FAC7800CBBAD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0658BEBD238FAC7800CBBAD1 /* Main.storyboard */; };
@@ -437,9 +438,8 @@
 		06FEA1E12394CBCC005D58B9 /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06FEA1E02394CBCC005D58B9 /* HistoryCell.xib */; };
 		06FEA1E42394CC0E005D58B9 /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1E32394CC0E005D58B9 /* HistoryTableViewCell.m */; };
 		06FEA1E8239544F2005D58B9 /* DetailOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1E7239544F2005D58B9 /* DetailOrderViewController.m */; };
-		46CAF70896EA60D414CFC77A /* Pods_JupViec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3C72A5BA82C14B92E726941 /* Pods_JupViec.framework */; };
+		4CCA650DE5769D6F06336B2A /* Pods_JupViec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF954FD1F9AE36C1F76ACB82 /* Pods_JupViec.framework */; };
 		CE8F00ED23A1EF60000235D1 /* ChooseAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8F00EC23A1EF60000235D1 /* ChooseAddressViewController.m */; };
-		CE8F00EF23A23524000235D1 /* HomePromotionCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8F00EE23A23524000235D1 /* HomePromotionCollectionCell.xib */; };
 		CEA83F1723911F60001C1512 /* APIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA83F1523911F5F001C1512 /* APIRequest.m */; };
 		CEA83F1B239120BE001C1512 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA83F19239120BE001C1512 /* User.m */; };
 		CEFD75B22394FAD80040699B /* CreatePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFD75B12394FAD80040699B /* CreatePasswordViewController.m */; };
@@ -866,6 +866,7 @@
 		0633A78E239117890094219D /* CreatePasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreatePasswordViewController.h; sourceTree = "<group>"; };
 		0633A791239117E00094219D /* LoginWithPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginWithPasswordViewController.h; sourceTree = "<group>"; };
 		0633A792239117E00094219D /* LoginWithPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginWithPasswordViewController.m; sourceTree = "<group>"; };
+		065105E623A33F0500B5339B /* HomePromotionCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePromotionCollectionCell.xib; sourceTree = "<group>"; };
 		0658BEB4238FAC7800CBBAD1 /* JupViec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JupViec.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0658BEB7238FAC7800CBBAD1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0658BEB8238FAC7800CBBAD1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -913,17 +914,16 @@
 		06FEA1E32394CC0E005D58B9 /* HistoryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewCell.m; sourceTree = "<group>"; };
 		06FEA1E6239544F2005D58B9 /* DetailOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailOrderViewController.h; sourceTree = "<group>"; };
 		06FEA1E7239544F2005D58B9 /* DetailOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailOrderViewController.m; sourceTree = "<group>"; };
-		A439FB650960B4F1DC9ED183 /* Pods-JupViec.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JupViec.debug.xcconfig"; path = "Target Support Files/Pods-JupViec/Pods-JupViec.debug.xcconfig"; sourceTree = "<group>"; };
-		C11212276C0A28E5B7124618 /* Pods-JupViec.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JupViec.release.xcconfig"; path = "Target Support Files/Pods-JupViec/Pods-JupViec.release.xcconfig"; sourceTree = "<group>"; };
+		4F3649E165524B914C1FE02A /* Pods-JupViec.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JupViec.debug.xcconfig"; path = "Target Support Files/Pods-JupViec/Pods-JupViec.debug.xcconfig"; sourceTree = "<group>"; };
+		C5473C782A87585FD2C38DA3 /* Pods-JupViec.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JupViec.release.xcconfig"; path = "Target Support Files/Pods-JupViec/Pods-JupViec.release.xcconfig"; sourceTree = "<group>"; };
 		CE8F00EB23A1EF60000235D1 /* ChooseAddressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseAddressViewController.h; sourceTree = "<group>"; };
 		CE8F00EC23A1EF60000235D1 /* ChooseAddressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseAddressViewController.m; sourceTree = "<group>"; };
-		CE8F00EE23A23524000235D1 /* HomePromotionCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePromotionCollectionCell.xib; sourceTree = "<group>"; };
 		CEA83F1523911F5F001C1512 /* APIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIRequest.m; sourceTree = "<group>"; };
 		CEA83F1623911F60001C1512 /* APIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIRequest.h; sourceTree = "<group>"; };
 		CEA83F19239120BE001C1512 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		CEA83F1A239120BE001C1512 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		CEFD75B12394FAD80040699B /* CreatePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatePasswordViewController.m; sourceTree = "<group>"; };
-		F3C72A5BA82C14B92E726941 /* Pods_JupViec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JupViec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF954FD1F9AE36C1F76ACB82 /* Pods_JupViec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JupViec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -932,7 +932,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				066603502390BBA30036847C /* CoreLocation.framework in Frameworks */,
-				46CAF70896EA60D414CFC77A /* Pods_JupViec.framework in Frameworks */,
+				4CCA650DE5769D6F06336B2A /* Pods_JupViec.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1414,7 +1414,7 @@
 			children = (
 				0666034E2390BB110036847C /* CoreLocation.framework */,
 				062061C82390B94300956FF4 /* MapKit.framework */,
-				F3C72A5BA82C14B92E726941 /* Pods_JupViec.framework */,
+				EF954FD1F9AE36C1F76ACB82 /* Pods_JupViec.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1538,7 +1538,7 @@
 				06EC9F242396786100474EE3 /* HomePromotionTableViewCell.m */,
 				06B620BB2397B3930036DCF9 /* HomePromotionCollectionViewCell.h */,
 				06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */,
-				CE8F00EE23A23524000235D1 /* HomePromotionCollectionCell.xib */,
+				065105E623A33F0500B5339B /* HomePromotionCollectionCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1617,8 +1617,8 @@
 		D1E8393A2937EB5096E7DFB8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A439FB650960B4F1DC9ED183 /* Pods-JupViec.debug.xcconfig */,
-				C11212276C0A28E5B7124618 /* Pods-JupViec.release.xcconfig */,
+				4F3649E165524B914C1FE02A /* Pods-JupViec.debug.xcconfig */,
+				C5473C782A87585FD2C38DA3 /* Pods-JupViec.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1630,12 +1630,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0658BECA238FAC7800CBBAD1 /* Build configuration list for PBXNativeTarget "JupViec" */;
 			buildPhases = (
-				6FF66EC3291E8B22B7DA2716 /* [CP] Check Pods Manifest.lock */,
+				060B2343A17018BCDB5FA520 /* [CP] Check Pods Manifest.lock */,
 				0658BEB0238FAC7800CBBAD1 /* Sources */,
 				0658BEB1238FAC7800CBBAD1 /* Frameworks */,
 				0658BEB2238FAC7800CBBAD1 /* Resources */,
-				963F9C77E7AC9D57284C5DAC /* [CP] Embed Pods Frameworks */,
-				8630249AFF81E76B2C94C666 /* [CP] Copy Pods Resources */,
+				8ECFA701C9CC632EFB363205 /* [CP] Embed Pods Frameworks */,
+				3289EA19A54D71994E58DC47 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1963,6 +1963,7 @@
 				0601E361238FAEEF00403C95 /* controls-3.png in Resources */,
 				0601E40D238FAEEF00403C95 /* picture-2.png in Resources */,
 				0601E36A238FAEEF00403C95 /* database-2.png in Resources */,
+				065105E723A33F0500B5339B /* HomePromotionCollectionCell.xib in Resources */,
 				0601E455238FAEF000403C95 /* speaker-8.png in Resources */,
 				0601E430238FAEF000403C95 /* settings-2.png in Resources */,
 				0601E400238FAEEF00403C95 /* notepad.png in Resources */,
@@ -2014,7 +2015,6 @@
 				0601E392238FAEEF00403C95 /* folder-11.png in Resources */,
 				0601E3B9238FAEEF00403C95 /* id-card-5.png in Resources */,
 				0601E3D7238FAEEF00403C95 /* magnet.png in Resources */,
-				CE8F00EF23A23524000235D1 /* HomePromotionCollectionCell.xib in Resources */,
 				0601E461238FAEF000403C95 /* street-1.png in Resources */,
 				0601E3BF238FAEEF00403C95 /* internet.png in Resources */,
 				0601E474238FAEF000403C95 /* trash.png in Resources */,
@@ -2087,7 +2087,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6FF66EC3291E8B22B7DA2716 /* [CP] Check Pods Manifest.lock */ = {
+		060B2343A17018BCDB5FA520 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2109,7 +2109,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8630249AFF81E76B2C94C666 /* [CP] Copy Pods Resources */ = {
+		3289EA19A54D71994E58DC47 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2126,7 +2126,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JupViec/Pods-JupViec-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		963F9C77E7AC9D57284C5DAC /* [CP] Embed Pods Frameworks */ = {
+		8ECFA701C9CC632EFB363205 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2328,12 +2328,12 @@
 		};
 		0658BECB238FAC7800CBBAD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A439FB650960B4F1DC9ED183 /* Pods-JupViec.debug.xcconfig */;
+			baseConfigurationReference = 4F3649E165524B914C1FE02A /* Pods-JupViec.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6R752XT6V5;
+				DEVELOPMENT_TEAM = KREB2MXHVA;
 				INFOPLIST_FILE = JupViec/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2350,12 +2350,12 @@
 		};
 		0658BECC238FAC7800CBBAD1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C11212276C0A28E5B7124618 /* Pods-JupViec.release.xcconfig */;
+			baseConfigurationReference = C5473C782A87585FD2C38DA3 /* Pods-JupViec.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6R752XT6V5;
+				DEVELOPMENT_TEAM = KREB2MXHVA;
 				INFOPLIST_FILE = JupViec/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

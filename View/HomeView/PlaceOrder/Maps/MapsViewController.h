@@ -20,7 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UILabel *addressLb;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIButton *btConfirmLocation;
 
+- (IBAction)didPressConfirmLocationButton:(id)sender;
 
 @end
 
