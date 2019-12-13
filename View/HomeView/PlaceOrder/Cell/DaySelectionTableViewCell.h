@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol DaySelectionTableViewCellDelegate <NSObject>
 
--(void)didClickChangeDaySelection:(NSIndexPath*)index;
+-(void)didClickChangeDaySelection:(ORDER_ATTRIBUTE)sender index:(NSIndexPath*)index;
 
 @end
 

@@ -12,10 +12,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+{
+    __strong User   *_user;
+}
 
-@property (weak, nonatomic) IBOutlet UITableView *tbSelectionTask;
-@property (nonatomic, weak) User* user;
-@property (nonatomic, weak) NSString* srtUserToken;
+@property (weak, nonatomic) IBOutlet UITableView    *tbSelectionTask;
+@property (nonatomic, strong) User                    *user;
+@property (nonatomic, weak) NSString                *srtUserToken;
 
 - (IBAction)didClickLoginButton:(id)sender;
 

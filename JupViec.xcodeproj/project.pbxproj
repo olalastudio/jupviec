@@ -433,6 +433,7 @@
 		06ED4C1423A0EDE90072EB15 /* TimeSelectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED4C1323A0EDE90072EB15 /* TimeSelectionTableViewCell.m */; };
 		06ED4C1623A0FD130072EB15 /* DaySelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06ED4C1523A0FD130072EB15 /* DaySelectionCell.xib */; };
 		06ED4C1923A0FD220072EB15 /* DaySelectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED4C1823A0FD220072EB15 /* DaySelectionTableViewCell.m */; };
+		06FD73C123A2527F00528A00 /* DayLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FD73C023A2527F00528A00 /* DayLabel.m */; };
 		06FEA1DF2394BCC0005D58B9 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1DE2394BCC0005D58B9 /* HistoryViewController.m */; };
 		06FEA1E12394CBCC005D58B9 /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06FEA1E02394CBCC005D58B9 /* HistoryCell.xib */; };
 		06FEA1E42394CC0E005D58B9 /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1E32394CC0E005D58B9 /* HistoryTableViewCell.m */; };
@@ -903,6 +904,8 @@
 		06ED4C1523A0FD130072EB15 /* DaySelectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DaySelectionCell.xib; sourceTree = "<group>"; };
 		06ED4C1723A0FD220072EB15 /* DaySelectionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DaySelectionTableViewCell.h; sourceTree = "<group>"; };
 		06ED4C1823A0FD220072EB15 /* DaySelectionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DaySelectionTableViewCell.m; sourceTree = "<group>"; };
+		06FD73BF23A2527F00528A00 /* DayLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DayLabel.h; sourceTree = "<group>"; };
+		06FD73C023A2527F00528A00 /* DayLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DayLabel.m; sourceTree = "<group>"; };
 		06FEA1DD2394BCC0005D58B9 /* HistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		06FEA1DE2394BCC0005D58B9 /* HistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
 		06FEA1E02394CBCC005D58B9 /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
@@ -1507,6 +1510,7 @@
 		068DDEEE23991393009484E7 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				06FD73BE23A2526100528A00 /* Controll */,
 				068DDEEF23991431009484E7 /* CommonCell.xib */,
 				068DDEF12399144C009484E7 /* PlaceOrderCommonTableViewCell.h */,
 				068DDEF22399144C009484E7 /* PlaceOrderCommonTableViewCell.m */,
@@ -1553,6 +1557,15 @@
 				06D6BF18239E39B000AB52DB /* MapsViewController.m */,
 			);
 			path = Maps;
+			sourceTree = "<group>";
+		};
+		06FD73BE23A2526100528A00 /* Controll */ = {
+			isa = PBXGroup;
+			children = (
+				06FD73BF23A2527F00528A00 /* DayLabel.h */,
+				06FD73C023A2527F00528A00 /* DayLabel.m */,
+			);
+			path = Controll;
 			sourceTree = "<group>";
 		};
 		06FEA1DC2394BCAD005D58B9 /* History */ = {
@@ -2137,6 +2150,7 @@
 				0612A38E23961DB900A82BB9 /* CouponTableViewCell.m in Sources */,
 				CEA83F1723911F60001C1512 /* APIRequest.m in Sources */,
 				068DDEED23990D8C009484E7 /* PlaceOrderViewController.m in Sources */,
+				06FD73C123A2527F00528A00 /* DayLabel.m in Sources */,
 				06222E24239E489C00AE24C5 /* TextDetailPopupController.m in Sources */,
 				CEA83F1B239120BE001C1512 /* User.m in Sources */,
 				0612A393239621F500A82BB9 /* InformationTableViewCell.m in Sources */,

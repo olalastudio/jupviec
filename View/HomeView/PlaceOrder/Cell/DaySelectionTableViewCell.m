@@ -32,6 +32,8 @@
 -(void)setOrder:(Order *)order
 {
     _order = order;
+    
+    [self showDay];
 }
 
 -(void)setIndexPath:(NSIndexPath *)index
@@ -41,8 +43,8 @@
 
 - (IBAction)didPressWorkDayButton:(id)sender
 {
-    if (_delegate && [_delegate respondsToSelector:@selector(didClickChangeDaySelection:)]) {
-        [_delegate didClickChangeDaySelection:_indexPath];
+    if (_delegate && [_delegate respondsToSelector:@selector(didClickChangeDaySelection:index:)]) {
+        [_delegate didClickChangeDaySelection:_ordeAttribute index:_indexPath];
     }
 }
 

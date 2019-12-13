@@ -19,11 +19,12 @@
 @end
 
 @implementation HomeViewController
+@synthesize user = _user;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    user = [[User alloc]init];
+    _user = [[User alloc] init];
     
     [_tbSelectionTask registerNib:[UINib nibWithNibName:@"HomeTaskCell" bundle:nil] forCellReuseIdentifier:@"idhometaskcell"];
     [_tbSelectionTask registerNib:[UINib nibWithNibName:@"HomePromotionCell" bundle:nil] forCellReuseIdentifier:@"idhomepromotioncell"];
@@ -69,7 +70,7 @@
 }
 
 - (IBAction)didClickLoginButton:(id)sender {
-    if (![user userPhoneNum])
+    if (![_user userPhoneNum])
     {
         //change to view register
         [self performSegueWithIdentifier:@"idlogin" sender:self];

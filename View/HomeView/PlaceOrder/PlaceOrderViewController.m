@@ -250,7 +250,7 @@
             break;
         case ATTRIBUTE_NGAYLAMVIEC:
         {
-            [self didClickChangeDaySelection:index];
+            [self didClickChangeDaySelection:ATTRIBUTE_NGAYLAMVIEC index:index];
         }
             break;
         case ATTRIBUTE_NGAYLAMTRONGTUAN:
@@ -296,12 +296,12 @@
     [self presentViewController:datepicker animated:YES completion:nil];
 }
 
--(void)didClickChangeDaySelection:(NSIndexPath*)index
+-(void)didClickChangeDaySelection:(ORDER_ATTRIBUTE)sender index:(NSIndexPath *)index
 {
     NSLog(@"did click change day");
     
     DateTimePickerPopupController *datepicker = [self.storyboard instantiateViewControllerWithIdentifier:@"iddatetimepicker"];
-    [datepicker setOrderAttribute:ATTRIBUTE_NGAYLAMVIEC];
+    [datepicker setOrderAttribute:sender];
     [datepicker setOrder:order];
     [datepicker setIndexPath:index];
     [datepicker setDelegate:self];
@@ -334,6 +334,7 @@
     switch (sender)
     {
         case ATTRIBUTE_NGAYLAMVIEC:
+        case ATTRIBUTE_NGAYLAMTRONGTUAN:
         {
             [order setWorkDate:date];
         }
@@ -342,7 +343,8 @@
             break;
     }
     
-    [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+//    [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+    [_tbPlaceOrderContent reloadData];
 }
 
 -(void)didSelectTime:(ORDER_ATTRIBUTE)sender indexPath:(NSIndexPath *)index workTime:(NSDictionary *)worktime

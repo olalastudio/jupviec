@@ -16,23 +16,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giờ làm việc :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Diz-PB-cXN">
-                        <rect key="frame" x="20" y="79" width="87" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQn-4x-Gmk">
-                        <rect key="frame" x="112" y="79" width="92" height="17"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="17" id="S3h-iV-h9c"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <state key="normal" title="08:00 - 09:00"/>
-                        <connections>
-                            <action selector="didPressWorkTimeButton:" destination="Gui-Wm-lrN" eventType="touchUpInside" id="OZu-aV-vSV"/>
-                        </connections>
-                    </button>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="time.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZBw-LS-C4A">
                         <rect key="frame" x="20" y="5" width="20" height="20"/>
                         <constraints>
@@ -46,30 +29,59 @@
                         <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YDv-Oc-eeh">
-                        <rect key="frame" x="20" y="36" width="374" height="32"/>
-                        <segments>
-                            <segment title="Sáng"/>
-                            <segment title="Chiều"/>
-                            <segment title="Tối"/>
-                        </segments>
-                        <connections>
-                            <action selector="didSelectWorkShiftSegment:" destination="Gui-Wm-lrN" eventType="valueChanged" id="YHA-3A-FlE"/>
-                        </connections>
-                    </segmentedControl>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HwM-ZX-MSz">
+                        <rect key="frame" x="20" y="31" width="374" height="74"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YDv-Oc-eeh">
+                                <rect key="frame" x="10" y="5" width="354" height="32"/>
+                                <segments>
+                                    <segment title="Sáng"/>
+                                    <segment title="Chiều"/>
+                                    <segment title="Tối"/>
+                                </segments>
+                                <connections>
+                                    <action selector="didSelectWorkShiftSegment:" destination="Gui-Wm-lrN" eventType="valueChanged" id="YHA-3A-FlE"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giờ làm việc :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Diz-PB-cXN">
+                                <rect key="frame" x="10" y="46" width="87" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQn-4x-Gmk">
+                                <rect key="frame" x="107" y="46" width="92" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="2bj-B3-Fzd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="08:00 - 09:00"/>
+                                <connections>
+                                    <action selector="didPressWorkTimeButton:" destination="Gui-Wm-lrN" eventType="touchUpInside" id="OZu-aV-vSV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92942972715736039" green="0.92942972715736039" blue="0.92942972715736039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="YDv-Oc-eeh" firstAttribute="top" secondItem="HwM-ZX-MSz" secondAttribute="top" constant="5" id="57q-Af-aQC"/>
+                            <constraint firstItem="Diz-PB-cXN" firstAttribute="leading" secondItem="HwM-ZX-MSz" secondAttribute="leading" constant="10" id="AQr-qv-Pzg"/>
+                            <constraint firstItem="dQn-4x-Gmk" firstAttribute="top" secondItem="YDv-Oc-eeh" secondAttribute="bottom" constant="10" id="EdR-hO-mK0"/>
+                            <constraint firstItem="Diz-PB-cXN" firstAttribute="top" secondItem="YDv-Oc-eeh" secondAttribute="bottom" constant="10" id="Gd2-AU-0GH"/>
+                            <constraint firstItem="YDv-Oc-eeh" firstAttribute="leading" secondItem="HwM-ZX-MSz" secondAttribute="leading" constant="10" id="Jnq-qu-q7c"/>
+                            <constraint firstAttribute="trailing" secondItem="YDv-Oc-eeh" secondAttribute="trailing" constant="10" id="akF-pk-hAF"/>
+                            <constraint firstItem="dQn-4x-Gmk" firstAttribute="leading" secondItem="Diz-PB-cXN" secondAttribute="trailing" constant="10" id="utF-mI-lb9"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="BHa-vq-SAx" firstAttribute="leading" secondItem="ZBw-LS-C4A" secondAttribute="trailing" constant="10" id="0qk-cu-UR5"/>
-                    <constraint firstItem="YDv-Oc-eeh" firstAttribute="leading" secondItem="hkV-kP-2KZ" secondAttribute="leading" constant="20" id="2zh-aN-Xt4"/>
-                    <constraint firstAttribute="trailing" secondItem="YDv-Oc-eeh" secondAttribute="trailing" constant="20" id="40Y-Zg-IiM"/>
-                    <constraint firstItem="dQn-4x-Gmk" firstAttribute="top" secondItem="YDv-Oc-eeh" secondAttribute="bottom" constant="12" id="7JI-OD-xnE"/>
-                    <constraint firstItem="dQn-4x-Gmk" firstAttribute="leading" secondItem="Diz-PB-cXN" secondAttribute="trailing" constant="5" id="Cgq-b6-BRE"/>
-                    <constraint firstItem="Diz-PB-cXN" firstAttribute="top" secondItem="YDv-Oc-eeh" secondAttribute="bottom" constant="12" id="Oa1-dr-T2j"/>
+                    <constraint firstAttribute="trailing" secondItem="HwM-ZX-MSz" secondAttribute="trailing" constant="20" id="8Vb-39-LiB"/>
+                    <constraint firstAttribute="bottom" secondItem="HwM-ZX-MSz" secondAttribute="bottom" constant="5" id="ELO-5V-fBl"/>
+                    <constraint firstItem="HwM-ZX-MSz" firstAttribute="leading" secondItem="hkV-kP-2KZ" secondAttribute="leading" constant="20" id="Gz4-Hc-LCP"/>
+                    <constraint firstItem="HwM-ZX-MSz" firstAttribute="top" secondItem="BHa-vq-SAx" secondAttribute="bottom" constant="5" id="Jj1-Dc-OSh"/>
                     <constraint firstAttribute="trailing" secondItem="BHa-vq-SAx" secondAttribute="trailing" constant="20" id="UTb-na-VLR"/>
                     <constraint firstItem="ZBw-LS-C4A" firstAttribute="leading" secondItem="hkV-kP-2KZ" secondAttribute="leading" constant="20" id="WY8-yY-B0T"/>
-                    <constraint firstItem="YDv-Oc-eeh" firstAttribute="top" secondItem="BHa-vq-SAx" secondAttribute="bottom" constant="10" id="YpP-qx-whN"/>
                     <constraint firstItem="BHa-vq-SAx" firstAttribute="top" secondItem="hkV-kP-2KZ" secondAttribute="top" constant="5" id="lBh-PH-77f"/>
-                    <constraint firstItem="Diz-PB-cXN" firstAttribute="leading" secondItem="hkV-kP-2KZ" secondAttribute="leading" constant="20" id="spj-h3-tWh"/>
                     <constraint firstItem="ZBw-LS-C4A" firstAttribute="top" secondItem="hkV-kP-2KZ" secondAttribute="top" constant="5" id="ys8-wR-4F1"/>
                 </constraints>
             </tableViewCellContentView>
@@ -80,7 +92,7 @@
                 <outlet property="txtTitle" destination="BHa-vq-SAx" id="DOa-mY-nl6"/>
                 <outlet property="txtWorkTime" destination="Diz-PB-cXN" id="deJ-vt-Qzx"/>
             </connections>
-            <point key="canvasLocation" x="-329" y="1"/>
+            <point key="canvasLocation" x="-330.43478260869568" y="0.6696428571428571"/>
         </tableViewCell>
     </objects>
     <resources>

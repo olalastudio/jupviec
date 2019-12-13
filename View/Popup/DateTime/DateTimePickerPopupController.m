@@ -44,7 +44,7 @@
     
     [_calendarPicker selectDate:[_order workDate]];
     
-    if (_orderAttribute == ATTRIBUTE_NGAYLAMVIEC)
+    if (_orderAttribute == ATTRIBUTE_NGAYLAMVIEC || _orderAttribute == ATTRIBUTE_NGAYLAMTRONGTUAN)
     {
         [_calendarPicker setHidden:NO];
         [_startTime setHidden:YES];

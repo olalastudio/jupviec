@@ -35,6 +35,8 @@
 -(void)setOrder:(Order *)order
 {
     _order = order;
+    
+    [self reloadViewContent];
 }
 
 -(void)reloadViewContent
