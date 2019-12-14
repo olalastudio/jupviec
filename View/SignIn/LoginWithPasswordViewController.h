@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
     NSString* strUserphone;
     NSString* strUserPass;
     NSInteger intActionMode;
+    NSString* strToken;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *txtInputUserPhone;

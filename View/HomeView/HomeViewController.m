@@ -34,6 +34,25 @@
     [_tbSelectionTask setDataSource:self];
     [_tbSelectionTask setBackgroundColor:[UIColor clearColor]];
     [_tbSelectionTask setSeparatorColor:[UIColor clearColor]];
+    
+    if (_configurationInfoDict) {
+        _serviceTypesArr = [_configurationInfoDict objectForKey:@"request_type"];
+        if ([_configurationInfoDict objectForKey:@"base_price"]) {
+            [_serviceInfo setObject:[_configurationInfoDict objectForKey:@"base_price"] forKey:@"base_price"];
+        }
+        if ([_configurationInfoDict objectForKey:@"min_price"]) {
+            [_serviceInfo setObject:[_configurationInfoDict objectForKey:@"min_price"] forKey:@"min_price"];
+        }
+        if ([_configurationInfoDict objectForKey:@"base_hour"]) {
+            [_serviceInfo setObject:[_configurationInfoDict objectForKey:@"base_hour"] forKey:@"base_hour"];
+        }
+        if ([_configurationInfoDict objectForKey:@"service_extend"]) {
+            [_serviceInfo setObject:[_configurationInfoDict objectForKey:@"service_extend"] forKey:@"service_extend"];
+        }
+        if ([_configurationInfoDict objectForKey:@"payment_method"]) {
+            [_serviceInfo setObject:[_configurationInfoDict objectForKey:@"payment_method"] forKey:@"payment_method"];
+        }
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -154,26 +173,29 @@
 {
     if (indexPath.section == SESSION_TASK) //task session
     {
-        PlaceOrderViewController *oderview = [self.storyboard instantiateViewControllerWithIdentifier:@"idplaceorder"];
+        PlaceOrderViewController *orderview = [self.storyboard instantiateViewControllerWithIdentifier:@"idplaceorder"];
+        if (_serviceInfo) {
+            orderview.serviceInfo = _serviceInfo;
+        }
         
         switch (indexPath.row) {
             case TYPE_DUNGLE:
-                [oderview setTaskType:TYPE_DUNGLE];
+                [orderview setTaskType:TYPE_DUNGLE];
                 break;
             case TYPE_DUNGDINHKY:
-                [oderview setTaskType:TYPE_DUNGDINHKY];
+                [orderview setTaskType:TYPE_DUNGDINHKY];
             break;
             case TYPE_TONGVESINH:
-                [oderview setTaskType:TYPE_TONGVESINH];
+                [orderview setTaskType:TYPE_TONGVESINH];
             break;
             case TYPE_JUPSOFA:
-                [oderview setTaskType:TYPE_JUPSOFA];
+                [orderview setTaskType:TYPE_JUPSOFA];
             break;
             default:
                 break;
         }
         
-        [self.navigationController pushViewController:oderview animated:YES];
+        [self.navigationController pushViewController:orderview animated:YES];
     }
     else if (indexPath.section == SESSION_PROMOTION) //promotion session
     {

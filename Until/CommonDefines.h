@@ -20,6 +20,8 @@
 #define API_FORGOT_PASS     @"forgot"
 #define API_UPDATE_PASS     @"update-password"
 #define API_REQUEST         @"request"
+#define API_GET_CONFIGURATION   @"configuration"
+#define API_ACCOUNT             @"account"
 
 #define ID_WELCOME_VIEW     @"idwelcomeview"
 

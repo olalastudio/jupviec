@@ -9,6 +9,7 @@
 #import "LoginWithPasswordViewController.h"
 #import "APIRequest.h"
 #import "SignInViewController.h"
+#import "HomeViewController.h"
 
 @interface LoginWithPasswordViewController ()
 
@@ -72,6 +73,12 @@
         SignInViewController* signInVC = segue.destinationViewController;
         [signInVC setIntActionMode:intActionMode];
     }
+    else if ([segue.identifier isEqualToString:@"idLoginToHomeView"])
+    {
+        HomeViewController* homeVC = segue.destinationViewController;
+        homeVC.strPhoneNum = strUserphone;
+        homeVC.strUserToken = strToken;
+    }
 }
 
 #pragma - Actions
@@ -100,6 +107,7 @@
         [request requestAPILogin:strUserphone password:strUserPass completionHandler:^(NSString * _Nullable token, NSError * _Nonnull error) {
             if (error.code == 200)
             {
+                self->strToken = token;
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self performSegueWithIdentifier:@"idLoginToHomeView" sender:self];
                 });

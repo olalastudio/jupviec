@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "HomeViewController.h"
+#import "APIRequest.h"
 
 @interface ViewController ()
 
@@ -135,8 +137,19 @@
         AppDelegate *appdelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
         UITabBarController *tabController = (UITabBarController*)[self.storyboard instantiateViewControllerWithIdentifier:@"idTabBarView"];
         
-        appdelegate.window.rootViewController = tabController;
-        [appdelegate.window makeKeyAndVisible];
+        // get info of services
+        APIRequest* apiRequest = [[APIRequest alloc]init];
+        [apiRequest requestAPIGetConfiguration:^(NSDictionary * _Nullable configurationInfo, NSError * _Nonnull error) {
+            if (error.code == 200) {
+                HomeViewController *homeVC = [(UINavigationController*)[[tabController viewControllers] objectAtIndex:0] visibleViewController];
+                
+                homeVC.configurationInfoDict = configurationInfo;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    appdelegate.window.rootViewController = tabController;
+                    [appdelegate.window makeKeyAndVisible];
+                });
+            }
+        }];
     });
     
     [self.pageController removeFromParentViewController];

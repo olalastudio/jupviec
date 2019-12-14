@@ -15,6 +15,7 @@
 #import "ChooseAddressViewController.h"
 #import "TextDetailPopupController.h"
 #import "DateTimePickerPopupController.h"
+#import "APIRequest.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -25,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tbPlaceOrderContent;
+@property (strong, nonatomic) NSDictionary* serviceInfo;
 
 -(void)setTaskType:(TASK_TYPE)type;
 

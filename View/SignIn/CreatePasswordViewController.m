@@ -50,7 +50,7 @@
     {
         HomeViewController* homeVC = [segue destinationViewController];
         homeVC.user = user;
-        homeVC.srtUserToken = _strToken;
+        homeVC.strUserToken = _strToken;
     }
 }
 

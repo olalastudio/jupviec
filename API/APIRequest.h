@@ -25,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)requestAPIForgotPassword:(NSString*)phoneNum completionHandler:(void(^)(NSDictionary* _Nullable data, NSError* err))completionHandler;
 - (void)requestAPIUpdatePassword:(NSString*)phoneNum password:(NSString*)password token:(NSString*)token completionHandler:(void(^)(User* _Nullable user, NSError* error))completionHandler;
 - (void)requestAPIBookService:(NSString*)strToken detailService:(NSDictionary*)detailService completionhandler:(void(^)(NSDictionary* _Nullable serviceInfo, NSError* error))completionHandler;
+- (void)requestAPIGetConfiguration:(void(^)(NSDictionary* _Nullable configurationInfo, NSError* error))completionHandler;
+- (void)requestAPIUpdateAccountInfo:(NSString*)phoneNum token:(NSString*)token accountInfo:(NSDictionary*)accountInfo completionHandler:(void (^)(User * _Nullable user, NSError * error))completionHandler;
+- (void)requestAPIGetAccountInfo:(NSString*)phoneNum token:(NSString*)token completionHandler:(void (^)(User * _Nullable user, NSError * error))completionHandler;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -266,6 +266,116 @@
             }
         }
     }]resume];
+}
+
+- (void)requestAPIGetConfiguration:(void (^)(NSDictionary * _Nullable, NSError * _Nonnull))completionHandler
+{
+    NSURLSessionConfiguration* config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    config.timeoutIntervalForRequest = 30.0;
+    config.timeoutIntervalForResource = 60.0;
+    config.requestCachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
     
+    NSMutableURLRequest* request = [self createURLRequest:API_GET_CONFIGURATION withParam:nil];
+    [request setHTTPMethod:@"GET"];
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (response)
+        {
+            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+            NSDictionary* resultDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            NSLog(@"get configuration:%@", resultDict);
+            if ([httpResponse statusCode] == 200)
+            {
+                error = [NSError errorWithDomain:@"test_domain" code:200 userInfo:@{NSLocalizedDescriptionKey:@"successful operation"}];
+                completionHandler(resultDict, error);
+            }
+            else
+            {
+                NSLog(@"get configuration fail with: %@", [resultDict objectForKey:@"messages"]);
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                completionHandler(nil, error);
+            }
+        }
+    }]resume];
+}
+
+- (void)requestAPIUpdateAccountInfo:(NSString *)phoneNum token:(NSString *)token accountInfo:(NSDictionary *)accountInfo completionHandler:(void (^)(User * _Nullable, NSError * _Nonnull))completionHandler
+{
+    NSURLSessionConfiguration* config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    config.timeoutIntervalForRequest = 30.0;
+    config.timeoutIntervalForResource = 60.0;
+    config.requestCachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+    
+    NSString* realPhoneStr = [NSString stringWithFormat:@"%lld", [phoneNum longLongValue]];
+    NSData* bodyData = [self createBodyRequest:accountInfo];
+    NSString* apiCommandStr = [API_ACCOUNT stringByAppendingPathComponent:realPhoneStr];
+    NSMutableURLRequest* request = [self createURLRequest:apiCommandStr withParam:nil];
+    [request setHTTPMethod:@"PUT"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[@"Bearer "stringByAppendingString:token] forHTTPHeaderField:@"Authorization"];
+    [request setHTTPBody:bodyData];
+    
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        //handle response
+        if (response)
+        {
+            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+            NSDictionary* resultDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            NSLog(@"update account info: %@", resultDict);
+            
+            if ([httpResponse statusCode] == 200)
+            {
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"successful operation"}];
+                User* newUser = [[User alloc]initUserWithInfoData:resultDict];
+                completionHandler(newUser, error);
+            }
+            else
+            {
+                NSLog(@"update account info fail with: %@", [resultDict objectForKey:@"messages"]);
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                completionHandler(nil, error);
+            }
+        }
+    }]resume];
+}
+
+- (void)requestAPIGetAccountInfo:(NSString *)phoneNum token:(NSString *)token completionHandler:(void (^)(User * _Nullable, NSError * _Nonnull))completionHandler
+{
+    NSURLSessionConfiguration* config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    config.timeoutIntervalForRequest = 30.0;
+    config.timeoutIntervalForResource = 60.0;
+    config.requestCachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+    
+    NSString* realPhoneStr = [NSString stringWithFormat:@"%lld", [phoneNum longLongValue]];
+    NSString* apiCommandStr = [API_ACCOUNT stringByAppendingPathComponent:realPhoneStr];
+    NSMutableURLRequest* request = [self createURLRequest:apiCommandStr withParam:nil];
+    [request setHTTPMethod:@"GET"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[@"Bearer "stringByAppendingString:token] forHTTPHeaderField:@"Authorization"];
+    
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        //handle response
+        if (response)
+        {
+            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+            NSDictionary* resultDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            NSLog(@"get account info: %@", resultDict);
+            
+            if ([httpResponse statusCode] == 200)
+            {
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"successful operation"}];
+                User* newUser = [[User alloc]initUserWithInfoData:resultDict];
+                completionHandler(newUser, error);
+            }
+            else
+            {
+                NSLog(@"get account info fail with: %@", [resultDict objectForKey:@"messages"]);
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                completionHandler(nil, error);
+            }
+        }
+    }]resume];
 }
 @end
