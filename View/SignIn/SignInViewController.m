@@ -112,7 +112,6 @@
             [apiRequest requestAPIGetOTP:strPhoneNumber completionHandler:^(NSString * _Nullable otpStr, NSError * _Nonnull err) {
                 NSLog(@"otp: %@", otpStr);
                 [self didSuccessGetRequest:otpStr error:err.code];
-                //handle
             }];
         } else if (_intActionMode == MODE_FORGOT_PASSWORD)
         {

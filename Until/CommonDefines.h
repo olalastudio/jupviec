@@ -14,6 +14,7 @@
 
 #pragma mark API
 #define ADDRESS_SERVER      @"http://52.221.107.104:8080"
+#define API_V1              @"api/v1"
 #define API_GETOTP          @"get-otp"
 #define API_REGISTER        @"register"
 #define API_LOGIN           @"login"
@@ -22,6 +23,9 @@
 #define API_REQUEST         @"request"
 #define API_GET_CONFIGURATION   @"configuration"
 #define API_ACCOUNT             @"account"
+#define API_RATE            @"rate"
+#define API_GET_AVAILABLE_NOTI  @"notify-available"
+#define API_NOTIFY          @"notify"
 
 #define ID_WELCOME_VIEW     @"idwelcomeview"
 

@@ -19,6 +19,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [_txtOTPInput setDelegate:self];
+    
+    //test
+    if (_strOTPServer) {
+        [_txtOTPInput setText:_strOTPServer];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated

@@ -28,6 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)requestAPIGetConfiguration:(void(^)(NSDictionary* _Nullable configurationInfo, NSError* error))completionHandler;
 - (void)requestAPIUpdateAccountInfo:(NSString*)phoneNum token:(NSString*)token accountInfo:(NSDictionary*)accountInfo completionHandler:(void (^)(User * _Nullable user, NSError * error))completionHandler;
 - (void)requestAPIGetAccountInfo:(NSString*)phoneNum token:(NSString*)token completionHandler:(void (^)(User * _Nullable user, NSError * error))completionHandler;
+- (void)requestAPIRateService:(NSString*)token idService:(NSString*)idService rateServiceInfo:(NSDictionary*)rateInfo completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;
+- (void)requestAPIGetAvailableNoti:(NSString*)phoneNum token:(NSString*)token completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;
+- (void)requestAPIGetNotiForID:(NSString*)idService token:(NSString*)token completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;
 @end
 
 NS_ASSUME_NONNULL_END
