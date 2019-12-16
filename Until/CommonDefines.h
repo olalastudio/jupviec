@@ -21,6 +21,7 @@
 #define API_FORGOT_PASS     @"forgot"
 #define API_UPDATE_PASS     @"update-password"
 #define API_REQUEST         @"request"
+#define API_GET_ALL_REQUESTS    @"requests/myself"
 #define API_GET_CONFIGURATION   @"configuration"
 #define API_ACCOUNT             @"account"
 #define API_RATE            @"rate"

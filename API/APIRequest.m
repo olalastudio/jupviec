@@ -487,4 +487,77 @@
         }
     }]resume];
 }
+
+- (void)requestAPIGetAllRequests:(NSString *)token completionHandler:(void (^)(NSDictionary * _Nullable, NSError * _Nonnull))completionHandler
+{
+    NSURLSessionConfiguration* config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    config.timeoutIntervalForRequest = 30.0;
+    config.timeoutIntervalForResource = 60.0;
+    config.requestCachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+    
+    NSMutableURLRequest* request = [self createURLRequest:[API_V1 stringByAppendingPathComponent:API_GET_ALL_REQUESTS] withParam:nil];
+    [request setHTTPMethod:@"GET"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:token forHTTPHeaderField:@"Authorization"];
+    
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        //handle response
+        if (response)
+        {
+            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+            NSDictionary* resultDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            NSLog(@"get all requests: %@", resultDict);
+            
+            if ([httpResponse statusCode] == 200)
+            {
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"successful operation"}];
+                completionHandler(resultDict, error);
+            }
+            else
+            {
+                NSLog(@"get all requests fail with: %@", [resultDict objectForKey:@"messages"]);
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                completionHandler(nil, error);
+            }
+        }
+    }]resume];
+}
+
+- (void)requestAPIGetDetailRequest:(NSString *)token idService:(NSString *)idService completionHandler:(void (^)(NSDictionary * _Nullable, NSError * _Nonnull))completionHandler
+{
+    NSURLSessionConfiguration* config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    config.timeoutIntervalForRequest = 30.0;
+    config.timeoutIntervalForResource = 60.0;
+    config.requestCachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+    
+    NSString* apiCommandStr = [API_REQUEST stringByAppendingPathComponent:idService];
+    NSMutableURLRequest* request = [self createURLRequest:[API_V1 stringByAppendingPathComponent:apiCommandStr] withParam:nil];
+    [request setHTTPMethod:@"GET"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:token forHTTPHeaderField:@"Authorization"];
+    
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        //handle response
+        if (response)
+        {
+            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+            NSDictionary* resultDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            NSLog(@"get request with id: %@", resultDict);
+            
+            if ([httpResponse statusCode] == 200)
+            {
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"successful operation"}];
+                completionHandler(resultDict, error);
+            }
+            else
+            {
+                NSLog(@"get request with id fail with: %@", [resultDict objectForKey:@"messages"]);
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                completionHandler(nil, error);
+            }
+        }
+    }]resume];
+}
 @end
