@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <GoogleMaps/GoogleMaps.h>
-#import <GooglePlaces/GooglePlaces.h>
 
 @interface AppDelegate ()
 {
@@ -21,6 +19,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    
+    [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
+    [[FIRMessaging messaging] setDelegate:self];
+    
+    UNAuthorizationOptions option = UNAuthorizationOptionAlert;
+    [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:option completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        NSLog(@"allow app send notification on this device");
+    }];
+    
+    [application registerForRemoteNotifications];
+    [FIRApp configure];
     
     [GMSPlacesClient provideAPIKey:@"AIzaSyB1Qo46kfokUCUb9pTGUb0QV5aoKmPV6qE"];
     [GMSServices provideAPIKey:@"AIzaSyB1Qo46kfokUCUb9pTGUb0QV5aoKmPV6qE"];
@@ -97,5 +108,16 @@
         default:
             break;
     }
+}
+
+#pragma mark - Firebase Messegging
+-(void)messaging:(FIRMessaging *)messaging didReceiveMessage:(FIRMessagingRemoteMessage *)remoteMessage
+{
+    NSLog(@"%@",remoteMessage.appData);
+}
+
+-(void)messaging:(FIRMessaging *)messaging didReceiveRegistrationToken:(NSString *)fcmToken
+{
+    NSLog(@"%@",fcmToken);
 }
 @end

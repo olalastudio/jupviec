@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <UserNotifications/UserNotifications.h>
+#import <GoogleMaps/GoogleMaps.h>
+#import <GooglePlaces/GooglePlaces.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,CLLocationManagerDelegate>
+@import Firebase;
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate,CLLocationManagerDelegate, UNUserNotificationCenterDelegate, FIRMessagingDelegate>
 {
     
 }

@@ -434,6 +434,7 @@
 		06ED4C1423A0EDE90072EB15 /* TimeSelectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED4C1323A0EDE90072EB15 /* TimeSelectionTableViewCell.m */; };
 		06ED4C1623A0FD130072EB15 /* DaySelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06ED4C1523A0FD130072EB15 /* DaySelectionCell.xib */; };
 		06ED4C1923A0FD220072EB15 /* DaySelectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED4C1823A0FD220072EB15 /* DaySelectionTableViewCell.m */; };
+		06F6E4FF23A8AFC60006DAB8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06F6E4FE23A8AFC60006DAB8 /* GoogleService-Info.plist */; };
 		06FD73C123A2527F00528A00 /* DayLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FD73C023A2527F00528A00 /* DayLabel.m */; };
 		06FEA1DF2394BCC0005D58B9 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1DE2394BCC0005D58B9 /* HistoryViewController.m */; };
 		06FEA1E12394CBCC005D58B9 /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06FEA1E02394CBCC005D58B9 /* HistoryCell.xib */; };
@@ -908,6 +909,8 @@
 		06ED4C1523A0FD130072EB15 /* DaySelectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DaySelectionCell.xib; sourceTree = "<group>"; };
 		06ED4C1723A0FD220072EB15 /* DaySelectionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DaySelectionTableViewCell.h; sourceTree = "<group>"; };
 		06ED4C1823A0FD220072EB15 /* DaySelectionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DaySelectionTableViewCell.m; sourceTree = "<group>"; };
+		06F6E4FE23A8AFC60006DAB8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		06F6E50023A8AFE40006DAB8 /* JupViec.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JupViec.entitlements; sourceTree = "<group>"; };
 		06FD73BF23A2527F00528A00 /* DayLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DayLabel.h; sourceTree = "<group>"; };
 		06FD73C023A2527F00528A00 /* DayLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DayLabel.m; sourceTree = "<group>"; };
 		06FEA1DD2394BCC0005D58B9 /* HistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
@@ -1472,6 +1475,8 @@
 		0658BEB6238FAC7800CBBAD1 /* JupViec */ = {
 			isa = PBXGroup;
 			children = (
+				06F6E50023A8AFE40006DAB8 /* JupViec.entitlements */,
+				06F6E4FE23A8AFC60006DAB8 /* GoogleService-Info.plist */,
 				0658BEB7238FAC7800CBBAD1 /* AppDelegate.h */,
 				0658BEB8238FAC7800CBBAD1 /* AppDelegate.m */,
 				0658BEBA238FAC7800CBBAD1 /* ViewController.h */,
@@ -1938,6 +1943,7 @@
 				0601E37F238FAEEF00403C95 /* exit-2.png in Resources */,
 				0601E404238FAEEF00403C95 /* pause-1.png in Resources */,
 				0601E35B238FAEEF00403C95 /* compact-disc-2.png in Resources */,
+				06F6E4FF23A8AFC60006DAB8 /* GoogleService-Info.plist in Resources */,
 				0601E3E5238FAEEF00403C95 /* minus-1.png in Resources */,
 				0601E417238FAEEF00403C95 /* plus.png in Resources */,
 				0601E3F4238FAEEF00403C95 /* network.png in Resources */,
@@ -2346,6 +2352,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = JupViec/JupViec.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KREB2MXHVA;
 				INFOPLIST_FILE = JupViec/Info.plist;
@@ -2353,7 +2360,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kk.jupviec;
+				PRODUCT_BUNDLE_IDENTIFIER = com.olala.jupviec;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Until/JupViec-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2368,6 +2375,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = JupViec/JupViec.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KREB2MXHVA;
 				INFOPLIST_FILE = JupViec/Info.plist;
@@ -2375,7 +2383,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kk.jupviec;
+				PRODUCT_BUNDLE_IDENTIFIER = com.olala.jupviec;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Until/JupViec-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
