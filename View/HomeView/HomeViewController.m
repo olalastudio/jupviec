@@ -15,7 +15,11 @@
 #import "PlaceOrderViewController.h"
 
 @interface HomeViewController ()
-
+{
+    PlaceOrderViewController    *orderview;
+    CLLocationManager           *locationmanager;
+    CLLocation                  *currentLocation;
+}
 @end
 
 @implementation HomeViewController
@@ -35,6 +39,8 @@
     [_tbSelectionTask setBackgroundColor:[UIColor clearColor]];
     [_tbSelectionTask setSeparatorColor:[UIColor clearColor]];
     
+    _serviceInfo = [[NSMutableDictionary alloc] initWithCapacity:0];
+    
     if (_configurationInfoDict) {
         _serviceTypesArr = [_configurationInfoDict objectForKey:@"request_type"];
         if ([_configurationInfoDict objectForKey:@"base_price"]) {
@@ -53,6 +59,8 @@
             [_serviceInfo setObject:[_configurationInfoDict objectForKey:@"payment_method"] forKey:@"payment_method"];
         }
     }
+    
+    [self getCurrentLocation];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -68,6 +76,22 @@
     [super viewWillDisappear:animated];
     
     [self.navigationController.navigationBar setHidden:NO];
+}
+
+-(void)getCurrentLocation
+{
+    locationmanager = [[CLLocationManager alloc] init];
+    [locationmanager setDelegate:self];
+    locationmanager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    switch ([CLLocationManager authorizationStatus]) {
+        case kCLAuthorizationStatusAuthorizedAlways:
+        case kCLAuthorizationStatusAuthorizedWhenInUse:
+            [locationmanager requestLocation];
+            break;
+        default:
+            break;
+    }
 }
 /*
 #pragma mark - Navigation
@@ -96,6 +120,21 @@
     }
 }
 
+#pragma mark - LocationManager
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+{
+    NSLog(@"Current location %@",locations);
+    currentLocation = [locations objectAtIndex:0];
+    
+    if (orderview) {
+        [orderview setCurrentLocation:[currentLocation coordinate]];
+    }
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"request location did fail with error %@",error);
+}
 
 #pragma mark - UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -107,7 +146,7 @@
 {
     if (section == SESSION_TASK)
     {
-        return 4;
+        return [_serviceTypesArr count];
     }
     else if (section == SESSION_PROMOTION)
     {
@@ -119,8 +158,36 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //promotion
-    if (indexPath.section == SESSION_PROMOTION)
+    if (indexPath.section == SESSION_TASK) //Task
+    {
+        HomeTaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idhometaskcell"];
+        
+        NSDictionary *item = [_serviceTypesArr objectAtIndex:indexPath.row];
+        NSString *code = [item objectForKey:@"code"];
+        NSString *name = [item objectForKey:@"name"];
+        
+        if ([code isEqualToString:CODE_DUNGLE]) {
+            [cell setTaskType:TYPE_DUNGLE];
+        }
+        else if ([code isEqualToString:CODE_DINHKY])
+        {
+            [cell setTaskType:TYPE_DUNGDINHKY];
+        }
+        else if ([code isEqualToString:CODE_TONGVESINH])
+        {
+            [cell setTaskType:TYPE_TONGVESINH];
+        }
+        else if ([code isEqualToString:CODE_SOFA])
+        {
+            [cell setTaskType:TYPE_JUPSOFA];
+        }
+        
+        [cell setDisplayName:name];
+        [cell setSessionType:SESSION_TASK];
+        
+        return cell;
+    }
+    else if (indexPath.section == SESSION_PROMOTION) //promotion
     {
         HomePromotionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idhomepromotioncell"];
         [cell setSessionType:SESSION_PROMOTION];
@@ -128,29 +195,7 @@
         return cell;
     }
     
-    //Task
-    HomeTaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idhometaskcell"];
-    
-    switch (indexPath.row) {
-        case TYPE_DUNGLE:
-            [cell setTaskType:TYPE_DUNGLE];
-            break;
-        case TYPE_DUNGDINHKY:
-            [cell setTaskType:TYPE_DUNGDINHKY];
-            break;
-        case TYPE_TONGVESINH:
-            [cell setTaskType:TYPE_TONGVESINH];
-            break;
-        case TYPE_JUPSOFA:
-            [cell setTaskType:TYPE_JUPSOFA];
-            break;
-        default:
-            break;
-    }
-    
-    [cell setSessionType:SESSION_TASK];
-    
-    return cell;
+    return [[UITableViewCell alloc] initWithFrame:CGRectZero];
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -173,7 +218,12 @@
 {
     if (indexPath.section == SESSION_TASK) //task session
     {
-        PlaceOrderViewController *orderview = [self.storyboard instantiateViewControllerWithIdentifier:@"idplaceorder"];
+        orderview = [self.storyboard instantiateViewControllerWithIdentifier:@"idplaceorder"];
+        
+        if (currentLocation) {
+            [orderview setCurrentLocation:[currentLocation coordinate]];
+        }
+        
         if (_serviceInfo) {
             orderview.serviceInfo = _serviceInfo;
         }

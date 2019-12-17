@@ -7,6 +7,8 @@
 //
 
 #import "PlaceOrderViewController.h"
+#import "AppDelegate.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface PlaceOrderViewController (){
     NSArray *attributeListDungLe;
@@ -18,6 +20,7 @@
 @end
 
 @implementation PlaceOrderViewController
+@synthesize order = _order;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -62,7 +65,7 @@
                              [NSNumber numberWithInt:ATTRIBUTE_BANGGIADICHVU],
                             [NSNumber numberWithInt:ATTRIBUTE_GHICHU]];
     
-    order = [[Order alloc] init];
+    _order = [[Order alloc] init];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -124,8 +127,20 @@
     return nil;
 }
 
-#pragma mark - UITableViewDelegate
+-(void)setCurrentLocation:(CLLocationCoordinate2D)currentlocation
+{
+    GMSGeocoder*  geocoder = [[GMSGeocoder alloc] init];
+    
+    [geocoder reverseGeocodeCoordinate:currentlocation completionHandler:^(GMSReverseGeocodeResponse * _Nullable response, NSError * _Nullable error) {
+        GMSAddress* address = [response firstResult];
+        NSArray* lines = [address lines];
+        NSString *strLocation = [lines componentsJoinedByString:@" "];
+        [[self order] setWorkAddress:strLocation];
+        [[self tbPlaceOrderContent] reloadData];
+    }];
+}
 
+#pragma mark - UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -141,7 +156,8 @@
     PlaceOrderCommonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idplaceordercommoncell"];
     [cell setDelegate:self];
     [cell setIndexPath:indexPath];
-    [cell setOrder:order];
+    [cell setOrder:_order];
+    [cell setServiceInfo:_serviceInfo];
     
     NSNumber *row = [[self getlistDichVu] objectAtIndex:indexPath.row];
     
@@ -161,7 +177,7 @@
             [daycell setDelegate:self];
             [daycell setOderAttribute:ATTRIBUTE_NGAYLAMTRONGTUAN];
             [daycell setIndexPath:indexPath];
-            [daycell setOrder:order];
+            [daycell setOrder:_order];
             
             return daycell;
         }
@@ -178,7 +194,7 @@
             [timeCell setDelegate:self];
             [timeCell setOderAttribute:ATTRIBUTE_GIOLAMVIEC];
             [timeCell setIndexPath:indexPath];
-            [timeCell setOrder:order];
+            [timeCell setOrder:_order];
             
             return timeCell;
         }
@@ -240,8 +256,8 @@
             TextDetailPopupController *detailpopup = [self.storyboard instantiateViewControllerWithIdentifier:@"idtextdetailpopup"];
             [detailpopup setDelegate:self];
             [detailpopup setOrderAttribute:ATTRIBUTE_SONHACANHO];
-            [detailpopup setPopupCurrentLocation:[order workAddress]];
-            [detailpopup setPopupContent:[order homeNumber]];
+            [detailpopup setPopupCurrentLocation:[_order workAddress]];
+            [detailpopup setPopupContent:[_order homeNumber]];
             [detailpopup setIndex:index];
             
             [self setModalPresentationStyle:UIModalPresentationCurrentContext];
@@ -277,8 +293,8 @@
 #pragma mark - TimeSelectionCell Delegate
 -(void)didClickChangeWorkShift:(SHIFT_WORK)workshift workTime:(NSMutableDictionary *)worktime index:(NSIndexPath *)index
 {
-    [order setWorkShift:workshift];
-    [order setWorkTime:worktime];
+    [_order setWorkShift:workshift];
+    [_order setWorkTime:worktime];
     
     [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
 }
@@ -288,7 +304,7 @@
     NSLog(@"did click change Time");
     DateTimePickerPopupController *datepicker = [self.storyboard instantiateViewControllerWithIdentifier:@"iddatetimepicker"];
     [datepicker setOrderAttribute:ATTRIBUTE_GIOLAMVIEC];
-    [datepicker setOrder:order];
+    [datepicker setOrder:_order];
     [datepicker setIndexPath:index];
     [datepicker setDelegate:self];
     
@@ -302,7 +318,7 @@
     
     DateTimePickerPopupController *datepicker = [self.storyboard instantiateViewControllerWithIdentifier:@"iddatetimepicker"];
     [datepicker setOrderAttribute:sender];
-    [datepicker setOrder:order];
+    [datepicker setOrder:_order];
     [datepicker setIndexPath:index];
     [datepicker setDelegate:self];
     
@@ -312,6 +328,21 @@
 
 #pragma mark - MapsCell Delegate
 
+#pragma mark - Payment Delegate
+-(void)didSelectPaymentMethod:(NSDictionary *)code index:(NSIndexPath *)index
+{
+    [_order setPaymentMethod:code];
+    
+    [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+-(void)didSelectExtentService:(NSDictionary *)code index:(NSIndexPath *)index
+{
+    [_order setExtraOption:code];
+    
+    [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+}
+
 #pragma mark - Popup Delegate
 -(void)didPressConfirmDetailPopup:(ORDER_ATTRIBUTE)sender index:(NSIndexPath *)index withReturnValue:(NSString *)str
 {
@@ -319,7 +350,7 @@
     {
         case ATTRIBUTE_SONHACANHO:
         {
-            [order setHomeNumber:str];
+            [_order setHomeNumber:str];
         }
             break;
         default:
@@ -336,7 +367,7 @@
         case ATTRIBUTE_NGAYLAMVIEC:
         case ATTRIBUTE_NGAYLAMTRONGTUAN:
         {
-            [order setWorkDate:date];
+            [_order setWorkDate:date];
         }
             break;
         default:
@@ -352,7 +383,7 @@
     switch (sender) {
         case ATTRIBUTE_GIOLAMVIEC:
         {
-            [order setWorkTime:[NSMutableDictionary dictionaryWithDictionary:worktime]];
+            [_order setWorkTime:[NSMutableDictionary dictionaryWithDictionary:worktime]];
         }
             break;
         default:

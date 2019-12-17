@@ -36,6 +36,11 @@
 #define ATTRIBUTE_START_TIME    @"starttime"
 #define ATTRIBUTE_END_TIME      @"endtime"
 
+#define CODE_DUNGLE             @"DUNGLE"
+#define CODE_DINHKY             @"DINHKY"
+#define CODE_TONGVESINH         @"TONGVESINH"
+#define CODE_SOFA               @"SOFA"
+
 typedef enum : NSUInteger {
     TYPE_NONE = -1,
     TYPE_DUNGLE = 0,

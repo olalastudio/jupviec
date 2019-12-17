@@ -133,24 +133,27 @@
 -(void)getStart
 {
     NSLog(@"did press start or skip");
-    dispatch_async(dispatch_get_main_queue(), ^{
-        AppDelegate *appdelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-        UITabBarController *tabController = (UITabBarController*)[self.storyboard instantiateViewControllerWithIdentifier:@"idTabBarView"];
-        
-        // get info of services
-        APIRequest* apiRequest = [[APIRequest alloc]init];
-        [apiRequest requestAPIGetConfiguration:^(NSDictionary * _Nullable configurationInfo, NSError * _Nonnull error) {
-            if (error.code == 200) {
+    
+    AppDelegate *appdelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    UITabBarController *tabController = (UITabBarController*)[self.storyboard instantiateViewControllerWithIdentifier:@"idTabBarView"];
+    
+    // get info of services
+    APIRequest* apiRequest = [[APIRequest alloc]init];
+    [apiRequest requestAPIGetConfiguration:^(NSDictionary * _Nullable configurationInfo, NSError * _Nonnull error) {
+        if (error.code == 200) {
+            dispatch_async(dispatch_get_main_queue(), ^{
                 HomeViewController *homeVC = [(UINavigationController*)[[tabController viewControllers] objectAtIndex:0] visibleViewController];
-                
+            
                 homeVC.configurationInfoDict = configurationInfo;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    appdelegate.window.rootViewController = tabController;
-                    [appdelegate.window makeKeyAndVisible];
-                });
-            }
-        }];
-    });
+            
+                appdelegate.window.rootViewController = tabController;
+                [appdelegate.window makeKeyAndVisible];
+            });
+        }
+        else{
+            NSLog(@"request error %@",error);
+        }
+    }];
     
     [self.pageController removeFromParentViewController];
     [self.pageController.view removeFromSuperview];

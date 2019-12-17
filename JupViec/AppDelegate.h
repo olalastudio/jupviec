@@ -11,11 +11,10 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,CLLocationManagerDelegate>
 {
-    CLLocation  *currentLocation;
+    
 }
 
 @property (strong, nonatomic) UIWindow *window;
-
 
 @end
 

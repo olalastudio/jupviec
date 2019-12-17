@@ -7,22 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import "User.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface HomeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
 {
     __strong User   *_user;
     NSMutableDictionary* _serviceInfo;
     NSArray* _serviceTypesArr;
 }
 
-@property (weak, nonatomic) IBOutlet UITableView    *tbSelectionTask;
-@property (nonatomic, strong) User                    *user;
-@property (nonatomic, weak) NSString                *strUserToken;
-@property (nonatomic, strong) NSDictionary* configurationInfoDict;
-@property (nonatomic, strong) NSString* strPhoneNum;
+@property (weak, nonatomic) IBOutlet UITableView        *tbSelectionTask;
+@property (nonatomic, strong) User                      *user;
+@property (nonatomic, weak) NSString                    *strUserToken;
+@property (nonatomic, strong) NSDictionary              *configurationInfoDict;
+@property (nonatomic, strong) NSString                  *strPhoneNum;
 
 - (IBAction)didClickLoginButton:(id)sender;
 

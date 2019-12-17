@@ -7,8 +7,12 @@
 //
 
 #import "MapsViewController.h"
+#import "PlaceOrderViewController.h"
 
 @interface MapsViewController ()
+{
+    CLLocationCoordinate2D selectedLocation;
+}
 
 @end
 
@@ -26,7 +30,12 @@
 
 - (IBAction)didPressConfirmLocationButton:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    NSArray *viewcontrollers = [self.navigationController viewControllers];
+    
+    PlaceOrderViewController *placeview = (PlaceOrderViewController*)viewcontrollers[viewcontrollers.count - 3];
+    [placeview setCurrentLocation:selectedLocation];
+    
+    [self.navigationController popToViewController:placeview animated:YES];
 }
 
 #pragma mark - LocationDelegate
@@ -52,6 +61,8 @@
     _locationMaker.map = nil;
     [self reverseGeocodeCoordinate:coordinate];
     [self setupLocationMaker:coordinate];
+    
+    selectedLocation = coordinate;
 }
 
 - (void)setupLocationMaker:(CLLocationCoordinate2D)coordinate
@@ -72,8 +83,8 @@
             GMSAddress* address = [response firstResult];
             NSArray* lines = [address lines];
             [self.addressLb setText:[lines componentsJoinedByString:@"\n"]];
-            NSInteger labelHeight = self.addressLb.intrinsicContentSize.height;
-            self.mapView.padding = UIEdgeInsetsMake(self.view.safeAreaInsets.top, 0, labelHeight, 0);
+//            NSInteger labelHeight = self.addressLb.intrinsicContentSize.height;
+//            self.mapView.padding = UIEdgeInsetsMake(self.view.safeAreaInsets.top, 0, labelHeight, 0);
             [UIView animateWithDuration:0.25 animations:^{
                 
                 [self.view layoutIfNeeded];

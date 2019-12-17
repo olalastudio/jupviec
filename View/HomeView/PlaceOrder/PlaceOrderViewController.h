@@ -22,13 +22,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PlaceOrderViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, PlaceOrderCommonCellProtocol, TextDetailPopupDelegate,DateTimePickerDelegate, TimeSelectionTableViewCellDelegate,DaySelectionTableViewCellDelegate>
 {
     TASK_TYPE       _tasktype;
-    Order           *order;
+    Order           *_order;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tbPlaceOrderContent;
 @property (strong, nonatomic) NSDictionary* serviceInfo;
+@property Order     *order;
 
 -(void)setTaskType:(TASK_TYPE)type;
+-(void)setCurrentLocation:(CLLocationCoordinate2D)currentlocation;
 
 @end
 

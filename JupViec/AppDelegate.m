@@ -24,7 +24,6 @@
     
     [GMSPlacesClient provideAPIKey:@"AIzaSyB1Qo46kfokUCUb9pTGUb0QV5aoKmPV6qE"];
     [GMSServices provideAPIKey:@"AIzaSyB1Qo46kfokUCUb9pTGUb0QV5aoKmPV6qE"];
-
     
     return YES;
 }
@@ -70,21 +69,13 @@
     {
         locationmanager = [[CLLocationManager alloc] init];
         locationmanager.delegate = self;
-        locationmanager.desiredAccuracy = kCLLocationAccuracyBest;
         
         [locationmanager requestAlwaysAuthorization];
-        [locationmanager requestLocation];
     }
     else
     {
         NSLog(@"Location service was disable. Plz anable first");
     }
-}
-
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
-{
-    NSLog(@"Current location %@",locations);
-    currentLocation = [locations objectAtIndex:0];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
@@ -106,10 +97,5 @@
         default:
             break;
     }
-}
-
--(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    NSLog(@"request location did fail with error %@",error);
 }
 @end

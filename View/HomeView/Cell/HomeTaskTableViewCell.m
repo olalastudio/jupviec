@@ -59,6 +59,13 @@
     _sessionType = session;
 }
 
+-(void)setDisplayName:(NSString *)name
+{
+    _displayName = name;
+    
+    [_txtTitle setText:_displayName];
+}
+
 -(TASK_TYPE)taskType
 {
     return _taskType;
@@ -68,27 +75,28 @@
     return _sessionType;
 }
 
+-(NSString*)displayName
+{
+    return _displayName;
+}
+
 -(void)reloadViewContent
 {
     switch (_taskType) {
         case TYPE_DUNGLE:
             [_imgIcon setImage:[UIImage imageNamed:@"add-2"]];
-            [_txtTitle setText:@"Dùng Lẻ"];
             [_txtDescription setText:@"Theo giờ, khi có nhu cầu"];
             break;
         case TYPE_DUNGDINHKY:
             [_imgIcon setImage:[UIImage imageNamed:@"calendar-1"]];
-            [_txtTitle setText:@"Dùng định kỳ"];
             [_txtDescription setText:@"Hàng tuần, giá ưu đãi"];
             break;
         case TYPE_TONGVESINH:
             [_imgIcon setImage:[UIImage imageNamed:@"help"]];
-            [_txtTitle setText:@"Tổng vệ sinh"];
             [_txtDescription setText:@"Làm sạch chuyên sâu"];
             break;
         case TYPE_JUPSOFA:
             [_imgIcon setImage:[UIImage imageNamed:@"diploma"]];
-            [_txtTitle setText:@"JupSofa"];
             [_txtDescription setText:@"Giặt sofa/ nệm/ thảm/ rèm"];
             break;
         default:

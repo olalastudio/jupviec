@@ -7,6 +7,7 @@ target 'JupViec' do
 
   # Pods for JupViec
   pod 'FSCalendar'
+  pod 'FTPopOverMenu'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
 
