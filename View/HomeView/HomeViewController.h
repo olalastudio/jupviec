@@ -14,9 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
 {
-    __strong User   *_user;
-    NSMutableDictionary* _serviceInfo;
-    NSArray* _serviceTypesArr;
+    __strong User           *_user;
+    NSMutableDictionary     *_serviceInfo;
+    NSArray                 *_serviceTypesArr;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView        *tbSelectionTask;

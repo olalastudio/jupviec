@@ -24,6 +24,7 @@
 
 @implementation HomeViewController
 @synthesize user = _user;
+@synthesize configurationInfoDict = _configurationInfoDict;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,28 +40,8 @@
     [_tbSelectionTask setBackgroundColor:[UIColor clearColor]];
     [_tbSelectionTask setSeparatorColor:[UIColor clearColor]];
     
-    _serviceInfo = [[NSMutableDictionary alloc] initWithCapacity:0];
-    
-    if (_configurationInfoDict) {
-        _serviceTypesArr = [_configurationInfoDict objectForKey:@"request_type"];
-        if ([_configurationInfoDict objectForKey:@"base_price"]) {
-            [_serviceInfo setObject:[_configurationInfoDict objectForKey:@"base_price"] forKey:@"base_price"];
-        }
-        if ([_configurationInfoDict objectForKey:@"min_price"]) {
-            [_serviceInfo setObject:[_configurationInfoDict objectForKey:@"min_price"] forKey:@"min_price"];
-        }
-        if ([_configurationInfoDict objectForKey:@"base_hour"]) {
-            [_serviceInfo setObject:[_configurationInfoDict objectForKey:@"base_hour"] forKey:@"base_hour"];
-        }
-        if ([_configurationInfoDict objectForKey:@"service_extend"]) {
-            [_serviceInfo setObject:[_configurationInfoDict objectForKey:@"service_extend"] forKey:@"service_extend"];
-        }
-        if ([_configurationInfoDict objectForKey:@"payment_method"]) {
-            [_serviceInfo setObject:[_configurationInfoDict objectForKey:@"payment_method"] forKey:@"payment_method"];
-        }
-    }
-    
     [self getCurrentLocation];
+    [self getConfiguration];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -91,6 +72,40 @@
             break;
         default:
             break;
+    }
+}
+
+-(void)setConfigurationInfoDict:(NSDictionary *)configurationInfoDict
+{
+    _configurationInfoDict = configurationInfoDict;
+}
+
+-(NSDictionary*)configurationInfoDict
+{
+    return _configurationInfoDict;
+}
+
+-(void)getConfiguration
+{
+    _serviceInfo = [[NSMutableDictionary alloc] initWithCapacity:0];
+    
+    if (_configurationInfoDict) {
+        _serviceTypesArr = [_configurationInfoDict objectForKey:@"request_type"];
+        if ([_configurationInfoDict objectForKey:@"base_price"]) {
+            [_serviceInfo setObject:[_configurationInfoDict objectForKey:@"base_price"] forKey:@"base_price"];
+        }
+        if ([_configurationInfoDict objectForKey:@"min_price"]) {
+            [_serviceInfo setObject:[_configurationInfoDict objectForKey:@"min_price"] forKey:@"min_price"];
+        }
+        if ([_configurationInfoDict objectForKey:@"base_hour"]) {
+            [_serviceInfo setObject:[_configurationInfoDict objectForKey:@"base_hour"] forKey:@"base_hour"];
+        }
+        if ([_configurationInfoDict objectForKey:@"service_extend"]) {
+            [_serviceInfo setObject:[_configurationInfoDict objectForKey:@"service_extend"] forKey:@"service_extend"];
+        }
+        if ([_configurationInfoDict objectForKey:@"payment_method"]) {
+            [_serviceInfo setObject:[_configurationInfoDict objectForKey:@"payment_method"] forKey:@"payment_method"];
+        }
     }
 }
 /*

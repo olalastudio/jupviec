@@ -417,6 +417,7 @@
 		0658BEC7238FAC7800CBBAD1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658BEC6238FAC7800CBBAD1 /* main.m */; };
 		066603502390BBA30036847C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0666034E2390BB110036847C /* CoreLocation.framework */; };
 		0668482A239F9DC900A463A7 /* DateTimePickerPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06684829239F9DC900A463A7 /* DateTimePickerPopupController.m */; };
+		067A399023A88ABC00740FA3 /* ConfirmOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 067A398F23A88ABC00740FA3 /* ConfirmOrderViewController.m */; };
 		068DDEED23990D8C009484E7 /* PlaceOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 068DDEEC23990D8C009484E7 /* PlaceOrderViewController.m */; };
 		068DDEF023991431009484E7 /* CommonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 068DDEEF23991431009484E7 /* CommonCell.xib */; };
 		068DDEF32399144C009484E7 /* PlaceOrderCommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 068DDEF22399144C009484E7 /* PlaceOrderCommonTableViewCell.m */; };
@@ -880,6 +881,8 @@
 		0666034E2390BB110036847C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		06684828239F9DC900A463A7 /* DateTimePickerPopupController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateTimePickerPopupController.h; sourceTree = "<group>"; };
 		06684829239F9DC900A463A7 /* DateTimePickerPopupController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateTimePickerPopupController.m; sourceTree = "<group>"; };
+		067A398E23A88ABC00740FA3 /* ConfirmOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfirmOrderViewController.h; sourceTree = "<group>"; };
+		067A398F23A88ABC00740FA3 /* ConfirmOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirmOrderViewController.m; sourceTree = "<group>"; };
 		068DDEEB23990D8C009484E7 /* PlaceOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceOrderViewController.h; sourceTree = "<group>"; };
 		068DDEEC23990D8C009484E7 /* PlaceOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceOrderViewController.m; sourceTree = "<group>"; };
 		068DDEEF23991431009484E7 /* CommonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonCell.xib; sourceTree = "<group>"; };
@@ -1433,6 +1436,7 @@
 		0633A783239109CC0094219D /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				067A398D23A88AA000740FA3 /* ConfirmOrder */,
 				068DDEF5239915EE009484E7 /* Header */,
 				068DDEF4239915DC009484E7 /* Cell */,
 				068DDEEA23990D62009484E7 /* PlaceOrder */,
@@ -1497,6 +1501,15 @@
 				06222E23239E489C00AE24C5 /* TextDetailPopupController.m */,
 			);
 			path = TextInput;
+			sourceTree = "<group>";
+		};
+		067A398D23A88AA000740FA3 /* ConfirmOrder */ = {
+			isa = PBXGroup;
+			children = (
+				067A398E23A88ABC00740FA3 /* ConfirmOrderViewController.h */,
+				067A398F23A88ABC00740FA3 /* ConfirmOrderViewController.m */,
+			);
+			path = ConfirmOrder;
 			sourceTree = "<group>";
 		};
 		068DDEEA23990D62009484E7 /* PlaceOrder */ = {
@@ -2182,6 +2195,7 @@
 				0633A78D239113D50094219D /* AccountInfoViewController.m in Sources */,
 				0633A786239109E60094219D /* HomeViewController.m in Sources */,
 				0612A38B23961DA800A82BB9 /* NoticeTableViewCell.m in Sources */,
+				067A399023A88ABC00740FA3 /* ConfirmOrderViewController.m in Sources */,
 				06ED4C1923A0FD220072EB15 /* DaySelectionTableViewCell.m in Sources */,
 				06FEA1E8239544F2005D58B9 /* DetailOrderViewController.m in Sources */,
 				06D6BF19239E39B000AB52DB /* MapsViewController.m in Sources */,

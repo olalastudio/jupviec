@@ -7,7 +7,7 @@
 //
 
 #import "PlaceOrderViewController.h"
-#import "AppDelegate.h"
+#import "ConfirmOrderViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 
 @interface PlaceOrderViewController (){
@@ -66,6 +66,8 @@
                             [NSNumber numberWithInt:ATTRIBUTE_GHICHU]];
     
     _order = [[Order alloc] init];
+    
+    [_order setOrderType:_tasktype];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -93,6 +95,8 @@
 -(void)setTaskType:(TASK_TYPE)type
 {
     _tasktype = type;
+    
+    [_order setOrderType:type];
 }
 
 /*
@@ -138,6 +142,14 @@
         [[self order] setWorkAddress:strLocation];
         [[self tbPlaceOrderContent] reloadData];
     }];
+}
+
+- (IBAction)didPressNextToConfirmOrder:(id)sender
+{
+    ConfirmOrderViewController *confirmorderview = [self.storyboard instantiateViewControllerWithIdentifier:@"idconfirmorder"];
+    [confirmorderview setOrder:_order];
+    
+    [self.navigationController pushViewController:confirmorderview animated:YES];
 }
 
 #pragma mark - UITableViewDelegate
