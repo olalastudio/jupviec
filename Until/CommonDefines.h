@@ -111,3 +111,10 @@ typedef enum : NSUInteger {
     SHIFT_WORK_AFTERNOON = 1,
     SHIFT_WORK_EVENING = 2,
 } SHIFT_WORK;
+
+typedef enum :NSUInteger
+{
+    OFFLINE = 0,
+    ONLINE = 1,
+    UNKNOWN = 2,
+}INTERNET_STATUS;
