@@ -15,15 +15,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CreatePasswordViewController : UIViewController <UITextFieldDelegate>
 {
-    User* user;
+    
 }
 
-@property (weak, nonatomic) IBOutlet UITextField *txtInputPassword;
-@property (weak, nonatomic) IBOutlet UITextField *txtReInputPassword;
-@property (weak, nonatomic) IBOutlet UIButton *btnRegister;
-@property (nonatomic, assign) NSString* strPhoneNum;
-@property (nonatomic, assign) NSString* strToken;
-@property (nonatomic, assign) NSInteger intActionMode;
+@property (weak, nonatomic) IBOutlet UITextField    *txtInputPassword;
+@property (weak, nonatomic) IBOutlet UITextField    *txtReInputPassword;
+@property (weak, nonatomic) IBOutlet UIButton       *btnRegister;
+
+@property (nonatomic, strong) User          *user;
+@property (nonatomic, strong) NSString      *strPhoneNum;
+@property (nonatomic, strong) NSString      *strToken;
+@property (nonatomic, assign) NSInteger     intActionMode;
 
 - (IBAction)didClickRegisterBtn:(id)sender;
 

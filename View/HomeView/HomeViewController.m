@@ -24,6 +24,9 @@
 @end
 
 @implementation HomeViewController
+@synthesize strUserToken = _strUserToken;
+@synthesize strPhoneNum = _strPhoneNum;
+@synthesize configurationInfoDict = _configurationInfoDict;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,12 +45,56 @@
     [self getConfiguration];
 }
 
+-(void)setStrUserToken:(NSString *)strUserToken
+{
+    _strUserToken = strUserToken;
+    
+    if (!_user) {
+        _user = [[User alloc] init];
+    }
+    
+    [_user setUserToken:_strUserToken];
+}
+
+-(NSString*)strUserToken
+{
+    return _strUserToken;
+}
+
+-(void)setStrPhoneNum:(NSString *)strPhoneNum
+{
+    _strPhoneNum = strPhoneNum;
+    
+    if (!_user) {
+        _user = [[User alloc] init];
+    }
+    
+    [_user setUserPhoneNum:_strPhoneNum];
+}
+
+-(NSString*)strPhoneNum
+{
+    return _strPhoneNum;
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
     [self.navigationController.navigationBar setHidden:YES];
     [self.tabBarController.tabBar setHidden:NO];
+    
+    if (_user) {
+        // user logged in
+        UIImage* userImg = [UIImage imageNamed:@"user-1.png"];
+        [_loginBtn setImage:userImg forState:UIControlStateNormal];
+        _loginBtn.titleLabel.text = @"";
+        
+        CGRect frame = [_loginBtn frame];
+        frame.size.width = 50;
+        frame.size.height = 50;
+        [_loginBtn setFrame:frame];
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -105,15 +152,6 @@
             [_serviceInfo setObject:[_configurationInfoDict objectForKey:@"payment_method"] forKey:@"payment_method"];
         }
     }
-    
-    if (_strUserToken && _strPhoneNum) {
-        // user logged in
-        UIImage* userImg = [UIImage imageNamed:@"user-1.png"];
-        [_loginBtn setImage:userImg forState:UIControlStateNormal];
-        _loginBtn.imageView.contentMode = UIViewContentModeScaleToFill;
-        _loginBtn.imageEdgeInsets = UIEdgeInsetsMake(15, 20, 50, 50);
-        _loginBtn.titleLabel.text = @"";
-    }
 }
 /*
 #pragma mark - Navigation
@@ -141,25 +179,27 @@
 }
 
 - (IBAction)didClickLoginButton:(id)sender {
-    if (!_strUserToken)
+    
+    if (!_user)
     {
         //change to view register
         [self performSegueWithIdentifier:@"idlogin" sender:self];
     }
-    else if (_strPhoneNum && _strUserToken && !_user)
+    else if (![_user userNameStr])
     {
         //view user info
         APIRequest* api = [[APIRequest alloc]init];
-        [api requestAPIGetAccountInfo:_strPhoneNum token:_strUserToken completionHandler:^(User * _Nullable user, NSError * _Nonnull error) {
+        [api requestAPIGetAccountInfo:[_user userPhoneNum] token:[_user userToken] completionHandler:^(User * _Nullable user, NSError * _Nonnull error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (error.code == 200) {
+                    user.userToken = [self.user userToken];
                     self->_user = user;
                     [self performSegueWithIdentifier:@"idshowaccountInfo" sender:self];
                 }
             });
         }];
     }
-    else if (_strPhoneNum && _strUserToken && _user)
+    else
     {
         [self performSegueWithIdentifier:@"idshowaccountInfo" sender:self];
     }

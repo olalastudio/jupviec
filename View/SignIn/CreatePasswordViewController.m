@@ -14,6 +14,7 @@
 @end
 
 @implementation CreatePasswordViewController
+@synthesize user = _user;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,23 +50,38 @@
     if ([[segue identifier] isEqualToString:@"idUserHomeVC"])
     {
         HomeViewController* homeVC = [segue destinationViewController];
-        homeVC.user = user;
+        homeVC.user = _user;
         homeVC.strUserToken = _strToken;
     }
 }
 
 - (void)requestLogin
 {
-    APIRequest* apiRequest = [[APIRequest alloc]init];
-    [apiRequest requestAPILogin:_strPhoneNum password:[_txtInputPassword text] completionHandler:^(NSString * _Nullable token, NSError * _Nonnull error) {
-        if (error.code == 200)
-        {
-            self->_strToken = token;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self performSegueWithIdentifier:@"idUserHomeVC" sender:self];
-            });
-        }
-    }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+            APIRequest* apiRequest = [[APIRequest alloc]init];
+            NSString *password = [self.txtInputPassword text];
+            
+            [apiRequest requestAPILogin:self.strPhoneNum password:password completionHandler:^(NSString * _Nullable token, NSError * _Nonnull error)
+            {
+                if (error.code == 200)
+                {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self setStrToken:token];
+                        [self.user setUserToken:token];
+                        
+                        for (UIViewController *vc in [self.navigationController viewControllers]) {
+                            
+                            if ([vc isKindOfClass:[HomeViewController class]]) {
+                                [(HomeViewController*)vc setUser:self.user];
+                                break;
+                            }
+                        }
+                        
+                        [self.navigationController popToRootViewControllerAnimated:YES];
+                    });
+                }
+            }];
+     });
 }
 
 - (IBAction)didClickRegisterBtn:(id)sender {
@@ -90,7 +106,7 @@
                 if (err.code == 200)
                 {
                     NSLog(@"Register success");
-                    self->user = user;
+                    self.user = user;
                     //login to get token
                     [self requestLogin];
                 }

@@ -30,10 +30,16 @@
 
 - (IBAction)didPressConfirmLocationButton:(id)sender
 {
-    NSArray *viewcontrollers = [self.navigationController viewControllers];
+    PlaceOrderViewController *placeview;
     
-    PlaceOrderViewController *placeview = (PlaceOrderViewController*)viewcontrollers[viewcontrollers.count - 3];
-    [placeview setCurrentLocation:selectedLocation];
+    for (UIViewController *vc in [self.navigationController viewControllers])
+    {
+        if ([vc isKindOfClass:[PlaceOrderViewController class]])
+        {
+            placeview = (PlaceOrderViewController*)vc;
+            [placeview setCurrentLocation:selectedLocation];
+        }
+    }
     
     [self.navigationController popToViewController:placeview animated:YES];
 }

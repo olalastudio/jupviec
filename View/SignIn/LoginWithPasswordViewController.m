@@ -30,6 +30,16 @@
     
     [self.tabBarController.tabBar setHidden:YES];
 }
+
+-(NSString*)userToken
+{
+    return strToken;
+}
+
+-(NSString*)userPhoneNumber
+{
+    return strUserphone;
+}
 /*
 #pragma mark - Navigation
 
@@ -108,11 +118,21 @@
             if (error.code == 200)
             {
                 self->strToken = token;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self performSegueWithIdentifier:@"idLoginToHomeView" sender:self];
-                });
-                NSLog(@"lofin success: go to home view");
                 
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    for (UIViewController *vc in [self.navigationController viewControllers]) {
+                        
+                        if ([vc isKindOfClass:[HomeViewController class]]) {
+                            [(HomeViewController*)vc setStrUserToken:[self userToken]];
+                            [(HomeViewController*)vc setStrPhoneNum:[self userPhoneNumber]];
+                            break;
+                        }
+                    }
+                    
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                    NSLog(@"lofin success: go to home view");
+                });
             } else if (error.code == 404)
             {
                 NSLog(@"phone number is not registed");

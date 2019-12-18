@@ -9,12 +9,14 @@
 #import "User.h"
 
 @implementation User
+@synthesize userToken = _userToken;
 
 -(id)initUserWithInfoData:(NSDictionary *)infoDict
 {
     self = [super init];
     if (self && infoDict != nil)
     {
+        _userToken = nil;
         _userIDStr = [infoDict objectForKey:@"id"];
         _userPhoneNum = [infoDict objectForKey:@"phone"];
         _userRoleStr = [infoDict objectForKey:@"role"];

@@ -9,6 +9,7 @@
 #import "EditAccountInfoViewController.h"
 #import "APIRequest.h"
 #import "AccountInfoViewController.h"
+#import "HomeViewController.h"
 
 @interface EditAccountInfoViewController ()
 
@@ -59,15 +60,21 @@
 }
 
 - (IBAction)changeEdittedAccountInfo:(id)sender {
-    if (_isChangeInfo && _user && _tokenStr) {
+    
+    if (_isChangeInfo && _user && [_user userToken])
+    {
         [_accountGeneralInfo setObject:_userNameTF.text forKey:@"name"];
         [_accountGeneralInfo setObject:_emailTF.text forKey:@"email"];
         [_accountGeneralInfo setObject:[NSNumber numberWithInteger:[_ageTF.text integerValue]] forKey:@"age"];
         [_accountGeneralInfo setObject:_addressTF.text forKey:@"address"];
         [_accountGeneralInfo setObject:[NSNumber numberWithInteger:[_identifyCardTF.text integerValue]] forKey:@"identity_card"];
+        
         APIRequest* api = [[APIRequest alloc]init];
-        [api requestAPIUpdateAccountInfo:[_user userPhoneNum] token:_tokenStr accountInfo:_accountGeneralInfo completionHandler:^(User * _Nullable user, NSError * _Nonnull error) {
-            if (error.code == 200) {
+        
+        [api requestAPIUpdateAccountInfo:[_user userPhoneNum] token:[_user userToken] accountInfo:_accountGeneralInfo completionHandler:^(User * _Nullable user, NSError * _Nonnull error)
+        {
+            if (error.code == 200)
+            {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self didSuccessChangeAccountInfo:user];
                 });
@@ -79,13 +86,20 @@
 - (void)didSuccessChangeAccountInfo:(User*)user
 {
     NSArray* viewControllersArr = [self.navigationController viewControllers];
+    
     for (UIViewController* vc in viewControllersArr) {
-        if ([vc isKindOfClass:[AccountInfoViewController class]]) {
+        if ([vc isKindOfClass:[AccountInfoViewController class]])
+        {
             AccountInfoViewController* accountInfoVC = (AccountInfoViewController*)vc;
             accountInfoVC.user = user;
-            [self.navigationController popViewControllerAnimated:YES];
-            break;
+        }
+        else if ([vc isKindOfClass:[HomeViewController class]])
+        {
+            HomeViewController* homeview = (HomeViewController*)vc;
+            [homeview setUser:user];
         }
     }
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

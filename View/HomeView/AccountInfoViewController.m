@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     if (_user) {
         _generalInfo = [_user dictUserInfo];
         if ([[_generalInfo objectForKey:@"name"] isKindOfClass:[NSString class]]) {
@@ -28,6 +29,8 @@
         }
         _phoneNumLb.text = [_user userPhoneNum];
     }
+    
+    [self.tabBarController.tabBar setHidden:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated
