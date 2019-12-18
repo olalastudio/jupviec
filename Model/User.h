@@ -11,11 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface User : NSObject
-@property (nonatomic, assign) NSString* userIDStr;
-@property (nonatomic, assign) NSNumber* userPhoneNum;
-@property (nonatomic, assign) NSString* userRoleStr;
-@property (nonatomic, assign) NSString* userNameStr;
-@property (nonatomic, weak) NSDictionary* dictUserInfo;
+@property (nonatomic, strong) NSString* userIDStr;
+@property (nonatomic, strong) NSString* userPhoneNum;
+@property (nonatomic, strong) NSString* userRoleStr;
+@property (nonatomic, strong) NSString* userNameStr;
+@property (nonatomic, strong) NSDictionary* dictUserInfo;
 @property (nonatomic, assign) NSInteger userStatus;
 @property (nonatomic, assign) NSInteger userLevel;
 

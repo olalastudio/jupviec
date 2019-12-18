@@ -13,18 +13,17 @@
 #import "SignInViewController.h"
 
 #import "PlaceOrderViewController.h"
+#import "AccountInfoViewController.h"
 
 @interface HomeViewController ()
 
 @end
 
 @implementation HomeViewController
-@synthesize user = _user;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _user = [[User alloc] init];
     
     [_tbSelectionTask registerNib:[UINib nibWithNibName:@"HomeTaskCell" bundle:nil] forCellReuseIdentifier:@"idhometaskcell"];
     [_tbSelectionTask registerNib:[UINib nibWithNibName:@"HomePromotionCell" bundle:nil] forCellReuseIdentifier:@"idhomepromotioncell"];
@@ -52,6 +51,15 @@
         if ([_configurationInfoDict objectForKey:@"payment_method"]) {
             [_serviceInfo setObject:[_configurationInfoDict objectForKey:@"payment_method"] forKey:@"payment_method"];
         }
+    }
+    
+    if (_strUserToken && _strPhoneNum) {
+        // user logged in
+        UIImage* userImg = [UIImage imageNamed:@"user-1.png"];
+        [_loginBtn setImage:userImg forState:UIControlStateNormal];
+        _loginBtn.imageView.contentMode = UIViewContentModeScaleToFill;
+        _loginBtn.imageEdgeInsets = UIEdgeInsetsMake(15, 20, 50, 50);
+        _loginBtn.titleLabel.text = @"";
     }
 }
 
@@ -86,13 +94,36 @@
         SignInViewController* signInVC = segue.destinationViewController;
         signInVC.intActionMode = MODE_REGISTER_NEW_ACC;
     }
+    else if ([segue.identifier isEqualToString:@"idshowaccountInfo"])
+    {
+        AccountInfoViewController* accountInfoVC = segue.destinationViewController;
+        accountInfoVC.user = _user;
+        accountInfoVC.tokenStr = _strUserToken;
+    }
 }
 
 - (IBAction)didClickLoginButton:(id)sender {
-    if (![_user userPhoneNum])
+    if (!_strUserToken)
     {
         //change to view register
         [self performSegueWithIdentifier:@"idlogin" sender:self];
+    }
+    else if (_strPhoneNum && _strUserToken && !_user)
+    {
+        //view user info
+        APIRequest* api = [[APIRequest alloc]init];
+        [api requestAPIGetAccountInfo:_strPhoneNum token:_strUserToken completionHandler:^(User * _Nullable user, NSError * _Nonnull error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (error.code == 200) {
+                    self->_user = user;
+                    [self performSegueWithIdentifier:@"idshowaccountInfo" sender:self];
+                }
+            });
+        }];
+    }
+    else if (_strPhoneNum && _strUserToken && _user)
+    {
+        [self performSegueWithIdentifier:@"idshowaccountInfo" sender:self];
     }
 }
 

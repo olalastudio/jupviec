@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import <GooglePlaces/GooglePlaces.h>
+#import "NetworkReachability.h"
 
 @interface AppDelegate ()
 {
@@ -25,8 +26,25 @@
     [GMSPlacesClient provideAPIKey:@"AIzaSyB1Qo46kfokUCUb9pTGUb0QV5aoKmPV6qE"];
     [GMSServices provideAPIKey:@"AIzaSyB1Qo46kfokUCUb9pTGUb0QV5aoKmPV6qE"];
 
-    
+    if (NetworkReachability.internetConnectionStatus != ONLINE)
+    {
+        [self showAlertForInternetConnection];
+    }
     return YES;
+}
+
+- (void)showAlertForInternetConnection
+{
+//    UIWindow* topWindow = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+//    topWindow.rootViewController = [UIViewController new];
+//    topWindow.windowLevel = UIWindowLevelAlert + 1;
+    UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Popup" message:@"Khong co ket noi mang. Kiem tra lai ket noi mang" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:okAction];
+    UIViewController* topVC = self.window.rootViewController;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [topVC presentViewController:alertController animated:YES completion:nil];
+    });
 }
 
 -(BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey,id> *)launchOptions

@@ -406,7 +406,6 @@
 		06222E2A239E64F100AE24C5 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 06222E29239E64F100AE24C5 /* Order.m */; };
 		0633A786239109E60094219D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0633A785239109E60094219D /* HomeViewController.m */; };
 		0633A78A239113080094219D /* OTPCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0633A789239113080094219D /* OTPCheckViewController.m */; };
-		0633A78D239113D50094219D /* AccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0633A78C239113D50094219D /* AccountInfoViewController.m */; };
 		0633A793239117E00094219D /* LoginWithPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0633A792239117E00094219D /* LoginWithPasswordViewController.m */; };
 		065105E723A33F0500B5339B /* HomePromotionCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 065105E623A33F0500B5339B /* HomePromotionCollectionCell.xib */; };
 		0658BEB9238FAC7800CBBAD1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658BEB8238FAC7800CBBAD1 /* AppDelegate.m */; };
@@ -439,7 +438,10 @@
 		06FEA1E42394CC0E005D58B9 /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1E32394CC0E005D58B9 /* HistoryTableViewCell.m */; };
 		06FEA1E8239544F2005D58B9 /* DetailOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1E7239544F2005D58B9 /* DetailOrderViewController.m */; };
 		4CCA650DE5769D6F06336B2A /* Pods_JupViec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF954FD1F9AE36C1F76ACB82 /* Pods_JupViec.framework */; };
+		CE732E3A23A8DCC700E32CD9 /* NetworkReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CE732E3923A8DCC700E32CD9 /* NetworkReachability.m */; };
 		CE8F00ED23A1EF60000235D1 /* ChooseAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8F00EC23A1EF60000235D1 /* ChooseAddressViewController.m */; };
+		CEA0919323A796FA00D2502F /* AccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0919223A796FA00D2502F /* AccountInfoViewController.m */; };
+		CEA0919623A79D7300D2502F /* EditAccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0919523A79D7300D2502F /* EditAccountInfoViewController.m */; };
 		CEA83F1723911F60001C1512 /* APIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA83F1523911F5F001C1512 /* APIRequest.m */; };
 		CEA83F1B239120BE001C1512 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA83F19239120BE001C1512 /* User.m */; };
 		CEFD75B22394FAD80040699B /* CreatePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFD75B12394FAD80040699B /* CreatePasswordViewController.m */; };
@@ -861,8 +863,6 @@
 		0633A785239109E60094219D /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		0633A788239113080094219D /* OTPCheckViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OTPCheckViewController.h; sourceTree = "<group>"; };
 		0633A789239113080094219D /* OTPCheckViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OTPCheckViewController.m; sourceTree = "<group>"; };
-		0633A78B239113D50094219D /* AccountInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountInfoViewController.h; sourceTree = "<group>"; };
-		0633A78C239113D50094219D /* AccountInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountInfoViewController.m; sourceTree = "<group>"; };
 		0633A78E239117890094219D /* CreatePasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreatePasswordViewController.h; sourceTree = "<group>"; };
 		0633A791239117E00094219D /* LoginWithPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginWithPasswordViewController.h; sourceTree = "<group>"; };
 		0633A792239117E00094219D /* LoginWithPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginWithPasswordViewController.m; sourceTree = "<group>"; };
@@ -916,8 +916,14 @@
 		06FEA1E7239544F2005D58B9 /* DetailOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailOrderViewController.m; sourceTree = "<group>"; };
 		4F3649E165524B914C1FE02A /* Pods-JupViec.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JupViec.debug.xcconfig"; path = "Target Support Files/Pods-JupViec/Pods-JupViec.debug.xcconfig"; sourceTree = "<group>"; };
 		C5473C782A87585FD2C38DA3 /* Pods-JupViec.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JupViec.release.xcconfig"; path = "Target Support Files/Pods-JupViec/Pods-JupViec.release.xcconfig"; sourceTree = "<group>"; };
+		CE732E3823A8DCC700E32CD9 /* NetworkReachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkReachability.h; sourceTree = "<group>"; };
+		CE732E3923A8DCC700E32CD9 /* NetworkReachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkReachability.m; sourceTree = "<group>"; };
 		CE8F00EB23A1EF60000235D1 /* ChooseAddressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseAddressViewController.h; sourceTree = "<group>"; };
 		CE8F00EC23A1EF60000235D1 /* ChooseAddressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseAddressViewController.m; sourceTree = "<group>"; };
+		CEA0919123A796FA00D2502F /* AccountInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountInfoViewController.h; sourceTree = "<group>"; };
+		CEA0919223A796FA00D2502F /* AccountInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountInfoViewController.m; sourceTree = "<group>"; };
+		CEA0919423A79D7300D2502F /* EditAccountInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditAccountInfoViewController.h; sourceTree = "<group>"; };
+		CEA0919523A79D7300D2502F /* EditAccountInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditAccountInfoViewController.m; sourceTree = "<group>"; };
 		CEA83F1523911F5F001C1512 /* APIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIRequest.m; sourceTree = "<group>"; };
 		CEA83F1623911F60001C1512 /* APIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIRequest.h; sourceTree = "<group>"; };
 		CEA83F19239120BE001C1512 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -943,6 +949,8 @@
 			isa = PBXGroup;
 			children = (
 				0601E194238FAEEE00403C95 /* CommonDefines.h */,
+				CE732E3823A8DCC700E32CD9 /* NetworkReachability.h */,
+				CE732E3923A8DCC700E32CD9 /* NetworkReachability.m */,
 			);
 			path = Until;
 			sourceTree = "<group>";
@@ -1359,8 +1367,6 @@
 				0601E319238FAEEF00403C95 /* SignInViewController.m */,
 				0633A788239113080094219D /* OTPCheckViewController.h */,
 				0633A789239113080094219D /* OTPCheckViewController.m */,
-				0633A78B239113D50094219D /* AccountInfoViewController.h */,
-				0633A78C239113D50094219D /* AccountInfoViewController.m */,
 				0633A78E239117890094219D /* CreatePasswordViewController.h */,
 				CEFD75B12394FAD80040699B /* CreatePasswordViewController.m */,
 				0633A791239117E00094219D /* LoginWithPasswordViewController.h */,
@@ -1438,6 +1444,10 @@
 				068DDEEA23990D62009484E7 /* PlaceOrder */,
 				0633A784239109E60094219D /* HomeViewController.h */,
 				0633A785239109E60094219D /* HomeViewController.m */,
+				CEA0919123A796FA00D2502F /* AccountInfoViewController.h */,
+				CEA0919223A796FA00D2502F /* AccountInfoViewController.m */,
+				CEA0919423A79D7300D2502F /* EditAccountInfoViewController.h */,
+				CEA0919523A79D7300D2502F /* EditAccountInfoViewController.m */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -2166,6 +2176,7 @@
 				06B620BD2397B3930036DCF9 /* HomePromotionCollectionViewCell.m in Sources */,
 				0658BEC7238FAC7800CBBAD1 /* main.m in Sources */,
 				068DDEF32399144C009484E7 /* PlaceOrderCommonTableViewCell.m in Sources */,
+				CE732E3A23A8DCC700E32CD9 /* NetworkReachability.m in Sources */,
 				06FEA1E42394CC0E005D58B9 /* HistoryTableViewCell.m in Sources */,
 				06EC9F252396786100474EE3 /* HomePromotionTableViewCell.m in Sources */,
 				0658BEB9238FAC7800CBBAD1 /* AppDelegate.m in Sources */,
@@ -2174,12 +2185,13 @@
 				0612A38E23961DB900A82BB9 /* CouponTableViewCell.m in Sources */,
 				CEA83F1723911F60001C1512 /* APIRequest.m in Sources */,
 				068DDEED23990D8C009484E7 /* PlaceOrderViewController.m in Sources */,
+				CEA0919623A79D7300D2502F /* EditAccountInfoViewController.m in Sources */,
 				06FD73C123A2527F00528A00 /* DayLabel.m in Sources */,
 				06222E24239E489C00AE24C5 /* TextDetailPopupController.m in Sources */,
+				CEA0919323A796FA00D2502F /* AccountInfoViewController.m in Sources */,
 				CEA83F1B239120BE001C1512 /* User.m in Sources */,
 				0612A393239621F500A82BB9 /* InformationTableViewCell.m in Sources */,
 				06EC9F202396736200474EE3 /* HomeTaskTableViewCell.m in Sources */,
-				0633A78D239113D50094219D /* AccountInfoViewController.m in Sources */,
 				0633A786239109E60094219D /* HomeViewController.m in Sources */,
 				0612A38B23961DA800A82BB9 /* NoticeTableViewCell.m in Sources */,
 				06ED4C1923A0FD220072EB15 /* DaySelectionTableViewCell.m in Sources */,
@@ -2333,7 +2345,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KREB2MXHVA;
+				DEVELOPMENT_TEAM = 6R752XT6V5;
 				INFOPLIST_FILE = JupViec/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2355,7 +2367,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KREB2MXHVA;
+				DEVELOPMENT_TEAM = 6R752XT6V5;
 				INFOPLIST_FILE = JupViec/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

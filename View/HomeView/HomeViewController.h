@@ -13,12 +13,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
-    __strong User   *_user;
     NSMutableDictionary* _serviceInfo;
     NSArray* _serviceTypesArr;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView    *tbSelectionTask;
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property (nonatomic, strong) User                    *user;
 @property (nonatomic, weak) NSString                *strUserToken;
 @property (nonatomic, strong) NSDictionary* configurationInfoDict;
