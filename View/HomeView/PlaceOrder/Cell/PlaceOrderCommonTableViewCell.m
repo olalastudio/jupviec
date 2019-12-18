@@ -122,7 +122,8 @@
             [_txtContent setText:@"None"];
             
             if ([[_order extraOption] count] > 0) {
-                [_txtContent setText:[[_order extraOption] objectForKey:@"name"]];
+                NSDictionary *option = [[_order extraOption] objectAtIndex:0];
+                [_txtContent setText:[option objectForKey:@"name"]];
             }
         }
             break;

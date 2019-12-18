@@ -10,6 +10,8 @@
 #import "ConfirmOrderViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 
+#import "JUntil.h"
+
 @interface PlaceOrderViewController (){
     NSArray *attributeListDungLe;
     NSArray *attributeListDungDK;
@@ -21,6 +23,7 @@
 
 @implementation PlaceOrderViewController
 @synthesize order = _order;
+@synthesize user = _user;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -90,6 +93,8 @@
         default:
             break;
     }
+    
+    [self calculatePrice];
 }
 
 -(void)setTaskType:(TASK_TYPE)type
@@ -108,6 +113,36 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(NSInteger)calculatePrice
+{
+    double baseHour = [[_serviceInfo objectForKey:ID_BASE_HOUR] doubleValue];
+    double basePrice = [[_serviceInfo objectForKey:ID_BASE_PRICE] unsignedIntValue];
+    double minPrice = [[_serviceInfo objectForKey:ID_MIN_PRICE] unsignedIntValue];
+    
+    NSArray *extendSerivce = [_order extraOption];
+    double startTime = [JUntil timeNumberFromString:[[_order workTime] objectForKey:ATTRIBUTE_START_TIME]];
+    double endTime = [JUntil timeNumberFromString:[[_order workTime] objectForKey:ATTRIBUTE_END_TIME]];
+    double workhour = endTime - startTime;
+    double totalMoney;
+    
+    if (workhour >= baseHour) {
+        totalMoney = workhour * minPrice;
+    }else{
+        totalMoney = workhour * basePrice;
+    }
+    
+    for (NSDictionary *item in extendSerivce) {
+        double extendprice = [[item objectForKey:ID_PRICE] doubleValue];
+        totalMoney += extendprice;
+    }
+    
+    [_txtTotalMoneyValue setText:[NSString stringWithFormat:@"%.3fđ/%.1fh",totalMoney,workhour]];
+    
+    [_order setTotalMoney:totalMoney];
+    
+    return totalMoney;
+}
 
 -(NSArray*)getlistDichVu
 {
@@ -148,6 +183,7 @@
 {
     ConfirmOrderViewController *confirmorderview = [self.storyboard instantiateViewControllerWithIdentifier:@"idconfirmorder"];
     [confirmorderview setOrder:_order];
+    [confirmorderview setUser:_user];
     
     [self.navigationController pushViewController:confirmorderview animated:YES];
 }
@@ -208,11 +244,16 @@
             [timeCell setIndexPath:indexPath];
             [timeCell setOrder:_order];
             
+            [self calculatePrice];
+            
             return timeCell;
         }
             break;
         case ATTRIBUTE_DICHVUKEMTHEO:
+        {
             [cell setOderAttribute:ATTRIBUTE_DICHVUKEMTHEO];
+            [self calculatePrice];
+        }
             break;
         case ATTRIBUTE_HINHTHUCTHANHTOAN:
             [cell setOderAttribute:ATTRIBUTE_HINHTHUCTHANHTOAN];
@@ -350,7 +391,7 @@
 
 -(void)didSelectExtentService:(NSDictionary *)code index:(NSIndexPath *)index
 {
-    [_order setExtraOption:code];
+    [_order setExtraOption:[NSMutableArray arrayWithObjects:code, nil]];
     
     [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
 }

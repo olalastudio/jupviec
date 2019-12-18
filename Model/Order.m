@@ -22,6 +22,7 @@
 @synthesize paymentMethod = _paymentMethod;
 @synthesize priceTags = _priceTags;
 @synthesize note = _note;
+@synthesize totalMoney = _totalMoney;
 
 - (instancetype)init
 {
@@ -35,9 +36,10 @@
         _dayOfExamine = [NSDate date];
         _timeOfExamine  = [NSMutableDictionary dictionaryWithCapacity:0];
         [self initWorkTime];
-        _extraOption = [NSMutableDictionary dictionaryWithCapacity:0];
+        _extraOption = [NSMutableArray arrayWithCapacity:0];
         _paymentMethod = [NSMutableDictionary dictionaryWithCapacity:0];
         _note = @"";
+        _totalMoney = 0;
     }
     return self;
 }

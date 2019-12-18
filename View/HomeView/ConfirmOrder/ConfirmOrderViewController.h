@@ -8,14 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "Order.h"
+#import "User.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ConfirmOrderViewController : UIViewController
 {
     Order       *_order;
+    User        *_user;
 }
 @property Order     *order;
+@property User      *user;
 
 @property (weak, nonatomic) IBOutlet UITextView *txtContent;
 @property (weak, nonatomic) IBOutlet UILabel *txtTotalMoney;

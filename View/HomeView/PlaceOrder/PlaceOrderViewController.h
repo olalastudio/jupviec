@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CommonDefines.h"
 #import "Order.h"
+#import "User.h"
 #import "PlaceOrderCommonTableViewCell.h"
 #import "TimeSelectionTableViewCell.h"
 #import "DaySelectionTableViewCell.h"
@@ -23,10 +24,12 @@ NS_ASSUME_NONNULL_BEGIN
 {
     TASK_TYPE       _tasktype;
     Order           *_order;
+    User            *_user;
 }
 
 @property (strong, nonatomic) NSDictionary* serviceInfo;
 @property Order     *order;
+@property User      *user;
 
 @property (weak, nonatomic) IBOutlet UITableView *tbPlaceOrderContent;
 @property (weak, nonatomic) IBOutlet UILabel *txtTotalMoney;

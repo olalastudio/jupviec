@@ -7,6 +7,8 @@
 //
 
 #import "ConfirmOrderViewController.h"
+#import "APIRequest.h"
+#import "JUntil.h"
 
 @interface ConfirmOrderViewController ()
 
@@ -14,6 +16,7 @@
 
 @implementation ConfirmOrderViewController
 @synthesize order = _order;
+@synthesize user = _user;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -97,7 +100,14 @@
         default:
             break;
     }
+    
+    double startTime = [JUntil timeNumberFromString:[[_order workTime] objectForKey:ATTRIBUTE_START_TIME]];
+    double endTime = [JUntil timeNumberFromString:[[_order workTime] objectForKey:ATTRIBUTE_END_TIME]];
+    double workhour = endTime - startTime;
+    
+    [_txtTotalMoneyValue setText:[NSString stringWithFormat:@"%.3fđ/%.1fh",[_order totalMoney],workhour]];
 }
+
 /*
 #pragma mark - Navigation
 
@@ -108,6 +118,65 @@
 }
 */
 
-- (IBAction)didPressConfirmOrderButton:(id)sender {
+- (IBAction)didPressConfirmOrderButton:(id)sender
+{
+    NSString *strToken = [_user userIDStr];
+    NSMutableDictionary *detailService = [[NSMutableDictionary alloc] initWithCapacity:0];
+    
+    //request type
+    switch ([_order orderType]) {
+        case TYPE_DUNGLE:
+        {
+            [detailService setObject:CODE_DUNGLE forKey:ID_REQUEST_TYPE];
+            
+            //requester
+            [detailService setObject:[_user userPhoneNum] forKey:ID_REQUESTER];
+            
+            //location
+            [detailService setObject:[_order workAddress] forKey:ID_LOCATION];
+            
+            //working date
+            [detailService setObject:[_order workDate] forKey:ID_WORKING_DATE];
+            
+            //workinghour
+            [detailService setObject:[_order workTime] forKey:ID_WORKING_HOUR];
+            
+            //working time
+            [detailService setObject:@"3" forKey:ID_WORKING_TIME];
+            
+            //extend service
+            [detailService setObject:@[CODE_DICHO, CODE_GIATQAO] forKey:ID_SERVICE_EXTEND];
+            
+            //Payment method
+            [detailService setObject:CODE_TIENMAT forKey:ID_PAYMENT_METHOD];
+            
+            //user note
+            [detailService setObject:[_order note] forKey:ID_USER_NOTE];
+        }
+            break;
+        case TYPE_DUNGDINHKY:
+        {
+            [detailService setObject:CODE_DINHKY forKey:ID_REQUEST_TYPE];
+        }
+            break;
+        case TYPE_TONGVESINH:
+        {
+            [detailService setObject:CODE_TONGVESINH forKey:ID_REQUEST_TYPE];
+        }
+            break;
+        case TYPE_JUPSOFA:
+        {
+            [detailService setObject:CODE_SOFA forKey:ID_REQUEST_TYPE];
+        }
+            break;
+        default:
+            break;
+    }
+    
+    APIRequest *apiRequest = [[APIRequest alloc] init];
+    
+    [apiRequest requestAPIBookService:strToken detailService:detailService completionhandler:^(NSDictionary * _Nullable serviceInfo, NSError * _Nonnull error) {
+        
+    }];
 }
 @end

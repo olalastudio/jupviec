@@ -13,22 +13,22 @@
 #endif /* CommonDefines_h */
 
 #pragma mark API
-#define ADDRESS_SERVER      @"http://52.221.107.104:8080"
-#define API_V1              @"api/v1"
-#define API_GETOTP          @"get-otp"
-#define API_REGISTER        @"register"
-#define API_LOGIN           @"login"
-#define API_FORGOT_PASS     @"forgot"
-#define API_UPDATE_PASS     @"update-password"
-#define API_REQUEST         @"request"
+#define ADDRESS_SERVER          @"http://52.221.107.104:8080"
+#define API_V1                  @"api/v1"
+#define API_GETOTP              @"get-otp"
+#define API_REGISTER            @"register"
+#define API_LOGIN               @"login"
+#define API_FORGOT_PASS         @"forgot"
+#define API_UPDATE_PASS         @"update-password"
+#define API_REQUEST             @"request"
 #define API_GET_ALL_REQUESTS    @"requests/myself"
 #define API_GET_CONFIGURATION   @"configuration"
 #define API_ACCOUNT             @"account"
-#define API_RATE            @"rate"
+#define API_RATE                @"rate"
 #define API_GET_AVAILABLE_NOTI  @"notify-available"
-#define API_NOTIFY          @"notify"
+#define API_NOTIFY              @"notify"
 
-#define ID_WELCOME_VIEW     @"idwelcomeview"
+#define ID_WELCOME_VIEW         @"idwelcomeview"
 
 #define MODE_REGISTER_NEW_ACC   1
 #define MODE_FORGOT_PASSWORD    2
@@ -40,6 +40,44 @@
 #define CODE_DINHKY             @"DINHKY"
 #define CODE_TONGVESINH         @"TONGVESINH"
 #define CODE_SOFA               @"SOFA"
+
+#define CODE_RUABAT             @"RUABAT"
+#define CODE_NAUCOM             @"NAUCOM"
+#define CODE_DICHO              @"DICHO"
+#define CODE_GIATQAO            @"GIATQAO"
+
+#define CODE_TIENMAT            @"TIENMAT"
+#define CODE_CHUYENKHOAN        @"CHUYENKHOAN"
+
+#define CODE_YEUCAUDICHVU       @"YEUCAUDICHVU"
+#define CODE_YEUCAUTAMDUNG      @"YEUCAUTAMDUNG"
+#define CODE_YEUCAUHUY          @"YEUCAUHUY"
+
+#define CODE_ERR_ACCOUNT_EXIST      @"ERR_ACCOUNT_EXIST"
+#define CODE_ERR_ACCOUNT_NOT_EXIST  @"ERR_ACCOUNT_NOT_EXIST"
+#define CODE_ERR_PARAM_INVALID      @"ERR_PARAM_INVALID"
+#define CODE_ERR_REQ_NOT_EXIST      @"ERR_REQ_NOT_EXIST"
+#define CODE_ERR_NOTIFY_NOT_EXIST   @"ERR_NOTIFY_NOT_EXIST"
+#define CODE_SUC_REMOVED            @"SUC_REMOVED"
+
+#define CODE_CHUADOC            @"CHUADOC"
+#define CODE_DADOC              @"DADOC"
+#define CODE_DAXULY             @"DAXULY"
+
+#define ID_REQUEST_TYPE         @"request_type"
+#define ID_REQUESTER            @"requester"
+#define ID_LOCATION             @"location"
+#define ID_WORKING_DATE         @"working_date"
+#define ID_WORKING_HOUR         @"working_hour"
+#define ID_WORKING_TIME         @"working_time"
+#define ID_SERVICE_EXTEND       @"service_extend"
+#define ID_PAYMENT_METHOD       @"payment_method"
+#define ID_USER_NOTE            @"user_note"
+#define ID_PRICE                @"price"
+
+#define ID_BASE_HOUR            @"base_hour"
+#define ID_BASE_PRICE           @"base_price"
+#define ID_MIN_PRICE            @"min_price"
 
 typedef enum : NSUInteger {
     TYPE_NONE = -1,

@@ -424,6 +424,7 @@
 		06B620BD2397B3930036DCF9 /* HomePromotionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */; };
 		06B620BF2397B4540036DCF9 /* makhuyenmai.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B620BE2397B4540036DCF9 /* makhuyenmai.png */; };
 		06D6BF19239E39B000AB52DB /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6BF18239E39B000AB52DB /* MapsViewController.m */; };
+		06DFA80223A9C69F00FBE763 /* JUntil.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DFA80123A9C69F00FBE763 /* JUntil.m */; };
 		06EC9F1D2396734A00474EE3 /* HomeTaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06EC9F1C2396734A00474EE3 /* HomeTaskCell.xib */; };
 		06EC9F202396736200474EE3 /* HomeTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EC9F1F2396736200474EE3 /* HomeTaskTableViewCell.m */; };
 		06EC9F222396784100474EE3 /* HomePromotionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06EC9F212396784100474EE3 /* HomePromotionCell.xib */; };
@@ -894,6 +895,8 @@
 		06B620BE2397B4540036DCF9 /* makhuyenmai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = makhuyenmai.png; sourceTree = "<group>"; };
 		06D6BF17239E39B000AB52DB /* MapsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapsViewController.h; sourceTree = "<group>"; };
 		06D6BF18239E39B000AB52DB /* MapsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapsViewController.m; sourceTree = "<group>"; };
+		06DFA80023A9C69F00FBE763 /* JUntil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JUntil.h; sourceTree = "<group>"; };
+		06DFA80123A9C69F00FBE763 /* JUntil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JUntil.m; sourceTree = "<group>"; };
 		06EC9F1C2396734A00474EE3 /* HomeTaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTaskCell.xib; sourceTree = "<group>"; };
 		06EC9F1E2396736200474EE3 /* HomeTaskTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTaskTableViewCell.h; sourceTree = "<group>"; };
 		06EC9F1F2396736200474EE3 /* HomeTaskTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTaskTableViewCell.m; sourceTree = "<group>"; };
@@ -949,6 +952,8 @@
 			isa = PBXGroup;
 			children = (
 				0601E194238FAEEE00403C95 /* CommonDefines.h */,
+				06DFA80023A9C69F00FBE763 /* JUntil.h */,
+				06DFA80123A9C69F00FBE763 /* JUntil.m */,
 			);
 			path = Until;
 			sourceTree = "<group>";
@@ -2174,6 +2179,7 @@
 				06222E27239E4A7200AE24C5 /* PopupView.m in Sources */,
 				0601E49C238FAEF000403C95 /* SignInViewController.m in Sources */,
 				0612A384239617DA00A82BB9 /* InformationViewController.m in Sources */,
+				06DFA80223A9C69F00FBE763 /* JUntil.m in Sources */,
 				06ED4C1423A0EDE90072EB15 /* TimeSelectionTableViewCell.m in Sources */,
 				CE8F00ED23A1EF60000235D1 /* ChooseAddressViewController.m in Sources */,
 				0658BEBC238FAC7800CBBAD1 /* ViewController.m in Sources */,

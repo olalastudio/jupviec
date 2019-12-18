@@ -234,6 +234,7 @@
     if (indexPath.section == SESSION_TASK) //task session
     {
         orderview = [self.storyboard instantiateViewControllerWithIdentifier:@"idplaceorder"];
+        [orderview setUser:_user];
         
         if (currentLocation) {
             [orderview setCurrentLocation:[currentLocation coordinate]];

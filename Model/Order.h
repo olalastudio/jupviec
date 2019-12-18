@@ -22,10 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property   NSMutableDictionary    *timeOfExamine;
 @property   SHIFT_WORK             workShift;
 @property   NSMutableDictionary    *workTime;
-@property   NSMutableDictionary    *extraOption;
+@property   NSMutableArray         *extraOption;
 @property   NSMutableDictionary    *paymentMethod;
 @property   NSMutableDictionary    *priceTags;
 @property   NSString               *note;
+@property   double                 totalMoney;
 
 @end
 
