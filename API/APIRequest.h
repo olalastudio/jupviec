@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)requestAPIUpdateAccountInfo:(NSString*)phoneNum token:(NSString*)token accountInfo:(NSDictionary*)accountInfo completionHandler:(void (^)(User * _Nullable user, NSError * error))completionHandler;
 - (void)requestAPIGetAccountInfo:(NSString*)phoneNum token:(NSString*)token completionHandler:(void (^)(User * _Nullable user, NSError * error))completionHandler;
 - (void)requestAPIRateService:(NSString*)token idService:(NSString*)idService rateServiceInfo:(NSDictionary*)rateInfo completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;
-- (void)requestAPIGetAvailableNoti:(NSString*)phoneNum token:(NSString*)token completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;
+- (void)requestAPIGetAvailableNoti:(NSString*)phoneNum token:(NSString*)token completionHandler:(void (^)(NSArray * _Nullable resultDict, NSError * error))completionHandler;
 - (void)requestAPIGetNotiForID:(NSString*)idService token:(NSString*)token completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;
 - (void)requestAPIGetAllRequests:(NSString*)token completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;
 - (void)requestAPIGetDetailRequest:(NSString*)token idService:(NSString*)idService completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;

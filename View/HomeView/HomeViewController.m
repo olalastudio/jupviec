@@ -196,6 +196,13 @@
                     self->_user = user;
                     [self performSegueWithIdentifier:@"idshowaccountInfo" sender:self];
                 }
+                else if (error.code == 204)
+                {
+                    UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Popup" message:@"no content account with phone" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *alertAct = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:alertAct];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                }
             });
         }];
     }

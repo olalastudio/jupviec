@@ -149,8 +149,15 @@
                     [appdelegate.window makeKeyAndVisible];
                 });
             }
-            else{
+            else if (error.code == 204)
+            {
                 NSLog(@"request error %@",error);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Popup" message:@"configuration not set" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *alertAct = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:alertAct];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                });
             }
         }];
     });

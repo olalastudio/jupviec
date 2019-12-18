@@ -59,9 +59,9 @@
         {
             NSString* strOTP = [otpDict objectForKey:@"otp"];
             completionHandler(strOTP, error);
-        } else if (error.code == 400)
+        }
+        else
         {
-            NSLog(@"account exist");
             completionHandler(nil, error);
         }
     }];
@@ -414,7 +414,7 @@
     }]resume];
 }
 
-- (void)requestAPIGetAvailableNoti:(NSString *)phoneNum token:(NSString *)token completionHandler:(void (^)(NSDictionary * _Nullable, NSError * _Nonnull))completionHandler
+- (void)requestAPIGetAvailableNoti:(NSString *)phoneNum token:(NSString *)token completionHandler:(void (^)(NSArray * _Nullable, NSError * _Nonnull))completionHandler
 {
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
     config.timeoutIntervalForRequest = 30.0;
@@ -433,7 +433,7 @@
         if (response)
         {
             NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
-            NSDictionary* resultDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            NSArray* resultDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
             NSLog(@"get available noti: %@", resultDict);
             
             if ([httpResponse statusCode] == 200)
@@ -443,8 +443,8 @@
             }
             else
             {
-                NSLog(@"get available noti fail with: %@", [resultDict objectForKey:@"messages"]);
-                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                NSLog(@"get available noti fail");
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"failed"}];
                 completionHandler(nil, error);
             }
         }
