@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Order : NSObject
 
-@property   TASK_TYPE           *orderType;
+@property   TASK_TYPE           orderType;
 @property   NSString            *workAddress;
 @property   NSString            *homeNumber;
 @property   NSDate              *workDate;

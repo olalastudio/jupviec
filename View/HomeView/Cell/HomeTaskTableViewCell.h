@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 {
     TASK_TYPE       _taskType;
     SESSION_TYPE    _sessionType;
+    NSString        *_displayName;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgIcon;
@@ -24,9 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)setTaskType:(TASK_TYPE)task;
 -(void)setSessionType:(SESSION_TYPE)session;
+-(void)setDisplayName:(NSString*)name;
 
 -(TASK_TYPE)taskType;
 -(SESSION_TYPE)sessionType;
+-(NSString*)displayName;
 
 @end
 

@@ -141,17 +141,19 @@
         APIRequest* apiRequest = [[APIRequest alloc]init];
         [apiRequest requestAPIGetConfiguration:^(NSDictionary * _Nullable configurationInfo, NSError * _Nonnull error) {
             if (error.code == 200) {
-                HomeViewController *homeVC = [(UINavigationController*)[[tabController viewControllers] objectAtIndex:0] visibleViewController];
-                
-                homeVC.configurationInfoDict = configurationInfo;
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    HomeViewController *homeVC = [(UINavigationController*)[[tabController viewControllers] objectAtIndex:0] visibleViewController];
+                    homeVC.configurationInfoDict = configurationInfo;
+                
                     appdelegate.window.rootViewController = tabController;
                     [appdelegate.window makeKeyAndVisible];
                 });
             }
+            else{
+                NSLog(@"request error %@",error);
+            }
         }];
     });
-    
     [self.pageController removeFromParentViewController];
     [self.pageController.view removeFromSuperview];
     [self.pageControll removeFromSuperview];

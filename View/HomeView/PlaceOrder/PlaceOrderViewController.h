@@ -22,13 +22,21 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PlaceOrderViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, PlaceOrderCommonCellProtocol, TextDetailPopupDelegate,DateTimePickerDelegate, TimeSelectionTableViewCellDelegate,DaySelectionTableViewCellDelegate>
 {
     TASK_TYPE       _tasktype;
-    Order           *order;
+    Order           *_order;
 }
 
-@property (weak, nonatomic) IBOutlet UITableView *tbPlaceOrderContent;
 @property (strong, nonatomic) NSDictionary* serviceInfo;
+@property Order     *order;
+
+@property (weak, nonatomic) IBOutlet UITableView *tbPlaceOrderContent;
+@property (weak, nonatomic) IBOutlet UILabel *txtTotalMoney;
+@property (weak, nonatomic) IBOutlet UILabel *txtTotalMoneyValue;
+@property (weak, nonatomic) IBOutlet UIButton *btNext;
 
 -(void)setTaskType:(TASK_TYPE)type;
+-(void)setCurrentLocation:(CLLocationCoordinate2D)currentlocation;
+
+- (IBAction)didPressNextToConfirmOrder:(id)sender;
 
 @end
 

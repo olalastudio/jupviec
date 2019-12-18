@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import "User.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface HomeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
 {
     NSMutableDictionary* _serviceInfo;
     NSArray* _serviceTypesArr;

@@ -23,6 +23,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    
+    
+    [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
+    [[FIRMessaging messaging] setDelegate:self];
+    
+    UNAuthorizationOptions option = UNAuthorizationOptionAlert;
+    [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:option completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        NSLog(@"allow app send notification on this device");
+    }];
+    
+    [application registerForRemoteNotifications];
+    [FIRApp configure];
+    
     [GMSPlacesClient provideAPIKey:@"AIzaSyB1Qo46kfokUCUb9pTGUb0QV5aoKmPV6qE"];
     [GMSServices provideAPIKey:@"AIzaSyB1Qo46kfokUCUb9pTGUb0QV5aoKmPV6qE"];
 
@@ -30,6 +43,7 @@
     {
         [self showAlertForInternetConnection];
     }
+
     return YES;
 }
 
@@ -88,21 +102,13 @@
     {
         locationmanager = [[CLLocationManager alloc] init];
         locationmanager.delegate = self;
-        locationmanager.desiredAccuracy = kCLLocationAccuracyBest;
         
         [locationmanager requestAlwaysAuthorization];
-        [locationmanager requestLocation];
     }
     else
     {
         NSLog(@"Location service was disable. Plz anable first");
     }
-}
-
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
-{
-    NSLog(@"Current location %@",locations);
-    currentLocation = [locations objectAtIndex:0];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
@@ -126,8 +132,14 @@
     }
 }
 
--(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+#pragma mark - Firebase Messegging
+-(void)messaging:(FIRMessaging *)messaging didReceiveMessage:(FIRMessagingRemoteMessage *)remoteMessage
 {
-    NSLog(@"request location did fail with error %@",error);
+    NSLog(@"%@",remoteMessage.appData);
+}
+
+-(void)messaging:(FIRMessaging *)messaging didReceiveRegistrationToken:(NSString *)fcmToken
+{
+    NSLog(@"%@",fcmToken);
 }
 @end
