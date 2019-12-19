@@ -33,6 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)requestAPIGetNotiForID:(NSString*)idService token:(NSString*)token completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;
 - (void)requestAPIGetAllRequests:(NSString*)token completionHandler:(void (^)(NSArray * _Nullable resultDict, NSError * error))completionHandler;
 - (void)requestAPIGetDetailRequest:(NSString*)token idService:(NSString*)idService completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;
+- (void)requestAPICancelRequest:(NSString*)idService token:(NSString*)token completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;
 - (void)requestAPISendFeedbackForApp:(NSDictionary*)feedbackDict completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;
 @end
 
