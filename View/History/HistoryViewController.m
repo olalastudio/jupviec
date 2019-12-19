@@ -68,11 +68,13 @@
     {
         APIRequest *apirequest = [[APIRequest alloc] init];
         
-        [apirequest requestAPIGetAllRequests:[_user userToken] completionHandler:^(NSArray * _Nullable resultDict, NSError * _Nonnull error) {
-           
-            if (error.code == 200) { //sucess
-                [self showHistory:resultDict];
-            }
+        [apirequest requestAPIGetAllRequests:[_user userToken] completionHandler:^(NSArray * _Nullable resultDict, NSError * _Nonnull error)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (error.code == 200) { //sucess
+                    [self showHistory:resultDict];
+                }
+            });
         }];
     }
 }

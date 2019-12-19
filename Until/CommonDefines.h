@@ -82,6 +82,9 @@
 #define ID_MIN_PRICE            @"min_price"
 #define ID_CLIENT_STATUS        @"client_status"
 
+#define ID_USER_TOKEN           @"ID_USER_TOKEN"
+#define ID_USER_PHONENUMBER     @"ID_USER_PHONENUMBER"
+
 typedef enum : NSUInteger {
     TYPE_NONE = -1,
     TYPE_DUNGLE = 0,

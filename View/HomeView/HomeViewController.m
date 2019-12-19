@@ -28,9 +28,24 @@
 @end
 
 @implementation HomeViewController
+@synthesize user = _user;
 @synthesize strUserToken = _strUserToken;
 @synthesize strPhoneNum = _strPhoneNum;
 @synthesize configurationInfoDict = _configurationInfoDict;
+
+-(void)awakeFromNib
+{
+    [super awakeFromNib];
+
+    _strUserToken = [[NSUserDefaults standardUserDefaults] objectForKey:ID_USER_TOKEN];
+    _strPhoneNum = [[NSUserDefaults standardUserDefaults] objectForKey:ID_USER_PHONENUMBER];
+    
+    if (_strUserToken && _strPhoneNum) {
+        _user = [[User alloc] init];
+        [_user setUserToken:_strUserToken];
+        [_user setUserPhoneNum:_strPhoneNum];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,6 +66,19 @@
     [self.tabBarController setDelegate:self];
 }
 
+-(void)setUser:(User *)user
+{
+    _user = user;
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[_user userToken] forKey:ID_USER_TOKEN];
+    [[NSUserDefaults standardUserDefaults] setObject:[_user userPhoneNum] forKey:ID_USER_PHONENUMBER];
+}
+
+-(User*)user
+{
+    return _user;
+}
+
 -(void)setStrUserToken:(NSString *)strUserToken
 {
     _strUserToken = strUserToken;
@@ -60,6 +88,7 @@
     }
     
     [_user setUserToken:_strUserToken];
+    [[NSUserDefaults standardUserDefaults] setObject:_strUserToken forKey:ID_USER_TOKEN];
 }
 
 -(NSString*)strUserToken
@@ -76,6 +105,7 @@
     }
     
     [_user setUserPhoneNum:_strPhoneNum];
+    [[NSUserDefaults standardUserDefaults] setObject:_strPhoneNum forKey:ID_USER_PHONENUMBER];
 }
 
 -(NSString*)strPhoneNum
@@ -90,6 +120,18 @@
     [self.navigationController.navigationBar setHidden:YES];
     [self.tabBarController.tabBar setHidden:NO];
     
+    [self showLoginUser];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self.navigationController.navigationBar setHidden:NO];
+}
+
+-(void)showLoginUser
+{
     if (_user) {
         // user logged in
         UIImage* userImg = [UIImage imageNamed:@"user-1.png"];
@@ -101,13 +143,6 @@
         frame.size.height = 50;
         [_loginBtn setFrame:frame];
     }
-}
-
--(void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    [self.navigationController.navigationBar setHidden:NO];
 }
 
 -(void)getCurrentLocation
