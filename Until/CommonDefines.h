@@ -12,6 +12,8 @@
 //Sever 107.113.174.139:8088
 #endif /* CommonDefines_h */
 
+#define ID_FCM_DEVICE_TOKEN     @"FCM_TOKEN"
+
 #pragma mark API
 #define ADDRESS_SERVER          @"http://52.221.107.104:8080"
 #define API_V1                  @"api/v1"
@@ -79,6 +81,10 @@
 #define ID_BASE_HOUR            @"base_hour"
 #define ID_BASE_PRICE           @"base_price"
 #define ID_MIN_PRICE            @"min_price"
+#define ID_CLIENT_STATUS        @"client_status"
+
+#define ID_USER_TOKEN           @"ID_USER_TOKEN"
+#define ID_USER_PHONENUMBER     @"ID_USER_PHONENUMBER"
 
 typedef enum : NSUInteger {
     TYPE_NONE = -1,

@@ -23,7 +23,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    
+    if (NetworkReachability.internetConnectionStatus != ONLINE)
+    {
+        [self showAlertForInternetConnection];
+    }
     
     [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
     [[FIRMessaging messaging] setDelegate:self];
@@ -36,22 +39,27 @@
     [application registerForRemoteNotifications];
     [FIRApp configure];
     
+    [[FIRInstanceID instanceID] instanceIDWithHandler:^(FIRInstanceIDResult * _Nullable result, NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog(@"error fetching remote Firebase instance ID");
+        }
+        else{
+            NSLog(@"Firebase remote Token : %@",result.token);
+            NSLog(@"Firebase remote instance ID : %@",result.instanceID);
+            NSString *token = result.token;
+            [[NSUserDefaults standardUserDefaults] setObject:token forKey:ID_FCM_DEVICE_TOKEN];
+            [self sendFCMDeviceTokenToServer];
+        }
+    }];
+    
     [GMSPlacesClient provideAPIKey:@"AIzaSyB1Qo46kfokUCUb9pTGUb0QV5aoKmPV6qE"];
     [GMSServices provideAPIKey:@"AIzaSyB1Qo46kfokUCUb9pTGUb0QV5aoKmPV6qE"];
-
-    if (NetworkReachability.internetConnectionStatus != ONLINE)
-    {
-        [self showAlertForInternetConnection];
-    }
 
     return YES;
 }
 
 - (void)showAlertForInternetConnection
 {
-//    UIWindow* topWindow = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-//    topWindow.rootViewController = [UIViewController new];
-//    topWindow.windowLevel = UIWindowLevelAlert + 1;
     UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Popup" message:@"Khong co ket noi mang. Kiem tra lai ket noi mang" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
     [alertController addAction:okAction];
@@ -93,6 +101,12 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - FCMDeviceToken
+-(void)sendFCMDeviceTokenToServer
+{
+    
 }
 
 #pragma mark - LocationDelegate
@@ -140,6 +154,14 @@
 
 -(void)messaging:(FIRMessaging *)messaging didReceiveRegistrationToken:(NSString *)fcmToken
 {
-    NSLog(@"%@",fcmToken);
+    NSLog(@"did received new token %@",fcmToken);
+    [[NSUserDefaults standardUserDefaults] setObject:fcmToken forKey:ID_FCM_DEVICE_TOKEN];
+    [self sendFCMDeviceTokenToServer];
+}
+
+//case FirebaseAppDelegateProxyEnabled : NO
+-(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    [FIRMessaging messaging].APNSToken = deviceToken;
 }
 @end

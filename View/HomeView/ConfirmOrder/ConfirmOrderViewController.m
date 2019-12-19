@@ -120,7 +120,7 @@
 
 - (IBAction)didPressConfirmOrderButton:(id)sender
 {
-    NSString *strToken = [_user userIDStr];
+    NSString *strToken = [_user userToken];
     NSMutableDictionary *detailService = [[NSMutableDictionary alloc] initWithCapacity:0];
     
     //request type
@@ -136,13 +136,17 @@
             [detailService setObject:[_order workAddress] forKey:ID_LOCATION];
             
             //working date
-            [detailService setObject:[_order workDate] forKey:ID_WORKING_DATE];
+            [detailService setObject:[JUntil stringFromDate:[_order workDate]] forKey:ID_WORKING_DATE];
             
             //workinghour
-            [detailService setObject:[_order workTime] forKey:ID_WORKING_HOUR];
+            NSDictionary *workhour = [_order workTime];
+            [detailService setObject:[workhour objectForKey:@"starttime"] forKey:ID_WORKING_HOUR];
             
             //working time
-            [detailService setObject:@"3" forKey:ID_WORKING_TIME];
+            double startTime = [JUntil timeNumberFromString:[[_order workTime] objectForKey:ATTRIBUTE_START_TIME]];
+            double endTime = [JUntil timeNumberFromString:[[_order workTime] objectForKey:ATTRIBUTE_END_TIME]];
+            double worktime = endTime - startTime;
+            [detailService setObject:[NSString stringWithFormat:@"%f.1",worktime] forKey:ID_WORKING_TIME];
             
             //extend service
             [detailService setObject:@[CODE_DICHO, CODE_GIATQAO] forKey:ID_SERVICE_EXTEND];
@@ -177,6 +181,9 @@
     
     [apiRequest requestAPIBookService:strToken detailService:detailService completionhandler:^(NSDictionary * _Nullable serviceInfo, NSError * _Nonnull error) {
         
+        if (error.code == 200) {
+            NSLog(@"Place order successful");
+        }
     }];
 }
 @end

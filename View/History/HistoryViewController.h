@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 {
     UINavigationController *naviController;
 }
+
+@property (strong, nonatomic) User      *user;
 
 @property (weak, nonatomic) IBOutlet UITableView *tbHistory;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *sgSelection;

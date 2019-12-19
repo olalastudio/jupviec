@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailOrderViewController : UIViewController
+{
+    
+}
+
+@property (strong, nonatomic)   User            *user;
+@property (strong, nonatomic)   NSDictionary    *DetailInfo;
 
 @end
 
