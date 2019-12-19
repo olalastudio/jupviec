@@ -27,6 +27,7 @@
 #define API_RATE                @"rate"
 #define API_GET_AVAILABLE_NOTI  @"notify-available"
 #define API_NOTIFY              @"notify"
+#define API_FEEDBACK            @"feedback"
 
 #define ID_WELCOME_VIEW         @"idwelcomeview"
 
