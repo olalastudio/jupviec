@@ -54,6 +54,15 @@
             [self performSegueWithIdentifier:@"idcheckotp" sender:self];
         });
     }
+    else if (errCode == 204)
+    {
+        UIAlertController *alertControler = [UIAlertController alertControllerWithTitle:@"Popup" message:@"param name invalid or not found" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* alertAct = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+        [alertControler addAction:alertAct];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self presentViewController:alertControler animated:YES completion:nil];
+        });
+    }
     else if (errCode == 400 && _intActionMode == MODE_REGISTER_NEW_ACC)
     {
         //show alert
@@ -109,13 +118,14 @@
         
         if (_intActionMode == MODE_REGISTER_NEW_ACC)
         {
-            [apiRequest requestAPIGetOTP:strPhoneNumber completionHandler:^(NSString * _Nullable otpStr, NSError * _Nonnull err) {
+            [apiRequest requestAPIGetOTP:strPhoneNumber completionHandler:^(NSString * _Nullable otpStr, NSError * _Nonnull err){
                 NSLog(@"otp: %@", otpStr);
                 [self didSuccessGetRequest:otpStr error:err.code];
             }];
-        } else if (_intActionMode == MODE_FORGOT_PASSWORD)
+        }
+        else if (_intActionMode == MODE_FORGOT_PASSWORD)
         {
-            [apiRequest requestAPIForgotPassword:strPhoneNumber completionHandler:^(NSDictionary * _Nullable data, NSError * _Nonnull err) {
+            [apiRequest requestAPIForgotPassword:strPhoneNumber completionHandler:^(NSDictionary * _Nullable data, NSError * _Nonnull err){
                 if (err.code == 200)
                 {
                     NSString* otp = [data objectForKey:@"otp"];

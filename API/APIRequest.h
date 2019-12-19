@@ -26,10 +26,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)requestAPIUpdatePassword:(NSString*)phoneNum password:(NSString*)password token:(NSString*)token completionHandler:(void(^)(User* _Nullable user, NSError* error))completionHandler;
 - (void)requestAPIBookService:(NSString*)strToken detailService:(NSDictionary*)detailService completionhandler:(void(^)(NSDictionary* _Nullable serviceInfo, NSError* error))completionHandler;
 - (void)requestAPIGetConfiguration:(void(^)(NSDictionary* _Nullable configurationInfo, NSError* error))completionHandler;
-- (void)requestAPIUpdateAccountInfo:(NSString*)phoneNum token:(NSString*)token accountInfo:(NSDictionary*)accountInfo completionHandler:(void (^)(User * _Nullable user, NSError * error))completionHandler;
-- (void)requestAPIGetAccountInfo:(NSString*)phoneNum token:(NSString*)token completionHandler:(void (^)(User * _Nullable user, NSError * error))completionHandler;
+- (void)requestAPIUpdateAccountInfo:(NSString*)token accountInfo:(NSDictionary*)accountInfo completionHandler:(void (^)(User * _Nullable user, NSError * error))completionHandler;
+- (void)requestAPIGetAccountInfo:(NSString*)token completionHandler:(void (^)(User * _Nullable user, NSError * error))completionHandler;
 - (void)requestAPIRateService:(NSString*)token idService:(NSString*)idService rateServiceInfo:(NSDictionary*)rateInfo completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;
-- (void)requestAPIGetAvailableNoti:(NSString*)phoneNum token:(NSString*)token completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;
+- (void)requestAPIGetAvailableNoti:(NSString*)token completionHandler:(void (^)(NSArray * _Nullable resultDict, NSError * error))completionHandler;
 - (void)requestAPIGetNotiForID:(NSString*)idService token:(NSString*)token completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;
 - (void)requestAPIGetAllRequests:(NSString*)token completionHandler:(void (^)(NSArray * _Nullable resultDict, NSError * error))completionHandler;
 - (void)requestAPIGetDetailRequest:(NSString*)token idService:(NSString*)idService completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;

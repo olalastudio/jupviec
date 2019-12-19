@@ -195,12 +195,19 @@
     {
         //view user info
         APIRequest* api = [[APIRequest alloc]init];
-        [api requestAPIGetAccountInfo:[_user userPhoneNum] token:[_user userToken] completionHandler:^(User * _Nullable user, NSError * _Nonnull error) {
+        [api requestAPIGetAccountInfo:[_user userToken] completionHandler:^(User * _Nullable user, NSError * _Nonnull error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (error.code == 200) {
                     user.userToken = [self.user userToken];
                     self->_user = user;
                     [self performSegueWithIdentifier:@"idshowaccountInfo" sender:self];
+                }
+                else if (error.code == 204)
+                {
+                    UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Popup" message:@"no content account with phone" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *alertAct = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:alertAct];
+                    [self presentViewController:alertController animated:YES completion:nil];
                 }
             });
         }];

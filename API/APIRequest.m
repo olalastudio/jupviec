@@ -59,9 +59,9 @@
         {
             NSString* strOTP = [otpDict objectForKey:@"otp"];
             completionHandler(strOTP, error);
-        } else if (error.code == 400)
+        }
+        else
         {
-            NSLog(@"account exist");
             completionHandler(nil, error);
         }
     }];
@@ -297,7 +297,7 @@
     }]resume];
 }
 
-- (void)requestAPIUpdateAccountInfo:(NSString *)phoneNum token:(NSString *)token accountInfo:(NSDictionary *)accountInfo completionHandler:(void (^)(User * _Nullable, NSError * _Nonnull))completionHandler
+- (void)requestAPIUpdateAccountInfo:(NSString *)token accountInfo:(NSDictionary *)accountInfo completionHandler:(void (^)(User * _Nullable, NSError * _Nonnull))completionHandler
 {
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
     config.timeoutIntervalForRequest = 30.0;
@@ -306,8 +306,8 @@
     NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
     
     NSData* bodyData = [self createBodyRequest:accountInfo];
-    NSString* apiCommandStr = [API_ACCOUNT stringByAppendingPathComponent:phoneNum];
-    NSMutableURLRequest* request = [self createURLRequest:[API_V1 stringByAppendingPathComponent:apiCommandStr] withParam:nil];
+//    NSString* apiCommandStr = [API_ACCOUNT stringByAppendingPathComponent:phoneNum];
+    NSMutableURLRequest* request = [self createURLRequest:[API_V1 stringByAppendingPathComponent:API_ACCOUNT] withParam:nil];
     [request setHTTPMethod:@"PUT"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:token forHTTPHeaderField:@"Authorization"];
@@ -337,7 +337,7 @@
     }]resume];
 }
 
-- (void)requestAPIGetAccountInfo:(NSString *)phoneNum token:(NSString *)token completionHandler:(void (^)(User * _Nullable, NSError * _Nonnull))completionHandler
+- (void)requestAPIGetAccountInfo:(NSString *)token completionHandler:(void (^)(User * _Nullable, NSError * _Nonnull))completionHandler
 {
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
     config.timeoutIntervalForRequest = 30.0;
@@ -345,8 +345,8 @@
     config.requestCachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
     NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
     
-    NSString* apiCommandStr = [API_ACCOUNT stringByAppendingPathComponent:phoneNum];
-    NSMutableURLRequest* request = [self createURLRequest:[API_V1 stringByAppendingPathComponent:apiCommandStr] withParam:nil];
+//    NSString* apiCommandStr = [API_ACCOUNT stringByAppendingPathComponent:phoneNum];
+    NSMutableURLRequest* request = [self createURLRequest:[API_V1 stringByAppendingPathComponent:API_ACCOUNT] withParam:nil];
     [request setHTTPMethod:@"GET"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:token forHTTPHeaderField:@"Authorization"];
@@ -414,7 +414,7 @@
     }]resume];
 }
 
-- (void)requestAPIGetAvailableNoti:(NSString *)phoneNum token:(NSString *)token completionHandler:(void (^)(NSDictionary * _Nullable, NSError * _Nonnull))completionHandler
+- (void)requestAPIGetAvailableNoti:(NSString *)token completionHandler:(void (^)(NSArray * _Nullable, NSError * _Nonnull))completionHandler
 {
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
     config.timeoutIntervalForRequest = 30.0;
@@ -422,8 +422,8 @@
     config.requestCachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
     NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
     
-    NSString* apiCommandStr = [API_GET_AVAILABLE_NOTI stringByAppendingPathComponent:phoneNum];
-    NSMutableURLRequest* request = [self createURLRequest:[API_V1 stringByAppendingPathComponent:apiCommandStr] withParam:nil];
+//    NSString* apiCommandStr = [API_GET_AVAILABLE_NOTI stringByAppendingPathComponent:phoneNum];
+    NSMutableURLRequest* request = [self createURLRequest:[API_V1 stringByAppendingPathComponent:API_GET_AVAILABLE_NOTI] withParam:nil];
     [request setHTTPMethod:@"GET"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:token forHTTPHeaderField:@"Authorization"];
@@ -433,7 +433,7 @@
         if (response)
         {
             NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
-            NSDictionary* resultDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            NSArray* resultDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
             NSLog(@"get available noti: %@", resultDict);
             
             if ([httpResponse statusCode] == 200)
@@ -443,8 +443,8 @@
             }
             else
             {
-                NSLog(@"get available noti fail with: %@", [resultDict objectForKey:@"messages"]);
-                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                NSLog(@"get available noti fail");
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"failed"}];
                 completionHandler(nil, error);
             }
         }

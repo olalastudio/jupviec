@@ -98,6 +98,15 @@
                         [self performSegueWithIdentifier:@"idUserHomeVC" sender:self];
                     });
                 }
+                else if (error.code == 204)
+                {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Popup" message:@"no content account with phone" preferredStyle:UIAlertControllerStyleAlert];
+                        UIAlertAction *alertAct = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                        [alertController addAction:alertAct];
+                        [self presentViewController:alertController animated:YES completion:nil];
+                    });
+                }
             }];
         }
         else if (_intActionMode == MODE_REGISTER_NEW_ACC)
@@ -109,6 +118,15 @@
                     self.user = user;
                     //login to get token
                     [self requestLogin];
+                }
+                else if (err.code == 400)
+                {
+                    UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Popup" message:@"Invalid data or phone existed" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *alertAct = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:alertAct];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self presentViewController:alertController animated:YES completion:nil];
+                    });
                 }
             }];
         }
