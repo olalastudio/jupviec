@@ -8,6 +8,7 @@
 
 #import "HistoryViewController.h"
 #import "DetailOrderViewController.h"
+#import "APIRequest.h"
 
 @interface HistoryViewController ()
 {
@@ -19,6 +20,7 @@
 @end
 
 @implementation HistoryViewController
+@synthesize user = _user;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,6 +35,8 @@
     _listDungLe = [[NSMutableArray alloc] initWithCapacity:0];
     _listDungDKy = [[NSMutableArray alloc] initWithCapacity:0];
     _listTongVS = [[NSMutableArray alloc] initWithCapacity:0];
+ 
+    [self getHistory];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -56,7 +60,29 @@
 {
     [super viewWillDisappear:animated];
 }
+//Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOTQ5MTc1MDA0IiwiZXhwIjoxNTc3NTMwMzYyfQ.CQ1wtBt4_om0h2Z0quWVhLrXlXpYA5cGyszCOEa48twhD7Fn5WRXQbHRYa9_XAEClGo_0UgcwF3dLL81egi1DA
 
+-(void)getHistory
+{
+    if (_user)
+    {
+        APIRequest *apirequest = [[APIRequest alloc] init];
+        
+        [apirequest requestAPIGetAllRequests:[_user userToken] completionHandler:^(NSArray * _Nullable resultDict, NSError * _Nonnull error) {
+           
+            if (error.code == 200) { //sucess
+                [self showHistory:resultDict];
+            }
+        }];
+    }
+}
+
+-(void)showHistory:(NSArray*)arrayHistory
+{
+    _listDungLe = [NSMutableArray arrayWithArray:arrayHistory];
+    
+    [_tbHistory reloadData];
+}
 /*
 #pragma mark - Navigation
 
@@ -69,7 +95,6 @@
 
 -(NSMutableArray*)showSelectedList
 {
-    
     if ([_sgSelection selectedSegmentIndex] == 0)
     {
         //Dung le
@@ -96,7 +121,7 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5; //[[self showSelectedList] count];
+    return [[self showSelectedList] count];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -114,7 +139,11 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSDictionary *item = [[self showSelectedList] objectAtIndex:indexPath.row];
+    
     DetailOrderViewController *detailviewController = [self.storyboard instantiateViewControllerWithIdentifier:@"iddetailoder"];
+    [detailviewController setUser:_user];
+    [detailviewController setDetailInfo:item];
     
     [self.navigationController pushViewController:detailviewController animated:YES];
 }

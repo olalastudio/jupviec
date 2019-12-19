@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface JUntil : NSObject
 
 +(double)timeNumberFromString:(NSString*)string;
++(NSString*)stringFromDate:(NSDate*)date;
 
 @end
 

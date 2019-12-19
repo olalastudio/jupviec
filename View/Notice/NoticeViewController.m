@@ -16,6 +16,7 @@
 @end
 
 @implementation NoticeViewController
+@synthesize user = _user;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

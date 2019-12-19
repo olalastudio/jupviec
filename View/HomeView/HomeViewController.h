@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
+@interface HomeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UITabBarControllerDelegate>
 {
     NSMutableDictionary     *_serviceInfo;
     NSArray                 *_serviceTypesArr;

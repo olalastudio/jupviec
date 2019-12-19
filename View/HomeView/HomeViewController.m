@@ -15,6 +15,10 @@
 #import "PlaceOrderViewController.h"
 #import "AccountInfoViewController.h"
 
+#import "HistoryViewController.h"
+#import "NoticeViewController.h"
+#import "InformationViewController.h"
+
 @interface HomeViewController ()
 {
     PlaceOrderViewController    *orderview;
@@ -43,6 +47,8 @@
     
     [self getCurrentLocation];
     [self getConfiguration];
+    
+    [self.tabBarController setDelegate:self];
 }
 
 -(void)setStrUserToken:(NSString *)strUserToken
@@ -367,4 +373,30 @@
     return 20;
 }
 
+#pragma mark - tabBarControllerDelegate
+-(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    UIViewController *selectedview = [(UINavigationController*)viewController visibleViewController];
+    
+    if ([selectedview isKindOfClass:[HistoryViewController class]])
+    {
+        HistoryViewController *historyview = (HistoryViewController*)selectedview;
+        [historyview setUser:_user];
+        NSLog(@"select history tab");
+    }
+    else if ([selectedview isKindOfClass:[NoticeViewController class]])
+    {
+        NoticeViewController *noticeview = (NoticeViewController*)selectedview;
+        [noticeview setUser:_user];
+        NSLog(@"select notice tab");
+    }
+    else if ([selectedview isKindOfClass:[InformationViewController class]])
+    {
+        NSLog(@"select info tab");
+    }
+    else if ([selectedview isKindOfClass:[HomeViewController class]])
+    {
+        NSLog(@"select home view");
+    }
+}
 @end

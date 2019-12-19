@@ -13,6 +13,8 @@
 @end
 
 @implementation DetailOrderViewController
+@synthesize user = _user;
+@synthesize DetailInfo = _DetailInfo;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
