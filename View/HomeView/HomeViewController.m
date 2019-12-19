@@ -189,7 +189,7 @@
     {
         //view user info
         APIRequest* api = [[APIRequest alloc]init];
-        [api requestAPIGetAccountInfo:[_user userPhoneNum] token:[_user userToken] completionHandler:^(User * _Nullable user, NSError * _Nonnull error) {
+        [api requestAPIGetAccountInfo:[_user userToken] completionHandler:^(User * _Nullable user, NSError * _Nonnull error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (error.code == 200) {
                     user.userToken = [self.user userToken];

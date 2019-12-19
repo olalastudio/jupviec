@@ -71,7 +71,7 @@
         
         APIRequest* api = [[APIRequest alloc]init];
         
-        [api requestAPIUpdateAccountInfo:[_user userPhoneNum] token:[_user userToken] accountInfo:_accountGeneralInfo completionHandler:^(User * _Nullable user, NSError * _Nonnull error)
+        [api requestAPIUpdateAccountInfo:[_user userToken] accountInfo:_accountGeneralInfo completionHandler:^(User * _Nullable user, NSError * _Nonnull error)
         {
             if (error.code == 200)
             {
