@@ -7,6 +7,8 @@
 //
 
 #import "RateViewController.h"
+#import "APIRequest.h"
+#import "CommonDefines.h"
 
 @interface RateViewController ()
 
@@ -21,6 +23,31 @@
     [self setTitle:@"Đánh giá dịch vụ"];
 }
 
+-(void)setUserToken:(NSString*)token
+{
+    _token = token;
+}
+
+-(void)setIDService:(NSString*)idservice
+{
+    _idservice = idservice;
+}
+
+-(void)setServiceInfo:(NSDictionary *)serviceInfo
+{
+    _serviceInfo = serviceInfo;
+    
+    NSNumber *ratescore = [_serviceInfo objectForKey:ID_RATE_SCORE];
+    NSString *comment = [_serviceInfo objectForKey:ID_FEEDBACK];
+    
+    if (ratescore > 0) {
+        [_btRate setEnabled:NO];
+        [_txtComment setText:comment];
+    }
+    else{
+        [_btRate setEnabled:YES];
+    }
+}
 /*
 #pragma mark - Navigation
 
@@ -31,6 +58,21 @@
 }
 */
 
-- (IBAction)didPressRateButton:(id)sender {
+- (IBAction)didPressRateButton:(id)sender
+{
+    APIRequest *apirequest = [[APIRequest alloc] init];
+    
+    NSString *content = [_txtComment text];
+    NSDictionary *rateInfo = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:5], @"rate_score", content, @"content", nil];
+    
+    [apirequest requestAPIRateService:_token idService:_idservice rateServiceInfo:rateInfo completionHandler:^(NSDictionary * _Nullable resultDict, NSError * _Nonnull error) {
+        
+        if (error.code == 200) {
+            NSLog(@"rate service successful %@",resultDict);
+        }
+        else{
+            NSLog(@"rate service error %@",error);
+        }
+    }];
 }
 @end

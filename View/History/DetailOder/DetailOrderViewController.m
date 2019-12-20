@@ -133,6 +133,10 @@
     RateViewController *rateview = [self.storyboard instantiateViewControllerWithIdentifier:@"idrateview"];
     [rateview loadView];
     
+    [rateview setUserToken:[_user userToken]];
+    [rateview setIDService:[_detailInfo objectForKey:ID_SERVICE]];
+    [rateview setServiceInfo:_detailInfo];
+    
     [self.navigationController pushViewController:rateview animated:YES];
 }
 
@@ -147,8 +151,10 @@
     {
         if (error.code == 200)
         {
-            NSLog(@"%@",resultDict);
-            [self.navigationController popViewControllerAnimated:YES];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"%@",resultDict);
+                [self.navigationController popViewControllerAnimated:YES];
+            });
         }
         else{
             NSLog(@"error when cancel request %@",error);

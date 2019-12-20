@@ -569,9 +569,9 @@
     config.requestCachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
     NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
     
-    NSString* apiCommandStr = [API_CANCEL_REQUEST stringByAppendingPathComponent:idService];
+    NSString* apiCommandStr = [API_REQUEST stringByAppendingPathComponent:[API_CANCEL_REQUEST stringByAppendingPathComponent:idService]];
     NSMutableURLRequest* request = [self createURLRequest:[API_V1 stringByAppendingPathComponent:apiCommandStr] withParam:nil];
-    [request setHTTPMethod:@"GET"];
+    [request setHTTPMethod:@"PUT"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:token forHTTPHeaderField:@"Authorization"];
     

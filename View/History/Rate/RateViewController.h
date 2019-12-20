@@ -12,7 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RateViewController : UIViewController
 {
-    
+    NSString    *_token;
+    NSString    *_idservice;
+    NSDictionary    *_serviceInfo;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *lbRateScore;
@@ -22,6 +24,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *btRate;
 
 - (IBAction)didPressRateButton:(id)sender;
+
+-(void)setUserToken:(NSString*)token;
+-(void)setServiceInfo:(NSDictionary*)serviceInfo;
+-(void)setIDService:(NSString*)idservice;
 
 @end
 
