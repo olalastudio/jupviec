@@ -64,6 +64,60 @@
     return 0;
 }
 
++(NSString*)timeStringFromNumber:(double)number
+{
+    if (number == 0){return @"00:00";}
+    else if (number == 0.5){return @"00:30";}
+    else if (number == 1){return @"01:00";}
+    else if (number == 1.5){return @"01:30";}
+    else if (number == 2){return @"02:00";}
+    else if (number == 2.5){return @"02:30";}
+    else if (number == 3){ return @"03:00";}
+    else if (number == 3.5){ return @"03:30";}
+    else if (number == 4){ return @"04:00";}
+    else if (number == 4.5){ return @"04:30";}
+    else if (number == 5){ return @"05:00";}
+    else if (number == 5.5){ return @"05:30";}
+    else if (number == 6){ return @"06:00";}
+    else if (number == 6.5){ return @"06:30";}
+    else if (number == 7){ return @"07:00";}
+    else if (number == 7.5){ return @"07:30";}
+    else if (number == 8){ return @"08:00";}
+    else if (number == 8.5){ return @"08:30";}
+    else if (number == 9){ return @"09:00";}
+    else if (number == 9.5){ return @"09:30";}
+    else if (number == 10){ return @"10:00";}
+    else if (number == 10.5){ return @"10:30";}
+    else if (number == 11){ return @"11:00";}
+    else if (number == 11.5){ return @"11:30";}
+    else if (number == 12){ return @"12:00";}
+    else if (number == 12.5){ return @"12:30";}
+    else if (number == 13){ return @"13:00";}
+    else if (number == 13.5){ return @"13:30";}
+    else if (number == 14){ return @"14:00";}
+    else if (number == 14.5){ return @"14:30";}
+    else if (number == 15){ return @"15:00";}
+    else if (number == 15.5){ return @"15:30";}
+    else if (number == 16){ return @"16:00";}
+    else if (number == 16.5){ return @"16:30";}
+    else if (number == 17){ return @"17:00";}
+    else if (number == 17.5){ return @"17:30";}
+    else if (number == 18){ return @"18:00";}
+    else if (number == 18.5){ return @"18:30";}
+    else if (number == 19){ return @"19:00";}
+    else if (number == 19.5){ return @"19:30";}
+    else if (number == 20){ return @"20:00";}
+    else if (number == 20.5){ return @"20:30";}
+    else if (number == 21){ return @"21:00";}
+    else if (number == 21.5){ return @"21:30";}
+    else if (number == 22){ return @"22:00";}
+    else if (number == 22.5){ return @"22:30";}
+    else if (number == 23){ return @"23:00";}
+    else if (number == 23.5){ return @"23:30";}
+    
+    return @"00:00";
+}
+
 +(NSString*)stringFromDate:(NSDate*)date
 {
     NSDateFormatter *formater = [[NSDateFormatter alloc] init];

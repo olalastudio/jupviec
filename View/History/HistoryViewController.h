@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITableView *tbHistory;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *sgSelection;
 
+- (IBAction)didSelectHistorySegment:(id)sender;
+
 @end
 
 NS_ASSUME_NONNULL_END

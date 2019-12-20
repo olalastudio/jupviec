@@ -1,41 +1,24 @@
 //
-//  DetailOrderViewController.m
+//  RateViewController.m
 //  JupViec
 //
-//  Created by KienVu on 12/2/19.
+//  Created by KienVu on 12/19/19.
 //  Copyright © 2019 Olala. All rights reserved.
 //
 
-#import "DetailOrderViewController.h"
+#import "RateViewController.h"
 
-@interface DetailOrderViewController ()
+@interface RateViewController ()
 
 @end
 
-@implementation DetailOrderViewController
-@synthesize user = _user;
-@synthesize DetailInfo = _DetailInfo;
+@implementation RateViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self.tabBarController.tabBar setHidden:YES];
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
--(void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
+    [self setTitle:@"Đánh giá dịch vụ"];
 }
 
 /*
@@ -48,4 +31,6 @@
 }
 */
 
+- (IBAction)didPressRateButton:(id)sender {
+}
 @end

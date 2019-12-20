@@ -7,6 +7,7 @@
 //
 
 #import "HistoryViewController.h"
+#import "HistoryTableViewCell.h"
 #import "DetailOrderViewController.h"
 #import "APIRequest.h"
 
@@ -60,7 +61,6 @@
 {
     [super viewWillDisappear:animated];
 }
-//Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOTQ5MTc1MDA0IiwiZXhwIjoxNTc3NTMwMzYyfQ.CQ1wtBt4_om0h2Z0quWVhLrXlXpYA5cGyszCOEa48twhD7Fn5WRXQbHRYa9_XAEClGo_0UgcwF3dLL81egi1DA
 
 -(void)getHistory
 {
@@ -81,7 +81,23 @@
 
 -(void)showHistory:(NSArray*)arrayHistory
 {
-    _listDungLe = [NSMutableArray arrayWithArray:arrayHistory];
+    for (NSDictionary *item in arrayHistory)
+    {
+        NSString *requestType = [item objectForKey:ID_REQUEST_TYPE];
+        
+        if ([requestType isEqualToString:CODE_DINHKY])
+        {
+            [_listDungDKy addObject:item];
+        }
+        else if ([requestType isEqualToString:CODE_TONGVESINH])
+        {
+            [_listTongVS addObject:item];
+        }
+        else
+        {
+            [_listDungLe addObject:item];
+        }
+    }
     
     [_tbHistory reloadData];
 }
@@ -107,7 +123,7 @@
         //dung dinh ky
         return _listDungDKy;
     }
-    else if ([_sgSelection selectedSegmentIndex] == 3)
+    else if ([_sgSelection selectedSegmentIndex] == 2)
     {
         //tong ve sinh
         return _listTongVS;
@@ -126,10 +142,15 @@
     return [[self showSelectedList] count];
 }
 
-- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
     NSString *strIdentify = @"idhistorycell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:strIdentify];
+    HistoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:strIdentify];
+ 
+    NSDictionary *item = [[self showSelectedList] objectAtIndex:indexPath.row];
+    [cell setHistoryData:item];
+ 
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     return cell;
 }
@@ -144,9 +165,16 @@
     NSDictionary *item = [[self showSelectedList] objectAtIndex:indexPath.row];
     
     DetailOrderViewController *detailviewController = [self.storyboard instantiateViewControllerWithIdentifier:@"iddetailoder"];
+    [detailviewController loadView];
+    
     [detailviewController setUser:_user];
     [detailviewController setDetailInfo:item];
     
     [self.navigationController pushViewController:detailviewController animated:YES];
+}
+
+- (IBAction)didSelectHistorySegment:(id)sender
+{
+    [_tbHistory reloadData];
 }
 @end
