@@ -21,4 +21,21 @@
     // Configure the view for the selected state
 }
 
+-(void)setNoticeInfo:(NSDictionary *)noticeInfo
+{
+    _noticeInfo = noticeInfo;
+    
+    [self reloadContentView];
+}
+
+-(void)reloadContentView
+{
+    NSString *title = [_noticeInfo objectForKey:@"title"];
+    NSString *content = [_noticeInfo objectForKey:@"content"];
+    NSString *date = [_noticeInfo objectForKey:@"updated_at"];
+    
+    [_txtTitle setText:title];
+    [_txtContent setText:content];
+    [_txtDate setText:date];
+}
 @end

@@ -11,7 +11,16 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NoticeTableViewCell : UITableViewCell
+{
+    NSDictionary    *_noticeInfo;
+}
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgIcon;
+@property (weak, nonatomic) IBOutlet UILabel *txtTitle;
+@property (weak, nonatomic) IBOutlet UILabel *txtContent;
+@property (weak, nonatomic) IBOutlet UILabel *txtDate;
+
+-(void)setNoticeInfo:(NSDictionary*)noticeInfo;
 @end
 
 NS_ASSUME_NONNULL_END
