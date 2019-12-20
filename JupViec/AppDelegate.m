@@ -23,10 +23,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    if (NetworkReachability.internetConnectionStatus != ONLINE)
-    {
-        [self showAlertForInternetConnection];
-    }
+// check internet connection
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onNetworkStatusChanged:) name:NETWORK_REACHABILITY_STATUS_CHANGED_NOTIFICATION object:nil];
+    [NetworkReachability monitorNetworkReachabilityChanges];
     
     [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
     [[FIRMessaging messaging] setDelegate:self];
@@ -56,6 +55,14 @@
     [GMSServices provideAPIKey:@"AIzaSyB1Qo46kfokUCUb9pTGUb0QV5aoKmPV6qE"];
 
     return YES;
+}
+
+- (void)onNetworkStatusChanged:(NSNotification*)notification
+{
+    if ([NetworkReachability internetConnectionStatus] != ONLINE)
+    {
+        [self showAlertForInternetConnection];
+    }
 }
 
 - (void)showAlertForInternetConnection

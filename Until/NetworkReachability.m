@@ -7,8 +7,6 @@
 //
 
 #import "NetworkReachability.h"
-#import <SystemConfiguration/SystemConfiguration.h>
-#import <sys/socket.h>
 
 @implementation NetworkReachability
 
@@ -60,5 +58,21 @@
     }
     
     return OFFLINE;
+}
+
++ (void)monitorNetworkReachabilityChanges
+{
+    NSString* hostNameStr = @"google.com";
+    SCNetworkReachabilityContext reachabilityContext = {0, nil, nil, nil, nil};
+    SCNetworkReachabilityRef reachabilityRef = SCNetworkReachabilityCreateWithName( kCFAllocatorDefault, hostNameStr.UTF8String);
+    
+    if (SCNetworkReachabilitySetCallback(reachabilityRef, ReachabilityCallback, &reachabilityContext))
+    {
+        SCNetworkReachabilityScheduleWithRunLoop(reachabilityRef, CFRunLoopGetMain(), kCFRunLoopCommonModes);
+    }
+}
+static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void* info)
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:NETWORK_REACHABILITY_STATUS_CHANGED_NOTIFICATION object:nil userInfo:nil];
 }
 @end
