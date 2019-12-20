@@ -25,12 +25,12 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ưu đãi NĂM MƯƠI cho ngày xinh tươi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KcA-ct-GfK">
                         <rect key="frame" x="36" y="8" width="358" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Chọn mã JV50K giảm 50K khi đặt Dùng lẻ cơ hội cuối cùng để nhận ưu đãi, nhanh tay đặt ngay nhé" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hIa-CT-cma">
-                        <rect key="frame" x="36" y="27" width="358" height="29"/>
+                        <rect key="frame" x="36" y="30" width="358" height="29"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -56,7 +56,7 @@
                     <constraint firstItem="CrD-sc-ugX" firstAttribute="leading" secondItem="Ky5-f3-3G9" secondAttribute="leading" constant="36" id="SCX-2d-6Pw"/>
                     <constraint firstAttribute="trailing" secondItem="R6N-3Z-15f" secondAttribute="trailing" constant="20" id="XrI-gc-yt2"/>
                     <constraint firstItem="KcA-ct-GfK" firstAttribute="top" secondItem="Ky5-f3-3G9" secondAttribute="top" constant="8" id="d4Z-hh-uzE"/>
-                    <constraint firstItem="hIa-CT-cma" firstAttribute="top" secondItem="KcA-ct-GfK" secondAttribute="bottom" constant="2" id="jHe-j7-iic"/>
+                    <constraint firstItem="hIa-CT-cma" firstAttribute="top" secondItem="KcA-ct-GfK" secondAttribute="bottom" constant="5" id="jHe-j7-iic"/>
                     <constraint firstItem="KcA-ct-GfK" firstAttribute="leading" secondItem="s9C-YX-LbH" secondAttribute="trailing" constant="8" id="kIO-GY-YZf"/>
                     <constraint firstItem="s9C-YX-LbH" firstAttribute="leading" secondItem="Ky5-f3-3G9" secondAttribute="leading" constant="8" id="kcY-1x-alB"/>
                     <constraint firstItem="R6N-3Z-15f" firstAttribute="top" secondItem="CrD-sc-ugX" secondAttribute="bottom" constant="2" id="l4m-mq-Fkz"/>
@@ -67,6 +67,12 @@
                     <constraint firstItem="s9C-YX-LbH" firstAttribute="top" secondItem="Ky5-f3-3G9" secondAttribute="top" constant="8" id="yQI-s0-au5"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="imgIcon" destination="s9C-YX-LbH" id="hET-FM-esi"/>
+                <outlet property="txtContent" destination="hIa-CT-cma" id="ri3-gj-npZ"/>
+                <outlet property="txtDate" destination="CrD-sc-ugX" id="ON7-lx-F7M"/>
+                <outlet property="txtTitle" destination="KcA-ct-GfK" id="sSH-aA-b08"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="26.785714285714285"/>
         </tableViewCell>
     </objects>

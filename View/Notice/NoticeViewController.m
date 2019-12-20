@@ -10,8 +10,14 @@
 #import "NoticeTableViewCell.h"
 #import "CouponTableViewCell.h"
 #import "NoticeDetailViewController.h"
+#import "APIRequest.h"
+#import "CommonDefines.h"
 
 @interface NoticeViewController ()
+{
+    NSMutableArray *_listNotices;
+    NSMutableArray *_listCoupons;
+}
 
 @end
 
@@ -21,6 +27,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _listNotices = [[NSMutableArray alloc] initWithCapacity:0];
+    _listCoupons = [[NSMutableArray alloc] initWithCapacity:0];
     
     [_tbNotice setRestorationIdentifier:@"idnoticetable"];
     [_tbCoupon setRestorationIdentifier:@"idcoupontable"];
@@ -35,6 +44,9 @@
     
     [_tbNotice setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [_tbCoupon setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    [self getNotice];
+    [self getCoupon];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -46,9 +58,37 @@
 {
     [super viewWillAppear:animated];
     
-    [self showSelectedNotice];
-    
     [self.tabBarController.tabBar setHidden:NO];
+}
+
+-(void)getNotice
+{
+    APIRequest *apirequest = [[APIRequest alloc] init];
+    
+    [apirequest requestAPIGetAvailableNoti:[_user userToken] completionHandler:^(NSArray * _Nullable resultDict, NSError * _Nonnull error) {
+       
+        if (error.code == 200) {
+            [self showNotice:resultDict];
+        }
+        else{
+            NSLog(@"request notice info error %@",error);
+        }
+    }];
+}
+
+-(void)getCoupon
+{
+    APIRequest *apirequest = [[APIRequest alloc] init];
+}
+
+-(void)showNotice:(NSArray*)notices
+{
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        
+        _listNotices = [NSMutableArray arrayWithArray:notices];
+        
+         [self showSelectedList];
+    });
 }
 /*
 #pragma mark - Navigation
@@ -62,11 +102,10 @@
 
 - (IBAction)didSelectNoticeType:(id)sender
 {
-    
-    [self showSelectedNotice];
+    [self showSelectedList];
 }
 
--(void)showSelectedNotice
+-(void)showSelectedList
 {
     if ([_sgSelection selectedSegmentIndex] == 0)
     {
@@ -86,6 +125,20 @@
     }
 }
 
+-(NSMutableArray*)getSelectedList
+{
+    if ([_sgSelection selectedSegmentIndex] == 0)
+       {
+           return _listNotices;
+       }
+       else if ([_sgSelection selectedSegmentIndex] == 1)
+       {
+           return _listCoupons;
+       }
+    
+    return [[NSMutableArray alloc] initWithCapacity:0];
+}
+
 #pragma mark - TableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -94,7 +147,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return [[self getSelectedList] count];
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -102,6 +155,7 @@
     if ([[tableView restorationIdentifier] isEqualToString:@"idnoticetable"])
     {
         NoticeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idnoticecell"];
+        [cell setNoticeInfo:[_listNotices objectAtIndex:indexPath.row]];
         
         return cell;
     }

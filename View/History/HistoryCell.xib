@@ -86,6 +86,14 @@
                     <constraint firstAttribute="trailing" secondItem="Xta-Q8-Ufo" secondAttribute="trailing" constant="20" id="zOS-h6-U7O"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="imgAddress" destination="DtA-2k-t89" id="IIZ-5O-gz2"/>
+                <outlet property="txtDate" destination="oFs-iy-HQi" id="6NH-GC-g8x"/>
+                <outlet property="txtStatus" destination="0Fj-RA-mM0" id="qPs-zJ-2xI"/>
+                <outlet property="txtTotalMoney" destination="DkG-33-FGf" id="DTt-6P-SZj"/>
+                <outlet property="txtWorkAddress" destination="BeN-MM-yPd" id="mPG-CN-DvX"/>
+                <outlet property="txtWorkTime" destination="Xta-Q8-Ufo" id="S9W-Pr-JGl"/>
+            </connections>
             <point key="canvasLocation" x="92.753623188405811" y="7.3660714285714279"/>
         </tableViewCell>
     </objects>

@@ -43,6 +43,7 @@
 #define ATTRIBUTE_END_TIME      @"endtime"
 
 #define CODE_DUNGLE             @"DUNGLE"
+#define CODE_DATLE              @"DATLE"
 #define CODE_DINHKY             @"DINHKY"
 #define CODE_TONGVESINH         @"TONGVESINH"
 #define CODE_SOFA               @"SOFA"
@@ -81,10 +82,22 @@
 #define ID_USER_NOTE            @"user_note"
 #define ID_PRICE                @"price"
 
+#define ID_SERVICE              @"id"
+
 #define ID_BASE_HOUR            @"base_hour"
 #define ID_BASE_PRICE           @"base_price"
 #define ID_MIN_PRICE            @"min_price"
 #define ID_CLIENT_STATUS        @"client_status"
+
+#define CODE_DANGYEUCAU         @"DANGYEUCAU"
+#define CODE_DADONDEP           @"DADONDEP"
+
+#define ID_REQUEST_STATUS       @"request_status"
+#define ID_PAYMENT_STATUS       @"payment_status"
+#define ID_UPDATE_DATE          @"updated_at"
+#define ID_TOTAL_PRICE          @"total_price"
+#define ID_RATE_SCORE           @"rate_score"
+#define ID_FEEDBACK             @"feedback"
 
 #define ID_USER_TOKEN           @"ID_USER_TOKEN"
 #define ID_USER_PHONENUMBER     @"ID_USER_PHONENUMBER"

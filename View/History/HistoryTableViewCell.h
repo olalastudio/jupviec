@@ -7,13 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonDefines.h"
+#import "JUntil.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HistoryTableViewCell : UITableViewCell
+{
+    
+}
 
-- (IBAction)didClickCompleteButton:(id)sender;
-- (IBAction)didClickPendingButton:(id)sender;
+@property (strong, nonatomic) NSDictionary *historyData;
+
+@property (weak, nonatomic) IBOutlet UILabel *txtStatus;
+@property (weak, nonatomic) IBOutlet UILabel *txtDate;
+@property (weak, nonatomic) IBOutlet UILabel *txtWorkTime;
+@property (weak, nonatomic) IBOutlet UIImageView *imgAddress;
+@property (weak, nonatomic) IBOutlet UILabel *txtWorkAddress;
+@property (weak, nonatomic) IBOutlet UILabel *txtTotalMoney;
+
 
 @end
 

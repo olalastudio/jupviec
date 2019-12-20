@@ -424,6 +424,7 @@
 		06B620BF2397B4540036DCF9 /* makhuyenmai.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B620BE2397B4540036DCF9 /* makhuyenmai.png */; };
 		06D6BF19239E39B000AB52DB /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6BF18239E39B000AB52DB /* MapsViewController.m */; };
 		06DFA80223A9C69F00FBE763 /* JUntil.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DFA80123A9C69F00FBE763 /* JUntil.m */; };
+		06DFA80623AB8B6C00FBE763 /* RateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DFA80523AB8B6C00FBE763 /* RateViewController.m */; };
 		06EC9F1D2396734A00474EE3 /* HomeTaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06EC9F1C2396734A00474EE3 /* HomeTaskCell.xib */; };
 		06EC9F202396736200474EE3 /* HomeTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EC9F1F2396736200474EE3 /* HomeTaskTableViewCell.m */; };
 		06EC9F222396784100474EE3 /* HomePromotionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06EC9F212396784100474EE3 /* HomePromotionCell.xib */; };
@@ -897,6 +898,8 @@
 		06D6BF18239E39B000AB52DB /* MapsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapsViewController.m; sourceTree = "<group>"; };
 		06DFA80023A9C69F00FBE763 /* JUntil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JUntil.h; sourceTree = "<group>"; };
 		06DFA80123A9C69F00FBE763 /* JUntil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JUntil.m; sourceTree = "<group>"; };
+		06DFA80423AB8B6C00FBE763 /* RateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RateViewController.h; sourceTree = "<group>"; };
+		06DFA80523AB8B6C00FBE763 /* RateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RateViewController.m; sourceTree = "<group>"; };
 		06EC9F1C2396734A00474EE3 /* HomeTaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTaskCell.xib; sourceTree = "<group>"; };
 		06EC9F1E2396736200474EE3 /* HomeTaskTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTaskTableViewCell.h; sourceTree = "<group>"; };
 		06EC9F1F2396736200474EE3 /* HomeTaskTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTaskTableViewCell.m; sourceTree = "<group>"; };
@@ -1362,7 +1365,6 @@
 				06222E21239E47F200AE24C5 /* Popup */,
 				0612A381239617C500A82BB9 /* Information */,
 				0612A37D239617C100A82BB9 /* Notice */,
-				06FEA1E5239544D1005D58B9 /* DetailOder */,
 				06FEA1DC2394BCAD005D58B9 /* History */,
 				0633A783239109CC0094219D /* HomeView */,
 				0601E317238FAEEF00403C95 /* SignIn */,
@@ -1597,6 +1599,15 @@
 			path = Maps;
 			sourceTree = "<group>";
 		};
+		06DFA80323AB8B5800FBE763 /* Rate */ = {
+			isa = PBXGroup;
+			children = (
+				06DFA80423AB8B6C00FBE763 /* RateViewController.h */,
+				06DFA80523AB8B6C00FBE763 /* RateViewController.m */,
+			);
+			path = Rate;
+			sourceTree = "<group>";
+		};
 		06FD73BE23A2526100528A00 /* Controll */ = {
 			isa = PBXGroup;
 			children = (
@@ -1609,6 +1620,8 @@
 		06FEA1DC2394BCAD005D58B9 /* History */ = {
 			isa = PBXGroup;
 			children = (
+				06DFA80323AB8B5800FBE763 /* Rate */,
+				06FEA1E5239544D1005D58B9 /* DetailOder */,
 				06FEA1DD2394BCC0005D58B9 /* HistoryViewController.h */,
 				06FEA1DE2394BCC0005D58B9 /* HistoryViewController.m */,
 				06FEA1E02394CBCC005D58B9 /* HistoryCell.xib */,
@@ -2216,6 +2229,7 @@
 				CEA0919323A796FA00D2502F /* AccountInfoViewController.m in Sources */,
 				CEA83F1B239120BE001C1512 /* User.m in Sources */,
 				0612A393239621F500A82BB9 /* InformationTableViewCell.m in Sources */,
+				06DFA80623AB8B6C00FBE763 /* RateViewController.m in Sources */,
 				06EC9F202396736200474EE3 /* HomeTaskTableViewCell.m in Sources */,
 				0633A786239109E60094219D /* HomeViewController.m in Sources */,
 				0612A38B23961DA800A82BB9 /* NoticeTableViewCell.m in Sources */,
@@ -2372,7 +2386,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = JupViec/JupViec.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6R752XT6V5;
+				DEVELOPMENT_TEAM = KREB2MXHVA;
 				INFOPLIST_FILE = JupViec/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2395,7 +2409,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = JupViec/JupViec.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6R752XT6V5;
+				DEVELOPMENT_TEAM = KREB2MXHVA;
 				INFOPLIST_FILE = JupViec/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
