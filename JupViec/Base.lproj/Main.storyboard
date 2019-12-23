@@ -680,40 +680,45 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EA7-Ag-och">
-                                <rect key="frame" x="61" y="178" width="50" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBi-rG-cQ1" userLabel="2">
+                                <rect key="frame" x="112" y="177" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="star.fill" catalog="system">
+                                <state key="normal" image="star-1.png">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
+                                <connections>
+                                    <action selector="didPressStar2:" destination="f6d-bn-2ym" eventType="touchUpInside" id="ghB-pZ-DcQ"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBi-rG-cQ1">
-                                <rect key="frame" x="131" y="191" width="27" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1a-bn-Rq5" userLabel="3">
+                                <rect key="frame" x="181" y="178" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="star.fill" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                <state key="normal" image="star-1.png">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                                 </state>
+                                <connections>
+                                    <action selector="didPressStar3:" destination="f6d-bn-2ym" eventType="touchUpInside" id="oNf-S4-aIn"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1a-bn-Rq5">
-                                <rect key="frame" x="177" y="178" width="50" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKa-j9-s4A" userLabel="4">
+                                <rect key="frame" x="248" y="178" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="star.fill" catalog="system">
+                                <state key="normal" image="star-1.png">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
+                                <connections>
+                                    <action selector="didPressStar4:" destination="f6d-bn-2ym" eventType="touchUpInside" id="Oo8-zn-30B"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKa-j9-s4A">
-                                <rect key="frame" x="235" y="178" width="50" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fue-cb-TgU" userLabel="5">
+                                <rect key="frame" x="310" y="178" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="star.fill" catalog="system">
+                                <state key="normal" image="star-1.png">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fue-cb-TgU">
-                                <rect key="frame" x="293" y="178" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="star.fill" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                </state>
+                                <connections>
+                                    <action selector="didPressStar5:" destination="f6d-bn-2ym" eventType="touchUpInside" id="ny7-LE-LpA"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nội dung đánh giá" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFF-DO-bak">
                                 <rect key="frame" x="20" y="255" width="365" height="22"/>
@@ -742,6 +747,16 @@
                                     <action selector="didPressRateButton:" destination="f6d-bn-2ym" eventType="touchUpInside" id="Fvm-Kc-dTD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EA7-Ag-och" userLabel="1">
+                                <rect key="frame" x="41" y="177" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="starfill.png">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressStar1:" destination="f6d-bn-2ym" eventType="touchUpInside" id="e4T-l9-zQ0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="nXw-dq-jfK"/>
@@ -751,6 +766,11 @@
                         <outlet property="btRate" destination="S0h-LL-WDg" id="M8u-Ge-s4l"/>
                         <outlet property="lbComment" destination="HFF-DO-bak" id="syn-Vv-Buf"/>
                         <outlet property="lbRateScore" destination="S5m-Rj-qDv" id="nem-gK-npA"/>
+                        <outlet property="star1" destination="EA7-Ag-och" id="SrC-PL-aeA"/>
+                        <outlet property="star2" destination="aBi-rG-cQ1" id="lwg-4A-HPu"/>
+                        <outlet property="star3" destination="D1a-bn-Rq5" id="Eyo-Dh-zZy"/>
+                        <outlet property="star4" destination="SKa-j9-s4A" id="9fu-yN-We3"/>
+                        <outlet property="star5" destination="fue-cb-TgU" id="fmt-D5-qIf"/>
                         <outlet property="txtComment" destination="XrD-Rr-DhA" id="3dU-rb-6lQ"/>
                     </connections>
                 </viewController>
@@ -1623,7 +1643,8 @@
     <resources>
         <image name="background.jpg" width="720" height="1480"/>
         <image name="multiply.png" width="24.891288757324219" height="24.891288757324219"/>
-        <image name="star.fill" catalog="system" width="64" height="58"/>
+        <image name="star-1.png" width="44.683635711669922" height="44.683635711669922"/>
+        <image name="starfill.png" width="43.115791320800781" height="43.115791320800781"/>
         <image name="user-1.png" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>

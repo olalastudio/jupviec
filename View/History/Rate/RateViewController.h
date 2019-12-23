@@ -23,6 +23,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextView *txtComment;
 @property (weak, nonatomic) IBOutlet UIButton *btRate;
 
+@property (weak, nonatomic) IBOutlet UIButton *star1;
+@property (weak, nonatomic) IBOutlet UIButton *star2;
+@property (weak, nonatomic) IBOutlet UIButton *star3;
+@property (weak, nonatomic) IBOutlet UIButton *star4;
+@property (weak, nonatomic) IBOutlet UIButton *star5;
+
+- (IBAction)didPressStar1:(id)sender;
+- (IBAction)didPressStar2:(id)sender;
+- (IBAction)didPressStar3:(id)sender;
+- (IBAction)didPressStar4:(id)sender;
+- (IBAction)didPressStar5:(id)sender;
+
 - (IBAction)didPressRateButton:(id)sender;
 
 -(void)setUserToken:(NSString*)token;

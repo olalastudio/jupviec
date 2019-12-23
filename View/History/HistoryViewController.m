@@ -186,7 +186,6 @@
     NSDictionary *item = [[self showSelectedList] objectAtIndex:indexPath.row];
     
     DetailOrderViewController *detailviewController = [self.storyboard instantiateViewControllerWithIdentifier:@"iddetailoder"];
-    [detailviewController loadView];
     
     [detailviewController setUser:_user];
     [detailviewController setDetailInfo:item];
