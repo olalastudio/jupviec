@@ -423,12 +423,15 @@
     if ([selectedview isKindOfClass:[HistoryViewController class]])
     {
         HistoryViewController *historyview = (HistoryViewController*)selectedview;
+        
+        [historyview setDefineCodeGetFromServer:[self definesCode:@[ID_CLIENT_STATUS, ID_DEFINE_MESSAGE, ID_FEEDBACK_STATUS, ID_REQUEST_STATUS, ID_PAYMENT_STATUS]]];
         [historyview setUser:_user];
         NSLog(@"select history tab");
     }
     else if ([selectedview isKindOfClass:[NoticeViewController class]])
     {
         NoticeViewController *noticeview = (NoticeViewController*)selectedview;
+        
         [noticeview setUser:_user];
         NSLog(@"select notice tab");
     }
@@ -440,5 +443,19 @@
     {
         NSLog(@"select home view");
     }
+}
+
+-(NSMutableDictionary*)definesCode:(NSArray*)codes
+{
+    NSMutableDictionary *definecodes = [[NSMutableDictionary alloc] initWithCapacity:0];
+    
+    for (NSString *code in codes)
+    {
+        if ([_configurationInfoDict objectForKey:code]) {
+            [definecodes setObject:[_configurationInfoDict objectForKey:code] forKey:code];
+        }
+    }
+    
+    return definecodes;
 }
 @end

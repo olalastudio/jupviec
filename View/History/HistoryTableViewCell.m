@@ -22,6 +22,11 @@
     // Configure the view for the selected state
 }
 
+-(void)setDefineCodeGetFromServer:(NSMutableDictionary *)codes
+{
+    _definesCode = [[NSDictionary alloc] initWithDictionary:codes];
+}
+
 -(void)setHistoryData:(NSDictionary *)historyData
 {
     _historyData = historyData;
@@ -53,6 +58,9 @@
     
     NSString *strLocation = [_historyData objectForKey:ID_LOCATION];
     [_txtWorkAddress setText:strLocation];
+    
+    NSString *clientStatus = [_historyData objectForKey:ID_CLIENT_STATUS];
+    [_txtClientStatus setText:clientStatus];
     
     double totalMoney = [[_historyData objectForKey:ID_TOTAL_PRICE] doubleValue];
     [_txtTotalMoney setText:[NSString stringWithFormat:@"%0.3fđ",totalMoney]];

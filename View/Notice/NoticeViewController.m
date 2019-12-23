@@ -61,6 +61,16 @@
     [self.tabBarController.tabBar setHidden:NO];
 }
 
+-(void)setUser:(User *)user
+{
+    _user = user;
+}
+
+- (User *)user
+{
+    return _user;
+}
+
 -(void)getNotice
 {
     APIRequest *apirequest = [[APIRequest alloc] init];

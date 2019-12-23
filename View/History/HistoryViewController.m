@@ -23,6 +23,11 @@
 @implementation HistoryViewController
 @synthesize user = _user;
 
+-(void)awakeFromNib
+{
+    [super awakeFromNib];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -36,7 +41,7 @@
     _listDungLe = [[NSMutableArray alloc] initWithCapacity:0];
     _listDungDKy = [[NSMutableArray alloc] initWithCapacity:0];
     _listTongVS = [[NSMutableArray alloc] initWithCapacity:0];
- 
+    
     [self getHistory];
 }
 
@@ -60,6 +65,21 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+}
+
+-(void)setUser:(User *)user
+{
+    _user = user;
+}
+
+-(User*)user
+{
+    return _user;
+}
+
+-(void)setDefineCodeGetFromServer:(NSDictionary *)codes
+{
+    _definesCode = [[NSMutableDictionary alloc] initWithDictionary:codes];
 }
 
 -(void)getHistory
@@ -148,6 +168,7 @@
     HistoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:strIdentify];
  
     NSDictionary *item = [[self showSelectedList] objectAtIndex:indexPath.row];
+    [cell setDefineCodeGetFromServer:[NSMutableDictionary dictionaryWithDictionary:_definesCode]];
     [cell setHistoryData:item];
  
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];

@@ -98,6 +98,8 @@
 #define ID_TOTAL_PRICE          @"total_price"
 #define ID_RATE_SCORE           @"rate_score"
 #define ID_FEEDBACK             @"feedback"
+#define ID_DEFINE_MESSAGE       @"define_message"
+#define ID_FEEDBACK_STATUS      @"feedback_status"
 
 #define ID_USER_TOKEN           @"ID_USER_TOKEN"
 #define ID_USER_PHONENUMBER     @"ID_USER_PHONENUMBER"

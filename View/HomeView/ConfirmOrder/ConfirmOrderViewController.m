@@ -146,7 +146,7 @@
             double startTime = [JUntil timeNumberFromString:[[_order workTime] objectForKey:ATTRIBUTE_START_TIME]];
             double endTime = [JUntil timeNumberFromString:[[_order workTime] objectForKey:ATTRIBUTE_END_TIME]];
             double worktime = endTime - startTime;
-            [detailService setObject:[NSString stringWithFormat:@"%f.1",worktime] forKey:ID_WORKING_TIME];
+            [detailService setObject:[NSString stringWithFormat:@"%.1f",worktime] forKey:ID_WORKING_TIME];
             
             //extend service
             [detailService setObject:@[CODE_DICHO, CODE_GIATQAO] forKey:ID_SERVICE_EXTEND];
@@ -181,9 +181,13 @@
     
     [apiRequest requestAPIBookService:strToken detailService:detailService completionhandler:^(NSDictionary * _Nullable serviceInfo, NSError * _Nonnull error) {
         
-        if (error.code == 200) {
-            NSLog(@"Place order successful");
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error.code == 200) {
+                NSLog(@"Place order successful");
+                
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+        });
     }];
 }
 @end
