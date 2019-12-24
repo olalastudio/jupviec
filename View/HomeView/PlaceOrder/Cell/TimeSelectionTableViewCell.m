@@ -85,14 +85,19 @@
             break;
     }
     
-    if (_delegate && [_delegate respondsToSelector:@selector(didClickChangeWorkShift:workTime:index:)]) {
-        [_delegate didClickChangeWorkShift:shiftwork workTime:worktime index:_indexPath];
+    if (_delegate && [_delegate respondsToSelector:@selector(didClickChangeWorkShift:workTime:attribute:index:)]) {
+        [_delegate didClickChangeWorkShift:shiftwork workTime:worktime attribute:_ordeAttribute index:_indexPath];
     }
 }
 
 -(void)showTime
 {
     NSMutableDictionary *worktime = [_order workTime];
+    
+    if (_ordeAttribute == ATTRIBUTE_GIOKHAOSAT) {
+        worktime = [_order timeOfExamine];
+    }
+    
     NSString *startTime = [worktime objectForKey:ATTRIBUTE_START_TIME];
     NSString *endTime = [worktime objectForKey:ATTRIBUTE_END_TIME];
     

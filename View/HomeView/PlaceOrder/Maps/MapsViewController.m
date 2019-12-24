@@ -22,14 +22,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _isShowLocationMaker = NO;
-    _locationManager = [[CLLocationManager alloc]init];
+    
+    _locationManager = [[CLLocationManager alloc] init];
+    
     [_locationManager setDelegate:self];
-    [_locationManager requestWhenInUseAuthorization];
     [_mapView setDelegate:self];
+    [_txtAddress setDelegate:self];
 }
 
 - (IBAction)didPressConfirmLocationButton:(id)sender
 {
+    if ([[_txtAddress text] isEqualToString:@""] || [_txtAddress text] == nil)
+    {
+        return;
+    }
+    
     PlaceOrderViewController *placeview;
     
     for (UIViewController *vc in [self.navigationController viewControllers])
@@ -88,11 +95,9 @@
         {
             GMSAddress* address = [response firstResult];
             NSArray* lines = [address lines];
-            [self.addressLb setText:[lines componentsJoinedByString:@"\n"]];
-//            NSInteger labelHeight = self.addressLb.intrinsicContentSize.height;
-//            self.mapView.padding = UIEdgeInsetsMake(self.view.safeAreaInsets.top, 0, labelHeight, 0);
+            [self.txtAddress setText:[lines componentsJoinedByString:@"\n"]];
+
             [UIView animateWithDuration:0.25 animations:^{
-                
                 [self.view layoutIfNeeded];
             }];
         } else
@@ -100,4 +105,10 @@
     }];
 }
 
+#pragma mark - UITextFieldDelegate
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 @end

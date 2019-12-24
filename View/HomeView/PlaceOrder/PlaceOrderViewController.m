@@ -310,9 +310,14 @@
     switch (attribute) {
         case ATTRIBUTE_DIADIEM:
         {
-            ChooseAddressViewController *chooseAddressView = [self.storyboard instantiateViewControllerWithIdentifier:@"idchooseaddressview"];
+            MapsViewController *mapsview = [self.storyboard instantiateViewControllerWithIdentifier:@"idmapview"];
             
-            [self.navigationController pushViewController:chooseAddressView animated:YES];
+            UIViewController *topview = [self.navigationController topViewController];
+            
+            if (![topview isKindOfClass:[MapsViewController class]])
+            {
+                [self.navigationController pushViewController:mapsview animated:YES];
+            }
         }
             break;
         case ATTRIBUTE_SONHACANHO:
@@ -361,10 +366,18 @@
 }
 
 #pragma mark - TimeSelectionCell Delegate
--(void)didClickChangeWorkShift:(SHIFT_WORK)workshift workTime:(NSMutableDictionary *)worktime index:(NSIndexPath *)index
+-(void)didClickChangeWorkShift:(SHIFT_WORK)workshift workTime:(NSMutableDictionary *)worktime attribute:(ORDER_ATTRIBUTE)attribute index:(nonnull NSIndexPath *)index
 {
-    [_order setWorkShift:workshift];
-    [_order setWorkTime:worktime];
+    if (attribute == ATTRIBUTE_GIOLAMVIEC)
+    {
+        [_order setWorkShift:workshift];
+        [_order setWorkTime:worktime];
+    }
+    else if (attribute == ATTRIBUTE_GIOKHAOSAT)
+    {
+        [_order setWorkShift:workshift];
+        [_order setTimeOfExamine:worktime];
+    }
     
     [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
 }
