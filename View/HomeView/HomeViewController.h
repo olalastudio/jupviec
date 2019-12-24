@@ -27,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (IBAction)didClickLoginButton:(id)sender;
 
+-(void)logIn:(NSString*)strToken phoneNumber:(NSString*)phonenumber;
+-(void)logOut;
 @end
 
 NS_ASSUME_NONNULL_END

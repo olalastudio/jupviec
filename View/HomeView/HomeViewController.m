@@ -40,7 +40,8 @@
     _strUserToken = [[NSUserDefaults standardUserDefaults] objectForKey:ID_USER_TOKEN];
     _strPhoneNum = [[NSUserDefaults standardUserDefaults] objectForKey:ID_USER_PHONENUMBER];
     
-    if (_strUserToken && _strPhoneNum) {
+    if (_strUserToken && _strPhoneNum && ![_strUserToken isEqualToString:@""] && ![_strPhoneNum isEqualToString:@""])
+    {
         _user = [[User alloc] init];
         [_user setUserToken:_strUserToken];
         [_user setUserPhoneNum:_strPhoneNum];
@@ -132,7 +133,8 @@
 
 -(void)showLoginUser
 {
-    if (_user) {
+    if (_user)
+    {
         // user logged in
         UIImage* userImg = [UIImage imageNamed:@"user-1.png"];
         [_loginBtn setImage:userImg forState:UIControlStateNormal];
@@ -142,6 +144,11 @@
         frame.size.width = 50;
         frame.size.height = 50;
         [_loginBtn setFrame:frame];
+    }
+    else
+    {
+        [_loginBtn setTitle:@"Đăng nhập" forState:UIControlStateNormal];
+        [_loginBtn setImage:nil forState:UIControlStateNormal];
     }
 }
 
@@ -217,6 +224,22 @@
         accountInfoVC.user = _user;
         accountInfoVC.tokenStr = _strUserToken;
     }
+}
+
+#pragma mark - Login & out
+-(void)logIn:(NSString *)strToken phoneNumber:(NSString *)phonenumber
+{
+    
+}
+
+-(void)logOut
+{
+    _user = nil;
+    _strUserToken = @"";
+    _strPhoneNum = @"";
+    
+    [[NSUserDefaults standardUserDefaults] setObject:_strPhoneNum forKey:ID_USER_PHONENUMBER];
+    [[NSUserDefaults standardUserDefaults] setObject:_strUserToken forKey:ID_USER_TOKEN];
 }
 
 - (IBAction)didClickLoginButton:(id)sender {

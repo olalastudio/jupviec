@@ -16,11 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
     NSDictionary* _generalInfo;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *userImage;
-@property (weak, nonatomic) IBOutlet UILabel *usernameLb;
-@property (weak, nonatomic) IBOutlet UILabel *phoneNumLb;
-@property (weak, nonatomic) IBOutlet UILabel *emailLb;
-@property (strong, nonatomic) User* user;
-@property (strong, nonatomic) NSString* tokenStr;
+@property (weak, nonatomic) IBOutlet UILabel    *usernameLb;
+@property (weak, nonatomic) IBOutlet UILabel    *phoneNumLb;
+@property (weak, nonatomic) IBOutlet UILabel    *emailLb;
+@property (strong, nonatomic) User              *user;
+@property (strong, nonatomic) NSString          *tokenStr;
+
+- (IBAction)didPressLogoutButton:(id)sender;
 
 @end
 

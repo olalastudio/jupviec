@@ -8,6 +8,7 @@
 
 #import "AccountInfoViewController.h"
 #import "EditAccountInfoViewController.h"
+#import "HomeViewController.h"
 
 @interface AccountInfoViewController ()
 
@@ -57,4 +58,20 @@
     }
 }
 
+- (IBAction)didPressLogoutButton:(id)sender
+{
+    HomeViewController *homeview;
+    
+    for (UIViewController *item in [self.navigationController viewControllers])
+    {
+        if ([item isKindOfClass:[HomeViewController class]])
+        {
+            homeview = (HomeViewController*)item;
+            
+            [homeview logOut];
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
+}
 @end
