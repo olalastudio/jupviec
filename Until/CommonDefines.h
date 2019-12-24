@@ -77,6 +77,7 @@
 #define ID_WORKING_DATE         @"working_date"
 #define ID_WORKING_HOUR         @"working_hour"
 #define ID_WORKING_TIME         @"working_time"
+#define ID_WORK_DAYINWEEK       @"day_in_week"
 #define ID_SERVICE_EXTEND       @"service_extend"
 #define ID_PAYMENT_METHOD       @"payment_method"
 #define ID_USER_NOTE            @"user_note"
@@ -143,3 +144,14 @@ typedef enum :NSUInteger
     ONLINE = 1,
     UNKNOWN = 2,
 }INTERNET_STATUS;
+
+typedef enum : NSUInteger {
+    DAY_NONE = 0,
+    DAY_THU2,
+    DAY_THU3,
+    DAY_THU4,
+    DAY_THU5,
+    DAY_THU6,
+    DAY_THU7,
+    DAY_CN,
+} DAYINWEEK;

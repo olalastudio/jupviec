@@ -86,11 +86,61 @@
             NSAttributedString *tasktype = [[NSAttributedString alloc] initWithString:@"Loại dịch vụ: Đặt Định kỳ\n"];
             [attributeStr appendAttributedString:tasktype];
             
+            NSString *strworkaddress = [NSString stringWithFormat:@"Địa điểm làm việc: %@\n\n",[_order workAddress]];
+            NSAttributedString *workaddress = [[NSAttributedString alloc] initWithString:strworkaddress];
+            [attributeStr appendAttributedString:workaddress];
+            
+            NSString *strworkdate = [NSString stringWithFormat:@"Ngày làm việc: %@\n\n",[_order workDate]];
+            NSAttributedString *workdate = [[NSAttributedString alloc] initWithString:strworkdate];
+            [attributeStr appendAttributedString:workdate];
+            
+            NSString *strworkdayinweek = [NSString stringWithFormat:@"Ngày làm trong tuần : %@\n\n",[_order workDayInWeek]];
+            NSAttributedString *workdayinweek = [[NSAttributedString alloc] initWithString:strworkdayinweek];
+            [attributeStr appendAttributedString:workdayinweek];
+            
+            NSString *strworkTime = [NSString stringWithFormat:@"Giờ làm việc: %@\n\n",[_order workTime]];
+            NSAttributedString *worktime = [[NSAttributedString alloc] initWithString:strworkTime];
+            [attributeStr appendAttributedString:worktime];
+            
+            NSString *strextraservice = [NSString stringWithFormat:@"Dịch vụ kèm theo: %@\n\n",[_order extraOption]];
+            NSAttributedString *extraservice = [[NSAttributedString alloc] initWithString:strextraservice];
+            [attributeStr appendAttributedString:extraservice];
+            
+            NSString *strpaymentmethod = [NSString stringWithFormat:@"Hình thức thanh toán: %@\n\n",[_order paymentMethod]];
+            NSAttributedString *paymentmethod = [[NSAttributedString alloc] initWithString:strpaymentmethod];
+            [attributeStr appendAttributedString:paymentmethod];
+            
+            NSString *strnote = [NSString stringWithFormat:@"Ghi chú: %@\n\n",[_order note]];
+            NSAttributedString *note = [[NSAttributedString alloc] initWithString:strnote];
+            [attributeStr appendAttributedString:note];
+            
             [_txtContent setAttributedText:attributeStr];
         }
             break;
         case TYPE_TONGVESINH:
         {
+            NSMutableAttributedString *attributeStr = [[NSMutableAttributedString alloc] initWithString:@"\n"];
+            
+            NSAttributedString *tasktype = [[NSAttributedString alloc] initWithString:@"Loại dịch vụ: Tổng vệ sinh\n"];
+            [attributeStr appendAttributedString:tasktype];
+            
+            NSString *strworkaddress = [NSString stringWithFormat:@"Địa điểm làm việc: %@\n\n",[_order workAddress]];
+            NSAttributedString *workaddress = [[NSAttributedString alloc] initWithString:strworkaddress];
+            [attributeStr appendAttributedString:workaddress];
+            
+            NSString *strexamdate = [NSString stringWithFormat:@"Ngày khảo sat: %@\n\n",[_order dayOfExamine]];
+            NSAttributedString *examdate = [[NSAttributedString alloc] initWithString:strexamdate];
+            [attributeStr appendAttributedString:examdate];
+            
+            NSString *strexamTime = [NSString stringWithFormat:@"Giờ khảo sát mong muốn: %@\n\n",[_order timeOfExamine]];
+            NSAttributedString *examtime = [[NSAttributedString alloc] initWithString:strexamTime];
+            [attributeStr appendAttributedString:examtime];
+            
+            NSString *strnote = [NSString stringWithFormat:@"Ghi chú: %@\n\n",[_order note]];
+            NSAttributedString *note = [[NSAttributedString alloc] initWithString:strnote];
+            [attributeStr appendAttributedString:note];
+            
+            [_txtContent setAttributedText:attributeStr];
         }
             break;
         case TYPE_JUPSOFA:
@@ -149,10 +199,21 @@
             [detailService setObject:[NSString stringWithFormat:@"%.1f",worktime] forKey:ID_WORKING_TIME];
             
             //extend service
-            [detailService setObject:@[CODE_DICHO, CODE_GIATQAO] forKey:ID_SERVICE_EXTEND];
+            NSArray *extendservice = [_order extraOption];
+            NSMutableArray *options = [NSMutableArray arrayWithCapacity:0];
+            for (NSDictionary *item in extendservice)
+            {
+                NSString *extendcode = [item objectForKey:@"code"];
+                [options addObject:extendcode];
+            }
+            
+            if ([options count] > 0) {
+                [detailService setObject:options forKey:ID_SERVICE_EXTEND];
+            }
             
             //Payment method
-            [detailService setObject:CODE_TIENMAT forKey:ID_PAYMENT_METHOD];
+            NSString *paymethod = [[_order paymentMethod] objectForKey:@"code"];
+            [detailService setObject:paymethod forKey:ID_PAYMENT_METHOD];
             
             //user note
             [detailService setObject:[_order note] forKey:ID_USER_NOTE];
@@ -161,11 +222,68 @@
         case TYPE_DUNGDINHKY:
         {
             [detailService setObject:CODE_DINHKY forKey:ID_REQUEST_TYPE];
+            
+            //requester
+            [detailService setObject:[_user userPhoneNum] forKey:ID_REQUESTER];
+            
+            //location
+            [detailService setObject:[_order workAddress] forKey:ID_LOCATION];
+            
+            //working date
+            [detailService setObject:[JUntil stringFromDate:[_order workDate]] forKey:ID_WORKING_DATE];
+            
+            //workinghour
+            NSDictionary *workhour = [_order workTime];
+            [detailService setObject:[workhour objectForKey:ATTRIBUTE_START_TIME] forKey:ID_WORKING_HOUR];
+            
+            //working time
+            double startTime = [JUntil timeNumberFromString:[[_order workTime] objectForKey:ATTRIBUTE_START_TIME]];
+            double endTime = [JUntil timeNumberFromString:[[_order workTime] objectForKey:ATTRIBUTE_END_TIME]];
+            double worktime = endTime - startTime;
+            [detailService setObject:[NSString stringWithFormat:@"%.1f",worktime] forKey:ID_WORKING_TIME];
+            
+            //extend service
+            NSArray *extendservice = [_order extraOption];
+            NSMutableArray *options = [NSMutableArray arrayWithCapacity:0];
+            for (NSDictionary *item in extendservice) {
+                NSString *extendcode = [item objectForKey:@"code"];
+                [options addObject:extendcode];
+            }
+            
+            if ([options count] > 0) {
+                [detailService setObject:options forKey:ID_SERVICE_EXTEND];
+            }
+            
+            //day of week
+            [detailService setObject:[_order workDayInWeek] forKey:ID_WORK_DAYINWEEK];
+            
+            //Payment method
+            NSString *paymethod = [[_order paymentMethod] objectForKey:@"code"];
+            [detailService setObject:paymethod forKey:ID_PAYMENT_METHOD];
+            
+            //user note
+            [detailService setObject:[_order note] forKey:ID_USER_NOTE];
         }
             break;
         case TYPE_TONGVESINH:
         {
             [detailService setObject:CODE_TONGVESINH forKey:ID_REQUEST_TYPE];
+            
+            //requester
+            [detailService setObject:[_user userPhoneNum] forKey:ID_REQUESTER];
+            
+            //location
+            [detailService setObject:[_order workAddress] forKey:ID_LOCATION];
+            
+            //working date
+            [detailService setObject:[JUntil stringFromDate:[_order dayOfExamine]] forKey:ID_WORKING_DATE];
+            
+            //workinghour
+            NSDictionary *workhour = [_order timeOfExamine];
+            [detailService setObject:[workhour objectForKey:ATTRIBUTE_START_TIME] forKey:ID_WORKING_HOUR];
+            
+            //user note
+            [detailService setObject:[_order note] forKey:ID_USER_NOTE];
         }
             break;
         case TYPE_JUPSOFA:
@@ -177,17 +295,44 @@
             break;
     }
     
+    //price
+    NSNumber *price = [NSNumber numberWithDouble:[_order totalMoney]];
+    [detailService setObject:price forKey:ID_PRICE];
+    
     APIRequest *apiRequest = [[APIRequest alloc] init];
     
     [apiRequest requestAPIBookService:strToken detailService:detailService completionhandler:^(NSDictionary * _Nullable serviceInfo, NSError * _Nonnull error) {
-        
         dispatch_async(dispatch_get_main_queue(), ^{
-            if (error.code == 200) {
-                NSLog(@"Place order successful");
-                
-                [self.navigationController popToRootViewControllerAnimated:YES];
-            }
+            [self showConfirmAlert:error];
         });
     }];
+}
+
+#pragma mark - Alert Confirm
+-(void)showConfirmAlert:(NSError*)error
+{
+    NSString *title = @"Place order sucessfull";
+    NSString *message = @"Have a nice day!";
+    if (error.code != 200)
+    {
+        title = @"Place order has an error";
+        message = @"Sorry! Please try again later";
+    }
+    
+    UIAlertController *alertcontroll = [UIAlertController alertControllerWithTitle:title
+                                                                           message:message
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"Xác Nhận"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * _Nonnull action)
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        });
+    }];
+    
+    [alertcontroll addAction:confirmAction];
+    [self presentViewController:alertcontroll animated:YES completion:nil];
 }
 @end

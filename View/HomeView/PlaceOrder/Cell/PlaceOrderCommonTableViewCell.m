@@ -101,14 +101,24 @@
             [_txtContent setText:@"T2, T4, T7"];
             break;
         case ATTRIBUTE_NGAYKHAOSAT:
+        {
             [_imgIcon setImage:[UIImage imageNamed:@"calendar"]];
             [_txtTitle setText:@"NGÀY KHẢO SÁT"];
-            [_txtContent setText:@"Thứ 4 - 20/11/2019"];
+            
+            NSDateFormatter *format = [[NSDateFormatter alloc] init];
+            [format setDateFormat:@"EEEE, dd/MM/yyyy"];
+            [format setLocale:[NSLocale localeWithLocaleIdentifier:@"vi_VN"]];
+            
+            [_txtContent setText:[format stringFromDate:[_order dayOfExamine]]];
+        }
             break;
         case ATTRIBUTE_GIOKHAOSAT:
+        {
             [_imgIcon setImage:[UIImage imageNamed:@"calendar"]];
             [_txtTitle setText:@"GIỜ KHẢO SÁT MONG MUỐN"];
+            
             [_txtContent setText:@"Sáng 09:00 - 11:00"];
+        }
             break;
         case ATTRIBUTE_GIOLAMVIEC:
             [_imgIcon setImage:[UIImage imageNamed:@"clock-1"]];

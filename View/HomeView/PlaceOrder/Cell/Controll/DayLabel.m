@@ -9,6 +9,7 @@
 #import "DayLabel.h"
 
 @implementation DayLabel
+@synthesize delegate = _delegate;
 @synthesize selected = _selected;
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -25,20 +26,24 @@
     [super awakeFromNib];
     
     _selected = NO;
+    _dayInWeek = DAY_NONE;
+    
+    [self setBackgroundColor:[UIColor clearColor]];
 }
 
 - (void)drawRect:(CGRect)rect
 {
     [super drawRect:rect];
-    
-    if (_selected) {
-        [self setBackgroundColor:[UIColor orangeColor]];
-    }
-    else{
-        [self setBackgroundColor:[UIColor clearColor]];
-    }
 }
 
+-(void)setSelected:(BOOL)selected{
+    _selected = selected;
+}
+
+-(BOOL)selected
+{
+    return _selected;
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -51,9 +56,15 @@
 {
     if (_selected) {
         _selected = NO;
+        [self setBackgroundColor:[UIColor clearColor]];
     }
     else{
         _selected = YES;
+        [self setBackgroundColor:[UIColor orangeColor]];
+    }
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(didSelectDayLabel:)]) {
+        [_delegate didSelectDayLabel:_dayInWeek];
     }
     
     [self setNeedsDisplay];

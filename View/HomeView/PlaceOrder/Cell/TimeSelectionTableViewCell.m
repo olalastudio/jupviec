@@ -43,9 +43,9 @@
 
 - (IBAction)didPressWorkTimeButton:(id)sender
 {
-    if (_delegate && [_delegate respondsToSelector:@selector(didClickChangeTimeSelection:)])
+    if (_delegate && [_delegate respondsToSelector:@selector(didClickChangeTimeSelection:index:)])
     {
-        [_delegate didClickChangeTimeSelection:_indexPath];
+        [_delegate didClickChangeTimeSelection:_ordeAttribute index:_indexPath];
     }
 }
 

@@ -42,8 +42,6 @@
 {
     [super viewWillAppear:animated];
     
-    [_calendarPicker selectDate:[_order workDate]];
-    
     if (_orderAttribute == ATTRIBUTE_NGAYLAMVIEC || _orderAttribute == ATTRIBUTE_NGAYLAMTRONGTUAN)
     {
         [_calendarPicker setHidden:NO];
@@ -51,9 +49,20 @@
         [_endTime setHidden:YES];
         [_btnConfirm setHidden:YES];
         
+        [_calendarPicker selectDate:[_order workDate]];
         [_txtTitle setText:@"Ngày làm việc"];
     }
-    else if (_orderAttribute == ATTRIBUTE_GIOLAMVIEC)
+    else if (_orderAttribute == ATTRIBUTE_NGAYKHAOSAT)
+    {
+        [_calendarPicker setHidden:NO];
+        [_startTime setHidden:YES];
+        [_endTime setHidden:YES];
+        [_btnConfirm setHidden:YES];
+        
+        [_calendarPicker selectDate:[_order dayOfExamine]];
+        [_txtTitle setText:@"Ngày khảo sát"];
+    }
+    else if (_orderAttribute == ATTRIBUTE_GIOLAMVIEC || _orderAttribute == ATTRIBUTE_GIOKHAOSAT)
     {
         [_calendarPicker setHidden:YES];
         [_startTime setHidden:NO];
@@ -133,6 +142,11 @@
 -(void)setSelectedTime
 {
     NSMutableDictionary *worktime = [_order workTime];
+    
+    if (_orderAttribute == ATTRIBUTE_GIOKHAOSAT) {
+        worktime = [_order timeOfExamine];
+    }
+    
     NSString *starttime = [worktime objectForKey:ATTRIBUTE_START_TIME];
     NSString *endtime = [worktime objectForKey:ATTRIBUTE_END_TIME];
     

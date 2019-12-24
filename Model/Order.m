@@ -60,5 +60,6 @@
     
     _workShift = SHIFT_WORK_MORNING;
     _workTime = [NSMutableDictionary dictionaryWithObjectsAndKeys:startTime,ATTRIBUTE_START_TIME, endTime, ATTRIBUTE_END_TIME, nil];
+    _timeOfExamine = [NSMutableDictionary dictionaryWithObjectsAndKeys:startTime,ATTRIBUTE_START_TIME, endTime, ATTRIBUTE_END_TIME, nil];
 }
 @end
