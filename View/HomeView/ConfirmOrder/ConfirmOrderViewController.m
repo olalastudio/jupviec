@@ -145,6 +145,28 @@
             break;
         case TYPE_JUPSOFA:
         {
+            NSMutableAttributedString *attributeStr = [[NSMutableAttributedString alloc] initWithString:@"\n"];
+            
+            NSAttributedString *tasktype = [[NSAttributedString alloc] initWithString:@"Loại dịch vụ: Jup Sofa\n"];
+            [attributeStr appendAttributedString:tasktype];
+            
+            NSString *strworkaddress = [NSString stringWithFormat:@"Địa điểm làm việc: %@\n\n",[_order workAddress]];
+            NSAttributedString *workaddress = [[NSAttributedString alloc] initWithString:strworkaddress];
+            [attributeStr appendAttributedString:workaddress];
+            
+            NSString *strexamdate = [NSString stringWithFormat:@"Ngày làm việc: %@\n\n",[_order workDate]];
+            NSAttributedString *examdate = [[NSAttributedString alloc] initWithString:strexamdate];
+            [attributeStr appendAttributedString:examdate];
+            
+            NSString *strexamTime = [NSString stringWithFormat:@"Giờ làm việc: %@\n\n",[_order workTime]];
+            NSAttributedString *examtime = [[NSAttributedString alloc] initWithString:strexamTime];
+            [attributeStr appendAttributedString:examtime];
+            
+            NSString *strnote = [NSString stringWithFormat:@"Ghi chú: %@\n\n",[_order note]];
+            NSAttributedString *note = [[NSAttributedString alloc] initWithString:strnote];
+            [attributeStr appendAttributedString:note];
+            
+            [_txtContent setAttributedText:attributeStr];
         }
             break;
         default:
@@ -289,6 +311,22 @@
         case TYPE_JUPSOFA:
         {
             [detailService setObject:CODE_SOFA forKey:ID_REQUEST_TYPE];
+            
+            //requester
+            [detailService setObject:[_user userPhoneNum] forKey:ID_REQUESTER];
+            
+            //location
+            [detailService setObject:[_order workAddress] forKey:ID_LOCATION];
+            
+            //working date
+            [detailService setObject:[JUntil stringFromDate:[_order workDate]] forKey:ID_WORKING_DATE];
+            
+            //workinghour
+            NSDictionary *workhour = [_order workTime];
+            [detailService setObject:[workhour objectForKey:ATTRIBUTE_START_TIME] forKey:ID_WORKING_HOUR];
+            
+            //user note
+            [detailService setObject:[_order note] forKey:ID_USER_NOTE];
         }
             break;
         default:
