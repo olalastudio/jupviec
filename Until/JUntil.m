@@ -126,60 +126,119 @@
     return [formater stringFromDate:date];
 }
 
+#pragma mark - Popup
 +(void)showPopup:(UIViewController*)sender responsecode:(RESPONSE_CODE)code
 {
-    switch (code) {
-        case RESPONSE_CODE_INVALID:
-        case RESPONSE_CODE_INVALID_PASSWORD:
-        case RESPONSE_CODE_API_NOT_FOUND:
-        case RESPONSE_CODE_SERVER_ERROR:
-        case RESPONSE_CODE_OTHER:
-        {
-            NSString *title = @"Thông báo";
-            NSString *message = @"Đã xảy ra lỗi không xác định, vui lòng thử lại yêu cầu.";
-            
-            UIAlertAction *okbutton = [UIAlertAction actionWithTitle:@"" style:UIAlertActionStyleDefault handler:nil];
-            UIAlertController *alertcontrol = [UIAlertController alertControllerWithTitle:title
-                                                                             message:message
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-            [alertcontrol addAction:okbutton];
-            
-            [sender presentViewController:alertcontrol animated:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        switch (code) {
+            case RESPONSE_CODE_INVALID:
+            case RESPONSE_CODE_INVALID_PASSWORD:
+            case RESPONSE_CODE_API_NOT_FOUND:
+            case RESPONSE_CODE_SERVER_ERROR:
+            case RESPONSE_CODE_OTHER:
+            {
+                NSString *title = @"Thông báo";
+                NSString *message = @"Đã xảy ra lỗi không xác định, vui lòng thử lại yêu cầu.";
+                
+                UIAlertAction *okbutton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                UIAlertController *alertcontrol = [UIAlertController alertControllerWithTitle:title
+                                                                                 message:message
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+                [alertcontrol addAction:okbutton];
+                
+                [sender presentViewController:alertcontrol animated:YES completion:nil];
+            }
+                break;
+            case RESPONSE_CODE_NOINTERNET:
+            {
+                NSString *title = @"Thông báo";
+                NSString *message = @"Không có kết nối mạng, vui lòng kiểm tra lại.";
+                
+                UIAlertAction *okbutton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                UIAlertController *alertcontrol = [UIAlertController alertControllerWithTitle:title
+                                                                                 message:message
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+                [alertcontrol addAction:okbutton];
+                
+                [sender presentViewController:alertcontrol animated:YES completion:nil];
+            }
+                break;
+            case RESPONSE_CODE_TIMEOUT:
+            {
+                NSString *title = @"Thông báo";
+                NSString *message = @"Kết nối mạng không ổn định, vui lòng kiểm tra lại.";
+                
+                UIAlertAction *okbutton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                UIAlertController *alertcontrol = [UIAlertController alertControllerWithTitle:title
+                                                                                 message:message
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+                [alertcontrol addAction:okbutton];
+                
+                [sender presentViewController:alertcontrol animated:YES completion:nil];
+            }
+                break;
+            default:
+                break;
         }
-            break;
-        case RESPONSE_CODE_NOINTERNET:
-        {
-            NSString *title = @"Thông báo";
-            NSString *message = @"Không có kết nối mạng, vui lòng kiểm tra lại.";
-            
-            UIAlertAction *okbutton = [UIAlertAction actionWithTitle:@"" style:UIAlertActionStyleDefault handler:nil];
-            UIAlertController *alertcontrol = [UIAlertController alertControllerWithTitle:title
-                                                                             message:message
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-            [alertcontrol addAction:okbutton];
-            
-            [sender presentViewController:alertcontrol animated:YES completion:nil];
-        }
-            break;
-        case RESPONSE_CODE_TIMEOUT:
-        {
-            NSString *title = @"Thông báo";
-            NSString *message = @"Kết nối mạng không ổn định, vui lòng kiểm tra lại.";
-            
-            UIAlertAction *okbutton = [UIAlertAction actionWithTitle:@"" style:UIAlertActionStyleDefault handler:nil];
-            UIAlertController *alertcontrol = [UIAlertController alertControllerWithTitle:title
-                                                                             message:message
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-            [alertcontrol addAction:okbutton];
-            
-            [sender presentViewController:alertcontrol animated:YES completion:nil];
-        }
-            break;
-        default:
-            break;
-    }
+    });
 }
 
++(void)showPopup:(UIViewController*)sender responsecode:(RESPONSE_CODE)code completionHandler:(void(^)(POPUP_ACTION action))completionHandler
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        switch (code) {
+            case RESPONSE_CODE_INVALID:
+            case RESPONSE_CODE_INVALID_PASSWORD:
+            case RESPONSE_CODE_API_NOT_FOUND:
+            case RESPONSE_CODE_SERVER_ERROR:
+            case RESPONSE_CODE_OTHER:
+            case RESPONSE_CODE_NOINTERNET:
+            case RESPONSE_CODE_TIMEOUT:
+                [JUntil showPopup:sender responsecode:code];
+                break;
+            case RESPONSE_CODE_NOT_LOGEDIN:
+            {
+                UIAlertController *alertcontroll = [UIAlertController alertControllerWithTitle:@"You're not loged in"
+                                                                                       message:@"Please login first and then try make order again!"
+                                                                                preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction *okbutton = [UIAlertAction actionWithTitle:@"Login" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    completionHandler(ACTION_OK);
+                }];
+                
+                UIAlertAction *cancelbutton = [UIAlertAction actionWithTitle:@"Huỷ" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    completionHandler(ACTION_CANCEL);
+                }];
+                
+                [alertcontroll addAction:okbutton];
+                [alertcontroll addAction:cancelbutton];
+                
+                [sender presentViewController:alertcontroll animated:YES completion:nil];
+            }
+                break;
+            case RESPONSE_CODE_PLACE_ORDER_SUCCESS:
+            {
+                UIAlertController *alertcontroll = [UIAlertController alertControllerWithTitle:@"Place order sucessfull"
+                                                                                       message:@"Have a nice day!"
+                                                                                preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"Xác Nhận"
+                                                                        style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * _Nonnull action){
+                    completionHandler(ACTION_OK);
+                }];
+                
+                [alertcontroll addAction:confirmAction];
+                [sender presentViewController:alertcontroll animated:YES completion:nil];
+            }
+                break;
+            default:
+                break;
+        }
+    });
+}
+
+#pragma mark - Internet
 + (INTERNET_STATUS)internetConnectionStatus
 {
     struct sockaddr_in zeroAddress;

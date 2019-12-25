@@ -106,7 +106,13 @@
 #define ID_USER_PHONENUMBER     @"ID_USER_PHONENUMBER"
 
 typedef enum : NSUInteger {
+    ACTION_OK,
+    ACTION_CANCEL,
+} POPUP_ACTION;
+
+typedef enum : NSUInteger {
     RESPONSE_CODE_OTHER = 0,
+    RESPONSE_CODE_PLACE_ORDER_SUCCESS = 1, //place order success
     RESPONSE_CODE_NORMARL = 200, //Normal operation
     RESPONSE_CODE_NODATA = 204, //is valid auth, but no data
     RESPONSE_CODE_INVALID = 400, //invalid body data, query param, missing header
@@ -115,6 +121,7 @@ typedef enum : NSUInteger {
     RESPONSE_CODE_SERVER_ERROR = 500, //some data can pass on validator but server error
     RESPONSE_CODE_NOINTERNET   = 501, //no internet
     RESPONSE_CODE_TIMEOUT      = 502, // timeout
+    RESPONSE_CODE_NOT_LOGEDIN  = 503, //not logedin
 } RESPONSE_CODE;
 
 #define RESPONSE_TIMEOUT_VALUE  10 // 10s

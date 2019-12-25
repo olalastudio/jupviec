@@ -67,13 +67,9 @@
 
 - (void)showAlertForInternetConnection
 {
-    UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Popup" message:@"Khong co ket noi mang. Kiem tra lai ket noi mang" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
-    [alertController addAction:okAction];
     UIViewController* topVC = self.window.rootViewController;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [topVC presentViewController:alertController animated:YES completion:nil];
-    });
+    
+    [JUntil showPopup:topVC responsecode:RESPONSE_CODE_NOINTERNET];
 }
 
 -(BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey,id> *)launchOptions

@@ -349,28 +349,20 @@
 #pragma mark - Alert Confirm
 -(void)showConfirmAlert:(NSError*)error
 {
-    NSString *title = @"Place order sucessfull";
-    NSString *message = @"Have a nice day!";
     if (error.code != 200)
     {
-        title = @"Place order has an error";
-        message = @"Sorry! Please try again later";
+        [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
     }
-    
-    UIAlertController *alertcontroll = [UIAlertController alertControllerWithTitle:title
-                                                                           message:message
-                                                                    preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"Xác Nhận"
-                                                            style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * _Nonnull action)
+    else
     {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        });
-    }];
-    
-    [alertcontroll addAction:confirmAction];
-    [self presentViewController:alertcontroll animated:YES completion:nil];
+        [JUntil showPopup:self responsecode:RESPONSE_CODE_PLACE_ORDER_SUCCESS completionHandler:^(POPUP_ACTION action) {
+            if (action == ACTION_OK)
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                });
+            }
+        }];
+    }
 }
 @end

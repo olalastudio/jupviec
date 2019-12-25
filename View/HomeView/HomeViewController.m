@@ -213,17 +213,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"idlogin"])
-    {
-        SignInViewController* signInVC = segue.destinationViewController;
-        signInVC.intActionMode = MODE_REGISTER_NEW_ACC;
-    }
-    else if ([segue.identifier isEqualToString:@"idshowaccountInfo"])
-    {
-        AccountInfoViewController* accountInfoVC = segue.destinationViewController;
-        accountInfoVC.user = _user;
-        accountInfoVC.tokenStr = _strUserToken;
-    }
+    
 }
 
 #pragma mark - Login & out
@@ -244,23 +234,11 @@
 
 -(void)askForLogIn
 {
-    UIAlertController *alertcontroll = [UIAlertController alertControllerWithTitle:@"You're not loged in"
-                                                                           message:@"Please login first and then try make order again!"
-                                                                    preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *okbutton = [UIAlertAction actionWithTitle:@"Login" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self showLoginView];
-    }];
-    
-    UIAlertAction *cancelbutton = [UIAlertAction actionWithTitle:@"Huỷ" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-    }];
-    
-    [alertcontroll addAction:okbutton];
-    [alertcontroll addAction:cancelbutton];
-    
-    [self presentViewController:alertcontroll animated:YES completion:^{
-        
+    [JUntil showPopup:self responsecode:RESPONSE_CODE_NOT_LOGEDIN completionHandler:^(POPUP_ACTION action){
+        if (action == ACTION_OK)
+        {
+            [self showLoginView];
+        }
     }];
 }
 
@@ -269,6 +247,15 @@
     SignInViewController *signinview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloginview"];
     
     [self.navigationController pushViewController:signinview animated:YES];
+}
+
+-(void)showAccountView
+{
+    AccountInfoViewController *accountview = [self.storyboard instantiateViewControllerWithIdentifier:@"idaccountview"];
+    accountview.user = _user;
+    accountview.tokenStr = _strUserToken;
+    
+    [self.navigationController pushViewController:accountview animated:YES];
 }
 
 -(void)logOut
@@ -285,8 +272,8 @@
     
     if (!_user)
     {
-        //change to view register
-        [self performSegueWithIdentifier:@"idlogin" sender:self];
+        //change to login view
+        [self showLoginView];
     }
     else if (![_user userNameStr])
     {
@@ -297,21 +284,18 @@
                 if (error.code == 200) {
                     user.userToken = [self.user userToken];
                     self->_user = user;
-                    [self performSegueWithIdentifier:@"idshowaccountInfo" sender:self];
+                    [self showAccountView];
                 }
                 else if (error.code == 204)
                 {
-                    UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Popup" message:@"no content account with phone" preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *alertAct = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                    [alertController addAction:alertAct];
-                    [self presentViewController:alertController animated:YES completion:nil];
+                    [JUntil showPopup:self responsecode:RESPONSE_CODE_NODATA];
                 }
             });
         }];
     }
     else
     {
-        [self performSegueWithIdentifier:@"idshowaccountInfo" sender:self];
+        [self showAccountView];
     }
 }
 

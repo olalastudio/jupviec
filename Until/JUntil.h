@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSString*)stringFromDate:(NSDate*)date;
 
 +(void)showPopup:(UIViewController*)sender responsecode:(RESPONSE_CODE)code;
++(void)showPopup:(UIViewController*)sender responsecode:(RESPONSE_CODE)code completionHandler:(void(^)(POPUP_ACTION action))completionHandler;
 
 @end
 

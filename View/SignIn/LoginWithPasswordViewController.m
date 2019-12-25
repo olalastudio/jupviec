@@ -22,6 +22,8 @@
     // Do any additional setup after loading the view.
     [_txtInputUserPhone setDelegate:self];
     [_txtInputUserPass setDelegate:self];
+    
+    [self setTitle:@"Login"];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -115,15 +117,14 @@
         strUserphone = [_txtInputUserPhone text];
         APIRequest *request = [[APIRequest alloc]init];
         [request requestAPILogin:strUserphone password:strUserPass completionHandler:^(NSString * _Nullable token, NSError * _Nonnull error) {
-            if (error.code == 200)
+            if (error.code == RESPONSE_CODE_NORMARL)
             {
                 self->strToken = token;
-                
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    
-                    for (UIViewController *vc in [self.navigationController viewControllers]) {
-                        
-                        if ([vc isKindOfClass:[HomeViewController class]]) {
+                    for (UIViewController *vc in [self.navigationController viewControllers])
+                    {
+                        if ([vc isKindOfClass:[HomeViewController class]])
+                        {
                             [(HomeViewController*)vc setStrUserToken:[self userToken]];
                             [(HomeViewController*)vc setStrPhoneNum:[self userPhoneNumber]];
                             break;
@@ -133,10 +134,16 @@
                     [self.navigationController popToRootViewControllerAnimated:YES];
                     NSLog(@"lofin success: go to home view");
                 });
-            } else if (error.code == 404)
+            }
+            else if (error.code == RESPONSE_CODE_INVALID_PASSWORD)
+            {
+                NSLog(@"invalid password");
+                [JUntil showPopup:self responsecode:RESPONSE_CODE_INVALID_PASSWORD];
+            }
+            else if (error.code == RESPONSE_CODE_API_NOT_FOUND)
             {
                 NSLog(@"phone number is not registed");
-                
+                [JUntil showPopup:self responsecode:RESPONSE_CODE_API_NOT_FOUND];
             }
         }];
     }
