@@ -22,6 +22,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+ 
+    [_txtContent setSelectable:NO];
+}
+
+-(void)loadView
+{
+    [super loadView];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -34,6 +41,8 @@
     [super viewWillAppear:animated];
     
     [self.tabBarController.tabBar setHidden:YES];
+    
+    [self updateContentView];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -54,8 +63,6 @@
 -(void)setDetailInfo:(NSDictionary *)detailInfo
 {
     _detailInfo = detailInfo;
-    
-    [self updateContentView];
 }
 
 -(NSDictionary*)detailInfo
@@ -109,6 +116,7 @@
     
     [_txtContent setAttributedText:attributeStr];
     
+    [self showStopButton];
     [self showRateButton];
 }
 
@@ -119,12 +127,24 @@
     if ([requestStatus isEqualToString:CODE_DADONDEP])
     {
         [_btRate setEnabled:YES];
-        [_btStopService setHidden:YES];
     }
     else
     {
         [_btRate setEnabled:NO];
+    }
+}
+
+-(void)showStopButton
+{
+    NSString *client_status = [_detailInfo objectForKey:ID_CLIENT_STATUS];
+    
+    if ([client_status isEqualToString:CODE_YEUCAUDICHVU])
+    {
         [_btStopService setHidden:NO];
+    }
+    else
+    {
+        [_btStopService setHidden:YES];
     }
 }
 

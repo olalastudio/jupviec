@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HistoryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
     UINavigationController *naviController;
+    NSDictionary *_definesCode;
 }
 
 @property (strong, nonatomic) User      *user;
@@ -22,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UISegmentedControl *sgSelection;
 
 - (IBAction)didSelectHistorySegment:(id)sender;
+
+-(void)setDefineCodeGetFromServer:(NSDictionary*)codes;
 
 @end
 

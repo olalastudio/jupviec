@@ -422,6 +422,7 @@
 		068DDEF32399144C009484E7 /* PlaceOrderCommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 068DDEF22399144C009484E7 /* PlaceOrderCommonTableViewCell.m */; };
 		06B620BD2397B3930036DCF9 /* HomePromotionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */; };
 		06B620BF2397B4540036DCF9 /* makhuyenmai.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B620BE2397B4540036DCF9 /* makhuyenmai.png */; };
+		06B88A4A23B0B53900FDA53A /* starfill.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B88A4923B0B53900FDA53A /* starfill.png */; };
 		06D6BF19239E39B000AB52DB /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6BF18239E39B000AB52DB /* MapsViewController.m */; };
 		06DFA80223A9C69F00FBE763 /* JUntil.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DFA80123A9C69F00FBE763 /* JUntil.m */; };
 		06DFA80623AB8B6C00FBE763 /* RateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DFA80523AB8B6C00FBE763 /* RateViewController.m */; };
@@ -442,8 +443,6 @@
 		06FEA1E42394CC0E005D58B9 /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1E32394CC0E005D58B9 /* HistoryTableViewCell.m */; };
 		06FEA1E8239544F2005D58B9 /* DetailOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1E7239544F2005D58B9 /* DetailOrderViewController.m */; };
 		4CCA650DE5769D6F06336B2A /* Pods_JupViec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF954FD1F9AE36C1F76ACB82 /* Pods_JupViec.framework */; };
-		CE732E3A23A8DCC700E32CD9 /* NetworkReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CE732E3923A8DCC700E32CD9 /* NetworkReachability.m */; };
-		CE8F00ED23A1EF60000235D1 /* ChooseAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8F00EC23A1EF60000235D1 /* ChooseAddressViewController.m */; };
 		CEA0919323A796FA00D2502F /* AccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0919223A796FA00D2502F /* AccountInfoViewController.m */; };
 		CEA0919623A79D7300D2502F /* EditAccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0919523A79D7300D2502F /* EditAccountInfoViewController.m */; };
 		CEA83F1723911F60001C1512 /* APIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA83F1523911F5F001C1512 /* APIRequest.m */; };
@@ -894,6 +893,7 @@
 		06B620BB2397B3930036DCF9 /* HomePromotionCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePromotionCollectionViewCell.h; sourceTree = "<group>"; };
 		06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePromotionCollectionViewCell.m; sourceTree = "<group>"; };
 		06B620BE2397B4540036DCF9 /* makhuyenmai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = makhuyenmai.png; sourceTree = "<group>"; };
+		06B88A4923B0B53900FDA53A /* starfill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starfill.png; sourceTree = "<group>"; };
 		06D6BF17239E39B000AB52DB /* MapsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapsViewController.h; sourceTree = "<group>"; };
 		06D6BF18239E39B000AB52DB /* MapsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapsViewController.m; sourceTree = "<group>"; };
 		06DFA80023A9C69F00FBE763 /* JUntil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JUntil.h; sourceTree = "<group>"; };
@@ -928,10 +928,6 @@
 		06FEA1E7239544F2005D58B9 /* DetailOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailOrderViewController.m; sourceTree = "<group>"; };
 		4F3649E165524B914C1FE02A /* Pods-JupViec.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JupViec.debug.xcconfig"; path = "Target Support Files/Pods-JupViec/Pods-JupViec.debug.xcconfig"; sourceTree = "<group>"; };
 		C5473C782A87585FD2C38DA3 /* Pods-JupViec.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JupViec.release.xcconfig"; path = "Target Support Files/Pods-JupViec/Pods-JupViec.release.xcconfig"; sourceTree = "<group>"; };
-		CE732E3823A8DCC700E32CD9 /* NetworkReachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkReachability.h; sourceTree = "<group>"; };
-		CE732E3923A8DCC700E32CD9 /* NetworkReachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkReachability.m; sourceTree = "<group>"; };
-		CE8F00EB23A1EF60000235D1 /* ChooseAddressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseAddressViewController.h; sourceTree = "<group>"; };
-		CE8F00EC23A1EF60000235D1 /* ChooseAddressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseAddressViewController.m; sourceTree = "<group>"; };
 		CEA0919123A796FA00D2502F /* AccountInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountInfoViewController.h; sourceTree = "<group>"; };
 		CEA0919223A796FA00D2502F /* AccountInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountInfoViewController.m; sourceTree = "<group>"; };
 		CEA0919423A79D7300D2502F /* EditAccountInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditAccountInfoViewController.h; sourceTree = "<group>"; };
@@ -963,8 +959,6 @@
 				0601E194238FAEEE00403C95 /* CommonDefines.h */,
 				06DFA80023A9C69F00FBE763 /* JUntil.h */,
 				06DFA80123A9C69F00FBE763 /* JUntil.m */,
-				CE732E3823A8DCC700E32CD9 /* NetworkReachability.h */,
-				CE732E3923A8DCC700E32CD9 /* NetworkReachability.m */,
 			);
 			path = Until;
 			sourceTree = "<group>";
@@ -972,6 +966,7 @@
 		0601E197238FAEEE00403C95 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				06B88A4923B0B53900FDA53A /* starfill.png */,
 				06B620BE2397B4540036DCF9 /* makhuyenmai.png */,
 				0601E198238FAEEE00403C95 /* add-1.png */,
 				0601E199238FAEEE00403C95 /* add-2.png */,
@@ -1593,8 +1588,6 @@
 			children = (
 				06D6BF17239E39B000AB52DB /* MapsViewController.h */,
 				06D6BF18239E39B000AB52DB /* MapsViewController.m */,
-				CE8F00EB23A1EF60000235D1 /* ChooseAddressViewController.h */,
-				CE8F00EC23A1EF60000235D1 /* ChooseAddressViewController.m */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -1928,6 +1921,7 @@
 				0601E356238FAEEF00403C95 /* cloud-computing-5.png in Resources */,
 				0601E3D8238FAEEF00403C95 /* map-1.png in Resources */,
 				0601E481238FAEF000403C95 /* user-7.png in Resources */,
+				06B88A4A23B0B53900FDA53A /* starfill.png in Resources */,
 				0601E373238FAEEF00403C95 /* division.png in Resources */,
 				0601E42A238FAEF000403C95 /* send.png in Resources */,
 				0601E3AC238FAEEF00403C95 /* hold.png in Resources */,
@@ -2204,7 +2198,6 @@
 				0612A384239617DA00A82BB9 /* InformationViewController.m in Sources */,
 				06DFA80223A9C69F00FBE763 /* JUntil.m in Sources */,
 				06ED4C1423A0EDE90072EB15 /* TimeSelectionTableViewCell.m in Sources */,
-				CE8F00ED23A1EF60000235D1 /* ChooseAddressViewController.m in Sources */,
 				0658BEBC238FAC7800CBBAD1 /* ViewController.m in Sources */,
 				0612A380239617C100A82BB9 /* NoticeViewController.m in Sources */,
 				0633A78A239113080094219D /* OTPCheckViewController.m in Sources */,
@@ -2214,7 +2207,6 @@
 				06B620BD2397B3930036DCF9 /* HomePromotionCollectionViewCell.m in Sources */,
 				0658BEC7238FAC7800CBBAD1 /* main.m in Sources */,
 				068DDEF32399144C009484E7 /* PlaceOrderCommonTableViewCell.m in Sources */,
-				CE732E3A23A8DCC700E32CD9 /* NetworkReachability.m in Sources */,
 				06FEA1E42394CC0E005D58B9 /* HistoryTableViewCell.m in Sources */,
 				06EC9F252396786100474EE3 /* HomePromotionTableViewCell.m in Sources */,
 				0658BEB9238FAC7800CBBAD1 /* AppDelegate.m in Sources */,

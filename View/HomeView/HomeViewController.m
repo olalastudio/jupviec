@@ -40,7 +40,8 @@
     _strUserToken = [[NSUserDefaults standardUserDefaults] objectForKey:ID_USER_TOKEN];
     _strPhoneNum = [[NSUserDefaults standardUserDefaults] objectForKey:ID_USER_PHONENUMBER];
     
-    if (_strUserToken && _strPhoneNum) {
+    if (_strUserToken && _strPhoneNum && ![_strUserToken isEqualToString:@""] && ![_strPhoneNum isEqualToString:@""])
+    {
         _user = [[User alloc] init];
         [_user setUserToken:_strUserToken];
         [_user setUserPhoneNum:_strPhoneNum];
@@ -132,7 +133,8 @@
 
 -(void)showLoginUser
 {
-    if (_user) {
+    if (_user)
+    {
         // user logged in
         UIImage* userImg = [UIImage imageNamed:@"user-1.png"];
         [_loginBtn setImage:userImg forState:UIControlStateNormal];
@@ -142,6 +144,11 @@
         frame.size.width = 50;
         frame.size.height = 50;
         [_loginBtn setFrame:frame];
+    }
+    else
+    {
+        [_loginBtn setTitle:@"Đăng nhập" forState:UIControlStateNormal];
+        [_loginBtn setImage:nil forState:UIControlStateNormal];
     }
 }
 
@@ -217,6 +224,61 @@
         accountInfoVC.user = _user;
         accountInfoVC.tokenStr = _strUserToken;
     }
+}
+
+#pragma mark - Login & out
+-(void)logIn:(NSString *)strToken phoneNumber:(NSString *)phonenumber
+{
+    
+}
+
+-(BOOL)isLogedIn
+{
+    if (_user)
+    {
+        return YES;
+    }
+    
+    return NO;
+}
+
+-(void)askForLogIn
+{
+    UIAlertController *alertcontroll = [UIAlertController alertControllerWithTitle:@"You're not loged in"
+                                                                           message:@"Please login first and then try make order again!"
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okbutton = [UIAlertAction actionWithTitle:@"Login" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self showLoginView];
+    }];
+    
+    UIAlertAction *cancelbutton = [UIAlertAction actionWithTitle:@"Huỷ" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alertcontroll addAction:okbutton];
+    [alertcontroll addAction:cancelbutton];
+    
+    [self presentViewController:alertcontroll animated:YES completion:^{
+        
+    }];
+}
+
+-(void)showLoginView
+{
+    SignInViewController *signinview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloginview"];
+    
+    [self.navigationController pushViewController:signinview animated:YES];
+}
+
+-(void)logOut
+{
+    _user = nil;
+    _strUserToken = @"";
+    _strPhoneNum = @"";
+    
+    [[NSUserDefaults standardUserDefaults] setObject:_strPhoneNum forKey:ID_USER_PHONENUMBER];
+    [[NSUserDefaults standardUserDefaults] setObject:_strUserToken forKey:ID_USER_TOKEN];
 }
 
 - (IBAction)didClickLoginButton:(id)sender {
@@ -351,35 +413,42 @@
 {
     if (indexPath.section == SESSION_TASK) //task session
     {
-        orderview = [self.storyboard instantiateViewControllerWithIdentifier:@"idplaceorder"];
-        [orderview setUser:_user];
-        
-        if (currentLocation) {
-            [orderview setCurrentLocation:[currentLocation coordinate]];
-        }
-        
-        if (_serviceInfo) {
-            orderview.serviceInfo = _serviceInfo;
-        }
-        
-        switch (indexPath.row) {
-            case TYPE_DUNGLE:
-                [orderview setTaskType:TYPE_DUNGLE];
+        if ([self isLogedIn])
+        {
+            orderview = [self.storyboard instantiateViewControllerWithIdentifier:@"idplaceorder"];
+            [orderview setUser:_user];
+            
+            if (currentLocation) {
+                [orderview setCurrentLocation:[currentLocation coordinate]];
+            }
+            
+            if (_serviceInfo) {
+                orderview.serviceInfo = _serviceInfo;
+            }
+            
+            switch (indexPath.row) {
+                case TYPE_DUNGLE:
+                    [orderview setTaskType:TYPE_DUNGLE];
+                    break;
+                case TYPE_DUNGDINHKY:
+                    [orderview setTaskType:TYPE_DUNGDINHKY];
                 break;
-            case TYPE_DUNGDINHKY:
-                [orderview setTaskType:TYPE_DUNGDINHKY];
-            break;
-            case TYPE_TONGVESINH:
-                [orderview setTaskType:TYPE_TONGVESINH];
-            break;
-            case TYPE_JUPSOFA:
-                [orderview setTaskType:TYPE_JUPSOFA];
-            break;
-            default:
+                case TYPE_TONGVESINH:
+                    [orderview setTaskType:TYPE_TONGVESINH];
                 break;
+                case TYPE_JUPSOFA:
+                    [orderview setTaskType:TYPE_JUPSOFA];
+                break;
+                default:
+                    break;
+            }
+            
+            [self.navigationController pushViewController:orderview animated:YES];
         }
-        
-        [self.navigationController pushViewController:orderview animated:YES];
+        else
+        {
+            [self askForLogIn];
+        }
     }
     else if (indexPath.section == SESSION_PROMOTION) //promotion session
     {
@@ -423,12 +492,15 @@
     if ([selectedview isKindOfClass:[HistoryViewController class]])
     {
         HistoryViewController *historyview = (HistoryViewController*)selectedview;
+        
+        [historyview setDefineCodeGetFromServer:[self definesCode:@[ID_CLIENT_STATUS, ID_DEFINE_MESSAGE, ID_FEEDBACK_STATUS, ID_REQUEST_STATUS, ID_PAYMENT_STATUS]]];
         [historyview setUser:_user];
         NSLog(@"select history tab");
     }
     else if ([selectedview isKindOfClass:[NoticeViewController class]])
     {
         NoticeViewController *noticeview = (NoticeViewController*)selectedview;
+        
         [noticeview setUser:_user];
         NSLog(@"select notice tab");
     }
@@ -440,5 +512,19 @@
     {
         NSLog(@"select home view");
     }
+}
+
+-(NSMutableDictionary*)definesCode:(NSArray*)codes
+{
+    NSMutableDictionary *definecodes = [[NSMutableDictionary alloc] initWithCapacity:0];
+    
+    for (NSString *code in codes)
+    {
+        if ([_configurationInfoDict objectForKey:code]) {
+            [definecodes setObject:[_configurationInfoDict objectForKey:code] forKey:code];
+        }
+    }
+    
+    return definecodes;
 }
 @end

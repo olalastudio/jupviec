@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import <GooglePlaces/GooglePlaces.h>
-#import "NetworkReachability.h"
+#import "JUntil.h"
 
 @interface AppDelegate ()
 {
@@ -25,7 +25,7 @@
     
 // check internet connection
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onNetworkStatusChanged:) name:NETWORK_REACHABILITY_STATUS_CHANGED_NOTIFICATION object:nil];
-    [NetworkReachability monitorNetworkReachabilityChanges];
+    [JUntil monitorNetworkReachabilityChanges];
     
     [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
     [[FIRMessaging messaging] setDelegate:self];
@@ -59,7 +59,7 @@
 
 - (void)onNetworkStatusChanged:(NSNotification*)notification
 {
-    if ([NetworkReachability internetConnectionStatus] != ONLINE)
+    if ([JUntil internetConnectionStatus] != ONLINE)
     {
         [self showAlertForInternetConnection];
     }

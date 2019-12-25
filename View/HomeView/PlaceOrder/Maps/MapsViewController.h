@@ -11,14 +11,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MapsViewController : UIViewController <CLLocationManagerDelegate, GMSMapViewDelegate>
+@interface MapsViewController : UIViewController <CLLocationManagerDelegate, GMSMapViewDelegate, UITextFieldDelegate>
 {
     CLLocationManager* _locationManager;
     GMSMarker* _locationMaker;
     BOOL _isShowLocationMaker;
 }
 
-@property (weak, nonatomic) IBOutlet UILabel *addressLb;
+@property (weak, nonatomic) IBOutlet UITextField *txtAddress;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIButton *btConfirmLocation;
 

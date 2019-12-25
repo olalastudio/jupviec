@@ -123,6 +123,13 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="CN" destination="qFB-91-zcP" id="rtz-xT-qQe"/>
+                <outlet property="Thu2" destination="uqX-j8-xSl" id="uAm-Ec-1CE"/>
+                <outlet property="Thu3" destination="opy-uU-mfJ" id="JSh-q8-nbG"/>
+                <outlet property="Thu4" destination="2Xx-WA-pdl" id="EHM-i0-67u"/>
+                <outlet property="Thu5" destination="LuO-gb-f0z" id="V6q-P2-4Qd"/>
+                <outlet property="Thu6" destination="IGQ-cJ-XRa" id="TVb-rb-l7N"/>
+                <outlet property="Thu7" destination="PJC-Xf-aVE" id="xmT-sw-4sQ"/>
                 <outlet property="btWorkDayValue" destination="lgC-sa-uRp" id="dXy-ib-luo"/>
                 <outlet property="imgIcon" destination="bGl-TC-PGW" id="ouR-QZ-UZh"/>
                 <outlet property="txtTitle" destination="zaT-Dd-YMk" id="upy-V6-hvY"/>

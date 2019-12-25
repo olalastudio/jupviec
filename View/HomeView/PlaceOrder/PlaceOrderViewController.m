@@ -234,7 +234,17 @@
            [cell setOderAttribute:ATTRIBUTE_NGAYKHAOSAT];
            break;
         case ATTRIBUTE_GIOKHAOSAT:
-            [cell setOderAttribute:ATTRIBUTE_GIOKHAOSAT];
+        {
+            TimeSelectionTableViewCell *timeCell = [tableView dequeueReusableCellWithIdentifier:@"idplaceordertimeselectioncell"];
+            [timeCell setDelegate:self];
+            [timeCell setOderAttribute:ATTRIBUTE_GIOKHAOSAT];
+            [timeCell setIndexPath:indexPath];
+            [timeCell setOrder:_order];
+            
+            [self calculatePrice];
+            
+            return timeCell;
+        }
             break;
         case ATTRIBUTE_GIOLAMVIEC:
         {
@@ -279,6 +289,7 @@
     
     switch ([row intValue]) {
         case ATTRIBUTE_GIOLAMVIEC:
+        case ATTRIBUTE_GIOKHAOSAT:
             return 110;
             break;
         case ATTRIBUTE_NGAYLAMTRONGTUAN:
@@ -299,9 +310,14 @@
     switch (attribute) {
         case ATTRIBUTE_DIADIEM:
         {
-            ChooseAddressViewController *chooseAddressView = [self.storyboard instantiateViewControllerWithIdentifier:@"idchooseaddressview"];
+            MapsViewController *mapsview = [self.storyboard instantiateViewControllerWithIdentifier:@"idmapview"];
             
-            [self.navigationController pushViewController:chooseAddressView animated:YES];
+            UIViewController *topview = [self.navigationController topViewController];
+            
+            if (![topview isKindOfClass:[MapsViewController class]])
+            {
+                [self.navigationController pushViewController:mapsview animated:YES];
+            }
         }
             break;
         case ATTRIBUTE_SONHACANHO:
@@ -325,8 +341,14 @@
         case ATTRIBUTE_NGAYLAMTRONGTUAN:
             break;
         case ATTRIBUTE_NGAYKHAOSAT:
+        {
+            [self didClickChangeDaySelection:ATTRIBUTE_NGAYKHAOSAT index:index];
+        }
             break;
         case ATTRIBUTE_GIOKHAOSAT:
+        {
+            [self didClickChangeTimeSelection:ATTRIBUTE_GIOKHAOSAT index:index];
+        }
             break;
         case ATTRIBUTE_GIOLAMVIEC:
             break;
@@ -344,19 +366,27 @@
 }
 
 #pragma mark - TimeSelectionCell Delegate
--(void)didClickChangeWorkShift:(SHIFT_WORK)workshift workTime:(NSMutableDictionary *)worktime index:(NSIndexPath *)index
+-(void)didClickChangeWorkShift:(SHIFT_WORK)workshift workTime:(NSMutableDictionary *)worktime attribute:(ORDER_ATTRIBUTE)attribute index:(nonnull NSIndexPath *)index
 {
-    [_order setWorkShift:workshift];
-    [_order setWorkTime:worktime];
+    if (attribute == ATTRIBUTE_GIOLAMVIEC)
+    {
+        [_order setWorkShift:workshift];
+        [_order setWorkTime:worktime];
+    }
+    else if (attribute == ATTRIBUTE_GIOKHAOSAT)
+    {
+        [_order setWorkShift:workshift];
+        [_order setTimeOfExamine:worktime];
+    }
     
     [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
 }
 
--(void)didClickChangeTimeSelection:(NSIndexPath*)index
+-(void)didClickChangeTimeSelection:(ORDER_ATTRIBUTE)attribute index:(NSIndexPath *)index
 {
     NSLog(@"did click change Time");
     DateTimePickerPopupController *datepicker = [self.storyboard instantiateViewControllerWithIdentifier:@"iddatetimepicker"];
-    [datepicker setOrderAttribute:ATTRIBUTE_GIOLAMVIEC];
+    [datepicker setOrderAttribute:attribute];
     [datepicker setOrder:_order];
     [datepicker setIndexPath:index];
     [datepicker setDelegate:self];
@@ -379,6 +409,10 @@
     [self presentViewController:datepicker animated:YES completion:nil];
 }
 
+-(void)didSelectDayOfTheWeek:(NSMutableArray *)dayofweeks
+{
+    [_order setWorkDayInWeek:dayofweeks];
+}
 #pragma mark - MapsCell Delegate
 
 #pragma mark - Payment Delegate
@@ -423,11 +457,15 @@
             [_order setWorkDate:date];
         }
             break;
+        case ATTRIBUTE_NGAYKHAOSAT:
+        {
+            [_order setDayOfExamine:date];
+        }
+            break;
         default:
             break;
     }
     
-//    [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
     [_tbPlaceOrderContent reloadData];
 }
 
@@ -437,6 +475,11 @@
         case ATTRIBUTE_GIOLAMVIEC:
         {
             [_order setWorkTime:[NSMutableDictionary dictionaryWithDictionary:worktime]];
+        }
+            break;
+        case ATTRIBUTE_GIOKHAOSAT:
+        {
+            [_order setTimeOfExamine:[NSMutableDictionary dictionaryWithDictionary:worktime]];
         }
             break;
         default:

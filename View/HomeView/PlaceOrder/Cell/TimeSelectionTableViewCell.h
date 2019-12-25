@@ -14,8 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol TimeSelectionTableViewCellDelegate <NSObject>
 
--(void)didClickChangeTimeSelection:(NSIndexPath*)index;
--(void)didClickChangeWorkShift:(SHIFT_WORK)workshift workTime:(NSMutableDictionary*)worktime index:(NSIndexPath*)index;
+-(void)didClickChangeTimeSelection:(ORDER_ATTRIBUTE)attribute index:(NSIndexPath*)index;
+-(void)didClickChangeWorkShift:(SHIFT_WORK)workshift workTime:(NSMutableDictionary*)worktime attribute:(ORDER_ATTRIBUTE)attribute index:(NSIndexPath*)index;
 
 @end
 

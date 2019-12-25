@@ -77,6 +77,7 @@
 #define ID_WORKING_DATE         @"working_date"
 #define ID_WORKING_HOUR         @"working_hour"
 #define ID_WORKING_TIME         @"working_time"
+#define ID_WORK_DAYINWEEK       @"day_in_week"
 #define ID_SERVICE_EXTEND       @"service_extend"
 #define ID_PAYMENT_METHOD       @"payment_method"
 #define ID_USER_NOTE            @"user_note"
@@ -98,9 +99,25 @@
 #define ID_TOTAL_PRICE          @"total_price"
 #define ID_RATE_SCORE           @"rate_score"
 #define ID_FEEDBACK             @"feedback"
+#define ID_DEFINE_MESSAGE       @"define_message"
+#define ID_FEEDBACK_STATUS      @"feedback_status"
 
 #define ID_USER_TOKEN           @"ID_USER_TOKEN"
 #define ID_USER_PHONENUMBER     @"ID_USER_PHONENUMBER"
+
+typedef enum : NSUInteger {
+    RESPONSE_CODE_OTHER = 0,
+    RESPONSE_CODE_NORMARL = 200, //Normal operation
+    RESPONSE_CODE_NODATA = 204, //is valid auth, but no data
+    RESPONSE_CODE_INVALID = 400, //invalid body data, query param, missing header
+    RESPONSE_CODE_INVALID_PASSWORD = 403, //invalid password, token expire or access is not available api
+    RESPONSE_CODE_API_NOT_FOUND = 404, //API path not exist
+    RESPONSE_CODE_SERVER_ERROR = 500, //some data can pass on validator but server error
+    RESPONSE_CODE_NOINTERNET   = 501, //no internet
+    RESPONSE_CODE_TIMEOUT      = 502, // timeout
+} RESPONSE_CODE;
+
+#define RESPONSE_TIMEOUT_VALUE  10 // 10s
 
 typedef enum : NSUInteger {
     TYPE_NONE = -1,
@@ -141,3 +158,14 @@ typedef enum :NSUInteger
     ONLINE = 1,
     UNKNOWN = 2,
 }INTERNET_STATUS;
+
+typedef enum : NSUInteger {
+    DAY_NONE = 0,
+    DAY_THU2,
+    DAY_THU3,
+    DAY_THU4,
+    DAY_THU5,
+    DAY_THU6,
+    DAY_THU7,
+    DAY_CN,
+} DAYINWEEK;
