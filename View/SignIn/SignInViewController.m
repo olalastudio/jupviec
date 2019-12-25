@@ -129,7 +129,7 @@
                 if (err.code == 200)
                 {
                     NSString* otp = [data objectForKey:@"otp"];
-                    NSString* token = [data objectForKey:@"token"];
+                    NSString* token = [data objectForKey:@"otp"];
                     self->strToken = token;
                     [self didSuccessGetRequest:otp error:err.code];
                 } else

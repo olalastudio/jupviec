@@ -124,8 +124,8 @@
             }
             else
             {
-                NSLog(@"register fail with: %@", [resultDict objectForKey:@"messages"]);
-                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                NSLog(@"register fail with: %d", [httpResponse statusCode]);
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"Error unknown"}];
                 completionHandler(nil, error);
             }
         }
@@ -164,8 +164,8 @@
             }
             else
             {
-                NSLog(@"Login fail with: %@", [resultDict objectForKey:@"messages"]);
-                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                NSLog(@"Login fail with: %d", [httpResponse statusCode]);
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"Error unknown"}];
                 completionHandler(nil, error);
             }
             
@@ -221,8 +221,8 @@
             }
             else
             {
-                NSLog(@"update password fail with: %@", [resultDict objectForKey:@"messages"]);
-                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                NSLog(@"update password fail with: %d", [httpResponse statusCode]);
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"error unknown"}];
                 completionHandler(nil, error);
             }
             
@@ -258,8 +258,8 @@
             }
             else
             {
-                NSLog(@"book service fail with: %@", [resultDict objectForKey:@"messages"]);
-                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                NSLog(@"book service fail with: %d", [httpResponse statusCode]);
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"Error unknown"}];
                 completionHandler(nil, error);
             }
         }
@@ -289,9 +289,13 @@
             }
             else
             {
-                NSLog(@"get configuration fail with: %@", [resultDict objectForKey:@"messages"]);
-                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                if ([resultDict objectForKey:@"messages"]) {
+                    NSLog(@"get configuration fail with: %@", [resultDict objectForKey:@"messages"]);
+                } else
+                    NSLog(@"get configuration fail with: %d", [httpResponse statusCode]);
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"unknown error"}];
                 completionHandler(nil, error);
+                
             }
         }
     }]resume];
@@ -329,7 +333,10 @@
             }
             else
             {
-                NSLog(@"update account info fail with: %@", [resultDict objectForKey:@"messages"]);
+                if ([resultDict objectForKey:@"messages"]) {
+                    NSLog(@"update account info fail with: %@", [resultDict objectForKey:@"messages"]);
+                }else
+                    NSLog(@"update account info fail with: %d", [httpResponse statusCode]);
                 error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
                 completionHandler(nil, error);
             }
@@ -367,8 +374,10 @@
             }
             else
             {
-                NSLog(@"get account info fail with: %@", [resultDict objectForKey:@"messages"]);
-                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                if ([resultDict objectForKey:@"messages"]) {
+                    NSLog(@"get account info fail with: %@", [resultDict objectForKey:@"messages"]);
+                }
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"unknown error"}];
                 completionHandler(nil, error);
             }
         }
@@ -406,8 +415,10 @@
             }
             else
             {
-                NSLog(@"rate service fail with: %@", [resultDict objectForKey:@"messages"]);
-                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                if ([resultDict objectForKey:@"messages"]) {
+                    NSLog(@"rate service fail with: %@", [resultDict objectForKey:@"messages"]);
+                }
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"unknown error"}];
                 completionHandler(nil, error);
             }
         }
@@ -480,8 +491,11 @@
             }
             else
             {
-                NSLog(@"get noti for id fail with: %@", [resultDict objectForKey:@"messages"]);
-                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                if ([resultDict objectForKey:@"messages"]) {
+                    NSLog(@"get noti for id fail with: %@", [resultDict objectForKey:@"messages"]);
+                }
+                
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"unknown error"}];
                 completionHandler(nil, error);
             }
         }
@@ -553,8 +567,10 @@
             }
             else
             {
-                NSLog(@"get request with id fail with: %@", [resultDict objectForKey:@"messages"]);
-                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                if ([resultDict objectForKey:@"messages"]) {
+                    NSLog(@"get request with id fail with: %@", [resultDict objectForKey:@"messages"]);
+                }
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"unknown error"}];
                 completionHandler(nil, error);
             }
         }
@@ -590,8 +606,11 @@
             }
             else
             {
-                NSLog(@"cancel request fail with: %@", [resultDict objectForKey:@"messages"]);
-                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                if ([resultDict objectForKey:@"messages"]) {
+                    NSLog(@"cancel request fail with: %@", [resultDict objectForKey:@"messages"]);
+                }
+               
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"unknown error"}];
                 completionHandler(nil, error);
             }
         }
@@ -625,8 +644,11 @@
             }
             else
             {
-                NSLog(@"send feedback fail with: %@", [resultDict objectForKey:@"messages"]);
-                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:[resultDict objectForKey:@"messages"]}];
+                if ([resultDict objectForKey:@"messages"]) {
+                    NSLog(@"send feedback fail with: %@", [resultDict objectForKey:@"messages"]);
+                }
+                
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"unknown error"}];
                 completionHandler(nil, error);
             }
         }
