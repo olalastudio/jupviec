@@ -126,4 +126,123 @@
     return [formater stringFromDate:date];
 }
 
++(void)showPopup:(UIViewController*)sender responsecode:(RESPONSE_CODE)code
+{
+    switch (code) {
+        case RESPONSE_CODE_INVALID:
+        case RESPONSE_CODE_INVALID_PASSWORD:
+        case RESPONSE_CODE_API_NOT_FOUND:
+        case RESPONSE_CODE_SERVER_ERROR:
+        case RESPONSE_CODE_OTHER:
+        {
+            NSString *title = @"Thông báo";
+            NSString *message = @"Đã xảy ra lỗi không xác định, vui lòng thử lại yêu cầu.";
+            
+            UIAlertAction *okbutton = [UIAlertAction actionWithTitle:@"" style:UIAlertActionStyleDefault handler:nil];
+            UIAlertController *alertcontrol = [UIAlertController alertControllerWithTitle:title
+                                                                             message:message
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+            [alertcontrol addAction:okbutton];
+            
+            [sender presentViewController:alertcontrol animated:YES completion:nil];
+        }
+            break;
+        case RESPONSE_CODE_NOINTERNET:
+        {
+            NSString *title = @"Thông báo";
+            NSString *message = @"Không có kết nối mạng, vui lòng kiểm tra lại.";
+            
+            UIAlertAction *okbutton = [UIAlertAction actionWithTitle:@"" style:UIAlertActionStyleDefault handler:nil];
+            UIAlertController *alertcontrol = [UIAlertController alertControllerWithTitle:title
+                                                                             message:message
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+            [alertcontrol addAction:okbutton];
+            
+            [sender presentViewController:alertcontrol animated:YES completion:nil];
+        }
+            break;
+        case RESPONSE_CODE_TIMEOUT:
+        {
+            NSString *title = @"Thông báo";
+            NSString *message = @"Kết nối mạng không ổn định, vui lòng kiểm tra lại.";
+            
+            UIAlertAction *okbutton = [UIAlertAction actionWithTitle:@"" style:UIAlertActionStyleDefault handler:nil];
+            UIAlertController *alertcontrol = [UIAlertController alertControllerWithTitle:title
+                                                                             message:message
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+            [alertcontrol addAction:okbutton];
+            
+            [sender presentViewController:alertcontrol animated:YES completion:nil];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
++ (INTERNET_STATUS)internetConnectionStatus
+{
+    struct sockaddr_in zeroAddress;
+    memset(&zeroAddress, 0, sizeof(zeroAddress));
+    zeroAddress.sin_len = sizeof(zeroAddress);
+    zeroAddress.sin_family = AF_INET;
+    
+    SCNetworkReachabilityRef reachabilityRef = SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, (const struct sockaddr*)&zeroAddress);
+    if (reachabilityRef != NULL) {
+        SCNetworkReachabilityFlags flags;
+        if (SCNetworkReachabilityGetFlags(reachabilityRef, &flags)) {
+            if ((flags & kSCNetworkReachabilityFlagsReachable) == 0)
+            {
+                // If target host is not reachable
+                return OFFLINE;
+            }
+            
+            if ((flags & kSCNetworkReachabilityFlagsConnectionRequired) == 0)
+            {
+                // If target host is reachable and no connection is required
+                //  then we'll assume (for now) that your on Wi-Fi
+                return ONLINE;
+            }
+            
+            
+            if ((((flags & kSCNetworkReachabilityFlagsConnectionOnDemand ) != 0) ||
+                 (flags & kSCNetworkReachabilityFlagsConnectionOnTraffic) != 0))
+            {
+                // ... and the connection is on-demand (or on-traffic) if the
+                //     calling application is using the CFSocketStream or higher APIs.
+                
+                if ((flags & kSCNetworkReachabilityFlagsInterventionRequired) == 0)
+                {
+                    // ... and no [user] intervention is needed
+                    return ONLINE;
+                }
+            }
+            
+            if ((flags & kSCNetworkReachabilityFlagsIsWWAN) == kSCNetworkReachabilityFlagsIsWWAN)
+            {
+                // ... but WWAN connections are OK if the calling application
+                //     is using the CFNetwork (CFSocketStream?) APIs.
+                return ONLINE;
+            }
+        }
+    }
+    
+    return OFFLINE;
+}
+
++ (void)monitorNetworkReachabilityChanges
+{
+    NSString* hostNameStr = @"google.com";
+    SCNetworkReachabilityContext reachabilityContext = {0, nil, nil, nil, nil};
+    SCNetworkReachabilityRef reachabilityRef = SCNetworkReachabilityCreateWithName( kCFAllocatorDefault, hostNameStr.UTF8String);
+    
+    if (SCNetworkReachabilitySetCallback(reachabilityRef, ReachabilityCallback, &reachabilityContext))
+    {
+        SCNetworkReachabilityScheduleWithRunLoop(reachabilityRef, CFRunLoopGetMain(), kCFRunLoopCommonModes);
+    }
+}
+static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void* info)
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:NETWORK_REACHABILITY_STATUS_CHANGED_NOTIFICATION object:nil userInfo:nil];
+}
 @end

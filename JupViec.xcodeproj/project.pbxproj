@@ -443,7 +443,6 @@
 		06FEA1E42394CC0E005D58B9 /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1E32394CC0E005D58B9 /* HistoryTableViewCell.m */; };
 		06FEA1E8239544F2005D58B9 /* DetailOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1E7239544F2005D58B9 /* DetailOrderViewController.m */; };
 		4CCA650DE5769D6F06336B2A /* Pods_JupViec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF954FD1F9AE36C1F76ACB82 /* Pods_JupViec.framework */; };
-		CE732E3A23A8DCC700E32CD9 /* NetworkReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CE732E3923A8DCC700E32CD9 /* NetworkReachability.m */; };
 		CEA0919323A796FA00D2502F /* AccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0919223A796FA00D2502F /* AccountInfoViewController.m */; };
 		CEA0919623A79D7300D2502F /* EditAccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0919523A79D7300D2502F /* EditAccountInfoViewController.m */; };
 		CEA83F1723911F60001C1512 /* APIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA83F1523911F5F001C1512 /* APIRequest.m */; };
@@ -929,8 +928,6 @@
 		06FEA1E7239544F2005D58B9 /* DetailOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailOrderViewController.m; sourceTree = "<group>"; };
 		4F3649E165524B914C1FE02A /* Pods-JupViec.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JupViec.debug.xcconfig"; path = "Target Support Files/Pods-JupViec/Pods-JupViec.debug.xcconfig"; sourceTree = "<group>"; };
 		C5473C782A87585FD2C38DA3 /* Pods-JupViec.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JupViec.release.xcconfig"; path = "Target Support Files/Pods-JupViec/Pods-JupViec.release.xcconfig"; sourceTree = "<group>"; };
-		CE732E3823A8DCC700E32CD9 /* NetworkReachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkReachability.h; sourceTree = "<group>"; };
-		CE732E3923A8DCC700E32CD9 /* NetworkReachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkReachability.m; sourceTree = "<group>"; };
 		CEA0919123A796FA00D2502F /* AccountInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountInfoViewController.h; sourceTree = "<group>"; };
 		CEA0919223A796FA00D2502F /* AccountInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountInfoViewController.m; sourceTree = "<group>"; };
 		CEA0919423A79D7300D2502F /* EditAccountInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditAccountInfoViewController.h; sourceTree = "<group>"; };
@@ -962,8 +959,6 @@
 				0601E194238FAEEE00403C95 /* CommonDefines.h */,
 				06DFA80023A9C69F00FBE763 /* JUntil.h */,
 				06DFA80123A9C69F00FBE763 /* JUntil.m */,
-				CE732E3823A8DCC700E32CD9 /* NetworkReachability.h */,
-				CE732E3923A8DCC700E32CD9 /* NetworkReachability.m */,
 			);
 			path = Until;
 			sourceTree = "<group>";
@@ -2212,7 +2207,6 @@
 				06B620BD2397B3930036DCF9 /* HomePromotionCollectionViewCell.m in Sources */,
 				0658BEC7238FAC7800CBBAD1 /* main.m in Sources */,
 				068DDEF32399144C009484E7 /* PlaceOrderCommonTableViewCell.m in Sources */,
-				CE732E3A23A8DCC700E32CD9 /* NetworkReachability.m in Sources */,
 				06FEA1E42394CC0E005D58B9 /* HistoryTableViewCell.m in Sources */,
 				06EC9F252396786100474EE3 /* HomePromotionTableViewCell.m in Sources */,
 				0658BEB9238FAC7800CBBAD1 /* AppDelegate.m in Sources */,

@@ -232,6 +232,45 @@
     
 }
 
+-(BOOL)isLogedIn
+{
+    if (_user)
+    {
+        return YES;
+    }
+    
+    return NO;
+}
+
+-(void)askForLogIn
+{
+    UIAlertController *alertcontroll = [UIAlertController alertControllerWithTitle:@"You're not loged in"
+                                                                           message:@"Please login first and then try make order again!"
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okbutton = [UIAlertAction actionWithTitle:@"Login" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self showLoginView];
+    }];
+    
+    UIAlertAction *cancelbutton = [UIAlertAction actionWithTitle:@"Huỷ" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alertcontroll addAction:okbutton];
+    [alertcontroll addAction:cancelbutton];
+    
+    [self presentViewController:alertcontroll animated:YES completion:^{
+        
+    }];
+}
+
+-(void)showLoginView
+{
+    SignInViewController *signinview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloginview"];
+    
+    [self.navigationController pushViewController:signinview animated:YES];
+}
+
 -(void)logOut
 {
     _user = nil;
@@ -374,35 +413,42 @@
 {
     if (indexPath.section == SESSION_TASK) //task session
     {
-        orderview = [self.storyboard instantiateViewControllerWithIdentifier:@"idplaceorder"];
-        [orderview setUser:_user];
-        
-        if (currentLocation) {
-            [orderview setCurrentLocation:[currentLocation coordinate]];
-        }
-        
-        if (_serviceInfo) {
-            orderview.serviceInfo = _serviceInfo;
-        }
-        
-        switch (indexPath.row) {
-            case TYPE_DUNGLE:
-                [orderview setTaskType:TYPE_DUNGLE];
+        if ([self isLogedIn])
+        {
+            orderview = [self.storyboard instantiateViewControllerWithIdentifier:@"idplaceorder"];
+            [orderview setUser:_user];
+            
+            if (currentLocation) {
+                [orderview setCurrentLocation:[currentLocation coordinate]];
+            }
+            
+            if (_serviceInfo) {
+                orderview.serviceInfo = _serviceInfo;
+            }
+            
+            switch (indexPath.row) {
+                case TYPE_DUNGLE:
+                    [orderview setTaskType:TYPE_DUNGLE];
+                    break;
+                case TYPE_DUNGDINHKY:
+                    [orderview setTaskType:TYPE_DUNGDINHKY];
                 break;
-            case TYPE_DUNGDINHKY:
-                [orderview setTaskType:TYPE_DUNGDINHKY];
-            break;
-            case TYPE_TONGVESINH:
-                [orderview setTaskType:TYPE_TONGVESINH];
-            break;
-            case TYPE_JUPSOFA:
-                [orderview setTaskType:TYPE_JUPSOFA];
-            break;
-            default:
+                case TYPE_TONGVESINH:
+                    [orderview setTaskType:TYPE_TONGVESINH];
                 break;
+                case TYPE_JUPSOFA:
+                    [orderview setTaskType:TYPE_JUPSOFA];
+                break;
+                default:
+                    break;
+            }
+            
+            [self.navigationController pushViewController:orderview animated:YES];
         }
-        
-        [self.navigationController pushViewController:orderview animated:YES];
+        else
+        {
+            [self askForLogIn];
+        }
     }
     else if (indexPath.section == SESSION_PROMOTION) //promotion session
     {

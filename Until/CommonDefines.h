@@ -106,6 +106,20 @@
 #define ID_USER_PHONENUMBER     @"ID_USER_PHONENUMBER"
 
 typedef enum : NSUInteger {
+    RESPONSE_CODE_OTHER = 0,
+    RESPONSE_CODE_NORMARL = 200, //Normal operation
+    RESPONSE_CODE_NODATA = 204, //is valid auth, but no data
+    RESPONSE_CODE_INVALID = 400, //invalid body data, query param, missing header
+    RESPONSE_CODE_INVALID_PASSWORD = 403, //invalid password, token expire or access is not available api
+    RESPONSE_CODE_API_NOT_FOUND = 404, //API path not exist
+    RESPONSE_CODE_SERVER_ERROR = 500, //some data can pass on validator but server error
+    RESPONSE_CODE_NOINTERNET   = 501, //no internet
+    RESPONSE_CODE_TIMEOUT      = 502, // timeout
+} RESPONSE_CODE;
+
+#define RESPONSE_TIMEOUT_VALUE  10 // 10s
+
+typedef enum : NSUInteger {
     TYPE_NONE = -1,
     TYPE_DUNGLE = 0,
     TYPE_DUNGDINHKY = 1,
