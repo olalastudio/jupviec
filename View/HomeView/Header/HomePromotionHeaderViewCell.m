@@ -9,6 +9,7 @@
 #import "HomePromotionHeaderViewCell.h"
 
 @implementation HomePromotionHeaderViewCell
+@synthesize delegate = _delegate;
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -21,6 +22,9 @@
 
 - (IBAction)didPressViewMoreButton:(id)sender
 {
-    NSLog(@"did click view more button");
+    if (_delegate && [_delegate respondsToSelector:@selector(didClickViewMorePromotion)])
+    {
+        [_delegate didClickViewMorePromotion];
+    }
 }
 @end

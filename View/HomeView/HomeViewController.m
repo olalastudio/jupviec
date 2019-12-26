@@ -387,6 +387,8 @@
     else if (section == SESSION_PROMOTION)
     {
         HomePromotionHeaderViewCell *headercell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"idhomepromotionheadercell"];
+        [headercell setDelegate:self];
+        
         return headercell;
     }
     
@@ -468,7 +470,46 @@
     return 20;
 }
 
+#pragma mark - Promotion Delegate Area
+-(void)didClickViewMorePromotion
+{
+    NSLog(@"did click view more promotion");
+    
+    NSArray *viewcontrollers = [self.tabBarController viewControllers];
+    
+    for (UINavigationController *item in viewcontrollers)
+    {
+        UIViewController *selectedview = [(UINavigationController*)item visibleViewController];
+        
+        if ([selectedview isKindOfClass:[NoticeViewController class]])
+        {
+            NoticeViewController *noticeview = (NoticeViewController*)selectedview;
+            [noticeview showCouponView];
+            [noticeview setUser:_user];
+            
+            [self.tabBarController setSelectedViewController:item];
+            break;
+        }
+    }
+}
+
 #pragma mark - tabBarControllerDelegate
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+{
+    UIViewController *selectedview = [(UINavigationController*)viewController visibleViewController];
+    
+    if ([selectedview isKindOfClass:[HistoryViewController class]])
+    {
+        if (![self isLogedIn])
+        {
+            [self askForLogIn];
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
 -(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
     UIViewController *selectedview = [(UINavigationController*)viewController visibleViewController];

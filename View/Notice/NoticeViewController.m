@@ -44,9 +44,6 @@
     
     [_tbNotice setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [_tbCoupon setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    
-    [self getNotice];
-    [self getCoupon];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -59,6 +56,16 @@
     [super viewWillAppear:animated];
     
     [self.tabBarController.tabBar setHidden:NO];
+    
+    [self showSelectedList];
+    
+    if ([_listNotices count] == 0) {
+        [self getNotice];
+    }
+    
+    if ([_listCoupons count] == 0) {
+        [self getCoupon];
+    }
 }
 
 -(void)setUser:(User *)user
@@ -100,6 +107,16 @@
          [self showSelectedList];
     });
 }
+
+-(void)showCouponView
+{
+    _selectedNotice = NOTICE_CHOISE_COUPON;
+}
+
+-(void)showNoticeView
+{
+    _selectedNotice = NOTICE_CHOISE_NOTICE;
+}
 /*
 #pragma mark - Navigation
 
@@ -112,26 +129,39 @@
 
 - (IBAction)didSelectNoticeType:(id)sender
 {
+    if ([_sgSelection selectedSegmentIndex] == 0)
+    {
+        _selectedNotice = NOTICE_CHOISE_NOTICE;
+    }
+    else
+    {
+        _selectedNotice = NOTICE_CHOISE_COUPON;
+    }
+    
     [self showSelectedList];
 }
 
 -(void)showSelectedList
 {
-    if ([_sgSelection selectedSegmentIndex] == 0)
+    if (_selectedNotice == NOTICE_CHOISE_NOTICE)
     {
         NSLog(@"Select Notice list");
         [_tbNotice setHidden:NO];
         [_tbCoupon setHidden:YES];
         
         [_tbNotice reloadData];
+        
+        [_sgSelection setSelectedSegmentIndex:0];
     }
-    else if ([_sgSelection selectedSegmentIndex] == 1)
+    else
     {
         NSLog(@"Select coupon list");
         [_tbNotice setHidden:YES];
         [_tbCoupon setHidden:NO];
         
         [_tbCoupon reloadData];
+        
+        [_sgSelection setSelectedSegmentIndex:1];
     }
 }
 

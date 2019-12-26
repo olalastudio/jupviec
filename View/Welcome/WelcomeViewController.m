@@ -17,10 +17,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [_txtWelcome setText:[NSString stringWithFormat:@"Welcome view %ld",(long)_index]];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    switch (_index) {
+        case 0:
+            [_txtWelcome setText:[NSString stringWithFormat:@"Vì cuộc sống tốt đẹp hơn"]];
+            break;
+        case 1:
+            [_txtWelcome setText:[NSString stringWithFormat:@"Tìm dịch vụ giúp việc \ncực nhanh chỉ với 3 thao tác"]];
+            break;
+        case 2:
+            [_txtWelcome setText:[NSString stringWithFormat:@"Không ngừng cải tiến nâng cao chất lượng dịch vụ"]];
+            break;
+        default:
+            break;
+    }
+}
 /*
 #pragma mark - Navigation
 

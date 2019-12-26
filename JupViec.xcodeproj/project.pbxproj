@@ -415,6 +415,8 @@
 		0658BEC4238FAC7800CBBAD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0658BEC2238FAC7800CBBAD1 /* LaunchScreen.storyboard */; };
 		0658BEC7238FAC7800CBBAD1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658BEC6238FAC7800CBBAD1 /* main.m */; };
 		066603502390BBA30036847C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0666034E2390BB110036847C /* CoreLocation.framework */; };
+		0667ECA523B47867004AAA5E /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0667ECA323B47867004AAA5E /* button.png */; };
+		0667ECA623B47867004AAA5E /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 0667ECA423B47867004AAA5E /* welcome.png */; };
 		0668482A239F9DC900A463A7 /* DateTimePickerPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06684829239F9DC900A463A7 /* DateTimePickerPopupController.m */; };
 		067A399023A88ABC00740FA3 /* ConfirmOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 067A398F23A88ABC00740FA3 /* ConfirmOrderViewController.m */; };
 		068DDEED23990D8C009484E7 /* PlaceOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 068DDEEC23990D8C009484E7 /* PlaceOrderViewController.m */; };
@@ -881,6 +883,8 @@
 		0658BEC5238FAC7800CBBAD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0658BEC6238FAC7800CBBAD1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0666034E2390BB110036847C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0667ECA323B47867004AAA5E /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		0667ECA423B47867004AAA5E /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome.png; sourceTree = "<group>"; };
 		06684828239F9DC900A463A7 /* DateTimePickerPopupController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateTimePickerPopupController.h; sourceTree = "<group>"; };
 		06684829239F9DC900A463A7 /* DateTimePickerPopupController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateTimePickerPopupController.m; sourceTree = "<group>"; };
 		067A398E23A88ABC00740FA3 /* ConfirmOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfirmOrderViewController.h; sourceTree = "<group>"; };
@@ -966,6 +970,7 @@
 		0601E197238FAEEE00403C95 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				0667ECA223B47835004AAA5E /* button */,
 				06B88A4923B0B53900FDA53A /* starfill.png */,
 				06B620BE2397B4540036DCF9 /* makhuyenmai.png */,
 				0601E198238FAEEE00403C95 /* add-1.png */,
@@ -1502,6 +1507,15 @@
 			path = JupViec;
 			sourceTree = "<group>";
 		};
+		0667ECA223B47835004AAA5E /* button */ = {
+			isa = PBXGroup;
+			children = (
+				0667ECA323B47867004AAA5E /* button.png */,
+				0667ECA423B47867004AAA5E /* welcome.png */,
+			);
+			path = button;
+			sourceTree = "<group>";
+		};
 		06684827239F9D9F00A463A7 /* DateTime */ = {
 			isa = PBXGroup;
 			children = (
@@ -1844,6 +1858,7 @@
 				0601E495238FAEF000403C95 /* windows-4.png in Resources */,
 				0601E447238FAEF000403C95 /* smartphone-4.png in Resources */,
 				0601E498238FAEF000403C95 /* worldwide-1.png in Resources */,
+				0667ECA523B47867004AAA5E /* button.png in Resources */,
 				0601E437238FAEF000403C95 /* settings-9.png in Resources */,
 				0658BEC1238FAC7800CBBAD1 /* Assets.xcassets in Resources */,
 				0601E38E238FAEEF00403C95 /* flag.png in Resources */,
@@ -2107,6 +2122,7 @@
 				0601E327238FAEEF00403C95 /* albums.png in Resources */,
 				06EC9F222396784100474EE3 /* HomePromotionCell.xib in Resources */,
 				0601E402238FAEEF00403C95 /* paper-plane-1.png in Resources */,
+				0667ECA623B47867004AAA5E /* welcome.png in Resources */,
 				06ED4C1623A0FD130072EB15 /* DaySelectionCell.xib in Resources */,
 				0601E48C238FAEF000403C95 /* view.png in Resources */,
 				0601E34A238FAEEF00403C95 /* calendar-6.png in Resources */,

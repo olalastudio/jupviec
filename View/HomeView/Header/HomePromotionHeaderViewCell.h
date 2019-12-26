@@ -10,7 +10,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol HomePromotionHeaderDelegate <NSObject>
+
+-(void)didClickViewMorePromotion;
+
+@end
+
 @interface HomePromotionHeaderViewCell : UITableViewHeaderFooterView
+
+@property id<HomePromotionHeaderDelegate>   delegate;
 
 @property (weak, nonatomic) IBOutlet UILabel *txtPromotion;
 @property (weak, nonatomic) IBOutlet UIButton *btViewMore;

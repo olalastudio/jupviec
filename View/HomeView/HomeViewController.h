@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "HomePromotionHeaderViewCell.h"
+#import "HomePromotionCollectionViewCell.h"
 #import "User.h"
 #import "JUntil.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UITabBarControllerDelegate>
+@interface HomeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UITabBarControllerDelegate, HomePromotionHeaderDelegate>
 {
     NSMutableDictionary     *_serviceInfo;
     NSArray                 *_serviceTypesArr;

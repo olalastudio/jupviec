@@ -62,9 +62,9 @@
 
 -(void)addPageControll
 {
-    self.pageControll = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50)];
-    [self.pageControll setTintColor:[UIColor blueColor]];
-    [self.pageControll setPageIndicatorTintColor:[UIColor grayColor]];
+    self.pageControll = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 130, self.view.frame.size.width, 50)];
+    [self.pageControll setTintColor:[UIColor whiteColor]];
+    [self.pageControll setPageIndicatorTintColor:[UIColor orangeColor]];
     [self.pageControll setHidesForSinglePage:YES];
     [self.pageControll setNumberOfPages:3];
     [self.pageControll setCurrentPage:0];

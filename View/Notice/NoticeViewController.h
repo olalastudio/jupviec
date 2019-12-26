@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonDefines.h"
 #import "User.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NoticeViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
+{
+    NOTICE_CHOISE   _selectedNotice;
+}
 
 @property (strong, nonatomic) User  *user;
 
@@ -21,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (IBAction)didSelectNoticeType:(id)sender;
 
+-(void)showCouponView;
+-(void)showNoticeView;
 @end
 
 NS_ASSUME_NONNULL_END

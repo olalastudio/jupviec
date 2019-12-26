@@ -159,6 +159,11 @@ typedef enum : NSUInteger {
     SHIFT_WORK_EVENING = 2,
 } SHIFT_WORK;
 
+typedef enum : NSUInteger {
+    NOTICE_CHOISE_NOTICE,
+    NOTICE_CHOISE_COUPON,
+} NOTICE_CHOISE;
+
 typedef enum :NSUInteger
 {
     OFFLINE = 0,
