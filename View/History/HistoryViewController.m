@@ -8,7 +8,6 @@
 
 #import "HistoryViewController.h"
 #import "HistoryTableViewCell.h"
-#import "DetailOrderViewController.h"
 #import "APIRequest.h"
 
 @interface HistoryViewController ()
@@ -187,6 +186,7 @@
     
     DetailOrderViewController *detailviewController = [self.storyboard instantiateViewControllerWithIdentifier:@"iddetailoder"];
     
+    [detailviewController setDelegate:self];
     [detailviewController setUser:_user];
     [detailviewController setDetailInfo:item];
     
@@ -196,5 +196,65 @@
 - (IBAction)didSelectHistorySegment:(id)sender
 {
     [_tbHistory reloadData];
+}
+
+#pragma mark - OrderDelegate
+-(void)didStopOder:(NSDictionary *)resultDic
+{
+    NSString *type = [resultDic objectForKey:ID_REQUEST_TYPE];
+    
+    NSArray *oldArray;
+    
+    //get old list
+    if ([type isEqualToString:CODE_SOFA] || [type isEqualToString:CODE_DUNGLE] || [type isEqualToString:CODE_DATLE])
+    {
+        oldArray = [NSArray arrayWithArray:_listDungLe];
+    }
+    else if ([type isEqualToString:CODE_DINHKY])
+    {
+        oldArray = [NSArray arrayWithArray:_listDungDKy];
+    }
+    else //([type isEqualToString:CODE_TONGVESINH])
+    {
+        oldArray = [NSArray arrayWithArray:_listTongVS];
+    }
+    
+    NSMutableArray *newArray = [NSMutableArray arrayWithCapacity:0];
+    NSString *findID = [resultDic objectForKey:ID_SERVICE];
+    
+    //update new value
+    for (NSDictionary* item in oldArray)
+    {
+        NSString *itemID = [item objectForKey:ID_SERVICE];
+        
+        if ([findID isEqualToString:itemID])
+        {
+            [newArray addObject:resultDic];
+        }
+        else{
+            [newArray addObject:item];
+        }
+    }
+    
+    //update back old list
+    if ([type isEqualToString:CODE_SOFA] || [type isEqualToString:CODE_DUNGLE] || [type isEqualToString:CODE_DATLE])
+    {
+        _listDungLe = [[NSMutableArray alloc] initWithArray:newArray];
+    }
+    else if ([type isEqualToString:CODE_DINHKY])
+    {
+        _listDungDKy = [[NSMutableArray alloc] initWithArray:newArray];
+    }
+    else //([type isEqualToString:CODE_TONGVESINH])
+    {
+        _listTongVS = [[NSMutableArray alloc] initWithArray:newArray];
+    }
+    
+    [_tbHistory reloadData];
+}
+
+-(void)didRateOder:(NSDictionary *)resultDic
+{
+    
 }
 @end

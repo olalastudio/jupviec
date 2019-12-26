@@ -12,10 +12,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol DetailOrderViewDelegate <NSObject>
+
+-(void)didStopOder:(NSDictionary*)resultDic;
+-(void)didRateOder:(NSDictionary*)resultDic;
+
+@end
+
 @interface DetailOrderViewController : UIViewController
 {
     
 }
+
+@property id<DetailOrderViewDelegate>           delegate;
 
 @property (strong, nonatomic)   User            *user;
 @property (strong, nonatomic)   NSDictionary    *detailInfo;

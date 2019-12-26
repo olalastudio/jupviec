@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailOrderViewController.h"
+
 #import "User.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HistoryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface HistoryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,DetailOrderViewDelegate>
 {
     UINavigationController *naviController;
     NSDictionary *_definesCode;

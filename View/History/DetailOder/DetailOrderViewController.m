@@ -16,6 +16,7 @@
 @end
 
 @implementation DetailOrderViewController
+@synthesize delegate = _delegate;
 @synthesize user = _user;
 @synthesize detailInfo = _detailInfo;
 
@@ -172,13 +173,23 @@
         if (error.code == 200)
         {
             dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"%@",resultDict);
-                [self.navigationController popViewControllerAnimated:YES];
+                [self handleViewForStopOrder:resultDict];
             });
         }
         else{
             NSLog(@"error when cancel request %@",error);
         }
     }];
+}
+
+#pragma mark - Delegate
+-(void)handleViewForStopOrder:(NSDictionary*)resultDic
+{    
+    if (_delegate && [_delegate respondsToSelector:@selector(didStopOder:)])
+    {
+        [_delegate didStopOder:resultDic];
+    }
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end
