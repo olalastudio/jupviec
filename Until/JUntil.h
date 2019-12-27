@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)monitorNetworkReachabilityChanges;
 
 +(NSString*)stringFromDate:(NSDate*)date;
++(NSDate*)dateFromString:(NSString*)string;
 
 +(void)showPopup:(UIViewController*)sender responsecode:(RESPONSE_CODE)code;
 +(void)showPopup:(UIViewController*)sender responsecode:(RESPONSE_CODE)code completionHandler:(void(^)(POPUP_ACTION action))completionHandler;

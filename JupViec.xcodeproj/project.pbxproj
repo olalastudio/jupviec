@@ -422,6 +422,7 @@
 		068DDEED23990D8C009484E7 /* PlaceOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 068DDEEC23990D8C009484E7 /* PlaceOrderViewController.m */; };
 		068DDEF023991431009484E7 /* CommonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 068DDEEF23991431009484E7 /* CommonCell.xib */; };
 		068DDEF32399144C009484E7 /* PlaceOrderCommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 068DDEF22399144C009484E7 /* PlaceOrderCommonTableViewCell.m */; };
+		06B1F32D23B6101400B70CEE /* JLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B1F32C23B6101400B70CEE /* JLabel.m */; };
 		06B620BD2397B3930036DCF9 /* HomePromotionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */; };
 		06B620BF2397B4540036DCF9 /* makhuyenmai.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B620BE2397B4540036DCF9 /* makhuyenmai.png */; };
 		06B88A4A23B0B53900FDA53A /* starfill.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B88A4923B0B53900FDA53A /* starfill.png */; };
@@ -900,6 +901,8 @@
 		068DDEEF23991431009484E7 /* CommonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonCell.xib; sourceTree = "<group>"; };
 		068DDEF12399144C009484E7 /* PlaceOrderCommonTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceOrderCommonTableViewCell.h; sourceTree = "<group>"; };
 		068DDEF22399144C009484E7 /* PlaceOrderCommonTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceOrderCommonTableViewCell.m; sourceTree = "<group>"; };
+		06B1F32B23B6101400B70CEE /* JLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLabel.h; sourceTree = "<group>"; };
+		06B1F32C23B6101400B70CEE /* JLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLabel.m; sourceTree = "<group>"; };
 		06B620BB2397B3930036DCF9 /* HomePromotionCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePromotionCollectionViewCell.h; sourceTree = "<group>"; };
 		06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePromotionCollectionViewCell.m; sourceTree = "<group>"; };
 		06B620BE2397B4540036DCF9 /* makhuyenmai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = makhuyenmai.png; sourceTree = "<group>"; };
@@ -1629,6 +1632,8 @@
 				06CF5D0F23B5FE880066A551 /* JTableView.m */,
 				06CF5D1123B601670066A551 /* JTextView.h */,
 				06CF5D1223B601670066A551 /* JTextView.m */,
+				06B1F32B23B6101400B70CEE /* JLabel.h */,
+				06B1F32C23B6101400B70CEE /* JLabel.m */,
 			);
 			path = CustomControll;
 			sourceTree = "<group>";
@@ -2249,6 +2254,7 @@
 				06222E27239E4A7200AE24C5 /* PopupView.m in Sources */,
 				0601E49C238FAEF000403C95 /* SignInViewController.m in Sources */,
 				0612A384239617DA00A82BB9 /* InformationViewController.m in Sources */,
+				06B1F32D23B6101400B70CEE /* JLabel.m in Sources */,
 				06DFA80223A9C69F00FBE763 /* JUntil.m in Sources */,
 				06ED4C1423A0EDE90072EB15 /* TimeSelectionTableViewCell.m in Sources */,
 				0658BEBC238FAC7800CBBAD1 /* ViewController.m in Sources */,

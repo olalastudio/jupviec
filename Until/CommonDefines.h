@@ -12,6 +12,12 @@
 //Sever 107.113.174.139:8088
 #endif /* CommonDefines_h */
 
+#define UIColorFromRGB(rgbValue) \
+[UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+                green:((float)((rgbValue & 0x00FF00) >>  8))/255.0 \
+                 blue:((float)((rgbValue & 0x0000FF) >>  0))/255.0 \
+                alpha:1.0]
+
 #define ID_FCM_DEVICE_TOKEN     @"FCM_TOKEN"
 
 #define NETWORK_REACHABILITY_STATUS_CHANGED_NOTIFICATION    @"NETWORK_REACHABILITY_STATUS_CHANGED_NOTIFICATION"
@@ -92,6 +98,12 @@
 
 #define CODE_DANGYEUCAU         @"DANGYEUCAU"
 #define CODE_DADONDEP           @"DADONDEP"
+#define CODE_DANGSAPXEP         @"DANGSAPXEP"
+#define CODE_DASAPXEP           @"DASAPXEP"
+#define CODE_DANGDONDEP         @"DANGDONDEP"
+#define CODE_DADONDEP           @"DADONDEP"
+#define CODE_TAMDUNG            @"CODE_TAMDUNG"
+#define CODE_HUY                @"HUY"
 
 #define ID_REQUEST_STATUS       @"request_status"
 #define ID_PAYMENT_STATUS       @"payment_status"
@@ -101,6 +113,9 @@
 #define ID_FEEDBACK             @"feedback"
 #define ID_DEFINE_MESSAGE       @"define_message"
 #define ID_FEEDBACK_STATUS      @"feedback_status"
+
+#define ID_CODE                 @"code"
+#define ID_NAME                 @"name"
 
 #define ID_USER_TOKEN           @"ID_USER_TOKEN"
 #define ID_USER_PHONENUMBER     @"ID_USER_PHONENUMBER"
