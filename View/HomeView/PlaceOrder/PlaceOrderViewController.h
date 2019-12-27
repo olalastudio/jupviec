@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JViewController.h"
 #import "CommonDefines.h"
 #import "Order.h"
 #import "User.h"
@@ -20,7 +21,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PlaceOrderViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, PlaceOrderCommonCellProtocol, TextDetailPopupDelegate,DateTimePickerDelegate, TimeSelectionTableViewCellDelegate,DaySelectionTableViewCellDelegate>
+@interface PlaceOrderViewController : JViewController <UITableViewDelegate, UITableViewDataSource, PlaceOrderCommonCellProtocol, TextDetailPopupDelegate,DateTimePickerDelegate, TimeSelectionTableViewCellDelegate,DaySelectionTableViewCellDelegate>
 {
     TASK_TYPE       _tasktype;
     Order           *_order;

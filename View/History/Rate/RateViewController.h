@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RateViewController : UIViewController
+@interface RateViewController : JViewController
 {
     NSString    *_token;
     NSString    *_idservice;

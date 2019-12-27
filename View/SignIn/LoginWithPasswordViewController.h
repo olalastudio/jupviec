@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JViewController.h"
 #import "CommonDefines.h"
 #import "JUntil.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LoginWithPasswordViewController : UIViewController <UITextFieldDelegate>
+@interface LoginWithPasswordViewController : JViewController <UITextFieldDelegate>
 {
     NSString* strUserphone;
     NSString* strUserPass;

@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JViewController.h"
 #import "CommonDefines.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface OTPCheckViewController : UIViewController <UITextFieldDelegate>
+@interface OTPCheckViewController : JViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *txtOTPInput;
 @property (weak, nonatomic) IBOutlet UIButton *btnContinue;

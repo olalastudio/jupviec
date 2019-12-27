@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface InformationDetailViewController : UIViewController
+@interface InformationDetailViewController : JViewController
 
 @end
 

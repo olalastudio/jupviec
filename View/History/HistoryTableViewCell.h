@@ -10,6 +10,7 @@
 #import "CommonDefines.h"
 #import "JUntil.h"
 
+#import "JLabel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HistoryTableViewCell : UITableViewCell
@@ -19,10 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) NSDictionary *historyData;
 
-@property (weak, nonatomic) IBOutlet UILabel *txtStatus;
+@property (weak, nonatomic) IBOutlet JLabel *txtStatus;
 @property (weak, nonatomic) IBOutlet UILabel *txtDate;
 @property (weak, nonatomic) IBOutlet UILabel *txtWorkTime;
-@property (weak, nonatomic) IBOutlet UIImageView *imgAddress;
 @property (weak, nonatomic) IBOutlet UILabel *txtWorkAddress;
 @property (weak, nonatomic) IBOutlet UILabel *txtTotalMoney;
 @property (weak, nonatomic) IBOutlet UILabel *txtClientStatus;

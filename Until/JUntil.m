@@ -126,6 +126,13 @@
     return [formater stringFromDate:date];
 }
 
++(NSDate*)dateFromString:(NSString*)string
+{
+    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+    [formater setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
+    
+    return [formater dateFromString:string];
+}
 #pragma mark - Popup
 +(void)showPopup:(UIViewController*)sender responsecode:(RESPONSE_CODE)code
 {

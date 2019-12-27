@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JViewController.h"
 #import "CommonDefines.h"
 #import "APIRequest.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SignInViewController : UIViewController <UITextFieldDelegate>
+@interface SignInViewController : JViewController <UITextFieldDelegate>
 {
     NSString* strOTPServer;
     NSString* strPhoneNumber;
