@@ -106,6 +106,18 @@
                 if (error.code == 200) { //sucess
                     [self showHistory:resultDict];
                 }
+                else if (error.code == RESPONSE_CODE_NODATA)
+                {
+                    [JUntil showPopup:self responsecode:RESPONSE_CODE_NODATA];
+                }
+                else if (error.code == RESPONSE_CODE_TIMEOUT)
+                {
+                    [JUntil showPopup:self responsecode:RESPONSE_CODE_TIMEOUT];
+                }
+                else
+                {
+                    [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
+                }
             });
         }];
     }

@@ -12,6 +12,7 @@
 #import "NoticeDetailViewController.h"
 #import "APIRequest.h"
 #import "CommonDefines.h"
+#import "JUntil.h"
 
 @interface NoticeViewController ()
 {
@@ -87,8 +88,17 @@
         if (error.code == 200) {
             [self showNotice:resultDict];
         }
-        else{
-            NSLog(@"request notice info error %@",error);
+        else if (error.code == RESPONSE_CODE_NODATA)
+        {
+            [JUntil showPopup:self responsecode:RESPONSE_CODE_NODATA];
+        }
+        else if (error.code == RESPONSE_CODE_TIMEOUT)
+        {
+            [JUntil showPopup:self responsecode:RESPONSE_CODE_TIMEOUT];
+        }
+        else
+        {
+            [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
         }
     }];
 }

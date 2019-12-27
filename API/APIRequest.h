@@ -35,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)requestAPIGetDetailRequest:(NSString*)token idService:(NSString*)idService completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;
 - (void)requestAPICancelRequest:(NSString*)idService token:(NSString*)token completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;
 - (void)requestAPISendFeedbackForApp:(NSDictionary*)feedbackDict completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;
+- (void)requestAPISendDeviceToken:(NSString*)deviceToken forAccount:(NSString* _Nullable)userToken completionHandler:(void(^)(NSDictionary* _Nullable resultData, NSError* err))completionHandler;
 @end
 
 NS_ASSUME_NONNULL_END

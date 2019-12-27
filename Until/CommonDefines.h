@@ -33,6 +33,7 @@
 #define API_NOTIFY              @"notify"
 #define API_FEEDBACK            @"feedback"
 #define API_CANCEL_REQUEST      @"cancer"
+#define API_SEND_DEVICE_TOKEN   @"device"
 
 #define ID_WELCOME_VIEW         @"idwelcomeview"
 

@@ -80,6 +80,18 @@
                         [self.navigationController popToRootViewControllerAnimated:YES];
                     });
                 }
+                else if (error.code == RESPONSE_CODE_NODATA)
+                {
+                    [JUntil showPopup:self responsecode:RESPONSE_CODE_NODATA];
+                }
+                else if (error.code == RESPONSE_CODE_TIMEOUT)
+                {
+                    [JUntil showPopup:self responsecode:RESPONSE_CODE_TIMEOUT];
+                }
+                else
+                {
+                    [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
+                }
             }];
      });
 }
@@ -107,6 +119,14 @@
                         [self presentViewController:alertController animated:YES completion:nil];
                     });
                 }
+                else if (error.code == RESPONSE_CODE_TIMEOUT)
+                {
+                    [JUntil showPopup:self responsecode:RESPONSE_CODE_TIMEOUT];
+                }
+                else
+                {
+                    [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
+                }
             }];
         }
         else if (_intActionMode == MODE_REGISTER_NEW_ACC)
@@ -127,6 +147,14 @@
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [self presentViewController:alertController animated:YES completion:nil];
                     });
+                }
+                else if (err.code == RESPONSE_CODE_TIMEOUT)
+                {
+                    [JUntil showPopup:self responsecode:RESPONSE_CODE_TIMEOUT];
+                }
+                else
+                {
+                    [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
                 }
             }];
         }

@@ -10,6 +10,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <GooglePlaces/GooglePlaces.h>
 #import "JUntil.h"
+#import "APIRequest.h"
 
 @interface AppDelegate ()
 {
@@ -109,7 +110,17 @@
 #pragma mark - FCMDeviceToken
 -(void)sendFCMDeviceTokenToServer
 {
-    
+    APIRequest* api = [[APIRequest alloc]init];
+    NSString* deviceToken = [[NSUserDefaults standardUserDefaults]objectForKey:ID_FCM_DEVICE_TOKEN];
+    if (deviceToken)
+    {
+        [api requestAPISendDeviceToken:deviceToken forAccount:nil completionHandler:^(NSDictionary * _Nullable resultData, NSError * _Nonnull err) {
+            if (err.code == 200) {
+                NSLog(@"success send device token to server");
+            }
+        }];
+    } else
+        NSLog(@"cannot get device token");
 }
 
 #pragma mark - LocationDelegate

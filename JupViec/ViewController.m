@@ -153,6 +153,18 @@
             {
                 [JUntil showPopup:self responsecode:RESPONSE_CODE_NODATA];
             }
+            else if (error.code == RESPONSE_CODE_TIMEOUT)
+            {
+                [JUntil showPopup:self responsecode:RESPONSE_CODE_TIMEOUT];
+            }
+            else if (error.code == RESPONSE_CODE_NOINTERNET)
+            {
+                [JUntil showPopup:self responsecode:RESPONSE_CODE_NOINTERNET];
+            }
+            else
+            {
+                [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
+            }
         }];
     });
     [self.pageController removeFromParentViewController];

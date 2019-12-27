@@ -145,6 +145,14 @@
                 NSLog(@"phone number is not registed");
                 [JUntil showPopup:self responsecode:RESPONSE_CODE_API_NOT_FOUND];
             }
+            else if (error.code == RESPONSE_CODE_TIMEOUT)
+            {
+                [JUntil showPopup:self responsecode:RESPONSE_CODE_TIMEOUT];
+            }
+            else
+            {
+                [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
+            }
         }];
     }
 }

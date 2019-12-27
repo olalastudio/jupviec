@@ -8,6 +8,7 @@
 
 #import "DetailOrderViewController.h"
 #import "RateViewController.h"
+#import "JUntil.h"
 
 #import "APIRequest.h"
 
@@ -176,8 +177,17 @@
                 [self handleViewForStopOrder:resultDict];
             });
         }
-        else{
-            NSLog(@"error when cancel request %@",error);
+        else if (error.code == RESPONSE_CODE_NODATA)
+        {
+            [JUntil showPopup:self responsecode:RESPONSE_CODE_NODATA];
+        }
+        else if (error.code == RESPONSE_CODE_TIMEOUT)
+        {
+            [JUntil showPopup:self responsecode:RESPONSE_CODE_TIMEOUT];
+        }
+        else
+        {
+            [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
         }
     }];
 }
