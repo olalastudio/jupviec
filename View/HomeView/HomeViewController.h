@@ -32,6 +32,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)logIn:(NSString*)strToken phoneNumber:(NSString*)phonenumber;
 -(void)logOut;
+
+// Order result
+-(void)didCompleteOrder:(NSDictionary*)orderInfo;
 @end
 
 NS_ASSUME_NONNULL_END

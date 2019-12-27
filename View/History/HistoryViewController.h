@@ -8,15 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "DetailOrderViewController.h"
-
+#import "CommonDefines.h"
 #import "User.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HistoryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,DetailOrderViewDelegate>
 {
-    UINavigationController *naviController;
-    NSDictionary *_definesCode;
+    UINavigationController  *naviController;
+    NSDictionary            *_definesCode;
+    TASK_TYPE               _selectedType;
 }
 
 @property (strong, nonatomic) User      *user;
@@ -27,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (IBAction)didSelectHistorySegment:(id)sender;
 
 -(void)setDefineCodeGetFromServer:(NSDictionary*)codes;
-
+-(void)addCompleteOrder:(NSDictionary*)orderInfo;
 @end
 
 NS_ASSUME_NONNULL_END

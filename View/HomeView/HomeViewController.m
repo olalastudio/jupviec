@@ -493,6 +493,25 @@
     }
 }
 
+-(void)didCompleteOrder:(NSDictionary *)orderInfo
+{
+    NSArray *viewcontrollers = [self.tabBarController viewControllers];
+    
+    for (UINavigationController *item in viewcontrollers)
+    {
+        UIViewController *selectedview = [(UINavigationController*)item visibleViewController];
+        
+        if ([selectedview isKindOfClass:[HistoryViewController class]])
+        {
+            HistoryViewController *historyview = (HistoryViewController*)selectedview;
+            [historyview setUser:_user];
+            [historyview addCompleteOrder:orderInfo];
+            
+            [self.tabBarController setSelectedViewController:item];
+            break;
+        }
+    }
+}
 #pragma mark - tabBarControllerDelegate
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
 {
@@ -552,4 +571,5 @@
     
     return definecodes;
 }
+
 @end

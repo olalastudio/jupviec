@@ -37,11 +37,24 @@
     //register cell
     [_tbHistory registerNib:[UINib nibWithNibName:@"HistoryCell" bundle:nil] forCellReuseIdentifier:@"idhistorycell"];
     
-    _listDungLe = [[NSMutableArray alloc] initWithCapacity:0];
-    _listDungDKy = [[NSMutableArray alloc] initWithCapacity:0];
-    _listTongVS = [[NSMutableArray alloc] initWithCapacity:0];
+    [self initData];
     
     [self getHistory];
+}
+
+-(void)initData
+{
+    if (!_listDungLe) {
+        _listDungLe = [[NSMutableArray alloc] initWithCapacity:0];
+    }
+    
+    if (!_listDungDKy) {
+        _listDungDKy = [[NSMutableArray alloc] initWithCapacity:0];
+    }
+    
+    if (!_listTongVS) {
+        _listTongVS = [[NSMutableArray alloc] initWithCapacity:0];
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -132,19 +145,22 @@
 
 -(NSMutableArray*)showSelectedList
 {
-    if ([_sgSelection selectedSegmentIndex] == 0)
+    if (_selectedType == TYPE_DUNGLE)
     {
         //Dung le
+        [_sgSelection setSelectedSegmentIndex:0];
         return _listDungLe;
     }
-    else if ([_sgSelection selectedSegmentIndex] == 1)
+    else if (_selectedType == TYPE_DUNGDINHKY)
     {
         //dung dinh ky
+        [_sgSelection setSelectedSegmentIndex:1];
         return _listDungDKy;
     }
-    else if ([_sgSelection selectedSegmentIndex] == 2)
+    else if (_selectedType == TYPE_TONGVESINH)
     {
         //tong ve sinh
+        [_sgSelection setSelectedSegmentIndex:2];
         return _listTongVS;
     }
 
@@ -195,10 +211,47 @@
 
 - (IBAction)didSelectHistorySegment:(id)sender
 {
+    if ([_sgSelection selectedSegmentIndex] == 0)
+    {
+        _selectedType = TYPE_DUNGLE;
+    }
+    else if ([_sgSelection selectedSegmentIndex] == 1)
+    {
+        _selectedType = TYPE_DUNGDINHKY;
+    }
+    else
+    {
+        _selectedType = TYPE_TONGVESINH;
+    }
+    
     [_tbHistory reloadData];
 }
 
 #pragma mark - OrderDelegate
+-(void)addCompleteOrder:(NSDictionary*)orderInfo
+{
+    NSString *requestype = [orderInfo objectForKey:ID_REQUEST_TYPE];
+    
+    [self initData];
+    
+    if ([requestype isEqualToString:CODE_DINHKY]) {
+        [_listDungDKy addObject:orderInfo];
+        _selectedType = TYPE_DUNGDINHKY;
+    }
+    else if ([requestype isEqualToString:CODE_TONGVESINH])
+    {
+        [_listTongVS addObject:orderInfo];
+        _selectedType = TYPE_TONGVESINH;
+    }
+    else
+    {
+        [_listDungLe addObject:orderInfo];
+        _selectedType = TYPE_DUNGLE;
+    }
+    
+    [_tbHistory reloadData];
+}
+
 -(void)didStopOder:(NSDictionary *)resultDic
 {
     NSString *type = [resultDic objectForKey:ID_REQUEST_TYPE];

@@ -7,6 +7,7 @@
 //
 
 #import "ConfirmOrderViewController.h"
+#import "HomeViewController.h"
 #import "APIRequest.h"
 #import "JUntil.h"
 
@@ -341,13 +342,13 @@
     
     [apiRequest requestAPIBookService:strToken detailService:detailService completionhandler:^(NSDictionary * _Nullable serviceInfo, NSError * _Nonnull error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self showConfirmAlert:error];
+            [self showConfirmAlert:serviceInfo error:error];
         });
     }];
 }
 
 #pragma mark - Alert Confirm
--(void)showConfirmAlert:(NSError*)error
+-(void)showConfirmAlert:(NSDictionary*)serviceInfo error:(NSError*)error
 {
     if (error.code != 200)
     {
@@ -359,7 +360,18 @@
             if (action == ACTION_OK)
             {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.navigationController popToRootViewControllerAnimated:YES];
+                    NSArray *viewcontrollers = [self.navigationController viewControllers];
+                    
+                    for (UIViewController *viewcontroll in viewcontrollers)
+                    {
+                        if ([viewcontroll isKindOfClass:[HomeViewController class]])
+                        {
+                            HomeViewController *homeview = (HomeViewController*)viewcontroll;
+                            [homeview didCompleteOrder:serviceInfo];
+                            
+                            [self.navigationController popToViewController:homeview animated:YES];
+                        }
+                    }
                 });
             }
         }];
