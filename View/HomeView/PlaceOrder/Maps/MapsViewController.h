@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MapsViewController : UIViewController <CLLocationManagerDelegate, GMSMapViewDelegate, UITextFieldDelegate>
+@interface MapsViewController : JViewController <CLLocationManagerDelegate, GMSMapViewDelegate, UITextFieldDelegate>
 {
     CLLocationManager* _locationManager;
     GMSMarker* _locationMaker;

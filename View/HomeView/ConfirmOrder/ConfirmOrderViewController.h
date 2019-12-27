@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JViewController.h"
 #import "Order.h"
 #import "User.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ConfirmOrderViewController : UIViewController
+@interface ConfirmOrderViewController : JViewController
 {
     Order       *_order;
     User        *_user;

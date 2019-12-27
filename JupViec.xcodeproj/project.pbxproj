@@ -425,6 +425,12 @@
 		06B620BD2397B3930036DCF9 /* HomePromotionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */; };
 		06B620BF2397B4540036DCF9 /* makhuyenmai.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B620BE2397B4540036DCF9 /* makhuyenmai.png */; };
 		06B88A4A23B0B53900FDA53A /* starfill.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B88A4923B0B53900FDA53A /* starfill.png */; };
+		06CF5D0523B5EF760066A551 /* JViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CF5D0423B5EF760066A551 /* JViewController.m */; };
+		06CF5D0823B5EF860066A551 /* JNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CF5D0723B5EF860066A551 /* JNavigationBar.m */; };
+		06CF5D0B23B5EF9A0066A551 /* JNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CF5D0A23B5EF9A0066A551 /* JNavigationViewController.m */; };
+		06CF5D0D23B5EFF20066A551 /* backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CF5D0C23B5EFF20066A551 /* backbutton.png */; };
+		06CF5D1023B5FE880066A551 /* JTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CF5D0F23B5FE880066A551 /* JTableView.m */; };
+		06CF5D1323B601670066A551 /* JTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CF5D1223B601670066A551 /* JTextView.m */; };
 		06D6BF19239E39B000AB52DB /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6BF18239E39B000AB52DB /* MapsViewController.m */; };
 		06DFA80223A9C69F00FBE763 /* JUntil.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DFA80123A9C69F00FBE763 /* JUntil.m */; };
 		06DFA80623AB8B6C00FBE763 /* RateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DFA80523AB8B6C00FBE763 /* RateViewController.m */; };
@@ -898,6 +904,17 @@
 		06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePromotionCollectionViewCell.m; sourceTree = "<group>"; };
 		06B620BE2397B4540036DCF9 /* makhuyenmai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = makhuyenmai.png; sourceTree = "<group>"; };
 		06B88A4923B0B53900FDA53A /* starfill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starfill.png; sourceTree = "<group>"; };
+		06CF5D0323B5EF760066A551 /* JViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JViewController.h; sourceTree = "<group>"; };
+		06CF5D0423B5EF760066A551 /* JViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JViewController.m; sourceTree = "<group>"; };
+		06CF5D0623B5EF860066A551 /* JNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JNavigationBar.h; sourceTree = "<group>"; };
+		06CF5D0723B5EF860066A551 /* JNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JNavigationBar.m; sourceTree = "<group>"; };
+		06CF5D0923B5EF9A0066A551 /* JNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JNavigationViewController.h; sourceTree = "<group>"; };
+		06CF5D0A23B5EF9A0066A551 /* JNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JNavigationViewController.m; sourceTree = "<group>"; };
+		06CF5D0C23B5EFF20066A551 /* backbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backbutton.png; sourceTree = "<group>"; };
+		06CF5D0E23B5FE880066A551 /* JTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTableView.h; sourceTree = "<group>"; };
+		06CF5D0F23B5FE880066A551 /* JTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTableView.m; sourceTree = "<group>"; };
+		06CF5D1123B601670066A551 /* JTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTextView.h; sourceTree = "<group>"; };
+		06CF5D1223B601670066A551 /* JTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTextView.m; sourceTree = "<group>"; };
 		06D6BF17239E39B000AB52DB /* MapsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapsViewController.h; sourceTree = "<group>"; };
 		06D6BF18239E39B000AB52DB /* MapsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapsViewController.m; sourceTree = "<group>"; };
 		06DFA80023A9C69F00FBE763 /* JUntil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JUntil.h; sourceTree = "<group>"; };
@@ -1362,6 +1379,7 @@
 		0601E316238FAEEF00403C95 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				06CF5D0223B5EF610066A551 /* CustomControll */,
 				06222E21239E47F200AE24C5 /* Popup */,
 				0612A381239617C500A82BB9 /* Information */,
 				0612A37D239617C100A82BB9 /* Notice */,
@@ -1510,6 +1528,7 @@
 		0667ECA223B47835004AAA5E /* button */ = {
 			isa = PBXGroup;
 			children = (
+				06CF5D0C23B5EFF20066A551 /* backbutton.png */,
 				0667ECA323B47867004AAA5E /* button.png */,
 				0667ECA423B47867004AAA5E /* welcome.png */,
 			);
@@ -1595,6 +1614,23 @@
 				06EC9F2C23968C7000474EE3 /* HomePromotionHeaderViewCell.m */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		06CF5D0223B5EF610066A551 /* CustomControll */ = {
+			isa = PBXGroup;
+			children = (
+				06CF5D0323B5EF760066A551 /* JViewController.h */,
+				06CF5D0423B5EF760066A551 /* JViewController.m */,
+				06CF5D0623B5EF860066A551 /* JNavigationBar.h */,
+				06CF5D0723B5EF860066A551 /* JNavigationBar.m */,
+				06CF5D0923B5EF9A0066A551 /* JNavigationViewController.h */,
+				06CF5D0A23B5EF9A0066A551 /* JNavigationViewController.m */,
+				06CF5D0E23B5FE880066A551 /* JTableView.h */,
+				06CF5D0F23B5FE880066A551 /* JTableView.m */,
+				06CF5D1123B601670066A551 /* JTextView.h */,
+				06CF5D1223B601670066A551 /* JTextView.m */,
+			);
+			path = CustomControll;
 			sourceTree = "<group>";
 		};
 		06D6BF16239E399000AB52DB /* Maps */ = {
@@ -2115,6 +2151,7 @@
 				0601E3F9238FAEEF00403C95 /* notebook-2.png in Resources */,
 				0601E320238FAEEF00403C95 /* add-3.png in Resources */,
 				0601E3C4238FAEEF00403C95 /* like-1.png in Resources */,
+				06CF5D0D23B5EFF20066A551 /* backbutton.png in Resources */,
 				0601E47E238FAEF000403C95 /* user-4.png in Resources */,
 				0601E476238FAEF000403C95 /* unlink.png in Resources */,
 				0601E44D238FAEF000403C95 /* smartphone.png in Resources */,
@@ -2215,8 +2252,10 @@
 				06DFA80223A9C69F00FBE763 /* JUntil.m in Sources */,
 				06ED4C1423A0EDE90072EB15 /* TimeSelectionTableViewCell.m in Sources */,
 				0658BEBC238FAC7800CBBAD1 /* ViewController.m in Sources */,
+				06CF5D1023B5FE880066A551 /* JTableView.m in Sources */,
 				0612A380239617C100A82BB9 /* NoticeViewController.m in Sources */,
 				0633A78A239113080094219D /* OTPCheckViewController.m in Sources */,
+				06CF5D0823B5EF860066A551 /* JNavigationBar.m in Sources */,
 				0668482A239F9DC900A463A7 /* DateTimePickerPopupController.m in Sources */,
 				CEFD75B22394FAD80040699B /* CreatePasswordViewController.m in Sources */,
 				06EC9F2D23968C7000474EE3 /* HomePromotionHeaderViewCell.m in Sources */,
@@ -2224,6 +2263,7 @@
 				0658BEC7238FAC7800CBBAD1 /* main.m in Sources */,
 				068DDEF32399144C009484E7 /* PlaceOrderCommonTableViewCell.m in Sources */,
 				06FEA1E42394CC0E005D58B9 /* HistoryTableViewCell.m in Sources */,
+				06CF5D0523B5EF760066A551 /* JViewController.m in Sources */,
 				06EC9F252396786100474EE3 /* HomePromotionTableViewCell.m in Sources */,
 				0658BEB9238FAC7800CBBAD1 /* AppDelegate.m in Sources */,
 				0601E49D238FAEF000403C95 /* WelcomeViewController.m in Sources */,
@@ -2243,7 +2283,9 @@
 				0612A38B23961DA800A82BB9 /* NoticeTableViewCell.m in Sources */,
 				067A399023A88ABC00740FA3 /* ConfirmOrderViewController.m in Sources */,
 				06ED4C1923A0FD220072EB15 /* DaySelectionTableViewCell.m in Sources */,
+				06CF5D0B23B5EF9A0066A551 /* JNavigationViewController.m in Sources */,
 				06FEA1E8239544F2005D58B9 /* DetailOrderViewController.m in Sources */,
+				06CF5D1323B601670066A551 /* JTextView.m in Sources */,
 				06D6BF19239E39B000AB52DB /* MapsViewController.m in Sources */,
 				06222E2A239E64F100AE24C5 /* Order.m in Sources */,
 				0633A793239117E00094219D /* LoginWithPasswordViewController.m in Sources */,

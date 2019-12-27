@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JViewController.h"
 #import "CommonDefines.h"
 #import "User.h"
 #import "HomeViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CreatePasswordViewController : UIViewController <UITextFieldDelegate>
+@interface CreatePasswordViewController : JViewController <UITextFieldDelegate>
 {
     
 }

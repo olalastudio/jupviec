@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JViewController.h"
 #import <CoreLocation/CoreLocation.h>
 #import "HomePromotionHeaderViewCell.h"
 #import "HomePromotionCollectionViewCell.h"
@@ -15,7 +16,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UITabBarControllerDelegate, HomePromotionHeaderDelegate>
+@interface HomeViewController : JViewController <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UITabBarControllerDelegate, HomePromotionHeaderDelegate>
 {
     NSMutableDictionary     *_serviceInfo;
     NSArray                 *_serviceTypesArr;
