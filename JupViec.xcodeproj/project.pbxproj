@@ -363,7 +363,6 @@
 		0601E47F238FAEF000403C95 /* user-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 0601E2F9238FAEEF00403C95 /* user-5.png */; };
 		0601E480238FAEF000403C95 /* user-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 0601E2FA238FAEEF00403C95 /* user-6.png */; };
 		0601E481238FAEF000403C95 /* user-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 0601E2FB238FAEEF00403C95 /* user-7.png */; };
-		0601E482238FAEF000403C95 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 0601E2FC238FAEEF00403C95 /* user.png */; };
 		0601E483238FAEF000403C95 /* users-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0601E2FD238FAEEF00403C95 /* users-1.png */; };
 		0601E484238FAEF000403C95 /* users.png in Resources */ = {isa = PBXBuildFile; fileRef = 0601E2FE238FAEEF00403C95 /* users.png */; };
 		0601E485238FAEF000403C95 /* video-camera-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0601E2FF238FAEEF00403C95 /* video-camera-1.png */; };
@@ -452,6 +451,8 @@
 		06FEA1E42394CC0E005D58B9 /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1E32394CC0E005D58B9 /* HistoryTableViewCell.m */; };
 		06FEA1E8239544F2005D58B9 /* DetailOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA1E7239544F2005D58B9 /* DetailOrderViewController.m */; };
 		4CCA650DE5769D6F06336B2A /* Pods_JupViec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF954FD1F9AE36C1F76ACB82 /* Pods_JupViec.framework */; };
+		831705F423B76F5300A3493E /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 831705F323B76F5300A3493E /* user.png */; };
+		831705F723B7710600A3493E /* JView.m in Sources */ = {isa = PBXBuildFile; fileRef = 831705F623B7710600A3493E /* JView.m */; };
 		CEA0919323A796FA00D2502F /* AccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0919223A796FA00D2502F /* AccountInfoViewController.m */; };
 		CEA0919623A79D7300D2502F /* EditAccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0919523A79D7300D2502F /* EditAccountInfoViewController.m */; };
 		CEA83F1723911F60001C1512 /* APIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA83F1523911F5F001C1512 /* APIRequest.m */; };
@@ -817,7 +818,6 @@
 		0601E2F9238FAEEF00403C95 /* user-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user-5.png"; sourceTree = "<group>"; };
 		0601E2FA238FAEEF00403C95 /* user-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user-6.png"; sourceTree = "<group>"; };
 		0601E2FB238FAEEF00403C95 /* user-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user-7.png"; sourceTree = "<group>"; };
-		0601E2FC238FAEEF00403C95 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		0601E2FD238FAEEF00403C95 /* users-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "users-1.png"; sourceTree = "<group>"; };
 		0601E2FE238FAEEF00403C95 /* users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = users.png; sourceTree = "<group>"; };
 		0601E2FF238FAEEF00403C95 /* video-camera-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video-camera-1.png"; sourceTree = "<group>"; };
@@ -951,6 +951,9 @@
 		06FEA1E6239544F2005D58B9 /* DetailOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailOrderViewController.h; sourceTree = "<group>"; };
 		06FEA1E7239544F2005D58B9 /* DetailOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailOrderViewController.m; sourceTree = "<group>"; };
 		4F3649E165524B914C1FE02A /* Pods-JupViec.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JupViec.debug.xcconfig"; path = "Target Support Files/Pods-JupViec/Pods-JupViec.debug.xcconfig"; sourceTree = "<group>"; };
+		831705F323B76F5300A3493E /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		831705F523B7710600A3493E /* JView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JView.h; sourceTree = "<group>"; };
+		831705F623B7710600A3493E /* JView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JView.m; sourceTree = "<group>"; };
 		C5473C782A87585FD2C38DA3 /* Pods-JupViec.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JupViec.release.xcconfig"; path = "Target Support Files/Pods-JupViec/Pods-JupViec.release.xcconfig"; sourceTree = "<group>"; };
 		CEA0919123A796FA00D2502F /* AccountInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountInfoViewController.h; sourceTree = "<group>"; };
 		CEA0919223A796FA00D2502F /* AccountInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountInfoViewController.m; sourceTree = "<group>"; };
@@ -990,6 +993,7 @@
 		0601E197238FAEEE00403C95 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				831705F223B76F3B00A3493E /* icon */,
 				0667ECA223B47835004AAA5E /* button */,
 				06B88A4923B0B53900FDA53A /* starfill.png */,
 				06B620BE2397B4540036DCF9 /* makhuyenmai.png */,
@@ -1349,7 +1353,6 @@
 				0601E2F9238FAEEF00403C95 /* user-5.png */,
 				0601E2FA238FAEEF00403C95 /* user-6.png */,
 				0601E2FB238FAEEF00403C95 /* user-7.png */,
-				0601E2FC238FAEEF00403C95 /* user.png */,
 				0601E2FD238FAEEF00403C95 /* users-1.png */,
 				0601E2FE238FAEEF00403C95 /* users.png */,
 				0601E2FF238FAEEF00403C95 /* video-camera-1.png */,
@@ -1634,6 +1637,8 @@
 				06CF5D1223B601670066A551 /* JTextView.m */,
 				06B1F32B23B6101400B70CEE /* JLabel.h */,
 				06B1F32C23B6101400B70CEE /* JLabel.m */,
+				831705F523B7710600A3493E /* JView.h */,
+				831705F623B7710600A3493E /* JView.m */,
 			);
 			path = CustomControll;
 			sourceTree = "<group>";
@@ -1686,6 +1691,14 @@
 				06FEA1E7239544F2005D58B9 /* DetailOrderViewController.m */,
 			);
 			path = DetailOder;
+			sourceTree = "<group>";
+		};
+		831705F223B76F3B00A3493E /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				831705F323B76F5300A3493E /* user.png */,
+			);
+			path = icon;
 			sourceTree = "<group>";
 		};
 		CEA83F1423911F32001C1512 /* API */ = {
@@ -1802,6 +1815,7 @@
 				0601E457238FAEF000403C95 /* spotlight.png in Resources */,
 				0601E3A4238FAEEF00403C95 /* forbidden.png in Resources */,
 				0601E33B238FAEEF00403C95 /* binoculars.png in Resources */,
+				831705F423B76F5300A3493E /* user.png in Resources */,
 				0601E377238FAEEF00403C95 /* edit.png in Resources */,
 				0601E40A238FAEEF00403C95 /* photo-camera.png in Resources */,
 				0601E39E238FAEEF00403C95 /* folder-5.png in Resources */,
@@ -1941,7 +1955,6 @@
 				0601E328238FAEEF00403C95 /* app.png in Resources */,
 				0601E486238FAEF000403C95 /* video-camera.png in Resources */,
 				0601E40C238FAEEF00403C95 /* picture-1.png in Resources */,
-				0601E482238FAEF000403C95 /* user.png in Resources */,
 				0601E35D238FAEEF00403C95 /* compass.png in Resources */,
 				0601E35A238FAEEF00403C95 /* compact-disc-1.png in Resources */,
 				0601E336238FAEEF00403C95 /* battery-6.png in Resources */,
@@ -2287,6 +2300,7 @@
 				06EC9F202396736200474EE3 /* HomeTaskTableViewCell.m in Sources */,
 				0633A786239109E60094219D /* HomeViewController.m in Sources */,
 				0612A38B23961DA800A82BB9 /* NoticeTableViewCell.m in Sources */,
+				831705F723B7710600A3493E /* JView.m in Sources */,
 				067A399023A88ABC00740FA3 /* ConfirmOrderViewController.m in Sources */,
 				06ED4C1923A0FD220072EB15 /* DaySelectionTableViewCell.m in Sources */,
 				06CF5D0B23B5EF9A0066A551 /* JNavigationViewController.m in Sources */,

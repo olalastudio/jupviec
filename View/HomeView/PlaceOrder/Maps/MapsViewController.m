@@ -28,6 +28,8 @@
     [_locationManager setDelegate:self];
     [_mapView setDelegate:self];
     [_txtAddress setDelegate:self];
+    
+    [self setTitle:@"Bản đồ"];
 }
 
 - (IBAction)didPressConfirmLocationButton:(id)sender
