@@ -453,6 +453,7 @@
 		4CCA650DE5769D6F06336B2A /* Pods_JupViec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF954FD1F9AE36C1F76ACB82 /* Pods_JupViec.framework */; };
 		831705F423B76F5300A3493E /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 831705F323B76F5300A3493E /* user.png */; };
 		831705F723B7710600A3493E /* JView.m in Sources */ = {isa = PBXBuildFile; fileRef = 831705F623B7710600A3493E /* JView.m */; };
+		8375E7E023BA4ED9008595FD /* LoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8375E7DF23BA4ED9008595FD /* LoginButton.m */; };
 		CEA0919323A796FA00D2502F /* AccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0919223A796FA00D2502F /* AccountInfoViewController.m */; };
 		CEA0919623A79D7300D2502F /* EditAccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0919523A79D7300D2502F /* EditAccountInfoViewController.m */; };
 		CEA83F1723911F60001C1512 /* APIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA83F1523911F5F001C1512 /* APIRequest.m */; };
@@ -954,6 +955,8 @@
 		831705F323B76F5300A3493E /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		831705F523B7710600A3493E /* JView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JView.h; sourceTree = "<group>"; };
 		831705F623B7710600A3493E /* JView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JView.m; sourceTree = "<group>"; };
+		8375E7DE23BA4ED8008595FD /* LoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginButton.h; sourceTree = "<group>"; };
+		8375E7DF23BA4ED9008595FD /* LoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginButton.m; sourceTree = "<group>"; };
 		C5473C782A87585FD2C38DA3 /* Pods-JupViec.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JupViec.release.xcconfig"; path = "Target Support Files/Pods-JupViec/Pods-JupViec.release.xcconfig"; sourceTree = "<group>"; };
 		CEA0919123A796FA00D2502F /* AccountInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountInfoViewController.h; sourceTree = "<group>"; };
 		CEA0919223A796FA00D2502F /* AccountInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountInfoViewController.m; sourceTree = "<group>"; };
@@ -1625,6 +1628,8 @@
 		06CF5D0223B5EF610066A551 /* CustomControll */ = {
 			isa = PBXGroup;
 			children = (
+				8375E7DE23BA4ED8008595FD /* LoginButton.h */,
+				8375E7DF23BA4ED9008595FD /* LoginButton.m */,
 				06CF5D0323B5EF760066A551 /* JViewController.h */,
 				06CF5D0423B5EF760066A551 /* JViewController.m */,
 				06CF5D0623B5EF860066A551 /* JNavigationBar.h */,
@@ -2307,6 +2312,7 @@
 				06FEA1E8239544F2005D58B9 /* DetailOrderViewController.m in Sources */,
 				06CF5D1323B601670066A551 /* JTextView.m in Sources */,
 				06D6BF19239E39B000AB52DB /* MapsViewController.m in Sources */,
+				8375E7E023BA4ED9008595FD /* LoginButton.m in Sources */,
 				06222E2A239E64F100AE24C5 /* Order.m in Sources */,
 				0633A793239117E00094219D /* LoginWithPasswordViewController.m in Sources */,
 			);

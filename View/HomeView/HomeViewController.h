@@ -14,6 +14,8 @@
 #import "User.h"
 #import "JUntil.h"
 
+@class LoginButton;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeViewController : JViewController <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UITabBarControllerDelegate, HomePromotionHeaderDelegate>
@@ -23,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 @property (weak, nonatomic) IBOutlet UITableView    *tbSelectionTask;
-@property (weak, nonatomic) IBOutlet UIButton       *loginBtn;
+@property (weak, nonatomic) IBOutlet LoginButton    *loginBtn;
 @property (nonatomic, strong) User                  *user;
 @property (nonatomic, weak) NSString                *strUserToken;
 @property (nonatomic, strong) NSDictionary          *configurationInfoDict;

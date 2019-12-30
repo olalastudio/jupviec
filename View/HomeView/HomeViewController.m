@@ -19,6 +19,8 @@
 #import "NoticeViewController.h"
 #import "InformationViewController.h"
 
+#import "LoginButton.h"
+
 @interface HomeViewController ()
 {
     PlaceOrderViewController    *orderview;
@@ -136,19 +138,11 @@
     if (_user)
     {
         // user logged in
-        UIImage* userImg = [UIImage imageNamed:@"user-1.png"];
-        [_loginBtn setImage:userImg forState:UIControlStateNormal];
-        _loginBtn.titleLabel.text = @"";
-        
-        CGRect frame = [_loginBtn frame];
-        frame.size.width = 50;
-        frame.size.height = 50;
-        [_loginBtn setFrame:frame];
+        [_loginBtn setLoginStatus:STATUS_LOGEDIN];
     }
     else
     {
-        [_loginBtn setTitle:@"Đăng nhập" forState:UIControlStateNormal];
-        [_loginBtn setImage:nil forState:UIControlStateNormal];
+        [_loginBtn setLoginStatus:STATUS_NONE];
     }
 }
 
