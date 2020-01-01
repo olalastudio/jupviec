@@ -448,11 +448,11 @@
 {
     if (indexPath.section == SESSION_TASK)
     {
-         return 100;
+         return 105;
     }
     else if (indexPath.section == SESSION_PROMOTION)
     {
-        return 150;
+        return 160;
     }
     
     return 100;
@@ -462,11 +462,11 @@
 {
     if (section == SESSION_TASK)
     {
-        return 20;
+        return 10;
     }
     else if (section == SESSION_PROMOTION)
     {
-        return 30;
+        return 20;
     }
     
     return 20;

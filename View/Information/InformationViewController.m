@@ -35,6 +35,7 @@
 {
     [super viewWillAppear:animated];
     
+    [self.navigationController.navigationBar setHidden:YES];
     [self.tabBarController.tabBar setHidden:NO];
 }
 

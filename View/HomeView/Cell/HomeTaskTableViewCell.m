@@ -16,12 +16,12 @@
 
     // shadow
     self.layer.backgroundColor = [UIColor whiteColor].CGColor;
-    self.layer.shadowColor = [UIColor colorWithRed:192/255.0f green:192/255.0f blue:192/255.0f alpha:1].CGColor;
-    self.layer.shadowOffset = CGSizeMake(0, 2.0);
-    self.layer.shadowOpacity = 0.8;
+    self.layer.shadowColor = [UIColor colorWithRed:0/255.0f green:0/255.0f blue:0/255.0f alpha:0.25].CGColor;
+    self.layer.shadowOffset = CGSizeMake(0, 4.0);
+    self.layer.shadowOpacity = 4;
     self.layer.shadowRadius = 4.0;
     self.layer.masksToBounds = NO;
-    self.layer.cornerRadius = 12;
+    self.layer.cornerRadius = 10;
 }
 
 - (void)awakeFromNib {
@@ -34,10 +34,10 @@
 
 -(void)setFrame:(CGRect)frame
 {
-    frame.origin.x += 15;
+    frame.origin.x += 16;
     frame.origin.y -= 5;
-    frame.size.width -= 2*15;
-    frame.size.height -= 2*5;
+    frame.size.width -= 16 + 26;
+    frame.size.height -= 5 + 20;
     
     [super setFrame:frame];
 }

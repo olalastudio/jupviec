@@ -83,7 +83,7 @@
     CGSize size = [collectionView frame].size;
     
     size.height -= 20;
-    size.width -= 80;
+    size.width -= 130;
     
     return size;
 }

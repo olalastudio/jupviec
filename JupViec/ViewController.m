@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "HomeViewController.h"
 #import "APIRequest.h"
+#import "CommonDefines.h"
 
 @interface ViewController ()
 
@@ -19,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [_btskip setTitleColor:UIColorFromRGB(0xFF5B14) forState:UIControlStateNormal];
     
     //show welcome view at the first launch
     [self setupWelcomeView];

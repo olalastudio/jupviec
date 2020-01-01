@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [_txtWelcome setTextColor:UIColorFromRGB(0x000000)];
 }
 
 -(void)viewWillAppear:(BOOL)animated
