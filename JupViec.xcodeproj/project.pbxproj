@@ -454,6 +454,11 @@
 		831705F423B76F5300A3493E /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 831705F323B76F5300A3493E /* user.png */; };
 		831705F723B7710600A3493E /* JView.m in Sources */ = {isa = PBXBuildFile; fileRef = 831705F623B7710600A3493E /* JView.m */; };
 		8375E7E023BA4ED9008595FD /* LoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8375E7DF23BA4ED9008595FD /* LoginButton.m */; };
+		83D0FE3F23BCA14900688924 /* Comfortaa-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83D0FE3A23BCA14800688924 /* Comfortaa-SemiBold.ttf */; };
+		83D0FE4023BCA14900688924 /* Comfortaa-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83D0FE3B23BCA14800688924 /* Comfortaa-Medium.ttf */; };
+		83D0FE4123BCA14900688924 /* Comfortaa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83D0FE3C23BCA14800688924 /* Comfortaa-Regular.ttf */; };
+		83D0FE4223BCA14900688924 /* Comfortaa-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83D0FE3D23BCA14800688924 /* Comfortaa-Light.ttf */; };
+		83D0FE4323BCA14900688924 /* Comfortaa-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83D0FE3E23BCA14900688924 /* Comfortaa-Bold.ttf */; };
 		CEA0919323A796FA00D2502F /* AccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0919223A796FA00D2502F /* AccountInfoViewController.m */; };
 		CEA0919623A79D7300D2502F /* EditAccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0919523A79D7300D2502F /* EditAccountInfoViewController.m */; };
 		CEA83F1723911F60001C1512 /* APIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA83F1523911F5F001C1512 /* APIRequest.m */; };
@@ -957,6 +962,11 @@
 		831705F623B7710600A3493E /* JView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JView.m; sourceTree = "<group>"; };
 		8375E7DE23BA4ED8008595FD /* LoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginButton.h; sourceTree = "<group>"; };
 		8375E7DF23BA4ED9008595FD /* LoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginButton.m; sourceTree = "<group>"; };
+		83D0FE3A23BCA14800688924 /* Comfortaa-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-SemiBold.ttf"; sourceTree = "<group>"; };
+		83D0FE3B23BCA14800688924 /* Comfortaa-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Medium.ttf"; sourceTree = "<group>"; };
+		83D0FE3C23BCA14800688924 /* Comfortaa-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Regular.ttf"; sourceTree = "<group>"; };
+		83D0FE3D23BCA14800688924 /* Comfortaa-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Light.ttf"; sourceTree = "<group>"; };
+		83D0FE3E23BCA14900688924 /* Comfortaa-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Bold.ttf"; sourceTree = "<group>"; };
 		C5473C782A87585FD2C38DA3 /* Pods-JupViec.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JupViec.release.xcconfig"; path = "Target Support Files/Pods-JupViec/Pods-JupViec.release.xcconfig"; sourceTree = "<group>"; };
 		CEA0919123A796FA00D2502F /* AccountInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountInfoViewController.h; sourceTree = "<group>"; };
 		CEA0919223A796FA00D2502F /* AccountInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountInfoViewController.m; sourceTree = "<group>"; };
@@ -1496,6 +1506,7 @@
 		0658BEAB238FAC7800CBBAD1 = {
 			isa = PBXGroup;
 			children = (
+				83D0FE3923BCA12E00688924 /* Font */,
 				CEA83F1823912052001C1512 /* Model */,
 				CEA83F1423911F32001C1512 /* API */,
 				0601E197238FAEEE00403C95 /* Resource */,
@@ -1706,6 +1717,18 @@
 			path = icon;
 			sourceTree = "<group>";
 		};
+		83D0FE3923BCA12E00688924 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				83D0FE3E23BCA14900688924 /* Comfortaa-Bold.ttf */,
+				83D0FE3D23BCA14800688924 /* Comfortaa-Light.ttf */,
+				83D0FE3B23BCA14800688924 /* Comfortaa-Medium.ttf */,
+				83D0FE3C23BCA14800688924 /* Comfortaa-Regular.ttf */,
+				83D0FE3A23BCA14800688924 /* Comfortaa-SemiBold.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		CEA83F1423911F32001C1512 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -1871,6 +1894,7 @@
 				06EC9F2723968A6200474EE3 /* HomePromotionHeaderCell.xib in Resources */,
 				0601E3E9238FAEEF00403C95 /* more.png in Resources */,
 				0601E37C238FAEEF00403C95 /* equal.png in Resources */,
+				83D0FE3F23BCA14900688924 /* Comfortaa-SemiBold.ttf in Resources */,
 				0601E49A238FAEF000403C95 /* zoom-in.png in Resources */,
 				0601E47A238FAEF000403C95 /* upload.png in Resources */,
 				0601E3F2238FAEEF00403C95 /* navigation-1.png in Resources */,
@@ -2101,6 +2125,7 @@
 				0601E348238FAEEF00403C95 /* calendar-4.png in Resources */,
 				0601E351238FAEEF00403C95 /* close.png in Resources */,
 				0601E344238FAEEF00403C95 /* calculator.png in Resources */,
+				83D0FE4023BCA14900688924 /* Comfortaa-Medium.ttf in Resources */,
 				0601E412238FAEEF00403C95 /* placeholder-3.png in Resources */,
 				0601E3D0238FAEEF00403C95 /* locked-5.png in Resources */,
 				0601E352238FAEEF00403C95 /* cloud-computing-1.png in Resources */,
@@ -2120,6 +2145,7 @@
 				0601E450238FAEF000403C95 /* speaker-3.png in Resources */,
 				0601E380238FAEEF00403C95 /* exit.png in Resources */,
 				0601E48E238FAEF000403C95 /* volume-control.png in Resources */,
+				83D0FE4223BCA14900688924 /* Comfortaa-Light.ttf in Resources */,
 				06EC9F1D2396734A00474EE3 /* HomeTaskCell.xib in Resources */,
 				0601E3A8238FAEEF00403C95 /* garbage.png in Resources */,
 				0601E493238FAEF000403C95 /* windows-2.png in Resources */,
@@ -2152,6 +2178,7 @@
 				0601E44F238FAEF000403C95 /* speaker-2.png in Resources */,
 				0601E370238FAEEF00403C95 /* dislike.png in Resources */,
 				0601E357238FAEEF00403C95 /* cloud-computing.png in Resources */,
+				83D0FE4123BCA14900688924 /* Comfortaa-Regular.ttf in Resources */,
 				0601E41B238FAEEF00403C95 /* print.png in Resources */,
 				0601E33E238FAEEF00403C95 /* bluetooth.png in Resources */,
 				0601E3F8238FAEEF00403C95 /* notebook-1.png in Resources */,
@@ -2160,6 +2187,7 @@
 				0601E3F7238FAEEF00403C95 /* note.png in Resources */,
 				0601E384238FAEEF00403C95 /* fax.png in Resources */,
 				0601E3BA238FAEEF00403C95 /* id-card.png in Resources */,
+				83D0FE4323BCA14900688924 /* Comfortaa-Bold.ttf in Resources */,
 				0601E46F238FAEF000403C95 /* tabs.png in Resources */,
 				0601E388238FAEEF00403C95 /* film.png in Resources */,
 				0601E409238FAEEF00403C95 /* photo-camera-1.png in Resources */,
