@@ -16,7 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 {
     NSDictionary* _generalInfo;
 }
-@property (weak, nonatomic) IBOutlet UIImageView *userImage;
+
+@property (weak, nonatomic) IBOutlet UILabel    *addressLb;
 @property (weak, nonatomic) IBOutlet UILabel    *usernameLb;
 @property (weak, nonatomic) IBOutlet UILabel    *phoneNumLb;
 @property (weak, nonatomic) IBOutlet UILabel    *emailLb;

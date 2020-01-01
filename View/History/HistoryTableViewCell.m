@@ -7,6 +7,7 @@
 //
 
 #import "HistoryTableViewCell.h"
+#import "CommonDefines.h"
 
 @implementation HistoryTableViewCell
 @synthesize historyData = _historyData;
@@ -14,6 +15,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+
+    [_txtStatus setTextColor:UIColorFromRGB(0xFFFAFA)];
+    [_txtDate setTextColor:UIColorFromRGB(0xACB3BF)];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

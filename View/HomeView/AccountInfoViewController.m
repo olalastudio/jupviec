@@ -9,6 +9,7 @@
 #import "AccountInfoViewController.h"
 #import "EditAccountInfoViewController.h"
 #import "HomeViewController.h"
+#import "CommonDefines.h"
 
 @interface AccountInfoViewController ()
 
@@ -30,6 +31,10 @@
         }
         _phoneNumLb.text = [_user userPhoneNum];
     }
+    
+    [_addressLb setTextColor:UIColorFromRGB(0xACB3BF)];
+    [_phoneNumLb setTextColor:UIColorFromRGB(0xACB3BF)];
+    [_emailLb setTextColor:UIColorFromRGB(0xACB3BF)];
     
     [self.tabBarController.tabBar setHidden:YES];
 }

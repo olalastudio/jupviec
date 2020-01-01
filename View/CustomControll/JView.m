@@ -27,23 +27,25 @@
 {
     [super layoutSubviews];
     
-    self.backgroundColor = [UIColor clearColor];
+    self.backgroundColor = [UIColor whiteColor];
+    self.layer.cornerRadius = 10;
+    self.layer.masksToBounds = YES;
     
     //coner
-    CALayer *innerlayer = [CALayer layer];
-    innerlayer.frame = self.bounds;
-    innerlayer.masksToBounds = YES;
-    innerlayer.cornerRadius = 8;
-    innerlayer.backgroundColor = [UIColor whiteColor].CGColor;
-    
-    [self.layer insertSublayer:innerlayer atIndex:0];
-    
-    // shadow
-    self.layer.masksToBounds = NO;
-    self.layer.backgroundColor = [UIColor clearColor].CGColor;
-    self.layer.shadowColor = [UIColor colorWithRed:192/255.0f green:192/255.0f blue:192/255.0f alpha:1].CGColor;
-    self.layer.shadowOffset = CGSizeMake(0, 2.0);
-    self.layer.shadowOpacity = 0.8;
-    self.layer.shadowRadius = 4.0;
+//    CALayer *innerlayer = [CALayer layer];
+//    innerlayer.frame = self.bounds;
+//    innerlayer.masksToBounds = YES;
+//    innerlayer.cornerRadius = 8;
+//    innerlayer.backgroundColor = [UIColor whiteColor].CGColor;
+//
+//    [self.layer insertSublayer:innerlayer atIndex:0];
+//
+//    // shadow
+//    self.layer.masksToBounds = NO;
+//    self.layer.backgroundColor = [UIColor clearColor].CGColor;
+//    self.layer.shadowColor = [UIColor colorWithRed:192/255.0f green:192/255.0f blue:192/255.0f alpha:1].CGColor;
+//    self.layer.shadowOffset = CGSizeMake(0, 2.0);
+//    self.layer.shadowOpacity = 0.8;
+//    self.layer.shadowRadius = 4.0;
 }
 @end

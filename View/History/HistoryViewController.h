@@ -18,15 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
 {
     UINavigationController  *naviController;
     NSDictionary            *_definesCode;
-    TASK_TYPE               _selectedType;
 }
 
 @property (strong, nonatomic) User      *user;
 
 @property (weak, nonatomic) IBOutlet UITableView *tbHistory;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *sgSelection;
-
-- (IBAction)didSelectHistorySegment:(id)sender;
 
 -(void)setDefineCodeGetFromServer:(NSDictionary*)codes;
 -(void)addCompleteOrder:(NSDictionary*)orderInfo;

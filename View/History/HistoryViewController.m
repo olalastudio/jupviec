@@ -12,9 +12,7 @@
 
 @interface HistoryViewController ()
 {
-    NSMutableArray *_listDungLe;
-    NSMutableArray *_listDungDKy;
-    NSMutableArray *_listTongVS;
+    NSMutableArray *_listData;
 }
 
 @end
@@ -34,6 +32,8 @@
     [_tbHistory setDelegate:self];
     [_tbHistory setDataSource:self];
     
+    [_tbHistory setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
     //register cell
     [_tbHistory registerNib:[UINib nibWithNibName:@"HistoryCell" bundle:nil] forCellReuseIdentifier:@"idhistorycell"];
     
@@ -44,16 +44,8 @@
 
 -(void)initData
 {
-    if (!_listDungLe) {
-        _listDungLe = [[NSMutableArray alloc] initWithCapacity:0];
-    }
-    
-    if (!_listDungDKy) {
-        _listDungDKy = [[NSMutableArray alloc] initWithCapacity:0];
-    }
-    
-    if (!_listTongVS) {
-        _listTongVS = [[NSMutableArray alloc] initWithCapacity:0];
+    if (!_listData) {
+        _listData = [[NSMutableArray alloc] initWithCapacity:0];
     }
 }
 
@@ -78,6 +70,8 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    
+    [self.navigationController.navigationBar setHidden:NO];
 }
 
 -(void)setUser:(User *)user
@@ -128,20 +122,7 @@
 {
     for (NSDictionary *item in arrayHistory)
     {
-        NSString *requestType = [item objectForKey:ID_REQUEST_TYPE];
-        
-        if ([requestType isEqualToString:CODE_DINHKY])
-        {
-            [_listDungDKy addObject:item];
-        }
-        else if ([requestType isEqualToString:CODE_TONGVESINH])
-        {
-            [_listTongVS addObject:item];
-        }
-        else
-        {
-            [_listDungLe addObject:item];
-        }
+        [_listData addObject:item];
     }
     
     [_tbHistory reloadData];
@@ -158,26 +139,7 @@
 
 -(NSMutableArray*)showSelectedList
 {
-    if (_selectedType == TYPE_DUNGLE)
-    {
-        //Dung le
-        [_sgSelection setSelectedSegmentIndex:0];
-        return _listDungLe;
-    }
-    else if (_selectedType == TYPE_DUNGDINHKY)
-    {
-        //dung dinh ky
-        [_sgSelection setSelectedSegmentIndex:1];
-        return _listDungDKy;
-    }
-    else if (_selectedType == TYPE_TONGVESINH)
-    {
-        //tong ve sinh
-        [_sgSelection setSelectedSegmentIndex:2];
-        return _listTongVS;
-    }
-
-    return [NSMutableArray arrayWithCapacity:0];
+    return _listData;
 }
 
 #pragma mark - TableView Delegate
@@ -222,68 +184,22 @@
     [self.navigationController pushViewController:detailviewController animated:YES];
 }
 
-- (IBAction)didSelectHistorySegment:(id)sender
-{
-    if ([_sgSelection selectedSegmentIndex] == 0)
-    {
-        _selectedType = TYPE_DUNGLE;
-    }
-    else if ([_sgSelection selectedSegmentIndex] == 1)
-    {
-        _selectedType = TYPE_DUNGDINHKY;
-    }
-    else
-    {
-        _selectedType = TYPE_TONGVESINH;
-    }
-    
-    [_tbHistory reloadData];
-}
-
 #pragma mark - OrderDelegate
 -(void)addCompleteOrder:(NSDictionary*)orderInfo
 {
-    NSString *requestype = [orderInfo objectForKey:ID_REQUEST_TYPE];
-    
     [self initData];
     
-    if ([requestype isEqualToString:CODE_DINHKY]) {
-        [_listDungDKy addObject:orderInfo];
-        _selectedType = TYPE_DUNGDINHKY;
-    }
-    else if ([requestype isEqualToString:CODE_TONGVESINH])
-    {
-        [_listTongVS addObject:orderInfo];
-        _selectedType = TYPE_TONGVESINH;
-    }
-    else
-    {
-        [_listDungLe addObject:orderInfo];
-        _selectedType = TYPE_DUNGLE;
-    }
+    [_listData addObject:orderInfo];
     
     [_tbHistory reloadData];
 }
 
 -(void)didStopOder:(NSDictionary *)resultDic
 {
-    NSString *type = [resultDic objectForKey:ID_REQUEST_TYPE];
-    
     NSArray *oldArray;
     
     //get old list
-    if ([type isEqualToString:CODE_SOFA] || [type isEqualToString:CODE_DUNGLE] || [type isEqualToString:CODE_DATLE])
-    {
-        oldArray = [NSArray arrayWithArray:_listDungLe];
-    }
-    else if ([type isEqualToString:CODE_DINHKY])
-    {
-        oldArray = [NSArray arrayWithArray:_listDungDKy];
-    }
-    else //([type isEqualToString:CODE_TONGVESINH])
-    {
-        oldArray = [NSArray arrayWithArray:_listTongVS];
-    }
+    oldArray = [NSArray arrayWithArray:_listData];
     
     NSMutableArray *newArray = [NSMutableArray arrayWithCapacity:0];
     NSString *findID = [resultDic objectForKey:ID_SERVICE];
@@ -303,18 +219,7 @@
     }
     
     //update back old list
-    if ([type isEqualToString:CODE_SOFA] || [type isEqualToString:CODE_DUNGLE] || [type isEqualToString:CODE_DATLE])
-    {
-        _listDungLe = [[NSMutableArray alloc] initWithArray:newArray];
-    }
-    else if ([type isEqualToString:CODE_DINHKY])
-    {
-        _listDungDKy = [[NSMutableArray alloc] initWithArray:newArray];
-    }
-    else //([type isEqualToString:CODE_TONGVESINH])
-    {
-        _listTongVS = [[NSMutableArray alloc] initWithArray:newArray];
-    }
+    _listData = [[NSMutableArray alloc] initWithArray:newArray];
     
     [_tbHistory reloadData];
 }

@@ -24,7 +24,14 @@
 
     // Corner
     self.layer.masksToBounds = YES;
-    self.layer.cornerRadius = 8;
+    self.layer.cornerRadius = 10;
+}
+
+-(void)setFrame:(CGRect)frame
+{
+    frame.size.width = frame.size.width + 8;
+    
+    [super setFrame:frame];
 }
 
 @end
