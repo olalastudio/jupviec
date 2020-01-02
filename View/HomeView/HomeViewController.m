@@ -66,6 +66,7 @@
     [self getCurrentLocation];
     [self getConfiguration];
     
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];
     [self.tabBarController setDelegate:self];
 }
 

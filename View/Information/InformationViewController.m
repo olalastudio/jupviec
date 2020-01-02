@@ -24,6 +24,8 @@
     
     [_tbInformation setDelegate:self];
     [_tbInformation setDataSource:self];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];
 }
 
 -(void)viewDidAppear:(BOOL)animated

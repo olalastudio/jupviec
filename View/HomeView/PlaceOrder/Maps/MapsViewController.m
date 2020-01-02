@@ -7,6 +7,7 @@
 //
 
 #import "MapsViewController.h"
+#import "CommonDefines.h"
 #import "PlaceOrderViewController.h"
 
 @interface MapsViewController ()
@@ -26,8 +27,13 @@
     _locationManager = [[CLLocationManager alloc] init];
     
     [_locationManager setDelegate:self];
-    [_mapView setDelegate:self];
     [_txtAddress setDelegate:self];
+    
+    [_mapView setDelegate:self];
+    
+    _mapView.layer.cornerRadius = 10;
+    _mapView.layer.borderWidth = 1;
+    _mapView.layer.borderColor = [UIColor colorWithRed:210.0f/255.0f green:218.0f/255.0f blue:218.0f/255.0f alpha:0.51].CGColor;
     
     [self setTitle:@"Bản đồ"];
 }

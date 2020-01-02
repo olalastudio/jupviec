@@ -45,6 +45,8 @@
     
     [_tbNotice setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [_tbCoupon setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];
 }
 
 -(void)viewDidAppear:(BOOL)animated
