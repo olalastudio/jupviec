@@ -406,6 +406,10 @@
 		0633A786239109E60094219D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0633A785239109E60094219D /* HomeViewController.m */; };
 		0633A78A239113080094219D /* OTPCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0633A789239113080094219D /* OTPCheckViewController.m */; };
 		0633A793239117E00094219D /* LoginWithPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0633A792239117E00094219D /* LoginWithPasswordViewController.m */; };
+		063A1C3A23BDA04100456CBC /* giatsofa.png in Resources */ = {isa = PBXBuildFile; fileRef = 063A1C3623BDA04000456CBC /* giatsofa.png */; };
+		063A1C3B23BDA04100456CBC /* dungdinhky.png in Resources */ = {isa = PBXBuildFile; fileRef = 063A1C3723BDA04000456CBC /* dungdinhky.png */; };
+		063A1C3C23BDA04100456CBC /* tongvesinh.png in Resources */ = {isa = PBXBuildFile; fileRef = 063A1C3823BDA04100456CBC /* tongvesinh.png */; };
+		063A1C3D23BDA04100456CBC /* dungle.png in Resources */ = {isa = PBXBuildFile; fileRef = 063A1C3923BDA04100456CBC /* dungle.png */; };
 		065105E723A33F0500B5339B /* HomePromotionCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 065105E623A33F0500B5339B /* HomePromotionCollectionCell.xib */; };
 		0658BEB9238FAC7800CBBAD1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658BEB8238FAC7800CBBAD1 /* AppDelegate.m */; };
 		0658BEBC238FAC7800CBBAD1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658BEBB238FAC7800CBBAD1 /* ViewController.m */; };
@@ -898,6 +902,10 @@
 		0633A78E239117890094219D /* CreatePasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreatePasswordViewController.h; sourceTree = "<group>"; };
 		0633A791239117E00094219D /* LoginWithPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginWithPasswordViewController.h; sourceTree = "<group>"; };
 		0633A792239117E00094219D /* LoginWithPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginWithPasswordViewController.m; sourceTree = "<group>"; };
+		063A1C3623BDA04000456CBC /* giatsofa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = giatsofa.png; sourceTree = "<group>"; };
+		063A1C3723BDA04000456CBC /* dungdinhky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dungdinhky.png; sourceTree = "<group>"; };
+		063A1C3823BDA04100456CBC /* tongvesinh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tongvesinh.png; sourceTree = "<group>"; };
+		063A1C3923BDA04100456CBC /* dungle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dungle.png; sourceTree = "<group>"; };
 		065105E623A33F0500B5339B /* HomePromotionCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePromotionCollectionCell.xib; sourceTree = "<group>"; };
 		0658BEB4238FAC7800CBBAD1 /* JupViec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JupViec.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0658BEB7238FAC7800CBBAD1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1742,6 +1750,10 @@
 		831705F223B76F3B00A3493E /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				063A1C3723BDA04000456CBC /* dungdinhky.png */,
+				063A1C3923BDA04100456CBC /* dungle.png */,
+				063A1C3623BDA04000456CBC /* giatsofa.png */,
+				063A1C3823BDA04100456CBC /* tongvesinh.png */,
 				831705F323B76F5300A3493E /* user.png */,
 			);
 			path = icon;
@@ -1864,6 +1876,7 @@
 				0601E3B0238FAEEF00403C95 /* hourglass-1.png in Resources */,
 				0601E350238FAEEF00403C95 /* clock.png in Resources */,
 				0601E394238FAEEF00403C95 /* folder-13.png in Resources */,
+				063A1C3B23BDA04100456CBC /* dungdinhky.png in Resources */,
 				0601E410238FAEEF00403C95 /* placeholder-1.png in Resources */,
 				0601E359238FAEEF00403C95 /* command.png in Resources */,
 				0601E329238FAEEF00403C95 /* archive-1.png in Resources */,
@@ -1978,6 +1991,7 @@
 				0601E478238FAEF000403C95 /* unlocked-2.png in Resources */,
 				0601E3DD238FAEEF00403C95 /* megaphone.png in Resources */,
 				0601E3E8238FAEEF00403C95 /* more-2.png in Resources */,
+				063A1C3C23BDA04100456CBC /* tongvesinh.png in Resources */,
 				0601E436238FAEF000403C95 /* settings-8.png in Resources */,
 				0601E37A238FAEEF00403C95 /* equal-1.png in Resources */,
 				0658BEC4238FAC7800CBBAD1 /* LaunchScreen.storyboard in Resources */,
@@ -2002,6 +2016,7 @@
 				0601E3CE238FAEEF00403C95 /* locked-3.png in Resources */,
 				0601E472238FAEF000403C95 /* television.png in Resources */,
 				0601E3CF238FAEEF00403C95 /* locked-4.png in Resources */,
+				063A1C3A23BDA04100456CBC /* giatsofa.png in Resources */,
 				0601E3A5238FAEEF00403C95 /* funnel.png in Resources */,
 				83D0FE5823BCC4A500688924 /* Roboto-Bold.ttf in Resources */,
 				06FEA1E12394CBCC005D58B9 /* HistoryCell.xib in Resources */,
@@ -2169,6 +2184,7 @@
 				0601E3B1238FAEEF00403C95 /* hourglass-2.png in Resources */,
 				0601E42B238FAEF000403C95 /* server-1.png in Resources */,
 				0601E3F5238FAEEF00403C95 /* newspaper.png in Resources */,
+				063A1C3D23BDA04100456CBC /* dungle.png in Resources */,
 				0612A38623961D7E00A82BB9 /* NoticeCell.xib in Resources */,
 				0601E434238FAEF000403C95 /* settings-6.png in Resources */,
 				0601E487238FAEF000403C95 /* video-player-1.png in Resources */,

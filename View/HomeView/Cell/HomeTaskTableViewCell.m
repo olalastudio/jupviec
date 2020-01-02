@@ -7,6 +7,7 @@
 //
 
 #import "HomeTaskTableViewCell.h"
+#import "CommonDefines.h"
 
 @implementation HomeTaskTableViewCell
 
@@ -30,6 +31,9 @@
     
     [self setBackgroundColor:[UIColor clearColor]];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    [_txtTitle setTextColor:UIColorFromRGB(0x000000)];
+    [_txtDescription setTextColor:UIColorFromRGB(0x5C5C5C)];
 }
 
 -(void)setFrame:(CGRect)frame
@@ -84,20 +88,24 @@
 {
     switch (_taskType) {
         case TYPE_DUNGLE:
-            [_imgIcon setImage:[UIImage imageNamed:@"add-2"]];
-            [_txtDescription setText:@"Theo giờ, khi có nhu cầu"];
+            [_imgIcon setImage:[UIImage imageNamed:@"dungle.png"]];
+            [_txtTitle setText:@"Dùng lẻ"];
+            [_txtDescription setText:@"Sử dụng dịch vụ theo giờ khi có nhu cầu"];
             break;
         case TYPE_DUNGDINHKY:
-            [_imgIcon setImage:[UIImage imageNamed:@"calendar-1"]];
-            [_txtDescription setText:@"Hàng tuần, giá ưu đãi"];
+            [_imgIcon setImage:[UIImage imageNamed:@"dungdinhky.png"]];
+            [_txtTitle setText:@"Dùng định kỳ"];
+            [_txtDescription setText:@"Sử dụng dịch vụ theo giờ định kỳ trong tuần"];
             break;
         case TYPE_TONGVESINH:
-            [_imgIcon setImage:[UIImage imageNamed:@"help"]];
-            [_txtDescription setText:@"Làm sạch chuyên sâu"];
+            [_imgIcon setImage:[UIImage imageNamed:@"tongvesinh.png"]];
+            [_txtTitle setText:@"Tổng vệ sinh"];
+            [_txtDescription setText:@"Vệ sinh tổng hợp chuyên sâu"];
             break;
         case TYPE_JUPSOFA:
-            [_imgIcon setImage:[UIImage imageNamed:@"diploma"]];
-            [_txtDescription setText:@"Giặt sofa/ nệm/ thảm/ rèm"];
+            [_imgIcon setImage:[UIImage imageNamed:@"giatsofa.png"]];
+            [_txtTitle setText:@"Giặt sofa, rèm"];
+            [_txtDescription setText:@"Làm sạch sofa,rem,là,ủi theo yêu cầu"];
             break;
         default:
             break;
