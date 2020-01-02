@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailOrderViewController : JViewController
 {
-    
+    NSDictionary            *_definesCode;
 }
 
 @property id<DetailOrderViewDelegate>           delegate;
@@ -60,6 +60,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(IBAction)didPressRateButton:(id)sender;
 - (IBAction)didPressStopServiceButton:(id)sender;
+
+-(void)setDefineCodeGetFromServer:(NSDictionary*)codes;
 
 @end
 

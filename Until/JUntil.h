@@ -27,6 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSString*)stringFromDate:(NSDate*)date;
 +(NSDate*)dateFromString:(NSString*)string;
 
++(NSString*)stringDisplayWithID:(NSString*)strID withCategory:(NSString*)category fromDefinesDictionary:(NSDictionary*)defines;
++(UIColor*)colorDisplayForStatusID:(NSString*)colorID;
+
 +(void)sendFCMDeviceTokenToServer:(NSString* _Nullable )userToken;
 
 +(void)showPopup:(UIViewController*)sender responsecode:(RESPONSE_CODE)code;

@@ -86,8 +86,9 @@
     
     NSString *workHour = [_historyData objectForKey:ID_WORKING_HOUR];
     NSString *workTime = [_historyData objectForKey:ID_WORKING_TIME];
-    
-    [_txtWorkTime setText:[NSString stringWithFormat:@"Giờ làm việc: %@ - Thời gian: %@h",workHour, workTime]];
+    NSString *requestType = [_historyData objectForKey:ID_REQUEST_TYPE];
+    NSString *strType = [self stringDisplayWithRequestType:requestType];
+    [_txtWorkTime setText:[NSString stringWithFormat:@"%@ - Giờ làm việc: %@ - Thời gian: %@h", strType, workHour, workTime]];
     
     NSString *strLocation = [_historyData objectForKey:ID_LOCATION];
     [_txtWorkAddress setText:strLocation];
@@ -97,5 +98,20 @@
     
     double totalMoney = [[_historyData objectForKey:ID_TOTAL_PRICE] doubleValue];
     [_txtTotalMoney setText:[NSString stringWithFormat:@"%0.3fđ",totalMoney]];
+}
+
+-(NSString*)stringDisplayWithRequestType:(NSString*)type
+{
+    NSArray *types = [_definesCode objectForKey:ID_REQUEST_TYPE];
+    
+    NSString *strType = @"";
+    for (NSDictionary* item in types) {
+        if ([[item objectForKey:ID_CODE] isEqualToString:type]) {
+            strType = [item objectForKey:ID_NAME];
+            break;
+        }
+    }
+    
+    return strType;
 }
 @end

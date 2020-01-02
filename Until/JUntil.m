@@ -133,6 +133,45 @@
     
     return [formater dateFromString:string];
 }
+
+#pragma mark - Define code
++(NSString*)stringDisplayWithID:(NSString*)strID withCategory:(NSString*)category fromDefinesDictionary:(NSDictionary*)defines
+{
+    NSArray *types = [defines objectForKey:category];
+    
+    NSString *strType = @"";
+    for (NSDictionary* item in types) {
+        if ([[item objectForKey:ID_CODE] isEqualToString:strID]) {
+            strType = [item objectForKey:ID_NAME];
+            break;
+        }
+    }
+    
+    return strType;
+}
+
++(UIColor*)colorDisplayForStatusID:(NSString*)colorID
+{
+    if ([colorID isEqualToString:CODE_DANGYEUCAU] || [colorID isEqualToString:CODE_DANGSAPXEP] || [colorID isEqualToString:CODE_DASAPXEP])
+    {
+        return UIColorFromRGB(0x04C400);
+    }
+    else if ([colorID isEqualToString:CODE_DANGDONDEP])
+    {
+        return UIColorFromRGB(0xFF8F60);
+    }
+    else if ([colorID isEqualToString:CODE_DADONDEP])
+    {
+        return UIColorFromRGB(0x8E1DE8);
+    }
+    else
+    {
+        return UIColorFromRGB(0xACB3BF);
+    }
+    
+    return [UIColor clearColor];
+}
+
 #pragma mark - Popup
 +(void)showPopup:(UIViewController*)sender responsecode:(RESPONSE_CODE)code
 {

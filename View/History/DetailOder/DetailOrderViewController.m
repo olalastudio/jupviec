@@ -98,6 +98,11 @@
     return _detailInfo;
 }
 
+-(void)setDefineCodeGetFromServer:(NSMutableDictionary *)codes
+{
+    _definesCode = [[NSDictionary alloc] initWithDictionary:codes];
+}
+
 /*
 #pragma mark - Navigation
 
@@ -110,14 +115,16 @@
 
 -(void)updateContentView
 {
+    NSString *status = [_detailInfo objectForKey:ID_REQUEST_STATUS];
+    [_lbStatus setText:[JUntil stringDisplayWithID:status withCategory:ID_REQUEST_STATUS fromDefinesDictionary:_definesCode]];
+    [_lbStatus setBackgroundColor:[JUntil colorDisplayForStatusID:status]];
+    [_lbStatus setTextColor:UIColorFromRGB(0xFFFAFA)];
+    
     NSString *rqType = [_detailInfo objectForKey:ID_REQUEST_TYPE];
-    [_lbServiceValue setText:rqType];
+    [_lbServiceValue setText:[JUntil stringDisplayWithID:rqType withCategory:ID_REQUEST_TYPE fromDefinesDictionary:_definesCode]];
     
     NSString *requester = [_detailInfo objectForKey:ID_REQUESTER];
     [_lbPhoneValue setText:requester];
-    
-    NSString *status = [_detailInfo objectForKey:ID_REQUEST_STATUS];
-    [_lbStatus setText:status];
     
     NSString *requestdate = [_detailInfo objectForKey:ID_UPDATE_DATE];
     NSDate *workdate = [JUntil dateFromString:requestdate];

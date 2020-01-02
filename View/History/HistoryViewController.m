@@ -181,6 +181,7 @@
     [detailviewController setDelegate:self];
     [detailviewController setUser:_user];
     [detailviewController setDetailInfo:item];
+    [detailviewController setDefineCodeGetFromServer:_definesCode];
     
     [self.navigationController pushViewController:detailviewController animated:YES];
 }
