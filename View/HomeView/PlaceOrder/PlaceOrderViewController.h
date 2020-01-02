@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
     TASK_TYPE       _tasktype;
     Order           *_order;
     User            *_user;
+    CLLocationCoordinate2D  _location;
 }
 
 @property (strong, nonatomic) NSDictionary* serviceInfo;

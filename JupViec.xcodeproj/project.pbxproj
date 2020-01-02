@@ -410,6 +410,7 @@
 		063A1C3B23BDA04100456CBC /* dungdinhky.png in Resources */ = {isa = PBXBuildFile; fileRef = 063A1C3723BDA04000456CBC /* dungdinhky.png */; };
 		063A1C3C23BDA04100456CBC /* tongvesinh.png in Resources */ = {isa = PBXBuildFile; fileRef = 063A1C3823BDA04100456CBC /* tongvesinh.png */; };
 		063A1C3D23BDA04100456CBC /* dungle.png in Resources */ = {isa = PBXBuildFile; fileRef = 063A1C3923BDA04100456CBC /* dungle.png */; };
+		063A1C4023BDA53F00456CBC /* JButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 063A1C3F23BDA53F00456CBC /* JButton.m */; };
 		065105E723A33F0500B5339B /* HomePromotionCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 065105E623A33F0500B5339B /* HomePromotionCollectionCell.xib */; };
 		0658BEB9238FAC7800CBBAD1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658BEB8238FAC7800CBBAD1 /* AppDelegate.m */; };
 		0658BEBC238FAC7800CBBAD1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658BEBB238FAC7800CBBAD1 /* ViewController.m */; };
@@ -906,6 +907,8 @@
 		063A1C3723BDA04000456CBC /* dungdinhky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dungdinhky.png; sourceTree = "<group>"; };
 		063A1C3823BDA04100456CBC /* tongvesinh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tongvesinh.png; sourceTree = "<group>"; };
 		063A1C3923BDA04100456CBC /* dungle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dungle.png; sourceTree = "<group>"; };
+		063A1C3E23BDA53F00456CBC /* JButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JButton.h; sourceTree = "<group>"; };
+		063A1C3F23BDA53F00456CBC /* JButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JButton.m; sourceTree = "<group>"; };
 		065105E623A33F0500B5339B /* HomePromotionCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePromotionCollectionCell.xib; sourceTree = "<group>"; };
 		0658BEB4238FAC7800CBBAD1 /* JupViec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JupViec.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0658BEB7238FAC7800CBBAD1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1693,6 +1696,8 @@
 				06B1F32C23B6101400B70CEE /* JLabel.m */,
 				831705F523B7710600A3493E /* JView.h */,
 				831705F623B7710600A3493E /* JView.m */,
+				063A1C3E23BDA53F00456CBC /* JButton.h */,
+				063A1C3F23BDA53F00456CBC /* JButton.m */,
 			);
 			path = CustomControll;
 			sourceTree = "<group>";
@@ -2370,6 +2375,7 @@
 				0612A39C239657E700A82BB9 /* InformationDetailViewController.m in Sources */,
 				0612A3992396531500A82BB9 /* NoticeDetailViewController.m in Sources */,
 				06222E27239E4A7200AE24C5 /* PopupView.m in Sources */,
+				063A1C4023BDA53F00456CBC /* JButton.m in Sources */,
 				0601E49C238FAEF000403C95 /* SignInViewController.m in Sources */,
 				0612A384239617DA00A82BB9 /* InformationViewController.m in Sources */,
 				06B1F32D23B6101400B70CEE /* JLabel.m in Sources */,

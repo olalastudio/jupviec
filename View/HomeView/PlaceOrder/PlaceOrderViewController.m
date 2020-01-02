@@ -168,6 +168,8 @@
 
 -(void)setCurrentLocation:(CLLocationCoordinate2D)currentlocation
 {
+    _location = currentlocation;
+    
     GMSGeocoder*  geocoder = [[GMSGeocoder alloc] init];
     
     [geocoder reverseGeocodeCoordinate:currentlocation completionHandler:^(GMSReverseGeocodeResponse * _Nullable response, NSError * _Nullable error) {
@@ -311,6 +313,7 @@
         case ATTRIBUTE_DIADIEM:
         {
             MapsViewController *mapsview = [self.storyboard instantiateViewControllerWithIdentifier:@"idmapview"];
+            [mapsview setSelectedLocation:_location];
             
             UIViewController *topview = [self.navigationController topViewController];
             

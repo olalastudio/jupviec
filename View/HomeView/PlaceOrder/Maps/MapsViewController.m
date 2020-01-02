@@ -32,6 +32,14 @@
     [self setTitle:@"Bản đồ"];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self reverseGeocodeCoordinate:selectedLocation];
+    [self setupLocationMaker:selectedLocation];
+}
+
 - (IBAction)didPressConfirmLocationButton:(id)sender
 {
     if ([[_txtAddress text] isEqualToString:@""] || [_txtAddress text] == nil)
@@ -53,6 +61,10 @@
     [self.navigationController popToViewController:placeview animated:YES];
 }
 
+-(void)setSelectedLocation:(CLLocationCoordinate2D)location
+{
+    selectedLocation = location;
+}
 #pragma mark - LocationDelegate
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {

@@ -74,7 +74,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="758"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKs-k5-h1k">
-                                <rect key="frame" x="325" y="845" width="68" height="20"/>
+                                <rect key="frame" x="335" y="845" width="58" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="q3j-WG-YF6"/>
                                 </constraints>
@@ -86,13 +86,14 @@
                                     <action selector="didPressSkipButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a6u-c1-TSM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Yj-a6-LkF">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Yj-a6-LkF" customClass="JButton">
                                 <rect key="frame" x="21" y="825" width="372" height="44"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="bft-Gr-JDt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="14"/>
-                                <state key="normal" title="Bắt đầu" backgroundImage="buttonrect.png"/>
+                                <state key="normal" title="Bắt đầu"/>
                                 <connections>
                                     <action selector="didPressStartButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ou5-Wf-g6H"/>
                                 </connections>
@@ -341,13 +342,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhl-lH-J5j">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhl-lH-J5j" customClass="JButton">
                                         <rect key="frame" x="20" y="719" width="344" height="44"/>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="ZO9-iJ-vcG"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="14"/>
-                                        <state key="normal" title="Xác nhận" backgroundImage="buttonrect.png">
+                                        <state key="normal" title="Xác nhận">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -660,7 +662,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lịch sử" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad1-yQ-fcr">
-                                <rect key="frame" x="169.5" y="64" width="75" height="22"/>
+                                <rect key="frame" x="173.5" y="64" width="67" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="JjV-1S-8Jk"/>
                                 </constraints>
@@ -1045,10 +1047,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0h-LL-WDg">
-                                <rect key="frame" x="27" y="685" width="361" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0h-LL-WDg" customClass="JButton">
+                                <rect key="frame" x="20" y="796" width="368" height="44"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Dw9-hb-0IO"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <state key="normal" title="Đánh giá">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1069,6 +1073,11 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="S0h-LL-WDg" firstAttribute="leading" secondItem="nXw-dq-jfK" secondAttribute="leading" constant="20" id="6Ji-Q4-EcZ"/>
+                            <constraint firstItem="nXw-dq-jfK" firstAttribute="trailing" secondItem="S0h-LL-WDg" secondAttribute="trailing" constant="26" id="9IX-Dh-67g"/>
+                            <constraint firstItem="nXw-dq-jfK" firstAttribute="bottom" secondItem="S0h-LL-WDg" secondAttribute="bottom" constant="22" id="MsD-xt-v38"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nXw-dq-jfK"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -1458,46 +1467,81 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="0b4-eT-KC8">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerEllipse.png" translatesAutoresizingMaskIntoConstraints="NO" id="0b4-eT-KC8">
+                                <rect key="frame" x="-40" y="-138" width="655" height="370"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="370" id="IPT-Sm-FC8"/>
+                                </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NVo-U9-Ijh" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VV0-Ey-UzT" customClass="JView">
+                                <rect key="frame" x="12" y="110" width="390" height="786"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZU-uQ-2WN" customClass="JButton">
+                                        <rect key="frame" x="20" y="717" width="350" height="44"/>
+                                        <color key="backgroundColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="2T9-s1-qZS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <state key="normal" title="Xác nhận">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didPressConfirmLocationButton:" destination="5xy-x3-hQD" eventType="touchUpInside" id="yWi-oA-X9t"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vị trí đang chọn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iur-eK-yUV">
+                                        <rect key="frame" x="27" y="34" width="343" height="14"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select your location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6xC-3H-zrQ">
+                                        <rect key="frame" x="27" y="64" width="340" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chọn vị trí của bạn trên bản đồ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZW-hC-dRc">
+                                        <rect key="frame" x="27" y="118" width="343" height="15"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NVo-U9-Ijh" customClass="GMSMapView">
+                                        <rect key="frame" x="26" y="147" width="340" height="527"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="NVo-U9-Ijh" firstAttribute="leading" secondItem="VV0-Ey-UzT" secondAttribute="leading" constant="26" id="3dW-Tq-Tum"/>
+                                    <constraint firstItem="Iur-eK-yUV" firstAttribute="leading" secondItem="VV0-Ey-UzT" secondAttribute="leading" constant="27" id="5Os-UK-IRE"/>
+                                    <constraint firstAttribute="trailing" secondItem="BZW-hC-dRc" secondAttribute="trailing" constant="20" id="7Dg-kx-88Q"/>
+                                    <constraint firstAttribute="trailing" secondItem="NVo-U9-Ijh" secondAttribute="trailing" constant="24" id="8ug-hs-8qp"/>
+                                    <constraint firstItem="BZW-hC-dRc" firstAttribute="top" secondItem="6xC-3H-zrQ" secondAttribute="bottom" constant="20" id="TE8-01-Kbb"/>
+                                    <constraint firstItem="BZW-hC-dRc" firstAttribute="leading" secondItem="VV0-Ey-UzT" secondAttribute="leading" constant="27" id="Tfe-dE-Cfr"/>
+                                    <constraint firstItem="NVo-U9-Ijh" firstAttribute="top" secondItem="BZW-hC-dRc" secondAttribute="bottom" constant="14" id="Wpm-Uq-9nQ"/>
+                                    <constraint firstItem="DZU-uQ-2WN" firstAttribute="top" secondItem="NVo-U9-Ijh" secondAttribute="bottom" constant="43" id="ZhL-bA-Mzq"/>
+                                    <constraint firstAttribute="trailing" secondItem="6xC-3H-zrQ" secondAttribute="trailing" constant="23" id="bnj-aD-ufs"/>
+                                    <constraint firstAttribute="trailing" secondItem="DZU-uQ-2WN" secondAttribute="trailing" constant="20" id="gYs-7l-6VE"/>
+                                    <constraint firstAttribute="bottom" secondItem="DZU-uQ-2WN" secondAttribute="bottom" constant="25" id="jul-OF-aHg"/>
+                                    <constraint firstItem="Iur-eK-yUV" firstAttribute="top" secondItem="VV0-Ey-UzT" secondAttribute="top" constant="34" id="lk9-ZM-QTN"/>
+                                    <constraint firstItem="6xC-3H-zrQ" firstAttribute="leading" secondItem="VV0-Ey-UzT" secondAttribute="leading" constant="27" id="nOr-mp-Bqz"/>
+                                    <constraint firstAttribute="trailing" secondItem="Iur-eK-yUV" secondAttribute="trailing" constant="20" id="oRr-Pv-zMn"/>
+                                    <constraint firstItem="6xC-3H-zrQ" firstAttribute="top" secondItem="Iur-eK-yUV" secondAttribute="bottom" constant="16" id="spg-Ue-hLo"/>
+                                    <constraint firstItem="DZU-uQ-2WN" firstAttribute="leading" secondItem="VV0-Ey-UzT" secondAttribute="leading" constant="20" id="vbR-RY-Snb"/>
+                                </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select your location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6xC-3H-zrQ">
-                                <rect key="frame" x="20" y="103" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZU-uQ-2WN">
-                                <rect key="frame" x="20" y="807" width="374" height="40"/>
-                                <color key="backgroundColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <state key="normal" title="Xác nhận">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="didPressConfirmLocationButton:" destination="5xy-x3-hQD" eventType="touchUpInside" id="yWi-oA-X9t"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="NVo-U9-Ijh" firstAttribute="top" secondItem="SzL-hr-0DV" secondAttribute="top" id="3pL-yl-pfj"/>
-                            <constraint firstItem="NVo-U9-Ijh" firstAttribute="trailing" secondItem="SzL-hr-0DV" secondAttribute="trailing" id="5sm-w6-Mvk"/>
-                            <constraint firstItem="0b4-eT-KC8" firstAttribute="leading" secondItem="SzL-hr-0DV" secondAttribute="leading" id="G4g-Pg-L9C"/>
-                            <constraint firstItem="DZU-uQ-2WN" firstAttribute="leading" secondItem="SzL-hr-0DV" secondAttribute="leading" constant="20" id="GKm-Xn-wqI"/>
-                            <constraint firstItem="0b4-eT-KC8" firstAttribute="top" secondItem="Fa3-xk-pph" secondAttribute="top" id="JpW-kR-ZZ4"/>
-                            <constraint firstItem="NVo-U9-Ijh" firstAttribute="leading" secondItem="SzL-hr-0DV" secondAttribute="leading" id="TQg-pv-GUR"/>
-                            <constraint firstItem="6xC-3H-zrQ" firstAttribute="top" secondItem="SzL-hr-0DV" secondAttribute="top" constant="15" id="Wlu-m6-wok"/>
-                            <constraint firstAttribute="bottom" secondItem="0b4-eT-KC8" secondAttribute="bottom" id="Zmq-Nj-tjO"/>
-                            <constraint firstItem="SzL-hr-0DV" firstAttribute="trailing" secondItem="6xC-3H-zrQ" secondAttribute="trailing" constant="20" id="aFR-YE-JHo"/>
-                            <constraint firstItem="SzL-hr-0DV" firstAttribute="trailing" secondItem="DZU-uQ-2WN" secondAttribute="trailing" constant="20" id="fez-pS-pUe"/>
-                            <constraint firstItem="6xC-3H-zrQ" firstAttribute="leading" secondItem="SzL-hr-0DV" secondAttribute="leading" constant="20" id="oz2-Ld-8Ma"/>
-                            <constraint firstItem="NVo-U9-Ijh" firstAttribute="bottom" secondItem="SzL-hr-0DV" secondAttribute="bottom" id="sVw-Wt-hot"/>
-                            <constraint firstItem="0b4-eT-KC8" firstAttribute="trailing" secondItem="SzL-hr-0DV" secondAttribute="trailing" id="vwY-VN-cDY"/>
-                            <constraint firstItem="SzL-hr-0DV" firstAttribute="bottom" secondItem="DZU-uQ-2WN" secondAttribute="bottom" constant="15" id="zmS-U0-BAP"/>
+                            <constraint firstItem="VV0-Ey-UzT" firstAttribute="leading" secondItem="SzL-hr-0DV" secondAttribute="leading" constant="12" id="8qn-4e-ahz"/>
+                            <constraint firstAttribute="trailing" secondItem="0b4-eT-KC8" secondAttribute="trailing" constant="-201" id="QjB-Z6-H3g"/>
+                            <constraint firstItem="0b4-eT-KC8" firstAttribute="leading" secondItem="Fa3-xk-pph" secondAttribute="leading" constant="-40" id="buS-wc-993"/>
+                            <constraint firstItem="0b4-eT-KC8" firstAttribute="top" secondItem="Fa3-xk-pph" secondAttribute="top" constant="-138" id="clJ-P5-nGI"/>
+                            <constraint firstAttribute="bottom" secondItem="VV0-Ey-UzT" secondAttribute="bottom" id="eEo-O9-qaV"/>
+                            <constraint firstItem="SzL-hr-0DV" firstAttribute="trailing" secondItem="VV0-Ey-UzT" secondAttribute="trailing" constant="12" id="rJA-xu-8nA"/>
+                            <constraint firstItem="VV0-Ey-UzT" firstAttribute="top" secondItem="SzL-hr-0DV" secondAttribute="top" constant="22" id="yam-Lu-1HJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SzL-hr-0DV"/>
                     </view>
@@ -1831,7 +1875,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dịch Vụ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWh-k3-Qc2">
-                                <rect key="frame" x="20" y="77" width="143" height="40"/>
+                                <rect key="frame" x="20" y="77" width="125" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="SM0-lw-AAy"/>
                                 </constraints>
@@ -1907,7 +1951,6 @@
     </scenes>
     <resources>
         <image name="background.jpg" width="720" height="1480"/>
-        <image name="buttonrect.png" width="312" height="44"/>
         <image name="headerEllipse.png" width="375" height="221"/>
         <image name="multiply.png" width="24.891288757324219" height="24.891288757324219"/>
         <image name="star-1.png" width="44.683635711669922" height="44.683635711669922"/>

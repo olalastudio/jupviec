@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (IBAction)didPressConfirmLocationButton:(id)sender;
 
+-(void)setSelectedLocation:(CLLocationCoordinate2D)location;
+
 @end
 
 NS_ASSUME_NONNULL_END
