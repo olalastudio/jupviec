@@ -73,9 +73,13 @@
 -(void)setUser:(User *)user
 {
     _user = user;
+    _strUserToken = [user userToken];
+    _strPhoneNum = [user userPhoneNum];
     
     [[NSUserDefaults standardUserDefaults] setObject:[_user userToken] forKey:ID_USER_TOKEN];
     [[NSUserDefaults standardUserDefaults] setObject:[_user userPhoneNum] forKey:ID_USER_PHONENUMBER];
+    
+    [JUntil sendFCMDeviceTokenToServer:_strUserToken];
 }
 
 -(User*)user
@@ -93,6 +97,8 @@
     
     [_user setUserToken:_strUserToken];
     [[NSUserDefaults standardUserDefaults] setObject:_strUserToken forKey:ID_USER_TOKEN];
+    
+    [JUntil sendFCMDeviceTokenToServer:_strUserToken];
 }
 
 -(NSString*)strUserToken
@@ -214,7 +220,8 @@
 #pragma mark - Login & out
 -(void)logIn:(NSString *)strToken phoneNumber:(NSString *)phonenumber
 {
-    
+    [self setStrUserToken:strToken];
+    [self setStrPhoneNum:phonenumber];
 }
 
 -(BOOL)isLogedIn

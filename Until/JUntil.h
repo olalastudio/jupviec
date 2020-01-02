@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIRequest.h"
 #import "CommonDefines.h"
 
 #include <netinet/in.h>
@@ -25,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(NSString*)stringFromDate:(NSDate*)date;
 +(NSDate*)dateFromString:(NSString*)string;
+
++(void)sendFCMDeviceTokenToServer:(NSString* _Nullable )userToken;
 
 +(void)showPopup:(UIViewController*)sender responsecode:(RESPONSE_CODE)code;
 +(void)showPopup:(UIViewController*)sender responsecode:(RESPONSE_CODE)code completionHandler:(void(^)(POPUP_ACTION action))completionHandler;

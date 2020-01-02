@@ -47,8 +47,12 @@
             NSLog(@"Firebase remote Token : %@",result.token);
             NSLog(@"Firebase remote instance ID : %@",result.instanceID);
             NSString *token = result.token;
-            [[NSUserDefaults standardUserDefaults] setObject:token forKey:ID_FCM_DEVICE_TOKEN];
-            [self sendFCMDeviceTokenToServer];
+            
+            if (![[NSUserDefaults standardUserDefaults] objectForKey:ID_FCM_DEVICE_TOKEN])
+            {
+                [[NSUserDefaults standardUserDefaults] setObject:token forKey:ID_FCM_DEVICE_TOKEN];
+                [JUntil sendFCMDeviceTokenToServer:nil];
+            }
         }
     }];
     
@@ -107,22 +111,6 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-#pragma mark - FCMDeviceToken
--(void)sendFCMDeviceTokenToServer
-{
-    APIRequest* api = [[APIRequest alloc]init];
-    NSString* deviceToken = [[NSUserDefaults standardUserDefaults]objectForKey:ID_FCM_DEVICE_TOKEN];
-    if (deviceToken)
-    {
-        [api requestAPISendDeviceToken:deviceToken forAccount:nil completionHandler:^(NSDictionary * _Nullable resultData, NSError * _Nonnull err) {
-            if (err.code == 200) {
-                NSLog(@"success send device token to server");
-            }
-        }];
-    } else
-        NSLog(@"cannot get device token");
-}
-
 #pragma mark - LocationDelegate
 -(void)requestLocationPermission
 {
@@ -170,7 +158,8 @@
 {
     NSLog(@"did received new token %@",fcmToken);
     [[NSUserDefaults standardUserDefaults] setObject:fcmToken forKey:ID_FCM_DEVICE_TOKEN];
-    [self sendFCMDeviceTokenToServer];
+    
+    [JUntil sendFCMDeviceTokenToServer:nil];
 }
 
 //case FirebaseAppDelegateProxyEnabled : NO

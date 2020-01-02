@@ -47,12 +47,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"idUserHomeVC"])
-    {
-        HomeViewController* homeVC = [segue destinationViewController];
-        homeVC.user = _user;
-        homeVC.strUserToken = _strToken;
-    }
+    
 }
 
 - (void)requestLogin

@@ -245,6 +245,22 @@
     });
 }
 
+#pragma mark - FCMDeviceToken
++(void)sendFCMDeviceTokenToServer:(NSString* _Nullable )userToken
+{
+    APIRequest* api = [[APIRequest alloc]init];
+    NSString* deviceToken = [[NSUserDefaults standardUserDefaults] objectForKey:ID_FCM_DEVICE_TOKEN];
+    if (deviceToken)
+    {
+        [api requestAPISendDeviceToken:deviceToken forAccount:userToken completionHandler:^(NSDictionary * _Nullable resultData, NSError * _Nonnull err) {
+            if (err.code == 200) {
+                NSLog(@"success send device token to server");
+            }
+        }];
+    } else
+        NSLog(@"cannot get device token");
+}
+
 #pragma mark - Internet
 + (INTERNET_STATUS)internetConnectionStatus
 {

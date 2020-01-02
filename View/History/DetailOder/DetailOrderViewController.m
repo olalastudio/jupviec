@@ -8,7 +8,10 @@
 
 #import "DetailOrderViewController.h"
 #import "RateViewController.h"
+
 #import "JUntil.h"
+#import "JLabel.h"
+#import "CommonDefines.h"
 
 #import "APIRequest.h"
 
@@ -25,7 +28,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
  
-    [_txtContent setSelectable:NO];
+    [_lbServiceTitle setTextColor:UIColorFromRGB(0x000000)];
+    [_lbAddressTitle setTextColor:UIColorFromRGB(0x000000)];
+    [_lbPhoneTitle setTextColor:UIColorFromRGB(0x000000)];
+    [_lbOrderDateTitle setTextColor:UIColorFromRGB(0x000000)];
+    [_lbWorkTimeTitle setTextColor:UIColorFromRGB(0x000000)];
+    [_lbWorkHourTitle setTextColor:UIColorFromRGB(0x000000)];
+    [_lbOptionTitle setTextColor:UIColorFromRGB(0x000000)];
+    [_lbPaymentTitle setTextColor:UIColorFromRGB(0x000000)];
+    [_lbNoteTitle setTextColor:UIColorFromRGB(0x000000)];
+    [_lbTotalPriceTitle setTextColor:UIColorFromRGB(0x000000)];
+    
+    [_lbServiceValue setTextColor:UIColorFromRGB(0xACB3BF)];
+    [_lbAddressValue setTextColor:UIColorFromRGB(0xACB3BF)];
+    [_lbPhoneValue setTextColor:UIColorFromRGB(0xACB3BF)];
+    [_lbOrderDateValue setTextColor:UIColorFromRGB(0xACB3BF)];
+    [_lbWorkTimeValue setTextColor:UIColorFromRGB(0xACB3BF)];
+    [_lbWorkHourValue setTextColor:UIColorFromRGB(0xACB3BF)];
+    [_lbOptionValue setTextColor:UIColorFromRGB(0xACB3BF)];
+    [_lbPaymentValue setTextColor:UIColorFromRGB(0xACB3BF)];
+    [_lbNoteValue setTextColor:UIColorFromRGB(0xACB3BF)];
+    [_lbTotalPriceValue setTextColor:UIColorFromRGB(0xACB3BF)];
+    
+    [_btRate setTitleColor:UIColorFromRGB(0xFF5B14) forState:UIControlStateNormal];
+    [_btStopService setTitleColor:UIColorFromRGB(0x000000) forState:UIControlStateNormal];
 }
 
 -(void)loadView
@@ -84,39 +110,48 @@
 
 -(void)updateContentView
 {
-    NSMutableAttributedString *attributeStr = [[NSMutableAttributedString alloc] initWithString:@"\n"];
-    
     NSString *rqType = [_detailInfo objectForKey:ID_REQUEST_TYPE];
-    NSAttributedString *tasktype = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Loại dịch vụ: %@\n\n",rqType]];
-    
-    [attributeStr appendAttributedString:tasktype];
+    [_lbServiceValue setText:rqType];
     
     NSString *requester = [_detailInfo objectForKey:ID_REQUESTER];
-    NSAttributedString *strrequester = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Số điện thoại: %@\n\n",requester]];
-    
-    [attributeStr appendAttributedString:strrequester];
+    [_lbPhoneValue setText:requester];
     
     NSString *status = [_detailInfo objectForKey:ID_REQUEST_STATUS];
-    NSAttributedString *strStatus = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Trạng Thái: %@\n\n",status]];
-    
-    [attributeStr appendAttributedString:strStatus];
+    [_lbStatus setText:status];
     
     NSString *requestdate = [_detailInfo objectForKey:ID_UPDATE_DATE];
-    NSAttributedString *strRequestdate = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Ngày đặt: %@\n\n",requestdate]];
-    
-    [attributeStr appendAttributedString:strRequestdate];
+    NSDate *workdate = [JUntil dateFromString:requestdate];
+    [_lbWorkTimeValue setText:[JUntil stringFromDate:workdate]];
     
     NSString *location = [_detailInfo objectForKey:ID_LOCATION];
-    NSAttributedString *strLocation = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Địa điểm: %@\n\n",location]];
+    [_lbAddressValue setText:location];
     
-    [attributeStr appendAttributedString:strLocation];
+    NSString *worktime = [_detailInfo objectForKey:ID_WORKING_HOUR];
+    [_lbWorkTimeValue setText:worktime];
     
-    NSString *price = [_detailInfo objectForKey:ID_TOTAL_PRICE];
-    NSAttributedString *strPrice = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Tổng tiền: %@\n\n",price]];
+    double workhour = [[_detailInfo objectForKey:ID_WORKING_TIME] doubleValue];
+    [_lbWorkHourValue setText:[NSString stringWithFormat:@"%.1f",workhour]];
     
-    [attributeStr appendAttributedString:strPrice];
+    NSArray *options = [_detailInfo objectForKey:ID_SERVICE_EXTEND];
+    NSString *stroptions = @"";
+    for (NSString *option in options)
+    {
+        stroptions = [stroptions stringByAppendingString:option];
+        
+        if ([options count] > 1) {
+            stroptions = [stroptions stringByAppendingString:@","];
+        }
+    }
+    [_lbOptionValue setText:stroptions];
     
-    [_txtContent setAttributedText:attributeStr];
+    NSString *paymentmethod = [_detailInfo objectForKey:ID_PAYMENT_METHOD];
+    [_lbPaymentValue setText:paymentmethod];
+    
+    NSString *note = [_detailInfo objectForKey:ID_USER_NOTE];
+    [_lbNoteValue setText:[NSString stringWithFormat:@" %@",note]];
+    
+    NSNumber *price = [_detailInfo objectForKey:ID_TOTAL_PRICE];
+    [_lbTotalPriceValue setText:[NSString stringWithFormat:@"%.3fđ",[price doubleValue]]];
     
     [self showStopButton];
     [self showRateButton];
@@ -128,11 +163,11 @@
     
     if ([requestStatus isEqualToString:CODE_DADONDEP])
     {
-        [_btRate setEnabled:YES];
+        [_btRate setHidden:NO];
     }
     else
     {
-        [_btRate setEnabled:NO];
+        [_btRate setHidden:YES];
     }
 }
 
