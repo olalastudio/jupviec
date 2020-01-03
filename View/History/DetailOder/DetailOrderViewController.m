@@ -7,11 +7,9 @@
 //
 
 #import "DetailOrderViewController.h"
-#import "RateViewController.h"
 
 #import "JUntil.h"
 #import "JLabel.h"
-#import "CommonDefines.h"
 
 #import "APIRequest.h"
 
@@ -195,11 +193,11 @@
 -(IBAction)didPressRateButton:(id)sender
 {
     RateViewController *rateview = [self.storyboard instantiateViewControllerWithIdentifier:@"idrateview"];
-    [rateview loadView];
     
     [rateview setUserToken:[_user userToken]];
     [rateview setIDService:[_detailInfo objectForKey:ID_SERVICE]];
     [rateview setServiceInfo:_detailInfo];
+    [rateview setDelegate:self];
     
     [self.navigationController pushViewController:rateview animated:YES];
 }
@@ -243,5 +241,15 @@
     }
     
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)didRateOrder:(NSDictionary *)orderInfo
+{
+    _detailInfo = orderInfo;
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(didRateOder:)])
+    {
+        [_delegate didRateOder:orderInfo];
+    }
 }
 @end

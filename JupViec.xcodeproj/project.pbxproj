@@ -390,6 +390,8 @@
 		0601E49B238FAEF000403C95 /* zoom-out.png in Resources */ = {isa = PBXBuildFile; fileRef = 0601E315238FAEEF00403C95 /* zoom-out.png */; };
 		0601E49C238FAEF000403C95 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601E319238FAEEF00403C95 /* SignInViewController.m */; };
 		0601E49D238FAEF000403C95 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0601E31C238FAEEF00403C95 /* WelcomeViewController.m */; };
+		0608E3CE23BF3180000EE8B1 /* rate.png in Resources */ = {isa = PBXBuildFile; fileRef = 0608E3CC23BF3180000EE8B1 /* rate.png */; };
+		0608E3CF23BF3180000EE8B1 /* unrate.png in Resources */ = {isa = PBXBuildFile; fileRef = 0608E3CD23BF3180000EE8B1 /* unrate.png */; };
 		0612A380239617C100A82BB9 /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0612A37F239617C100A82BB9 /* NoticeViewController.m */; };
 		0612A384239617DA00A82BB9 /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0612A383239617DA00A82BB9 /* InformationViewController.m */; };
 		0612A38623961D7E00A82BB9 /* NoticeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0612A38523961D7E00A82BB9 /* NoticeCell.xib */; };
@@ -872,6 +874,8 @@
 		0601E319238FAEEF00403C95 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		0601E31B238FAEEF00403C95 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		0601E31C238FAEEF00403C95 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		0608E3CC23BF3180000EE8B1 /* rate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rate.png; sourceTree = "<group>"; };
+		0608E3CD23BF3180000EE8B1 /* unrate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unrate.png; sourceTree = "<group>"; };
 		0612A37E239617C100A82BB9 /* NoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeViewController.h; sourceTree = "<group>"; };
 		0612A37F239617C100A82BB9 /* NoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeViewController.m; sourceTree = "<group>"; };
 		0612A382239617DA00A82BB9 /* InformationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
@@ -1587,6 +1591,8 @@
 		0667ECA223B47835004AAA5E /* button */ = {
 			isa = PBXGroup;
 			children = (
+				0608E3CC23BF3180000EE8B1 /* rate.png */,
+				0608E3CD23BF3180000EE8B1 /* unrate.png */,
 				83D0FE4623BCB0E800688924 /* headerEllipse.png */,
 				83D0FE4423BCACAF00688924 /* buttonrect.png */,
 				06CF5D0C23B5EFF20066A551 /* backbutton.png */,
@@ -2001,6 +2007,7 @@
 				0601E37A238FAEEF00403C95 /* equal-1.png in Resources */,
 				0658BEC4238FAC7800CBBAD1 /* LaunchScreen.storyboard in Resources */,
 				0601E490238FAEF000403C95 /* wifi-1.png in Resources */,
+				0608E3CF23BF3180000EE8B1 /* unrate.png in Resources */,
 				0601E36E238FAEEF00403C95 /* diploma.png in Resources */,
 				0601E431238FAEF000403C95 /* settings-3.png in Resources */,
 				0601E495238FAEF000403C95 /* windows-4.png in Resources */,
@@ -2093,6 +2100,7 @@
 				0601E42A238FAEF000403C95 /* send.png in Resources */,
 				83D0FE5923BCC4A500688924 /* Roboto-Italic.ttf in Resources */,
 				0601E3AC238FAEEF00403C95 /* hold.png in Resources */,
+				0608E3CE23BF3180000EE8B1 /* rate.png in Resources */,
 				0601E3FE238FAEEF00403C95 /* notepad-1.png in Resources */,
 				0601E427238FAEF000403C95 /* save.png in Resources */,
 				0601E492238FAEF000403C95 /* windows-1.png in Resources */,

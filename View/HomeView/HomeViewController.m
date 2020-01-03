@@ -547,7 +547,7 @@
     {
         HistoryViewController *historyview = (HistoryViewController*)selectedview;
         
-        [historyview setDefineCodeGetFromServer:[self definesCode:@[ID_REQUEST_TYPE,ID_CLIENT_STATUS, ID_DEFINE_MESSAGE, ID_FEEDBACK_STATUS, ID_REQUEST_STATUS, ID_PAYMENT_STATUS]]];
+        [historyview setDefineCodeGetFromServer:[self definesCode:@[ID_REQUEST_TYPE, ID_CLIENT_STATUS, ID_DEFINE_MESSAGE, ID_FEEDBACK_STATUS, ID_REQUEST_STATUS, ID_PAYMENT_STATUS, ID_PAYMENT_METHOD, ID_SERVICE_EXTEND]]];
         [historyview setUser:_user];
         NSLog(@"select history tab");
     }

@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "JViewController.h"
 
+@protocol RateViewDelegate <NSObject>
+
+-(void)didRateOrder:(NSDictionary*)orderInfo;
+
+@end
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RateViewController : JViewController
@@ -17,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
     NSString    *_idservice;
     NSDictionary    *_serviceInfo;
 }
+
+@property id<RateViewDelegate>      delegate;
 
 @property (weak, nonatomic) IBOutlet UILabel *lbRateScore;
 

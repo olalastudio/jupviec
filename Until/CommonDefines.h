@@ -129,6 +129,7 @@ typedef enum : NSUInteger {
 typedef enum : NSUInteger {
     RESPONSE_CODE_OTHER = 0,
     RESPONSE_CODE_PLACE_ORDER_SUCCESS = 1, //place order success
+    RESPONSE_CODE_RATE_SUCCESS = 2, //rate order success
     RESPONSE_CODE_NORMARL = 200, //Normal operation
     RESPONSE_CODE_NODATA = 204, //is valid auth, but no data
     RESPONSE_CODE_INVALID = 400, //invalid body data, query param, missing header

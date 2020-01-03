@@ -19,6 +19,7 @@
 @end
 
 @implementation RateViewController
+@synthesize delegate = _delegate;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,7 +55,7 @@
     NSNumber *ratescore = [_serviceInfo objectForKey:ID_RATE_SCORE];
     NSString *comment = [_serviceInfo objectForKey:ID_FEEDBACK];
     
-    if (ratescore > 0) {
+    if ([ratescore integerValue] > 0) {
         [_btRate setHidden:YES];
         [_txtComment setText:comment];
         
@@ -101,59 +102,59 @@
 
 -(void)unStarAll
 {
-    [_star1 setImage:[UIImage imageNamed:@"star-1.png"] forState:UIControlStateNormal];
-    [_star2 setImage:[UIImage imageNamed:@"star-1.png"] forState:UIControlStateNormal];
-    [_star3 setImage:[UIImage imageNamed:@"star-1.png"] forState:UIControlStateNormal];
-    [_star4 setImage:[UIImage imageNamed:@"star-1.png"] forState:UIControlStateNormal];
-    [_star5 setImage:[UIImage imageNamed:@"star-1.png"] forState:UIControlStateNormal];
+    [_star1 setImage:[UIImage imageNamed:@"unrate.png"] forState:UIControlStateNormal];
+    [_star2 setImage:[UIImage imageNamed:@"unrate.png"] forState:UIControlStateNormal];
+    [_star3 setImage:[UIImage imageNamed:@"unrate.png"] forState:UIControlStateNormal];
+    [_star4 setImage:[UIImage imageNamed:@"unrate.png"] forState:UIControlStateNormal];
+    [_star5 setImage:[UIImage imageNamed:@"unrate.png"] forState:UIControlStateNormal];
 }
 
 -(void)starAll
 {
-    [_star1 setImage:[UIImage imageNamed:@"starfill.png"] forState:UIControlStateNormal];
-    [_star2 setImage:[UIImage imageNamed:@"starfill.png"] forState:UIControlStateNormal];
-    [_star3 setImage:[UIImage imageNamed:@"starfill.png"] forState:UIControlStateNormal];
-    [_star4 setImage:[UIImage imageNamed:@"starfill.png"] forState:UIControlStateNormal];
-    [_star5 setImage:[UIImage imageNamed:@"starfill.png"] forState:UIControlStateNormal];
+    [_star1 setImage:[UIImage imageNamed:@"rate.png"] forState:UIControlStateNormal];
+    [_star2 setImage:[UIImage imageNamed:@"rate.png"] forState:UIControlStateNormal];
+    [_star3 setImage:[UIImage imageNamed:@"rate.png"] forState:UIControlStateNormal];
+    [_star4 setImage:[UIImage imageNamed:@"rate.png"] forState:UIControlStateNormal];
+    [_star5 setImage:[UIImage imageNamed:@"rate.png"] forState:UIControlStateNormal];
 }
 
 - (IBAction)didPressStar1:(id)sender
 {
-    [_star1 setImage:[UIImage imageNamed:@"starfill.png"] forState:UIControlStateNormal];
-    [_star2 setImage:[UIImage imageNamed:@"star-1.png"] forState:UIControlStateNormal];
-    [_star3 setImage:[UIImage imageNamed:@"star-1.png"] forState:UIControlStateNormal];
-    [_star4 setImage:[UIImage imageNamed:@"star-1.png"] forState:UIControlStateNormal];
-    [_star5 setImage:[UIImage imageNamed:@"star-1.png"] forState:UIControlStateNormal];
+    [_star1 setImage:[UIImage imageNamed:@"rate.png"] forState:UIControlStateNormal];
+    [_star2 setImage:[UIImage imageNamed:@"unrate.png"] forState:UIControlStateNormal];
+    [_star3 setImage:[UIImage imageNamed:@"unrate.png"] forState:UIControlStateNormal];
+    [_star4 setImage:[UIImage imageNamed:@"unrate.png"] forState:UIControlStateNormal];
+    [_star5 setImage:[UIImage imageNamed:@"unrate.png"] forState:UIControlStateNormal];
     
     score = 1;
 }
 
 - (IBAction)didPressStar2:(id)sender {
-    [_star1 setImage:[UIImage imageNamed:@"starfill.png"] forState:UIControlStateNormal];
-    [_star2 setImage:[UIImage imageNamed:@"starfill.png"] forState:UIControlStateNormal];
-    [_star3 setImage:[UIImage imageNamed:@"star-1.png"] forState:UIControlStateNormal];
-    [_star4 setImage:[UIImage imageNamed:@"star-1.png"] forState:UIControlStateNormal];
-    [_star5 setImage:[UIImage imageNamed:@"star-1.png"] forState:UIControlStateNormal];
+    [_star1 setImage:[UIImage imageNamed:@"rate.png"] forState:UIControlStateNormal];
+    [_star2 setImage:[UIImage imageNamed:@"rate.png"] forState:UIControlStateNormal];
+    [_star3 setImage:[UIImage imageNamed:@"unrate.png"] forState:UIControlStateNormal];
+    [_star4 setImage:[UIImage imageNamed:@"unrate.png"] forState:UIControlStateNormal];
+    [_star5 setImage:[UIImage imageNamed:@"unrate.png"] forState:UIControlStateNormal];
     
     score = 2;
 }
 
 - (IBAction)didPressStar3:(id)sender {
-    [_star1 setImage:[UIImage imageNamed:@"starfill.png"] forState:UIControlStateNormal];
-    [_star2 setImage:[UIImage imageNamed:@"starfill.png"] forState:UIControlStateNormal];
-    [_star3 setImage:[UIImage imageNamed:@"starfill.png"] forState:UIControlStateNormal];
-    [_star4 setImage:[UIImage imageNamed:@"star-1.png"] forState:UIControlStateNormal];
-    [_star5 setImage:[UIImage imageNamed:@"star-1.png"] forState:UIControlStateNormal];
+    [_star1 setImage:[UIImage imageNamed:@"rate.png"] forState:UIControlStateNormal];
+    [_star2 setImage:[UIImage imageNamed:@"rate.png"] forState:UIControlStateNormal];
+    [_star3 setImage:[UIImage imageNamed:@"rate.png"] forState:UIControlStateNormal];
+    [_star4 setImage:[UIImage imageNamed:@"unrate.png"] forState:UIControlStateNormal];
+    [_star5 setImage:[UIImage imageNamed:@"unrate.png"] forState:UIControlStateNormal];
     
     score = 3;
 }
 
 - (IBAction)didPressStar4:(id)sender {
-    [_star1 setImage:[UIImage imageNamed:@"starfill.png"] forState:UIControlStateNormal];
-    [_star2 setImage:[UIImage imageNamed:@"starfill.png"] forState:UIControlStateNormal];
-    [_star3 setImage:[UIImage imageNamed:@"starfill.png"] forState:UIControlStateNormal];
-    [_star4 setImage:[UIImage imageNamed:@"starfill.png"] forState:UIControlStateNormal];
-    [_star5 setImage:[UIImage imageNamed:@"star-1.png"] forState:UIControlStateNormal];
+    [_star1 setImage:[UIImage imageNamed:@"rate.png"] forState:UIControlStateNormal];
+    [_star2 setImage:[UIImage imageNamed:@"rate.png"] forState:UIControlStateNormal];
+    [_star3 setImage:[UIImage imageNamed:@"rate.png"] forState:UIControlStateNormal];
+    [_star4 setImage:[UIImage imageNamed:@"rate.png"] forState:UIControlStateNormal];
+    [_star5 setImage:[UIImage imageNamed:@"unrate.png"] forState:UIControlStateNormal];
     
     score = 4;
 }
@@ -175,6 +176,19 @@
         
         if (error.code == 200) {
             NSLog(@"rate service successful %@",resultDict);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (self.delegate && [self.delegate respondsToSelector:@selector(didRateOrder:)])
+                {
+                    [self.delegate didRateOrder:resultDict];
+                }
+            
+                [JUntil showPopup:self responsecode:RESPONSE_CODE_RATE_SUCCESS completionHandler:^(POPUP_ACTION action) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.navigationController popViewControllerAnimated:YES];
+                    });
+                }];
+            });
         }
         else if (error.code == RESPONSE_CODE_NODATA)
         {
