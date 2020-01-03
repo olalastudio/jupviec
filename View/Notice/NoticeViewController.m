@@ -32,19 +32,13 @@
     _listNotices = [[NSMutableArray alloc] initWithCapacity:0];
     _listCoupons = [[NSMutableArray alloc] initWithCapacity:0];
     
-    [_tbNotice setRestorationIdentifier:@"idnoticetable"];
-    [_tbCoupon setRestorationIdentifier:@"idcoupontable"];
-    
     [_tbNotice registerNib:[UINib nibWithNibName:@"NoticeCell" bundle:nil] forCellReuseIdentifier:@"idnoticecell"];
-    [_tbCoupon registerNib:[UINib nibWithNibName:@"CouponCell" bundle:nil] forCellReuseIdentifier:@"idcouponcell"];
+    [_tbNotice registerNib:[UINib nibWithNibName:@"CouponCell" bundle:nil] forCellReuseIdentifier:@"idcouponcell"];
     
     [_tbNotice setDelegate:self];
     [_tbNotice setDataSource:self];
-    [_tbCoupon setDelegate:self];
-    [_tbCoupon setDataSource:self];
     
     [_tbNotice setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    [_tbCoupon setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];
 }
@@ -163,40 +157,28 @@
         _selectedNotice = NOTICE_CHOISE_COUPON;
     }
     
-    [self showSelectedList];
+    [_tbNotice reloadData];
 }
 
 -(void)showSelectedList
 {
     if (_selectedNotice == NOTICE_CHOISE_NOTICE)
     {
-        NSLog(@"Select Notice list");
-        [_tbNotice setHidden:NO];
-        [_tbCoupon setHidden:YES];
-        
-        [_tbNotice reloadData];
-        
         [_sgSelection setSelectedSegmentIndex:0];
     }
     else
     {
-        NSLog(@"Select coupon list");
-        [_tbNotice setHidden:YES];
-        [_tbCoupon setHidden:NO];
-        
-        [_tbCoupon reloadData];
-        
         [_sgSelection setSelectedSegmentIndex:1];
     }
 }
 
 -(NSMutableArray*)getSelectedList
 {
-    if ([_sgSelection selectedSegmentIndex] == 0)
+    if (_selectedNotice == NOTICE_CHOISE_NOTICE)
        {
            return _listNotices;
        }
-       else if ([_sgSelection selectedSegmentIndex] == 1)
+       else if (_selectedNotice == NOTICE_CHOISE_COUPON)
        {
            return _listCoupons;
        }
@@ -217,14 +199,14 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([[tableView restorationIdentifier] isEqualToString:@"idnoticetable"])
+    if (_selectedNotice == NOTICE_CHOISE_NOTICE)
     {
         NoticeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idnoticecell"];
         [cell setNoticeInfo:[_listNotices objectAtIndex:indexPath.row]];
         
         return cell;
     }
-    else if ([[tableView restorationIdentifier] isEqualToString:@"idcoupontable"])
+    else if (_selectedNotice == NOTICE_CHOISE_COUPON)
     {
         CouponTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idcouponcell"];
         
@@ -236,11 +218,11 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([[tableView restorationIdentifier] isEqualToString:@"idnoticetable"])
+    if (_selectedNotice == NOTICE_CHOISE_NOTICE)
     {
         return 90;
     }
-    else if ([[tableView restorationIdentifier] isEqualToString:@"idcoupontable"])
+    else if (_selectedNotice == NOTICE_CHOISE_COUPON)
     {
         return 120;
     }

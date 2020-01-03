@@ -178,9 +178,9 @@
 
 -(void)showStopButton
 {
-    NSString *client_status = [_detailInfo objectForKey:ID_CLIENT_STATUS];
+    NSString *request_status = [_detailInfo objectForKey:ID_REQUEST_STATUS];
     
-    if ([client_status isEqualToString:CODE_YEUCAUDICHVU])
+    if ([request_status isEqualToString:CODE_DANGYEUCAU])
     {
         [_btStopService setHidden:NO];
     }
