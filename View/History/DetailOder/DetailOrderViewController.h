@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "JViewController.h"
 #import "CommonDefines.h"
+
+#import "RateViewController.h"
 #import "User.h"
 
 @class JLabel;
@@ -22,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface DetailOrderViewController : JViewController
+@interface DetailOrderViewController : JViewController <RateViewDelegate>
 {
     NSDictionary            *_definesCode;
 }

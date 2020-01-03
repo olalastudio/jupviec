@@ -228,6 +228,31 @@
 
 -(void)didRateOder:(NSDictionary *)resultDic
 {
+    NSArray *oldArray;
     
+    //get old list
+    oldArray = [NSArray arrayWithArray:_listData];
+    
+    NSMutableArray *newArray = [NSMutableArray arrayWithCapacity:0];
+    NSString *findID = [resultDic objectForKey:ID_SERVICE];
+    
+    //update new value
+    for (NSDictionary* item in oldArray)
+    {
+        NSString *itemID = [item objectForKey:ID_SERVICE];
+        
+        if ([findID isEqualToString:itemID])
+        {
+            [newArray addObject:resultDic];
+        }
+        else{
+            [newArray addObject:item];
+        }
+    }
+    
+    //update back old list
+    _listData = [[NSMutableArray alloc] initWithArray:newArray];
+    
+    [_tbHistory reloadData];
 }
 @end

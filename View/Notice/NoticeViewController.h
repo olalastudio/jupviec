@@ -22,7 +22,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *sgSelection;
 @property (weak, nonatomic) IBOutlet UITableView *tbNotice;
-@property (weak, nonatomic) IBOutlet UITableView *tbCoupon;
 
 - (IBAction)didSelectNoticeType:(id)sender;
 

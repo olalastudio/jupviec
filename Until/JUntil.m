@@ -278,6 +278,22 @@
                 [sender presentViewController:alertcontroll animated:YES completion:nil];
             }
                 break;
+            case RESPONSE_CODE_RATE_SUCCESS:
+            {
+                UIAlertController *alertcontroll = [UIAlertController alertControllerWithTitle:@"Rate order successfull"
+                                                                                       message:@"Have a nice day!"
+                                                                                preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"Xác Nhận"
+                                                                        style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * _Nonnull action){
+                    completionHandler(ACTION_OK);
+                }];
+                
+                [alertcontroll addAction:confirmAction];
+                [sender presentViewController:alertcontroll animated:YES completion:nil];
+            }
+                break;
             default:
                 break;
         }
