@@ -36,6 +36,7 @@
     _mapView.layer.borderColor = [UIColor colorWithRed:210.0f/255.0f green:218.0f/255.0f blue:218.0f/255.0f alpha:0.51].CGColor;
     
     [self setTitle:@"Bản đồ"];
+    self.view.layer.masksToBounds = YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated

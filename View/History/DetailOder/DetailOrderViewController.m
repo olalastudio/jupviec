@@ -52,6 +52,8 @@
     
     [_btRate setTitleColor:UIColorFromRGB(0xFF5B14) forState:UIControlStateNormal];
     [_btStopService setTitleColor:UIColorFromRGB(0x000000) forState:UIControlStateNormal];
+    
+    self.view.layer.masksToBounds = YES;
 }
 
 -(void)loadView

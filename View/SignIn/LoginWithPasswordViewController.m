@@ -80,7 +80,17 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
+    if ([segue.identifier isEqualToString:@"idLoginToNewRegister"])
+    {
+        SignInViewController* signInVC = segue.destinationViewController;
+        [signInVC setIntActionMode:intActionMode];
+    }
+    else if ([segue.identifier isEqualToString:@"idLoginToHomeView"])
+    {
+        HomeViewController* homeVC = segue.destinationViewController;
+        homeVC.strPhoneNum = strUserphone;
+        homeVC.strUserToken = strToken;
+    }
 }
 
 #pragma - Actions

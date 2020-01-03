@@ -19,6 +19,7 @@
     // Do any additional setup after loading the view.
     
     [self.tabBarController.tabBar setHidden:YES];
+    self.view.layer.masksToBounds = YES;
 }
 
 -(void)viewDidAppear:(BOOL)animated

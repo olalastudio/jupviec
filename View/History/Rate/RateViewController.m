@@ -25,6 +25,7 @@
     // Do any additional setup after loading the view.
     
     [self setTitle:@"Đánh giá dịch vụ"];
+    self.view.layer.masksToBounds = YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated

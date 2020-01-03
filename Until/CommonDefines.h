@@ -23,7 +23,7 @@
 #define NETWORK_REACHABILITY_STATUS_CHANGED_NOTIFICATION    @"NETWORK_REACHABILITY_STATUS_CHANGED_NOTIFICATION"
 
 #pragma mark API
-#define ADDRESS_SERVER          @"http://52.221.107.104:8080"
+#define ADDRESS_SERVER          @"http://112.78.4.173:8080"
 #define API_V1                  @"api/v1"
 #define API_GETOTP              @"get-otp"
 #define API_REGISTER            @"register"

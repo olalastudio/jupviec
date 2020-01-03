@@ -37,6 +37,8 @@
     [_emailLb setTextColor:UIColorFromRGB(0xACB3BF)];
     
     [self.tabBarController.tabBar setHidden:YES];
+    
+    self.view.layer.masksToBounds = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
