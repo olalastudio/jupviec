@@ -18,13 +18,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self.tabBarController.tabBar setHidden:YES];
     self.view.layer.masksToBounds = YES;
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController.navigationBar setHidden:NO];
+    [self.tabBarController.tabBar setHidden:YES];
 }
 
 -(void)viewDidDisappear:(BOOL)animated

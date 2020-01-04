@@ -140,26 +140,38 @@
     [_lbWorkHourValue setText:[NSString stringWithFormat:@"%.1f",workhour]];
     
     NSArray *options = [_detailInfo objectForKey:ID_SERVICE_EXTEND];
-    NSString *stroptions = @"";
-    for (NSString *option in options)
+    if (![options isKindOfClass:[NSNull class]])
     {
-        stroptions = [stroptions stringByAppendingString:option];
-        
-        if ([options count] > 1) {
-            stroptions = [stroptions stringByAppendingString:@","];
+        NSString *stroptions = @"";
+        for (NSString *option in options)
+        {
+            stroptions = [stroptions stringByAppendingString:option];
+            
+            if ([options count] > 1) {
+                stroptions = [stroptions stringByAppendingString:@","];
+            }
         }
+        [_lbOptionValue setText:stroptions];
     }
-    [_lbOptionValue setText:stroptions];
     
     NSString *paymentmethod = [_detailInfo objectForKey:ID_PAYMENT_METHOD];
-    [_lbPaymentValue setText:paymentmethod];
+    if (![paymentmethod isKindOfClass:[NSNull class]])
+    {
+        [_lbPaymentValue setText:paymentmethod];
+    }
     
     NSString *note = [_detailInfo objectForKey:ID_USER_NOTE];
-    [_lbNoteValue setText:[NSString stringWithFormat:@" %@",note]];
+    if (![note isKindOfClass:[NSNull class]])
+    {
+        [_lbNoteValue setText:[NSString stringWithFormat:@" %@",note]];
+    }
     
     NSNumber *price = [_detailInfo objectForKey:ID_TOTAL_PRICE];
-    [_lbTotalPriceValue setText:[NSString stringWithFormat:@"%.3fđ",[price doubleValue]]];
-    
+    if (![price isKindOfClass:[NSNull class]])
+    {
+        [_lbTotalPriceValue setText:[NSString stringWithFormat:@"%.3fđ",[price doubleValue]]];
+    }
+        
     [self showStopButton];
     [self showRateButton];
 }
