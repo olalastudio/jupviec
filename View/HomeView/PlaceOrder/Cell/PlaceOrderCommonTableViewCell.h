@@ -12,6 +12,7 @@
 #import <FTPopOverMenu/FTPopOverMenu.h>
 
 @class Order;
+@class JTextView;
 
 @protocol PlaceOrderCommonCellProtocol <NSObject>
 
@@ -33,9 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property id<PlaceOrderCommonCellProtocol>      delegate;
 
-@property (weak, nonatomic) IBOutlet UIImageView *imgIcon;
-@property (weak, nonatomic) IBOutlet UILabel *txtTitle;
-@property (weak, nonatomic) IBOutlet UITextView *txtContent;
+@property (weak, nonatomic) IBOutlet UILabel    *txtTitle;
+@property (weak, nonatomic) IBOutlet JTextView  *txtContent;
 
 -(void)setOderAttribute:(ORDER_ATTRIBUTE)attribute;
 -(ORDER_ATTRIBUTE)orderAttribute;

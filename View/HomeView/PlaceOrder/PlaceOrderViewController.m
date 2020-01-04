@@ -297,11 +297,27 @@
         case ATTRIBUTE_NGAYLAMTRONGTUAN:
             return 120;
             break;
+        case ATTRIBUTE_GHICHU:
+            return 198;
+            break;
         default:
             break;
     }
     
-    return 90;
+    return 88;
+}
+
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 22)];
+    headerview.backgroundColor = [UIColor clearColor];
+    
+    return headerview;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 22;
 }
 
 #pragma mark - PlaceOrderCommonCellDelegate

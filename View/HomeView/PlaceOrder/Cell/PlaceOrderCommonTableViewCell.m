@@ -7,6 +7,7 @@
 //
 
 #import "PlaceOrderCommonTableViewCell.h"
+#import "JTextView.h"
 #import "Order.h"
 
 @implementation PlaceOrderCommonTableViewCell
@@ -19,6 +20,9 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     [_txtContent setDelegate:self];
+    [_txtContent setScrollEnabled:NO];
+    [_txtContent setShowsHorizontalScrollIndicator:NO];
+    [_txtContent setShowsVerticalScrollIndicator:NO];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -59,8 +63,7 @@
     switch (_ordeAttribute) {
         case ATTRIBUTE_DIADIEM:
         {
-            [_imgIcon setImage:[UIImage imageNamed:@"placeholder-3"]];
-            [_txtTitle setText:@"ĐỊA ĐIỂM LÀM VIỆC"];
+            [_txtTitle setText:@"Địa điểm làm việc"];
             
             if ([[_order workAddress] isEqualToString:@""]) {
                 [_txtContent setText:@"Vị trí của bạn"];
@@ -72,11 +75,10 @@
             break;
         case ATTRIBUTE_SONHACANHO:
         {
-            [_imgIcon setImage:[UIImage imageNamed:@"home-1"]];
-            [_txtTitle setText:@"SỐ NHÀ/CĂN HỘ"];
+            [_txtTitle setText:@"Số nhà,căn hộ"];
             
             if ([[_order homeNumber] isEqualToString:@""]) {
-                [_txtContent setText:@"Số nhà/căn hộ"];
+                [_txtContent setText:@"Số nhà,căn hộ"];
             }
             else{
                 [_txtContent setText:[_order homeNumber]];
@@ -85,8 +87,7 @@
             break;
         case ATTRIBUTE_NGAYLAMVIEC:
         {
-            [_imgIcon setImage:[UIImage imageNamed:@"calendar"]];
-            [_txtTitle setText:@"NGÀY LÀM VIỆC"];
+            [_txtTitle setText:@"Ngày làm việc"];
             
             NSDateFormatter *format = [[NSDateFormatter alloc] init];
             [format setDateFormat:@"EEEE, dd/MM/yyyy"];
@@ -96,14 +97,12 @@
         }
             break;
         case ATTRIBUTE_NGAYLAMTRONGTUAN:
-            [_imgIcon setImage:[UIImage imageNamed:@"calendar"]];
-            [_txtTitle setText:@"LÀM CÁC NGÀY TRONG TUẦN"];
+            [_txtTitle setText:@"Làm các ngày trong tuần"];
             [_txtContent setText:@"T2, T4, T7"];
             break;
         case ATTRIBUTE_NGAYKHAOSAT:
         {
-            [_imgIcon setImage:[UIImage imageNamed:@"calendar"]];
-            [_txtTitle setText:@"NGÀY KHẢO SÁT"];
+            [_txtTitle setText:@"Ngày khảo sát"];
             
             NSDateFormatter *format = [[NSDateFormatter alloc] init];
             [format setDateFormat:@"EEEE, dd/MM/yyyy"];
@@ -114,21 +113,18 @@
             break;
         case ATTRIBUTE_GIOKHAOSAT:
         {
-            [_imgIcon setImage:[UIImage imageNamed:@"calendar"]];
-            [_txtTitle setText:@"GIỜ KHẢO SÁT MONG MUỐN"];
+            [_txtTitle setText:@"Giờ khảo sát mong muốn"];
             
             [_txtContent setText:@"Sáng 09:00 - 11:00"];
         }
             break;
         case ATTRIBUTE_GIOLAMVIEC:
-            [_imgIcon setImage:[UIImage imageNamed:@"clock-1"]];
-            [_txtTitle setText:@"THỜI GIAN LÀM VIỆC"];
+            [_txtTitle setText:@"Thời gian làm việc"];
             [_txtContent setText:@"Ca sáng, 08:00 - 10:00"];
             break;
         case ATTRIBUTE_DICHVUKEMTHEO:
         {
-            [_imgIcon setImage:[UIImage imageNamed:@"add-3"]];
-            [_txtTitle setText:@"DỊCH VỤ KÈM THEO"];
+            [_txtTitle setText:@"Dịch vụ kèm theo"];
             [_txtContent setText:@"None"];
             
             if ([[_order extraOption] count] > 0) {
@@ -139,8 +135,7 @@
             break;
         case ATTRIBUTE_HINHTHUCTHANHTOAN:
         {
-            [_imgIcon setImage:[UIImage imageNamed:@"hold"]];
-            [_txtTitle setText:@"HÌNH THỨC THANH TOÁN"];
+            [_txtTitle setText:@"Hình thức thanh toán"];
             [_txtContent setText:@"Tiền mặt/Chuyển khoản"];
             
             if ([[_order paymentMethod] count] > 0) {
@@ -149,13 +144,11 @@
         }
             break;
         case ATTRIBUTE_BANGGIADICHVU:
-            [_imgIcon setImage:[UIImage imageNamed:@"hold"]];
-            [_txtTitle setText:@"BẢNG GIÁ DỊCH VỤ"];
+            [_txtTitle setText:@"Bảng giá dịch vụ"];
             [_txtContent setText:@"- Giặt ghế sofa : 100K"];
             break;
         case ATTRIBUTE_GHICHU:
-            [_imgIcon setImage:[UIImage imageNamed:@"note"]];
-            [_txtTitle setText:@"GHI CHÚ"];
+            [_txtTitle setText:@"Ghi chú"];
             [_txtContent setText:@"- ghi chú"];
             break;
         default:
