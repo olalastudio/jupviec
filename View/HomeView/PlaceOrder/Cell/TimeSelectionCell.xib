@@ -1,101 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15508"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="105" id="Gui-Wm-lrN" customClass="TimeSelectionTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gui-Wm-lrN" id="hkV-kP-2KZ">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="time.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZBw-LS-C4A">
-                        <rect key="frame" x="20" y="5" width="20" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giờ làm việc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHa-vq-SAx">
+                        <rect key="frame" x="27" y="12" width="152" height="14"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="UT4-x6-E0u"/>
-                            <constraint firstAttribute="width" constant="20" id="ad1-xq-fdO"/>
+                            <constraint firstAttribute="height" constant="14" id="d3H-0q-ZIW"/>
                         </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THỜI GIAN LÀM VIỆC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHa-vq-SAx">
-                        <rect key="frame" x="50" y="5" width="344" height="21"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                        <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HwM-ZX-MSz">
-                        <rect key="frame" x="20" y="31" width="374" height="74"/>
-                        <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YDv-Oc-eeh">
-                                <rect key="frame" x="10" y="5" width="354" height="32"/>
-                                <segments>
-                                    <segment title="Sáng"/>
-                                    <segment title="Chiều"/>
-                                    <segment title="Tối"/>
-                                </segments>
-                                <connections>
-                                    <action selector="didSelectWorkShiftSegment:" destination="Gui-Wm-lrN" eventType="valueChanged" id="YHA-3A-FlE"/>
-                                </connections>
-                            </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giờ làm việc :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Diz-PB-cXN">
-                                <rect key="frame" x="10" y="46" width="87" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQn-4x-Gmk">
-                                <rect key="frame" x="107" y="46" width="92" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="2bj-B3-Fzd"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="08:00 - 09:00"/>
-                                <connections>
-                                    <action selector="didPressWorkTimeButton:" destination="Gui-Wm-lrN" eventType="touchUpInside" id="OZu-aV-vSV"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.92942972715736039" green="0.92942972715736039" blue="0.92942972715736039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thời gian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jG-dE-xlZ">
+                        <rect key="frame" x="239" y="12" width="152" height="14"/>
                         <constraints>
-                            <constraint firstItem="YDv-Oc-eeh" firstAttribute="top" secondItem="HwM-ZX-MSz" secondAttribute="top" constant="5" id="57q-Af-aQC"/>
-                            <constraint firstItem="Diz-PB-cXN" firstAttribute="leading" secondItem="HwM-ZX-MSz" secondAttribute="leading" constant="10" id="AQr-qv-Pzg"/>
-                            <constraint firstItem="dQn-4x-Gmk" firstAttribute="top" secondItem="YDv-Oc-eeh" secondAttribute="bottom" constant="10" id="EdR-hO-mK0"/>
-                            <constraint firstItem="Diz-PB-cXN" firstAttribute="top" secondItem="YDv-Oc-eeh" secondAttribute="bottom" constant="10" id="Gd2-AU-0GH"/>
-                            <constraint firstItem="YDv-Oc-eeh" firstAttribute="leading" secondItem="HwM-ZX-MSz" secondAttribute="leading" constant="10" id="Jnq-qu-q7c"/>
-                            <constraint firstAttribute="trailing" secondItem="YDv-Oc-eeh" secondAttribute="trailing" constant="10" id="akF-pk-hAF"/>
-                            <constraint firstItem="dQn-4x-Gmk" firstAttribute="leading" secondItem="Diz-PB-cXN" secondAttribute="trailing" constant="10" id="utF-mI-lb9"/>
+                            <constraint firstAttribute="height" constant="14" id="5PU-hv-gEl"/>
                         </constraints>
-                    </view>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MpN-be-3g0" customClass="JTextView">
+                        <rect key="frame" x="27" y="40" width="152" height="40"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                    </textView>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oU5-oo-ZnJ" customClass="JTextView">
+                        <rect key="frame" x="239" y="40" width="152" height="40"/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="BHa-vq-SAx" firstAttribute="leading" secondItem="ZBw-LS-C4A" secondAttribute="trailing" constant="10" id="0qk-cu-UR5"/>
-                    <constraint firstAttribute="trailing" secondItem="HwM-ZX-MSz" secondAttribute="trailing" constant="20" id="8Vb-39-LiB"/>
-                    <constraint firstAttribute="bottom" secondItem="HwM-ZX-MSz" secondAttribute="bottom" constant="5" id="ELO-5V-fBl"/>
-                    <constraint firstItem="HwM-ZX-MSz" firstAttribute="leading" secondItem="hkV-kP-2KZ" secondAttribute="leading" constant="20" id="Gz4-Hc-LCP"/>
-                    <constraint firstItem="HwM-ZX-MSz" firstAttribute="top" secondItem="BHa-vq-SAx" secondAttribute="bottom" constant="5" id="Jj1-Dc-OSh"/>
-                    <constraint firstAttribute="trailing" secondItem="BHa-vq-SAx" secondAttribute="trailing" constant="20" id="UTb-na-VLR"/>
-                    <constraint firstItem="ZBw-LS-C4A" firstAttribute="leading" secondItem="hkV-kP-2KZ" secondAttribute="leading" constant="20" id="WY8-yY-B0T"/>
-                    <constraint firstItem="BHa-vq-SAx" firstAttribute="top" secondItem="hkV-kP-2KZ" secondAttribute="top" constant="5" id="lBh-PH-77f"/>
-                    <constraint firstItem="ZBw-LS-C4A" firstAttribute="top" secondItem="hkV-kP-2KZ" secondAttribute="top" constant="5" id="ys8-wR-4F1"/>
+                    <constraint firstItem="oU5-oo-ZnJ" firstAttribute="leading" secondItem="MpN-be-3g0" secondAttribute="trailing" constant="60" id="1dt-sS-3UB"/>
+                    <constraint firstAttribute="bottom" secondItem="oU5-oo-ZnJ" secondAttribute="bottom" constant="8" id="2e7-bl-vgK"/>
+                    <constraint firstItem="oU5-oo-ZnJ" firstAttribute="width" secondItem="MpN-be-3g0" secondAttribute="width" id="2l3-aV-Pia"/>
+                    <constraint firstItem="MpN-be-3g0" firstAttribute="top" secondItem="BHa-vq-SAx" secondAttribute="bottom" constant="14" id="8aL-KC-DLU"/>
+                    <constraint firstAttribute="bottom" secondItem="MpN-be-3g0" secondAttribute="bottom" constant="8" id="9MR-DA-XBs"/>
+                    <constraint firstAttribute="trailing" secondItem="5jG-dE-xlZ" secondAttribute="trailing" constant="23" id="9fd-BJ-ERe"/>
+                    <constraint firstItem="5jG-dE-xlZ" firstAttribute="top" secondItem="hkV-kP-2KZ" secondAttribute="top" constant="12" id="X3W-dj-nNk"/>
+                    <constraint firstItem="5jG-dE-xlZ" firstAttribute="leading" secondItem="BHa-vq-SAx" secondAttribute="trailing" constant="60" id="Z71-yM-VmF"/>
+                    <constraint firstItem="5jG-dE-xlZ" firstAttribute="width" secondItem="BHa-vq-SAx" secondAttribute="width" id="atk-zC-XBm"/>
+                    <constraint firstItem="BHa-vq-SAx" firstAttribute="top" secondItem="hkV-kP-2KZ" secondAttribute="top" constant="12" id="ecs-dx-zuS"/>
+                    <constraint firstAttribute="trailing" secondItem="oU5-oo-ZnJ" secondAttribute="trailing" constant="23" id="gi0-UI-sYD"/>
+                    <constraint firstItem="MpN-be-3g0" firstAttribute="leading" secondItem="hkV-kP-2KZ" secondAttribute="leading" constant="27" id="ju7-IK-zV8"/>
+                    <constraint firstItem="oU5-oo-ZnJ" firstAttribute="top" secondItem="5jG-dE-xlZ" secondAttribute="bottom" constant="14" id="sLj-bj-otd"/>
+                    <constraint firstItem="BHa-vq-SAx" firstAttribute="leading" secondItem="hkV-kP-2KZ" secondAttribute="leading" constant="27" id="x03-sh-pSA"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="btWorkTimeValue" destination="dQn-4x-Gmk" id="znW-ty-v2y"/>
-                <outlet property="imgIcon" destination="ZBw-LS-C4A" id="4Jj-lq-I9Q"/>
-                <outlet property="sgShiftWork" destination="YDv-Oc-eeh" id="0Ka-pi-Dyo"/>
-                <outlet property="txtTitle" destination="BHa-vq-SAx" id="DOa-mY-nl6"/>
-                <outlet property="txtWorkTime" destination="Diz-PB-cXN" id="deJ-vt-Qzx"/>
+                <outlet property="txtWorkHour" destination="5jG-dE-xlZ" id="58C-Hz-hy5"/>
+                <outlet property="txtWorkTime" destination="BHa-vq-SAx" id="JQE-iU-ehi"/>
+                <outlet property="workHour" destination="oU5-oo-ZnJ" id="NjM-ef-99S"/>
+                <outlet property="workTime" destination="MpN-be-3g0" id="b8T-DV-uKI"/>
             </connections>
             <point key="canvasLocation" x="-330.43478260869568" y="0.6696428571428571"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="time.png" width="48" height="48"/>
-    </resources>
 </document>

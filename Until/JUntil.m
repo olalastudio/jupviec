@@ -134,6 +134,21 @@
     return [formater dateFromString:string];
 }
 
++(NSInteger)hourFromDate:(NSDate *)date
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSCalendarUnitHour fromDate:date];
+    
+    return [components hour];
+}
+
++(NSInteger)minuteFromDate:(NSDate *)date
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSCalendarUnitMinute fromDate:date];
+    
+    return [components minute];
+}
 #pragma mark - Define code
 +(NSString*)stringDisplayWithID:(NSString*)strID withCategory:(NSString*)category fromDefinesDictionary:(NSDictionary*)defines
 {

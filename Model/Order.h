@@ -21,7 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property   NSDate              *dayOfExamine;
 @property   NSMutableDictionary    *timeOfExamine;
 @property   SHIFT_WORK             workShift;
-@property   NSMutableDictionary    *workTime;
+@property   NSDate                 *workTime;
+@property   double                 workHour;
 @property   NSMutableArray         *extraOption;
 @property   NSMutableDictionary    *paymentMethod;
 @property   NSMutableDictionary    *priceTags;

@@ -7,6 +7,8 @@
 //
 
 #import "TimeSelectionTableViewCell.h"
+#import "JTextView.h"
+#import "JUntil.h"
 
 @implementation TimeSelectionTableViewCell
 @synthesize delegate = _delegate;
@@ -14,6 +16,20 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    [_workTime setDelegate:self];
+    [_workHour setDelegate:self];
+    
+    [_workTime setShowsVerticalScrollIndicator:NO];
+    [_workTime setShowsHorizontalScrollIndicator:NO];
+    [_workTime setScrollEnabled:NO];
+    
+    [_workHour setShowsVerticalScrollIndicator:NO];
+    [_workHour setShowsHorizontalScrollIndicator:NO];
+    [_workHour setScrollEnabled:NO];
+    
+    [_workTime setRestorationIdentifier:@"idworktime"];
+    [_workHour setRestorationIdentifier:@"idworkhour"];
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
@@ -41,80 +57,39 @@
     _indexPath = index;
 }
 
-- (IBAction)didPressWorkTimeButton:(id)sender
-{
-    if (_delegate && [_delegate respondsToSelector:@selector(didClickChangeTimeSelection:index:)])
-    {
-        [_delegate didClickChangeTimeSelection:_ordeAttribute index:_indexPath];
-    }
-}
-
-- (IBAction)didSelectWorkShiftSegment:(id)sender
-{
-    NSMutableDictionary *worktime;
-    SHIFT_WORK  shiftwork = SHIFT_WORK_MORNING;
-    
-    switch ([_sgShiftWork selectedSegmentIndex]) {
-        case SHIFT_WORK_MORNING:
-        {
-            NSString *startTime = @"08:00";
-            NSString *endTime = @"11:30";
-            worktime = [NSMutableDictionary dictionaryWithObjectsAndKeys:startTime,ATTRIBUTE_START_TIME, endTime, ATTRIBUTE_END_TIME, nil];
-            shiftwork = SHIFT_WORK_MORNING;
-        }
-            break;
-        case SHIFT_WORK_AFTERNOON:
-        {
-            NSString *startTime = @"13:00";
-            NSString *endTime = @"16:30";
-            
-            worktime = [NSMutableDictionary dictionaryWithObjectsAndKeys:startTime,ATTRIBUTE_START_TIME, endTime, ATTRIBUTE_END_TIME, nil];
-            shiftwork = SHIFT_WORK_AFTERNOON;
-        }
-            break;
-        case SHIFT_WORK_EVENING:
-        {
-            NSString *startTime = @"17:00";
-            NSString *endTime = @"20:30";
-            
-            worktime = [NSMutableDictionary dictionaryWithObjectsAndKeys:startTime,ATTRIBUTE_START_TIME, endTime, ATTRIBUTE_END_TIME, nil];
-            shiftwork = SHIFT_WORK_EVENING;
-        }
-            break;
-        default:
-            break;
-    }
-    
-    if (_delegate && [_delegate respondsToSelector:@selector(didClickChangeWorkShift:workTime:attribute:index:)]) {
-        [_delegate didClickChangeWorkShift:shiftwork workTime:worktime attribute:_ordeAttribute index:_indexPath];
-    }
-}
-
 -(void)showTime
 {
-    NSMutableDictionary *worktime = [_order workTime];
+    NSDate *worktime = [_order workTime];
+    NSInteger hour = [JUntil hourFromDate:worktime];
+    NSInteger minute = [JUntil minuteFromDate:worktime];
+    double workhour = [_order workHour];
     
     if (_ordeAttribute == ATTRIBUTE_GIOKHAOSAT) {
-        worktime = [_order timeOfExamine];
+        //worktime = [_order timeOfExamine];
     }
     
-    NSString *startTime = [worktime objectForKey:ATTRIBUTE_START_TIME];
-    NSString *endTime = [worktime objectForKey:ATTRIBUTE_END_TIME];
-    
-    [_btWorkTimeValue setTitle:[NSString stringWithFormat:@"%@-%@",startTime,endTime] forState:UIControlStateNormal];
-    
-    switch ([_order workShift]) {
-        case SHIFT_WORK_MORNING:
-            [_sgShiftWork setSelectedSegmentIndex:SHIFT_WORK_MORNING];
-            break;
-        case SHIFT_WORK_AFTERNOON:
-            [_sgShiftWork setSelectedSegmentIndex:SHIFT_WORK_AFTERNOON];
-            break;
-        case SHIFT_WORK_EVENING:
-            [_sgShiftWork setSelectedSegmentIndex:SHIFT_WORK_EVENING];
-            break;
-        default:
-            break;
+    [_workTime setText:[NSString stringWithFormat:@"%2ld:%2ld",(long)hour,(long)minute]];
+    [_workHour setText:[NSString stringWithFormat:@"%.1f",workhour]];
+}
+
+#pragma mark - TextView Delegate
+-(BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    if ([[textView restorationIdentifier] isEqualToString:@"idworktime"])
+    {
+        if (_delegate && [_delegate respondsToSelector:@selector(didClickWorkTimeSelection:index:)])
+        {
+            [_delegate didClickWorkTimeSelection:_ordeAttribute index:_indexPath];
+        }
     }
+    else if ([[textView restorationIdentifier] isEqualToString:@"idworkhour"])
+    {
+        if (_delegate && [_delegate respondsToSelector:@selector(didClickWorkHourSelection:index:)])
+        {
+            [_delegate didClickWorkHourSelection:_ordeAttribute index:_indexPath];
+        }
+    }
+    
+    return NO;
 }
 @end

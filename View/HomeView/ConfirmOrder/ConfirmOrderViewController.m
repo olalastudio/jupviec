@@ -175,11 +175,7 @@
             break;
     }
     
-    double startTime = [JUntil timeNumberFromString:[[_order workTime] objectForKey:ATTRIBUTE_START_TIME]];
-    double endTime = [JUntil timeNumberFromString:[[_order workTime] objectForKey:ATTRIBUTE_END_TIME]];
-    double workhour = endTime - startTime;
-    
-    [_txtTotalMoneyValue setText:[NSString stringWithFormat:@"%.3fđ/%.1fh",[_order totalMoney],workhour]];
+    [_txtTotalMoneyValue setText:[NSString stringWithFormat:@"%.3fđ/%.1fh",[_order totalMoney],[_order workHour]]];
 }
 
 /*
@@ -213,14 +209,13 @@
             [detailService setObject:[JUntil stringFromDate:[_order workDate]] forKey:ID_WORKING_DATE];
             
             //workinghour
-            NSDictionary *workhour = [_order workTime];
-            [detailService setObject:[workhour objectForKey:@"starttime"] forKey:ID_WORKING_HOUR];
+            NSInteger hour = [JUntil hourFromDate:[_order workTime]];
+            NSInteger minute = [JUntil minuteFromDate:[_order workTime]];
+            NSString *strWorkHour = [NSString stringWithFormat:@"%2ld:%2ld",(long)hour,(long)minute];
+            [detailService setObject:strWorkHour forKey:ID_WORKING_HOUR];
             
             //working time
-            double startTime = [JUntil timeNumberFromString:[[_order workTime] objectForKey:ATTRIBUTE_START_TIME]];
-            double endTime = [JUntil timeNumberFromString:[[_order workTime] objectForKey:ATTRIBUTE_END_TIME]];
-            double worktime = endTime - startTime;
-            [detailService setObject:[NSString stringWithFormat:@"%.1f",worktime] forKey:ID_WORKING_TIME];
+            [detailService setObject:[NSString stringWithFormat:@"%.1f",[_order workHour]] forKey:ID_WORKING_TIME];
             
             //extend service
             NSArray *extendservice = [_order extraOption];
@@ -257,14 +252,11 @@
             [detailService setObject:[JUntil stringFromDate:[_order workDate]] forKey:ID_WORKING_DATE];
             
             //workinghour
-            NSDictionary *workhour = [_order workTime];
-            [detailService setObject:[workhour objectForKey:ATTRIBUTE_START_TIME] forKey:ID_WORKING_HOUR];
+            NSDate *workhour = [_order workTime];
+            [detailService setObject:workhour forKey:ID_WORKING_HOUR];
             
             //working time
-            double startTime = [JUntil timeNumberFromString:[[_order workTime] objectForKey:ATTRIBUTE_START_TIME]];
-            double endTime = [JUntil timeNumberFromString:[[_order workTime] objectForKey:ATTRIBUTE_END_TIME]];
-            double worktime = endTime - startTime;
-            [detailService setObject:[NSString stringWithFormat:@"%.1f",worktime] forKey:ID_WORKING_TIME];
+            [detailService setObject:[NSString stringWithFormat:@"%.1f",[_order workHour]] forKey:ID_WORKING_TIME];
             
             //extend service
             NSArray *extendservice = [_order extraOption];
@@ -324,8 +316,8 @@
             [detailService setObject:[JUntil stringFromDate:[_order workDate]] forKey:ID_WORKING_DATE];
             
             //workinghour
-            NSDictionary *workhour = [_order workTime];
-            [detailService setObject:[workhour objectForKey:ATTRIBUTE_START_TIME] forKey:ID_WORKING_HOUR];
+            NSDate *workhour = [_order workTime];
+            [detailService setObject:workhour forKey:ID_WORKING_HOUR];
             
             //user note
             [detailService setObject:[_order note] forKey:ID_USER_NOTE];

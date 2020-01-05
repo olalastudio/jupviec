@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(NSString*)stringFromDate:(NSDate*)date;
 +(NSDate*)dateFromString:(NSString*)string;
++(NSInteger)hourFromDate:(NSDate*)date;
++(NSInteger)minuteFromDate:(NSDate*)date;
 
 +(NSString*)stringDisplayWithID:(NSString*)strID withCategory:(NSString*)category fromDefinesDictionary:(NSDictionary*)defines;
 +(UIColor*)colorDisplayForStatusID:(NSString*)colorID;

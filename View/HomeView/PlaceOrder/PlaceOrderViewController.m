@@ -121,9 +121,7 @@
     double minPrice = [[_serviceInfo objectForKey:ID_MIN_PRICE] unsignedIntValue];
     
     NSArray *extendSerivce = [_order extraOption];
-    double startTime = [JUntil timeNumberFromString:[[_order workTime] objectForKey:ATTRIBUTE_START_TIME]];
-    double endTime = [JUntil timeNumberFromString:[[_order workTime] objectForKey:ATTRIBUTE_END_TIME]];
-    double workhour = endTime - startTime;
+    double workhour = [_order workHour];
     double totalMoney;
     
     if (workhour >= baseHour) {
@@ -290,7 +288,6 @@
     NSNumber *row = [[self getlistDichVu] objectAtIndex:indexPath.row];
     
     switch ([row intValue]) {
-        case ATTRIBUTE_GIOLAMVIEC:
         case ATTRIBUTE_GIOKHAOSAT:
             return 110;
             break;
@@ -366,7 +363,7 @@
             break;
         case ATTRIBUTE_GIOKHAOSAT:
         {
-            [self didClickChangeTimeSelection:ATTRIBUTE_GIOKHAOSAT index:index];
+            
         }
             break;
         case ATTRIBUTE_GIOLAMVIEC:
@@ -385,33 +382,22 @@
 }
 
 #pragma mark - TimeSelectionCell Delegate
--(void)didClickChangeWorkShift:(SHIFT_WORK)workshift workTime:(NSMutableDictionary *)worktime attribute:(ORDER_ATTRIBUTE)attribute index:(nonnull NSIndexPath *)index
+-(void)didClickWorkTimeSelection:(ORDER_ATTRIBUTE)attribute index:(NSIndexPath *)index
 {
-    if (attribute == ATTRIBUTE_GIOLAMVIEC)
-    {
-        [_order setWorkShift:workshift];
-        [_order setWorkTime:worktime];
-    }
-    else if (attribute == ATTRIBUTE_GIOKHAOSAT)
-    {
-        [_order setWorkShift:workshift];
-        [_order setTimeOfExamine:worktime];
-    }
-    
-    [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
-}
-
--(void)didClickChangeTimeSelection:(ORDER_ATTRIBUTE)attribute index:(NSIndexPath *)index
-{
-    NSLog(@"did click change Time");
-    DateTimePickerPopupController *datepicker = [self.storyboard instantiateViewControllerWithIdentifier:@"iddatetimepicker"];
-    [datepicker setOrderAttribute:attribute];
-    [datepicker setOrder:_order];
-    [datepicker setIndexPath:index];
-    [datepicker setDelegate:self];
+    NSLog(@"did change time");
+    DateTimePickerPopupController *timepicker = [self.storyboard instantiateViewControllerWithIdentifier:@"iddatetimepicker"];
+    [timepicker setOrderAttribute:attribute];
+    [timepicker setOrder:_order];
+    [timepicker setIndexPath:index];
+    [timepicker setDelegate:self];
     
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
-    [self presentViewController:datepicker animated:YES completion:nil];
+    [self presentViewController:timepicker animated:YES completion:nil];
+}
+
+-(void)didClickWorkHourSelection:(ORDER_ATTRIBUTE)attribute index:(NSIndexPath *)index
+{
+    NSLog(@"did change hour");
 }
 
 -(void)didClickChangeDaySelection:(ORDER_ATTRIBUTE)sender index:(NSIndexPath *)index
@@ -488,12 +474,12 @@
     [_tbPlaceOrderContent reloadData];
 }
 
--(void)didSelectTime:(ORDER_ATTRIBUTE)sender indexPath:(NSIndexPath *)index workTime:(NSDictionary *)worktime
+-(void)didSelectTime:(ORDER_ATTRIBUTE)sender indexPath:(NSIndexPath *)index workTime:(NSDate *)worktime
 {
     switch (sender) {
         case ATTRIBUTE_GIOLAMVIEC:
         {
-            [_order setWorkTime:[NSMutableDictionary dictionaryWithDictionary:worktime]];
+            [_order setWorkTime:worktime];
         }
             break;
         case ATTRIBUTE_GIOKHAOSAT:

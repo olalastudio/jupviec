@@ -18,6 +18,7 @@
 @synthesize timeOfExamine = _timeOfExamine;
 @synthesize workShift   = _workShift;
 @synthesize workTime = _workTime;
+@synthesize workHour = _workHour;
 @synthesize extraOption = _extraOption;
 @synthesize paymentMethod = _paymentMethod;
 @synthesize priceTags = _priceTags;
@@ -36,6 +37,7 @@
         _dayOfExamine = [NSDate date];
         _timeOfExamine  = [NSMutableDictionary dictionaryWithCapacity:0];
         [self initWorkTime];
+        _workHour = 3;
         _extraOption = [NSMutableArray arrayWithCapacity:0];
         _paymentMethod = [NSMutableDictionary dictionaryWithCapacity:0];
         _note = @"";
@@ -55,11 +57,28 @@
 
 -(void)initWorkTime
 {
-    NSString *startTime = @"08:00";
-    NSString *endTime = @"11:30";
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:[NSDate date]];
     
-    _workShift = SHIFT_WORK_MORNING;
-    _workTime = [NSMutableDictionary dictionaryWithObjectsAndKeys:startTime,ATTRIBUTE_START_TIME, endTime, ATTRIBUTE_END_TIME, nil];
-    _timeOfExamine = [NSMutableDictionary dictionaryWithObjectsAndKeys:startTime,ATTRIBUTE_START_TIME, endTime, ATTRIBUTE_END_TIME, nil];
+    NSInteger hour = [components hour];
+    NSInteger minute = [components minute];
+    
+    if (minute % 10 > 0)
+    {
+        minute = ((minute/10) + 1) * 10;
+    }
+    
+    if (minute >= 60) {
+        minute = 0;
+        hour = hour + 1;
+    }
+    
+    
+    [components setHour:hour];
+    [components setMinute:minute];
+    [components setSecond:0];
+    [components setNanosecond:0];
+    
+    _workTime = [calendar dateFromComponents:components];
 }
 @end

@@ -14,13 +14,13 @@
 @protocol DateTimePickerDelegate <NSObject>
 
 -(void)didSelectDate:(ORDER_ATTRIBUTE)sender date:(NSDate*_Nullable)date indexPath:(NSIndexPath*_Nonnull)index;
--(void)didSelectTime:(ORDER_ATTRIBUTE)sender indexPath:(NSIndexPath*_Nonnull)index workTime:(NSDictionary*_Nonnull)worktime;
+-(void)didSelectTime:(ORDER_ATTRIBUTE)sender indexPath:(NSIndexPath*_Nonnull)index workTime:(NSDate*_Nonnull)worktime;
 
 @end
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DateTimePickerPopupController : UIViewController <FSCalendarDelegate, FSCalendarDataSource, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface DateTimePickerPopupController : UIViewController <FSCalendarDelegate, FSCalendarDataSource>
 {
     ORDER_ATTRIBUTE _orderAttribute;
     NSIndexPath     *_index;
@@ -30,11 +30,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property id<DateTimePickerDelegate>        delegate;
 
 @property (weak, nonatomic) IBOutlet UILabel    *txtTitle;
-@property (weak, nonatomic) IBOutlet FSCalendar *calendarPicker;
 @property (weak, nonatomic) IBOutlet UIButton   *btnConfirm;
 
-@property (weak, nonatomic) IBOutlet UIPickerView *startTime;
-@property (weak, nonatomic) IBOutlet UIPickerView *endTime;
+@property (weak, nonatomic) IBOutlet FSCalendar *calendarPicker;
+@property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
+
 
 - (IBAction)didPressCloseDateTimePickerPopupButton:(id)sender;
 - (IBAction)didPressConfirmTimeButton:(id)sender;
