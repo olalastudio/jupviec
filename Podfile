@@ -7,7 +7,7 @@ target 'JupViec' do
 
   # Pods for JupViec
   pod 'FSCalendar'
-  pod 'FTPopOverMenu'
+  pod 'JGActionSheet'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod 'Firebase/Core', :inhibit_warnings => true

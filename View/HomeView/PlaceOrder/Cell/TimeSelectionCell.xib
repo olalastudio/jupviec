@@ -51,7 +51,7 @@
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="decimalPad" returnKeyType="done"/>
                     </textView>
                 </subviews>
                 <constraints>

@@ -9,7 +9,7 @@
 #import "PlaceOrderViewController.h"
 #import "ConfirmOrderViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
-
+#import <JGActionSheet/JGActionSheet.h>
 #import "JUntil.h"
 
 @interface PlaceOrderViewController (){
@@ -71,6 +71,14 @@
     _order = [[Order alloc] init];
     
     [_order setOrderType:_tasktype];
+    
+    UITapGestureRecognizer *tapgesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tapgesture];
+}
+
+-(void)dismissKeyboard
+{
+    [self.view endEditing:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -395,9 +403,11 @@
     [self presentViewController:timepicker animated:YES completion:nil];
 }
 
--(void)didClickWorkHourSelection:(ORDER_ATTRIBUTE)attribute index:(NSIndexPath *)index
+-(void)didClickWorkHourSelection:(ORDER_ATTRIBUTE)attribute index:(NSIndexPath *)index hourvalue:(double)hour
 {
-    NSLog(@"did change hour");
+    [_order setWorkHour:hour];
+    
+    [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 -(void)didClickChangeDaySelection:(ORDER_ATTRIBUTE)sender index:(NSIndexPath *)index
@@ -423,14 +433,71 @@
 #pragma mark - Payment Delegate
 -(void)didSelectPaymentMethod:(NSDictionary *)code index:(NSIndexPath *)index
 {
-    [_order setPaymentMethod:code];
+    NSArray *paymentmethod = [_serviceInfo objectForKey:ID_PAYMENT_METHOD];
     
-    [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"Phương thức thanh toán" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Bỏ qua" style:UIAlertActionStyleCancel handler:nil];
+    [actionSheet addAction:cancel];
+    
+    //show payment method list
+    for (NSDictionary *item in paymentmethod)
+    {
+        NSString *title = [item objectForKey:ID_NAME];
+        NSString *code = [item objectForKey:ID_CODE];
+        
+        UIAlertAction *actionbutton = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            for (NSDictionary* item in paymentmethod)
+            {
+                if ([[item objectForKey:ID_CODE] isEqualToString:code])
+                {
+                    [self.order setPaymentMethod:[NSMutableDictionary dictionaryWithDictionary:item]];
+                    [self.tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+                    break;
+                }
+            }
+        }];
+        
+        [actionSheet addAction:actionbutton];
+    }
+    
+    //add checked image
+    if ([_order paymentMethod])
+    {
+        for (UIAlertAction *actionitem in [actionSheet actions])
+        {
+            NSString *paymentTitle = [[_order paymentMethod] objectForKey:ID_NAME];
+            NSString *itemTitle = [actionitem title];
+            
+            if ([paymentTitle isEqualToString:itemTitle])
+            {
+                 [actionitem setValue:[[UIImage imageNamed:@"rate.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forKey:@"image"];
+            }
+        }
+    }
+    
+    [self presentViewController:actionSheet animated:YES completion:nil];
 }
 
 -(void)didSelectExtentService:(NSDictionary *)code index:(NSIndexPath *)index
 {
-    [_order setExtraOption:[NSMutableArray arrayWithObjects:code, nil]];
+//    [_order setExtraOption:[NSMutableArray arrayWithObjects:code, nil]];
+    
+    JGActionSheetSection *section1 = [JGActionSheetSection sectionWithTitle:@"Title" message:@"Message" buttonTitles:@[@"Yes", @"No"] buttonStyle:JGActionSheetButtonStyleDefault];
+    JGActionSheetSection *cancelSection = [JGActionSheetSection sectionWithTitle:nil message:nil buttonTitles:@[@"Cancel"] buttonStyle:JGActionSheetButtonStyleCancel];
+
+    [section1 setBackgroundColor:[UIColor clearColor]];
+    NSArray *sections = @[section1, cancelSection];
+
+    JGActionSheet *sheet = [JGActionSheet actionSheetWithSections:sections];
+
+    [sheet setButtonPressedBlock:^(JGActionSheet *sheet, NSIndexPath *indexPath) {
+        [sheet dismissAnimated:YES];
+    }];
+        
+    [sheet showInView:self.view animated:YES];
+    
+    
     
     [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
 }

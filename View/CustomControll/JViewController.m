@@ -25,7 +25,6 @@
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
-
 /*
 #pragma mark - Navigation
 

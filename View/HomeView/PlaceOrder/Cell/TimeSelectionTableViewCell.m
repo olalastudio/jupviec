@@ -84,12 +84,21 @@
     }
     else if ([[textView restorationIdentifier] isEqualToString:@"idworkhour"])
     {
-        if (_delegate && [_delegate respondsToSelector:@selector(didClickWorkHourSelection:index:)])
-        {
-            [_delegate didClickWorkHourSelection:_ordeAttribute index:_indexPath];
-        }
+        return YES;
     }
     
     return NO;
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
+    if ([[textView restorationIdentifier] isEqualToString:@"idworkhour"])
+    {
+        double hour = [[textView text] doubleValue];
+        if (_delegate && [_delegate respondsToSelector:@selector(didClickWorkHourSelection:index:hourvalue:)])
+        {
+            [_delegate didClickWorkHourSelection:_ordeAttribute index:_indexPath hourvalue:hour];
+        }
+    }
 }
 @end

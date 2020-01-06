@@ -29,6 +29,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [_sgSelection setBackgroundColor:[UIColor clearColor]];
+    [_sgSelection setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont fontWithName:@"Roboto-Regular" size:15]} forState:UIControlStateNormal];
+    [_sgSelection setTitleTextAttributes:@{NSForegroundColorAttributeName: UIColorFromRGB(0xFF7E46), NSFontAttributeName: [UIFont fontWithName:@"Roboto-Regular" size:15]} forState:UIControlStateSelected];
+    
     _listNotices = [[NSMutableArray alloc] initWithCapacity:0];
     _listCoupons = [[NSMutableArray alloc] initWithCapacity:0];
     

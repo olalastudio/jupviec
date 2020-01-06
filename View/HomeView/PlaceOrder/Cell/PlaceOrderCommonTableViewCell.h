@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "CommonDefines.h"
 #import <CoreLocation/CoreLocation.h>
-#import <FTPopOverMenu/FTPopOverMenu.h>
 
 @class Order;
 @class JTextView;
