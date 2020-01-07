@@ -453,6 +453,13 @@
     }
 }
 
+-(void)didEndEdittingCell:(NSIndexPath *)index attributeType:(ORDER_ATTRIBUTE)attribute returnValue:(NSString *)strValue
+{
+    if (attribute == ATTRIBUTE_GHICHU)
+    {
+        [_order setNote:strValue];
+    }
+}
 #pragma mark - TimeSelectionCell Delegate
 -(void)didClickWorkTimeSelection:(ORDER_ATTRIBUTE)attribute index:(NSIndexPath *)index
 {
