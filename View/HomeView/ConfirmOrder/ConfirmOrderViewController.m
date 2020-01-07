@@ -200,7 +200,9 @@
             [detailService setObject:CODE_DUNGLE forKey:ID_REQUEST_TYPE];
             
             //requester
-            [detailService setObject:[_user userPhoneNum] forKey:ID_REQUESTER];
+            if ([_user userPhoneNum]) {
+                [detailService setObject:[_user userPhoneNum] forKey:ID_REQUESTER];
+            }
             
             //location
             [detailService setObject:[_order workAddress] forKey:ID_LOCATION];
@@ -243,7 +245,9 @@
             [detailService setObject:CODE_DINHKY forKey:ID_REQUEST_TYPE];
             
             //requester
-            [detailService setObject:[_user userPhoneNum] forKey:ID_REQUESTER];
+            if ([_user userPhoneNum]) {
+                [detailService setObject:[_user userPhoneNum] forKey:ID_REQUESTER];
+            }
             
             //location
             [detailService setObject:[_order workAddress] forKey:ID_LOCATION];
@@ -252,8 +256,10 @@
             [detailService setObject:[JUntil stringFromDate:[_order workDate]] forKey:ID_WORKING_DATE];
             
             //workinghour
-            NSDate *workhour = [_order workTime];
-            [detailService setObject:workhour forKey:ID_WORKING_HOUR];
+            NSInteger hour = [JUntil hourFromDate:[_order workTime]];
+            NSInteger minute = [JUntil minuteFromDate:[_order workTime]];
+            NSString *strWorkHour = [NSString stringWithFormat:@"%2ld:%2ld",(long)hour,(long)minute];
+            [detailService setObject:strWorkHour forKey:ID_WORKING_HOUR];
             
             //working time
             [detailService setObject:[NSString stringWithFormat:@"%.1f",[_order workHour]] forKey:ID_WORKING_TIME];
@@ -271,7 +277,10 @@
             }
             
             //day of week
-            [detailService setObject:[_order workDayInWeek] forKey:ID_WORK_DAYINWEEK];
+            if ([[_order workDayInWeek] count] > 0) {
+                [detailService setObject:[_order workDayInWeek] forKey:ID_WORK_DAYINWEEK];
+            }
+            
             
             //Payment method
             NSString *paymethod = [[_order paymentMethod] objectForKey:@"code"];
@@ -286,7 +295,9 @@
             [detailService setObject:CODE_TONGVESINH forKey:ID_REQUEST_TYPE];
             
             //requester
-            [detailService setObject:[_user userPhoneNum] forKey:ID_REQUESTER];
+            if ([_user userPhoneNum]) {
+                [detailService setObject:[_user userPhoneNum] forKey:ID_REQUESTER];
+            }
             
             //location
             [detailService setObject:[_order workAddress] forKey:ID_LOCATION];
@@ -295,8 +306,10 @@
             [detailService setObject:[JUntil stringFromDate:[_order dayOfExamine]] forKey:ID_WORKING_DATE];
             
             //workinghour
-            NSDictionary *workhour = [_order timeOfExamine];
-            [detailService setObject:[workhour objectForKey:ATTRIBUTE_START_TIME] forKey:ID_WORKING_HOUR];
+            NSInteger hour = [JUntil hourFromDate:[_order timeOfExamine]];
+            NSInteger minute = [JUntil minuteFromDate:[_order timeOfExamine]];
+            NSString *strWorkHour = [NSString stringWithFormat:@"%2ld:%2ld",(long)hour,(long)minute];
+            [detailService setObject:strWorkHour forKey:ID_WORKING_HOUR];
             
             //user note
             [detailService setObject:[_order note] forKey:ID_USER_NOTE];
@@ -316,8 +329,10 @@
             [detailService setObject:[JUntil stringFromDate:[_order workDate]] forKey:ID_WORKING_DATE];
             
             //workinghour
-            NSDate *workhour = [_order workTime];
-            [detailService setObject:workhour forKey:ID_WORKING_HOUR];
+            NSInteger hour = [JUntil hourFromDate:[_order workTime]];
+            NSInteger minute = [JUntil minuteFromDate:[_order workTime]];
+            NSString *strWorkHour = [NSString stringWithFormat:@"%2ld:%2ld",(long)hour,(long)minute];
+            [detailService setObject:strWorkHour forKey:ID_WORKING_HOUR];
             
             //user note
             [detailService setObject:[_order note] forKey:ID_USER_NOTE];

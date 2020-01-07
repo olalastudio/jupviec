@@ -139,6 +139,7 @@ typedef enum : NSUInteger {
     RESPONSE_CODE_NOINTERNET   = 501, //no internet
     RESPONSE_CODE_TIMEOUT      = 502, // timeout
     RESPONSE_CODE_NOT_LOGEDIN  = 503, //not logedin
+    RESPONSE_CODE_MISSING_VALUE = 504, //missing field value
 } RESPONSE_CODE;
 
 #define RESPONSE_TIMEOUT_VALUE  10 // 10s

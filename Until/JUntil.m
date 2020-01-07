@@ -238,6 +238,20 @@
                 [sender presentViewController:alertcontrol animated:YES completion:nil];
             }
                 break;
+            case RESPONSE_CODE_MISSING_VALUE:
+            {
+                NSString *title = @"Thông báo";
+                NSString *message = @"Nội dung dịch vụ còn thiếu. vui lòng nhập đầy đủ nội dung";
+                
+                UIAlertAction *okbutton = [UIAlertAction actionWithTitle:@"Xác nhận" style:UIAlertActionStyleDefault handler:nil];
+                UIAlertController *alertcontrol = [UIAlertController alertControllerWithTitle:title
+                                                                                 message:message
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+                [alertcontrol addAction:okbutton];
+                
+                [sender presentViewController:alertcontrol animated:YES completion:nil];
+            }
+                break;
             default:
                 break;
         }

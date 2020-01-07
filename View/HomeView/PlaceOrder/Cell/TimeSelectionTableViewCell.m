@@ -60,13 +60,14 @@
 -(void)showTime
 {
     NSDate *worktime = [_order workTime];
+
+    if (_ordeAttribute == ATTRIBUTE_GIOKHAOSAT) {
+        worktime = [_order timeOfExamine];
+    }
+    
     NSInteger hour = [JUntil hourFromDate:worktime];
     NSInteger minute = [JUntil minuteFromDate:worktime];
     double workhour = [_order workHour];
-    
-    if (_ordeAttribute == ATTRIBUTE_GIOKHAOSAT) {
-        //worktime = [_order timeOfExamine];
-    }
     
     [_workTime setText:[NSString stringWithFormat:@"%2ld:%2ld",(long)hour,(long)minute]];
     [_workHour setText:[NSString stringWithFormat:@"%.1f",workhour]];
