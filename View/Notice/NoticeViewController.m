@@ -96,8 +96,7 @@
 {
     APIRequest *apirequest = [[APIRequest alloc] init];
     
-    [apirequest requestAPIGetAvailableNoti:[_user userToken] completionHandler:^(NSArray * _Nullable resultDict, NSError * _Nonnull error) {
-       
+    [apirequest requestAPIGetNotifiesWithType:[_user userToken] notifyType:@"notify" completionHandler:^(NSArray * _Nullable resultDict, NSError * _Nonnull error) {
         if (error.code == 200) {
             [self showNotice:resultDict];
         }

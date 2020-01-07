@@ -31,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)requestAPIRateService:(NSString*)token idService:(NSString*)idService rateServiceInfo:(NSDictionary*)rateInfo completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;
 - (void)requestAPIGetAvailableNoti:(NSString*)token completionHandler:(void (^)(NSArray * _Nullable resultDict, NSError * error))completionHandler;
 - (void)requestAPIGetNotiForID:(NSString*)idService token:(NSString*)token completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;
+- (void)requestAPIGetNotifiesWithType:(NSString*)token notifyType:(NSString*)type completionHandler:(void (^)(NSArray * _Nullable resultDict, NSError * error))completionHandler;
 - (void)requestAPIGetAllRequests:(NSString*)token completionHandler:(void (^)(NSArray * _Nullable resultDict, NSError * error))completionHandler;
 - (void)requestAPIGetDetailRequest:(NSString*)token idService:(NSString*)idService completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;
 - (void)requestAPICancelRequest:(NSString*)idService token:(NSString*)token completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler;

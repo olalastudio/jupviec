@@ -502,6 +502,43 @@
     }]resume];
 }
 
+- (void)requestAPIGetNotifiesWithType:(NSString *)token notifyType:(NSString *)type completionHandler:(void (^)(NSArray * _Nullable, NSError * _Nonnull))completionHandler
+{
+    NSURLSessionConfiguration* config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    config.timeoutIntervalForRequest = 30.0;
+    config.timeoutIntervalForResource = 60.0;
+    config.requestCachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+    
+    NSString* apiCommandStr = [API_NOTIFIES_TYPE stringByAppendingPathComponent:type];
+    NSMutableURLRequest* request = [self createURLRequest:[API_V1 stringByAppendingPathComponent:apiCommandStr] withParam:nil];
+    [request setHTTPMethod:@"GET"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:token forHTTPHeaderField:@"Authorization"];
+    
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        //handle response
+        if (response)
+        {
+            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+            NSArray* resultDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            NSLog(@"get noti type %@: %@", type, resultDict);
+            
+            if ([httpResponse statusCode] == 200)
+            {
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"successful operation"}];
+                completionHandler(resultDict, error);
+            }
+            else
+            {
+                NSLog(@"get noti fail");
+                error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"failed"}];
+                completionHandler(nil, error);
+            }
+        }
+    }]resume];
+}
+
 - (void)requestAPIGetAllRequests:(NSString *)token completionHandler:(void (^)(NSArray * _Nullable, NSError * _Nonnull))completionHandler
 {
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
