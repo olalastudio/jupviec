@@ -81,6 +81,54 @@
     [self.view endEditing:YES];
 }
 
+-(void)registerFromKeyboardNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+-(void)unregisterFromKeyboardNotification
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+-(void)keyboardDidShow:(NSNotification*)notification
+{
+    NSDictionary *userinfo = [notification userInfo];
+    NSValue *keyboardValue = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [keyboardValue CGRectValue];
+    NSInteger inset = keyboardRect.size.height - 83;
+    
+    UIEdgeInsets contentinset = [_tbPlaceOrderContent contentInset];
+    CGPoint contentoffset = [_tbPlaceOrderContent contentOffset];
+    
+    contentinset.bottom += inset;
+    contentoffset.y += inset;
+    
+    [_tbPlaceOrderContent setContentInset:contentinset];
+    [_tbPlaceOrderContent setScrollIndicatorInsets:contentinset];
+    [_tbPlaceOrderContent setContentOffset:contentoffset animated:YES];
+}
+
+-(void)keyboardDidHide:(NSNotification*)notification
+{
+    NSDictionary *userinfo = [notification userInfo];
+    NSValue *keyboardValue = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [keyboardValue CGRectValue];
+    NSInteger inset = keyboardRect.size.height - 83;
+    
+    UIEdgeInsets contentinset = [_tbPlaceOrderContent contentInset];
+    CGPoint contentoffset = [_tbPlaceOrderContent contentOffset];
+    
+    contentinset.bottom -= inset;
+    contentoffset.y -= inset;
+    
+    [_tbPlaceOrderContent setContentInset:contentinset];
+    [_tbPlaceOrderContent setScrollIndicatorInsets:contentinset];
+    [_tbPlaceOrderContent setContentOffset:contentoffset animated:YES];
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [self.tabBarController.tabBar setHidden:YES];
@@ -103,6 +151,15 @@
     }
     
     [self calculatePrice];
+    
+    [self registerFromKeyboardNotification];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self unregisterFromKeyboardNotification];
 }
 
 -(void)setTaskType:(TASK_TYPE)type
@@ -189,11 +246,18 @@
 
 - (IBAction)didPressNextToConfirmOrder:(id)sender
 {
-    ConfirmOrderViewController *confirmorderview = [self.storyboard instantiateViewControllerWithIdentifier:@"idconfirmorder"];
-    [confirmorderview setOrder:_order];
-    [confirmorderview setUser:_user];
-    
-    [self.navigationController pushViewController:confirmorderview animated:YES];
+    if ((![_order paymentMethod] || [[_order workAddress] isEqualToString:@""]) && ([_order orderType] == TYPE_DUNGLE || [_order orderType] == TYPE_DUNGDINHKY))
+    {
+        [JUntil showPopup:self responsecode:RESPONSE_CODE_MISSING_VALUE];
+    }
+    else
+    {
+        ConfirmOrderViewController *confirmorderview = [self.storyboard instantiateViewControllerWithIdentifier:@"idconfirmorder"];
+        [confirmorderview setOrder:_order];
+        [confirmorderview setUser:_user];
+        
+        [self.navigationController pushViewController:confirmorderview animated:YES];
+    }
 }
 
 #pragma mark - UITableViewDelegate
@@ -296,9 +360,6 @@
     NSNumber *row = [[self getlistDichVu] objectAtIndex:indexPath.row];
     
     switch ([row intValue]) {
-        case ATTRIBUTE_GIOKHAOSAT:
-            return 110;
-            break;
         case ATTRIBUTE_NGAYLAMTRONGTUAN:
             return 120;
             break;
@@ -383,12 +444,22 @@
         case ATTRIBUTE_BANGGIADICHVU:
             break;
         case ATTRIBUTE_GHICHU:
+        {
+            
+        }
             break;
         default:
             break;
     }
 }
 
+-(void)didEndEdittingCell:(NSIndexPath *)index attributeType:(ORDER_ATTRIBUTE)attribute returnValue:(NSString *)strValue
+{
+    if (attribute == ATTRIBUTE_GHICHU)
+    {
+        [_order setNote:strValue];
+    }
+}
 #pragma mark - TimeSelectionCell Delegate
 -(void)didClickWorkTimeSelection:(ORDER_ATTRIBUTE)attribute index:(NSIndexPath *)index
 {
@@ -481,23 +552,50 @@
 
 -(void)didSelectExtentService:(NSDictionary *)code index:(NSIndexPath *)index
 {
-//    [_order setExtraOption:[NSMutableArray arrayWithObjects:code, nil]];
+    NSArray *serviceextend = [_serviceInfo objectForKey:ID_SERVICE_EXTEND];
     
-    JGActionSheetSection *section1 = [JGActionSheetSection sectionWithTitle:@"Title" message:@"Message" buttonTitles:@[@"Yes", @"No"] buttonStyle:JGActionSheetButtonStyleDefault];
-    JGActionSheetSection *cancelSection = [JGActionSheetSection sectionWithTitle:nil message:nil buttonTitles:@[@"Cancel"] buttonStyle:JGActionSheetButtonStyleCancel];
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"Dịch vụ kèm theo" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
 
-    [section1 setBackgroundColor:[UIColor clearColor]];
-    NSArray *sections = @[section1, cancelSection];
-
-    JGActionSheet *sheet = [JGActionSheet actionSheetWithSections:sections];
-
-    [sheet setButtonPressedBlock:^(JGActionSheet *sheet, NSIndexPath *indexPath) {
-        [sheet dismissAnimated:YES];
-    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Bỏ qua" style:UIAlertActionStyleCancel handler:nil];
+    [actionSheet addAction:cancel];
+    
+    //show extend service list
+    for (NSDictionary *item in serviceextend)
+    {
+        NSString *title = [item objectForKey:ID_NAME];
+        NSString *code = [item objectForKey:ID_CODE];
         
-    [sheet showInView:self.view animated:YES];
+        UIAlertAction *actionbutton = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            for (NSDictionary* item in serviceextend)
+            {
+                if ([[item objectForKey:ID_CODE] isEqualToString:code])
+                {
+                    [self.order setExtraOption:@[item]];
+                    [self.tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+                    break;
+                }
+            }
+        }];
+        
+        [actionSheet addAction:actionbutton];
+    }
     
+    //add checked image
+    if ([_order paymentMethod])
+    {
+        for (UIAlertAction *actionitem in [actionSheet actions])
+        {
+            NSString *paymentTitle = [[_order paymentMethod] objectForKey:ID_NAME];
+            NSString *itemTitle = [actionitem title];
+            
+            if ([paymentTitle isEqualToString:itemTitle])
+            {
+                 [actionitem setValue:[[UIImage imageNamed:@"rate.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forKey:@"image"];
+            }
+        }
+    }
     
+    [self presentViewController:actionSheet animated:YES completion:nil];
     
     [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
 }
@@ -551,7 +649,7 @@
             break;
         case ATTRIBUTE_GIOKHAOSAT:
         {
-            [_order setTimeOfExamine:[NSMutableDictionary dictionaryWithDictionary:worktime]];
+            [_order setTimeOfExamine:worktime];
         }
             break;
         default:

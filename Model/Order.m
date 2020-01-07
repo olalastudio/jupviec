@@ -35,11 +35,11 @@
         [self initWorkDate];
         _workDayInWeek = [NSMutableArray arrayWithCapacity:0];
         _dayOfExamine = [NSDate date];
-        _timeOfExamine  = [NSMutableDictionary dictionaryWithCapacity:0];
+        [self initTimeOfExam];
         [self initWorkTime];
         _workHour = 3;
-        _extraOption = [NSMutableArray arrayWithCapacity:0];
-        _paymentMethod = [NSMutableDictionary dictionaryWithCapacity:0];
+        _extraOption = nil;
+        _paymentMethod = nil;
         _note = @"";
         _totalMoney = 0;
     }
@@ -80,5 +80,32 @@
     [components setNanosecond:0];
     
     _workTime = [calendar dateFromComponents:components];
+}
+
+-(void)initTimeOfExam
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:[NSDate date]];
+    
+    NSInteger hour = [components hour];
+    NSInteger minute = [components minute];
+    
+    if (minute % 10 > 0)
+    {
+        minute = ((minute/10) + 1) * 10;
+    }
+    
+    if (minute >= 60) {
+        minute = 0;
+        hour = hour + 1;
+    }
+    
+    
+    [components setHour:hour];
+    [components setMinute:minute];
+    [components setSecond:0];
+    [components setNanosecond:0];
+    
+    _timeOfExamine = [calendar dateFromComponents:components];
 }
 @end

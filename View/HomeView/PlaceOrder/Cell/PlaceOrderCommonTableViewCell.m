@@ -203,40 +203,17 @@
     return NO;
 }
 
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(didEndEdittingCell:attributeType:returnValue:)])
+    {
+        [_delegate didEndEdittingCell:_indexPath attributeType:_ordeAttribute returnValue:[textView text]];
+    }
+}
+
 #pragma mark - PopOverMenu
 -(void)showPopOverFromSender:(id)sender selectionArray:(NSArray*)list
 {
-//    FTPopOverMenuConfiguration *configuration = [FTPopOverMenuConfiguration defaultConfiguration];
-//    configuration.menuWidth = _txtContent.frame.size.width;
-//    configuration.backgroundColor = [UIColor whiteColor];
-//    configuration.textColor = [UIColor blackColor];
-//    configuration.borderColor = [UIColor grayColor];
-//
-//    [FTPopOverMenu showForSender:sender withMenuArray:list imageArray:nil configuration:configuration doneBlock:^(NSInteger selectedIndex)
-//    {
-//        //show
-//        if ([self orderAttribute] == ATTRIBUTE_HINHTHUCTHANHTOAN)
-//        {
-//            NSArray *paymentMethods = [[self serviceInfo] objectForKey:@"payment_method"];
-//            NSDictionary *code = [paymentMethods objectAtIndex:selectedIndex];
-//            if (self.delegate && [self.delegate respondsToSelector:@selector(didSelectPaymentMethod:index:)])
-//            {
-//                [self.delegate didSelectPaymentMethod:code index:[self indexPath]];
-//            }
-//        }
-//        else if ([self orderAttribute] == ATTRIBUTE_DICHVUKEMTHEO)
-//        {
-//            NSArray *paymentMethods = [[self serviceInfo] objectForKey:@"service_extend"];
-//            NSDictionary *code = [paymentMethods objectAtIndex:selectedIndex];
-//            if (self.delegate && [self.delegate respondsToSelector:@selector(didSelectExtentService:index:)])
-//            {
-//                [self.delegate didSelectExtentService:code index:[self indexPath]];
-//            }
-//        }
-//    } dismissBlock:^{
-//       //dismis
-//    }];
-    
     if ([self orderAttribute] == ATTRIBUTE_HINHTHUCTHANHTOAN)
     {
         if (self.delegate && [self.delegate respondsToSelector:@selector(didSelectPaymentMethod:index:)])

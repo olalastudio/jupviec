@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property   NSDate              *workDate;
 @property   NSMutableArray      *workDayInWeek;
 @property   NSDate              *dayOfExamine;
-@property   NSMutableDictionary    *timeOfExamine;
+@property   NSDate              *timeOfExamine;
 @property   SHIFT_WORK             workShift;
 @property   NSDate                 *workTime;
 @property   double                 workHour;
