@@ -48,8 +48,8 @@
     
     attributeListDungDK = @[[NSNumber numberWithInt:ATTRIBUTE_DIADIEM],
                             [NSNumber numberWithInt:ATTRIBUTE_SONHACANHO],
-                            [NSNumber numberWithInt:ATTRIBUTE_NGAYLAMVIEC],
                             [NSNumber numberWithInt:ATTRIBUTE_NGAYLAMTRONGTUAN],
+                            [NSNumber numberWithInt:ATTRIBUTE_NGAYLAMVIEC],
                             [NSNumber numberWithInt:ATTRIBUTE_GIOLAMVIEC],
                             [NSNumber numberWithInt:ATTRIBUTE_DICHVUKEMTHEO],
                             [NSNumber numberWithInt:ATTRIBUTE_HINHTHUCTHANHTOAN],
