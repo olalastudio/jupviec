@@ -7,6 +7,7 @@
 //
 
 #import "DateTimePickerPopupController.h"
+#import "PopupView.h"
 
 @interface DateTimePickerPopupController ()
 
@@ -19,73 +20,61 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [_calendarPicker setDelegate:self];
-    [_calendarPicker setDataSource:self];
-}
-
--(void)setContrainForPickerView
-{
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:(NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:[NSDate date]];
-    
-    NSInteger hour = [components hour];
-    NSInteger minute = [components minute];
-    
-    minute = ((minute/10) + 1)*10;
-    
-    if (minute >= 60) {
-        minute = 0;
-        hour = hour + 1;
-    }
-    
-    [components setHour:hour];
-    [components setMinute:minute];
-    
-    [_timePicker setMinimumDate:[calendar dateFromComponents:components]];
-    [_timePicker setMinuteInterval:10];
+    [self.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2]];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    [self.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2]];
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        self.popupView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.1, 1.1);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.2 animations:^{
+           self.popupView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.99, 0.99);
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.2 animations:^{
+                self.popupView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
+            } completion:^(BOOL finished) {
+                self.popupView.transform = CGAffineTransformIdentity;
+            }];
+        }];
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    [self setContrainForPickerView];
+    self.popupView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.5, 0.5);
     
-    if (_orderAttribute == ATTRIBUTE_NGAYLAMVIEC || _orderAttribute == ATTRIBUTE_NGAYLAMTRONGTUAN)
+    if (_orderAttribute == ATTRIBUTE_NGAYLAMVIEC)
     {
-        [_calendarPicker setHidden:NO];
-        [_timePicker setHidden:YES];
-        [_btnConfirm setHidden:YES];
-        
-        [_calendarPicker selectDate:[_order workDate]];
-        [_txtTitle setText:@"Ngày làm việc"];
+        [_timePicker setDatePickerMode:UIDatePickerModeDate];
+        [_timePicker setDate:[_order workDate]];
+    }
+    else if (_orderAttribute == ATTRIBUTE_NGAYLAMTRONGTUAN)
+    {
+        [_timePicker setDatePickerMode:UIDatePickerModeDate];
+        [_timePicker setDate:[_order workDate]];
     }
     else if (_orderAttribute == ATTRIBUTE_NGAYKHAOSAT)
     {
-        [_calendarPicker setHidden:NO];
-        [_timePicker setHidden:YES];
-        [_btnConfirm setHidden:YES];
-        
-        [_calendarPicker selectDate:[_order dayOfExamine]];
-        [_txtTitle setText:@"Ngày khảo sát"];
+        [_timePicker setDatePickerMode:UIDatePickerModeDate];
+        [_timePicker setDate:[_order dayOfExamine]];
     }
-    else if (_orderAttribute == ATTRIBUTE_GIOLAMVIEC || _orderAttribute == ATTRIBUTE_GIOKHAOSAT)
+    else if (_orderAttribute == ATTRIBUTE_GIOLAMVIEC)
     {
-        [_calendarPicker setHidden:YES];
-        [_timePicker setHidden:NO];
-        [_btnConfirm setHidden:NO];
-        
-        [_txtTitle setText:@"Giờ làm việc"];
+        [_timePicker setDatePickerMode:UIDatePickerModeTime];
+        [_timePicker setDate:[_order workTime]];
+    }
+    else if (_orderAttribute == ATTRIBUTE_GIOKHAOSAT)
+    {
+        [_timePicker setDatePickerMode:UIDatePickerModeTime];
+        [_timePicker setDate:[_order timeOfExamine]];
     }
     
-    [self setSelectedTime];
+    [self setTimeForPickerView];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -110,15 +99,26 @@
     _order = order;
 }
 
--(void)setSelectedTime
+-(void)setTimeForPickerView
 {
-    NSDate *worktime = [_order workTime];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:[NSDate date]];
     
-    if (_orderAttribute == ATTRIBUTE_GIOKHAOSAT) {
-        //worktime = [_order timeOfExamine];
+    NSInteger hour = [components hour];
+    NSInteger minute = [components minute];
+    
+    minute = ((minute/10) + 1)*10;
+    
+    if (minute >= 60) {
+        minute = 0;
+        hour = hour + 1;
     }
     
-    [_timePicker setDate:worktime];
+    [components setHour:hour];
+    [components setMinute:minute];
+    
+    [_timePicker setMinimumDate:[calendar dateFromComponents:components]];
+    [_timePicker setMinuteInterval:10];
 }
 /*
 #pragma mark - Navigation
@@ -139,32 +139,21 @@
 {
     NSDate *selectedTime = [_timePicker date];
     
-    if (_delegate && [_delegate respondsToSelector:@selector(didSelectTime:indexPath:workTime:)])
+    if (_orderAttribute == ATTRIBUTE_GIOLAMVIEC || _orderAttribute == ATTRIBUTE_GIOKHAOSAT)
     {
-        [_delegate didSelectTime:_orderAttribute indexPath:_index workTime:selectedTime];
+        if (_delegate && [_delegate respondsToSelector:@selector(didSelectTime:indexPath:workTime:)])
+        {
+            [_delegate didSelectTime:_orderAttribute indexPath:_index workTime:selectedTime];
+        }
+    }
+    else
+    {
+        if (_delegate && [_delegate respondsToSelector:@selector(didSelectTime:indexPath:workTime:)])
+        {
+            [_delegate didSelectDate:_orderAttribute date:selectedTime indexPath:_index];
+        }
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-#pragma mark - Calendar Delegate
--(void)calendar:(FSCalendar *)calendar didSelectDate:(NSDate *)date atMonthPosition:(FSCalendarMonthPosition)monthPosition
-{
-    NSLog(@"did select date %@ at month %lu",date,(unsigned long)monthPosition);
-    
-    if (_delegate && [_delegate respondsToSelector:@selector(didSelectDate:date:indexPath:)]) {
-        [_delegate didSelectDate:_orderAttribute date:date indexPath:_index];
-    }
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
--(NSDate*)minimumDateForCalendar:(FSCalendar *)calendar
-{
-    return [NSDate date];
-}
-
-#pragma mark - TimePickerView Delegate
-
-
 @end

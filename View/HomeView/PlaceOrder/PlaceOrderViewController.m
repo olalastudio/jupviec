@@ -471,7 +471,7 @@
     [timepicker setDelegate:self];
     
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
-    [self presentViewController:timepicker animated:YES completion:nil];
+    [self presentViewController:timepicker animated:NO completion:nil];
 }
 
 -(void)didClickWorkHourSelection:(ORDER_ATTRIBUTE)attribute index:(NSIndexPath *)index hourvalue:(double)hour
@@ -492,7 +492,7 @@
     [datepicker setDelegate:self];
     
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
-    [self presentViewController:datepicker animated:YES completion:nil];
+    [self presentViewController:datepicker animated:NO completion:nil];
 }
 
 -(void)didSelectDayOfTheWeek:(NSMutableArray *)dayofweeks

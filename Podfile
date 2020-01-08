@@ -6,7 +6,6 @@ target 'JupViec' do
   use_frameworks!
 
   # Pods for JupViec
-  pod 'FSCalendar'
   pod 'JGActionSheet'
   pod 'GoogleMaps'
   pod 'GooglePlaces'

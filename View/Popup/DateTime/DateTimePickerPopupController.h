@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "CommonDefines.h"
 #import "Order.h"
-#import <FSCalendar/FSCalendar.h>
+
+@class PopupView;
 
 @protocol DateTimePickerDelegate <NSObject>
 
@@ -20,7 +21,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DateTimePickerPopupController : UIViewController <FSCalendarDelegate, FSCalendarDataSource>
+@interface DateTimePickerPopupController : UIViewController
 {
     ORDER_ATTRIBUTE _orderAttribute;
     NSIndexPath     *_index;
@@ -29,16 +30,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property id<DateTimePickerDelegate>        delegate;
 
-@property (weak, nonatomic) IBOutlet UILabel    *txtTitle;
+@property (weak, nonatomic) IBOutlet PopupView *popupView;
 @property (weak, nonatomic) IBOutlet UIButton   *btnConfirm;
-
-@property (weak, nonatomic) IBOutlet FSCalendar *calendarPicker;
 @property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
 
-
-- (IBAction)didPressCloseDateTimePickerPopupButton:(id)sender;
 - (IBAction)didPressConfirmTimeButton:(id)sender;
-
 
 -(void)setOrderAttribute:(ORDER_ATTRIBUTE)attribute;
 -(void)setIndexPath:(NSIndexPath*)index;
