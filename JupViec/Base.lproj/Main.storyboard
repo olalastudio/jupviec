@@ -1437,42 +1437,57 @@
                                             <action selector="didPressClosePopupButtom:" destination="yQX-Kl-Ldo" eventType="touchUpInside" id="0cj-rG-wyb"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Số nhà/Căn hộ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ku-6A-bdI">
-                                        <rect key="frame" x="119" y="17" width="113" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Số nhà/Căn hộ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ku-6A-bdI">
+                                        <rect key="frame" x="120.5" y="15" width="113" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Số nhà/Căn hộ" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="i4h-CK-Mu5">
-                                        <rect key="frame" x="21" y="60" width="309" height="146"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Số nhà/Căn hộ" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="i4h-CK-Mu5">
+                                        <rect key="frame" x="24" y="59" width="306" height="114"/>
                                         <color key="backgroundColor" red="0.92784569300518138" green="0.92784569300518138" blue="0.92784569300518138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1 Phạm văn Bạch, Yên Hoà Cầu Giấy, Hà Nội, Việt Nam" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9n-yP-dJ6">
-                                        <rect key="frame" x="21" y="214" width="309" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aB8-KE-SSB">
-                                        <rect key="frame" x="143" y="262" width="64" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Xác nhận"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aB8-KE-SSB" customClass="JButton">
+                                        <rect key="frame" x="30" y="242" width="294" height="44"/>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="sGj-Gt-BPh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="14"/>
+                                        <state key="normal" title="Xác nhận">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="didPressConfirmButtom:" destination="yQX-Kl-Ldo" eventType="touchUpInside" id="yTI-LN-Jg8"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Phạm văn Bạch, Yên Hoà Cầu Giấy, Hà Nội, Việt Nam" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9n-yP-dJ6">
+                                        <rect key="frame" x="24" y="181" width="306" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="i4h-CK-Mu5" firstAttribute="top" secondItem="wKx-fh-2yn" secondAttribute="bottom" constant="20" id="4Zg-zP-d2O"/>
                                     <constraint firstItem="wKx-fh-2yn" firstAttribute="leading" secondItem="mT2-OT-21W" secondAttribute="leading" constant="14" id="5cJ-Lv-neB"/>
+                                    <constraint firstItem="7ku-6A-bdI" firstAttribute="centerX" secondItem="mT2-OT-21W" secondAttribute="centerX" id="DDE-MR-pCh"/>
+                                    <constraint firstItem="u9n-yP-dJ6" firstAttribute="leading" secondItem="mT2-OT-21W" secondAttribute="leading" constant="24" id="E7F-wL-2HR"/>
+                                    <constraint firstItem="aB8-KE-SSB" firstAttribute="leading" secondItem="mT2-OT-21W" secondAttribute="leading" constant="30" id="EDX-gS-RI3"/>
+                                    <constraint firstItem="aB8-KE-SSB" firstAttribute="top" secondItem="u9n-yP-dJ6" secondAttribute="bottom" constant="20" id="EhM-fd-pLn"/>
+                                    <constraint firstAttribute="bottom" secondItem="aB8-KE-SSB" secondAttribute="bottom" constant="30" id="QRP-sO-gAr"/>
+                                    <constraint firstItem="u9n-yP-dJ6" firstAttribute="top" secondItem="i4h-CK-Mu5" secondAttribute="bottom" constant="8" id="RJx-il-3zi"/>
                                     <constraint firstAttribute="height" constant="316" id="dMq-OF-kP9"/>
+                                    <constraint firstAttribute="trailing" secondItem="u9n-yP-dJ6" secondAttribute="trailing" constant="24" id="fIO-OB-v9P"/>
+                                    <constraint firstAttribute="trailing" secondItem="aB8-KE-SSB" secondAttribute="trailing" constant="30" id="mhZ-eJ-FMr"/>
+                                    <constraint firstItem="7ku-6A-bdI" firstAttribute="top" secondItem="mT2-OT-21W" secondAttribute="top" constant="15" id="q0I-Bu-VHQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="i4h-CK-Mu5" secondAttribute="trailing" constant="24" id="qJW-dl-r0J"/>
                                     <constraint firstItem="wKx-fh-2yn" firstAttribute="top" secondItem="mT2-OT-21W" secondAttribute="top" constant="15" id="vDJ-Z2-yim"/>
+                                    <constraint firstItem="i4h-CK-Mu5" firstAttribute="leading" secondItem="mT2-OT-21W" secondAttribute="leading" constant="24" id="wbD-M5-fJR"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1485,6 +1500,7 @@
                         <viewLayoutGuide key="safeArea" id="WAm-fS-fHZ"/>
                     </view>
                     <connections>
+                        <outlet property="popupView" destination="mT2-OT-21W" id="ZgK-qs-R6s"/>
                         <outlet property="txtContent" destination="i4h-CK-Mu5" id="LT0-pe-Ewb"/>
                         <outlet property="txtCurrentLocation" destination="u9n-yP-dJ6" id="EbA-fx-vxd"/>
                         <outlet property="txtTitle" destination="7ku-6A-bdI" id="NC9-WH-jcV"/>
@@ -1492,7 +1508,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ld-Vf-Lhn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2712" y="1277"/>
+            <point key="canvasLocation" x="-2713.04347826087" y="1275.6696428571429"/>
         </scene>
         <!--Login With Password View Controller-->
         <scene sceneID="0cf-5I-yNE">

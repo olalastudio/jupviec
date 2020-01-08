@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "CommonDefines.h"
 
+@class PopupView;
+
 @protocol TextDetailPopupDelegate <NSObject>
 
 -(void)didPressConfirmDetailPopup:(ORDER_ATTRIBUTE)sender index:(NSIndexPath*_Nonnull)index withReturnValue:(NSString*_Nullable)str;
@@ -29,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property ORDER_ATTRIBUTE                   orderAttribute;
 @property (nonatomic) NSIndexPath           *index;
 
+@property (weak, nonatomic) IBOutlet PopupView *popupView;
 @property (weak, nonatomic) IBOutlet UILabel *txtTitle;
 @property (weak, nonatomic) IBOutlet UITextView *txtContent;
 @property (weak, nonatomic) IBOutlet UILabel *txtCurrentLocation;

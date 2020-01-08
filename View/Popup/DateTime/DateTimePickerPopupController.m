@@ -19,8 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [self.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2]];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -47,6 +45,7 @@
     [super viewWillAppear:animated];
     
     self.popupView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.5, 0.5);
+    [self.view setBackgroundColor:[UIColor colorWithRed:85.0f/255.0f green:80.0f/255.0f blue:80.0f/255.0f alpha:0.38]];
     
     if (_orderAttribute == ATTRIBUTE_NGAYLAMVIEC)
     {

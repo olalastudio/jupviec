@@ -415,7 +415,7 @@
             [detailpopup setIndex:index];
             
             [self setModalPresentationStyle:UIModalPresentationCurrentContext];
-            [self presentViewController:detailpopup animated:YES completion:nil];
+            [self presentViewController:detailpopup animated:NO completion:nil];
         }
             break;
         case ATTRIBUTE_NGAYLAMVIEC:
