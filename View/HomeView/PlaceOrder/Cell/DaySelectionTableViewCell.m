@@ -50,8 +50,6 @@
 -(void)setOrder:(Order *)order
 {
     _order = order;
-    
-    [self showDay];
 }
 
 -(void)setIndexPath:(NSIndexPath *)index
@@ -66,39 +64,30 @@
     }
 }
 
--(void)showDay
-{
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"EEEE, dd/MM/yyyy"];
-    [format setLocale:[NSLocale localeWithLocaleIdentifier:@"vi_VN"]];
-    
-    [_btWorkDayValue setTitle:[format stringFromDate:[_order workDate]] forState:UIControlStateNormal];
-}
-
 #pragma mark - DayLabel Delegate
 -(void)didSelectDayLabel:(DAYINWEEK)dayinweek
 {
     [_listSelectedDay removeAllObjects];
     
-    if ([_Thu2 selected]) {
+    if ([_Thu2 isSelected]) {
         [_listSelectedDay addObject:@"T2"];
     }
-    if ([_Thu3 selected]) {
+    if ([_Thu3 isSelected]) {
         [_listSelectedDay addObject:@"T3"];
     }
-    if ([_Thu4 selected]) {
+    if ([_Thu4 isSelected]) {
         [_listSelectedDay addObject:@"T4"];
     }
-    if ([_Thu5 selected]) {
+    if ([_Thu5 isSelected]) {
         [_listSelectedDay addObject:@"T5"];
     }
-    if ([_Thu6 selected]) {
+    if ([_Thu6 isSelected]) {
         [_listSelectedDay addObject:@"T6"];
     }
-    if ([_Thu7 selected]) {
+    if ([_Thu7 isSelected]) {
         [_listSelectedDay addObject:@"T7"];
     }
-    if ([_CN selected]) {
+    if ([_CN isSelected]) {
         [_listSelectedDay addObject:@"CN"];
     }
     

@@ -360,9 +360,6 @@
     NSNumber *row = [[self getlistDichVu] objectAtIndex:indexPath.row];
     
     switch ([row intValue]) {
-        case ATTRIBUTE_NGAYLAMTRONGTUAN:
-            return 120;
-            break;
         case ATTRIBUTE_GHICHU:
             return 198;
             break;

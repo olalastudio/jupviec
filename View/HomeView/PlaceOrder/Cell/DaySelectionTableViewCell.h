@@ -30,9 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 @property id<DaySelectionTableViewCellDelegate>     delegate;
-@property (weak, nonatomic) IBOutlet UIImageView    *imgIcon;
 @property (weak, nonatomic) IBOutlet UILabel        *txtTitle;
-@property (weak, nonatomic) IBOutlet UIButton       *btWorkDayValue;
 
 @property (weak, nonatomic) IBOutlet DayLabel *Thu2;
 @property (weak, nonatomic) IBOutlet DayLabel *Thu3;
