@@ -11,7 +11,12 @@
 #import "SignInViewController.h"
 #import "HomeViewController.h"
 
+#import "JButton.h"
+
 @interface LoginWithPasswordViewController ()
+{
+    NSInteger keyboardheight;
+}
 
 @end
 
@@ -23,7 +28,11 @@
     [_txtInputUserPhone setDelegate:self];
     [_txtInputUserPass setDelegate:self];
     
-    [self setTitle:@"Login"];
+    [self setTitle:@"Thông tin cá nhân"];
+    [_btForgotPassword setTitleColor:UIColorFromRGB(0x5C5C5C) forState:UIControlStateNormal];
+    [_btRegisterNow setTitleColor:UIColorFromRGB(0x5C5C5C) forState:UIControlStateNormal];
+    
+    keyboardheight = 0;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -31,6 +40,25 @@
     [super viewWillAppear:animated];
     
     [self.tabBarController.tabBar setHidden:YES];
+    
+    [self registerFromKeyboardNotification];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self unregisterFromKeyboardNotification];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
 }
 
 -(NSString*)userToken
@@ -42,6 +70,63 @@
 {
     return strUserphone;
 }
+
+-(void)registerFromKeyboardNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+-(void)unregisterFromKeyboardNotification
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+-(void)keyboardDidShow:(NSNotification*)notification
+{
+    NSDictionary *userinfo = [notification userInfo];
+    NSValue *keyboardValue = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [keyboardValue CGRectValue];
+ 
+    NSLog(@"Keyboard did show %@",userinfo);
+    keyboardheight = keyboardRect.size.height - keyboardheight;
+    
+    CGRect questionrect = [_txtQuestion frame];
+    questionrect.origin.y -= keyboardheight;
+    [_txtQuestion setFrame:questionrect];
+    
+    CGRect confirmrect = [_btConfirm frame];
+    confirmrect.origin.y -= keyboardheight;
+    [_btConfirm setFrame:confirmrect];
+    
+    CGRect registernowrect = [_btRegisterNow frame];
+    registernowrect.origin.y -= keyboardheight;
+    [_btRegisterNow setFrame:registernowrect];
+    
+}
+
+-(void)keyboardDidHide:(NSNotification*)notification
+{
+    NSDictionary *userinfo = [notification userInfo];
+    NSValue *keyboardValue = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [keyboardValue CGRectValue];
+ 
+    NSLog(@"Keyboard did hide %@",userinfo);
+    keyboardheight = 0;
+    
+    CGRect questionrect = [_txtQuestion frame];
+    questionrect.origin.y += keyboardRect.size.height;
+    [_txtQuestion setFrame:questionrect];
+    
+    CGRect confirmrect = [_btConfirm frame];
+    confirmrect.origin.y += keyboardRect.size.height;
+    [_btConfirm setFrame:confirmrect];
+    
+    CGRect registernowrect = [_btRegisterNow frame];
+    registernowrect.origin.y += keyboardRect.size.height;
+    [_btRegisterNow setFrame:registernowrect];
+}
 /*
 #pragma mark - Navigation
 
@@ -52,10 +137,19 @@
 }
 */
 
-#pragma - UITextFielDelegate
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
+}
+#pragma - UITextFielDelegate
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    return YES;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+
 }
 
 - (void)showPopupNewUserPhone
