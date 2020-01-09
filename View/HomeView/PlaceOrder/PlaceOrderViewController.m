@@ -32,6 +32,7 @@
     [_tbPlaceOrderContent registerNib:[UINib nibWithNibName:@"CommonCell" bundle:nil] forCellReuseIdentifier:@"idplaceordercommoncell"];
     [_tbPlaceOrderContent registerNib:[UINib nibWithNibName:@"TimeSelectionCell" bundle:nil] forCellReuseIdentifier:@"idplaceordertimeselectioncell"];
     [_tbPlaceOrderContent registerNib:[UINib nibWithNibName:@"DaySelectionCell" bundle:nil] forCellReuseIdentifier:@"idplaceorderdayselectioncell"];
+    [_tbPlaceOrderContent registerNib:[UINib nibWithNibName:@"ExtendService" bundle:nil] forCellReuseIdentifier:@"idextendservicecell"];
     
     [_tbPlaceOrderContent setDelegate:self];
     [_tbPlaceOrderContent setDataSource:self];
@@ -333,8 +334,15 @@
             break;
         case ATTRIBUTE_DICHVUKEMTHEO:
         {
-            [cell setOderAttribute:ATTRIBUTE_DICHVUKEMTHEO];
+            ExtentServiceTableViewCell * extendserviceCell = [tableView dequeueReusableCellWithIdentifier:@"idextendservicecell"];
+            [extendserviceCell setDelegate:self];
+            [extendserviceCell setOderAttribute:ATTRIBUTE_DICHVUKEMTHEO];
+            [extendserviceCell setIndexPath:indexPath];
+            [extendserviceCell setOrder:_order];
+            
             [self calculatePrice];
+            
+            return extendserviceCell;
         }
             break;
         case ATTRIBUTE_HINHTHUCTHANHTOAN:
@@ -360,9 +368,10 @@
     NSNumber *row = [[self getlistDichVu] objectAtIndex:indexPath.row];
     
     switch ([row intValue]) {
+        case ATTRIBUTE_DICHVUKEMTHEO:
+            return 48 + [[_order extraOption] count]*30;
         case ATTRIBUTE_GHICHU:
             return 198;
-            break;
         default:
             break;
     }
@@ -386,8 +395,6 @@
 #pragma mark - PlaceOrderCommonCellDelegate
 -(void)didPressCellAtIndexPath:(NSIndexPath *)index attributeType:(ORDER_ATTRIBUTE)attribute
 {
-    NSLog(@"did press on order cell %lu",(unsigned long)attribute);
-    
     switch (attribute) {
         case ATTRIBUTE_DIADIEM:
         {
@@ -547,54 +554,17 @@
     [self presentViewController:actionSheet animated:YES completion:nil];
 }
 
--(void)didSelectExtentService:(NSDictionary *)code index:(NSIndexPath *)index
+#pragma mark - Extend Service Delegate
+-(void)didPressAddExtentService:(NSDictionary *)code index:(NSIndexPath *)index
 {
-    NSArray *serviceextend = [_serviceInfo objectForKey:ID_SERVICE_EXTEND];
+    NSLog(@"did click add more service");
     
-    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"Dịch vụ kèm theo" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Bỏ qua" style:UIAlertActionStyleCancel handler:nil];
-    [actionSheet addAction:cancel];
+    ExtendServicePopupController *addServicePopup = [self.storyboard instantiateViewControllerWithIdentifier:@"idextendservicepopup"];
+    [addServicePopup setTotalService:[_serviceInfo objectForKey:ID_SERVICE_EXTEND]];
+    [addServicePopup setSelectedService:[_order extraOption]];
     
-    //show extend service list
-    for (NSDictionary *item in serviceextend)
-    {
-        NSString *title = [item objectForKey:ID_NAME];
-        NSString *code = [item objectForKey:ID_CODE];
-        
-        UIAlertAction *actionbutton = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            for (NSDictionary* item in serviceextend)
-            {
-                if ([[item objectForKey:ID_CODE] isEqualToString:code])
-                {
-                    [self.order setExtraOption:@[item]];
-                    [self.tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
-                    break;
-                }
-            }
-        }];
-        
-        [actionSheet addAction:actionbutton];
-    }
-    
-    //add checked image
-    if ([_order paymentMethod])
-    {
-        for (UIAlertAction *actionitem in [actionSheet actions])
-        {
-            NSString *paymentTitle = [[_order paymentMethod] objectForKey:ID_NAME];
-            NSString *itemTitle = [actionitem title];
-            
-            if ([paymentTitle isEqualToString:itemTitle])
-            {
-                 [actionitem setValue:[[UIImage imageNamed:@"rate.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forKey:@"image"];
-            }
-        }
-    }
-    
-    [self presentViewController:actionSheet animated:YES completion:nil];
-    
-    [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+    [self setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [self presentViewController:addServicePopup animated:NO completion:nil];
 }
 
 #pragma mark - Popup Delegate

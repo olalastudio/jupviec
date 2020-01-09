@@ -17,8 +17,7 @@
 
 -(void)didPressCellAtIndexPath:(NSIndexPath*_Nonnull)index attributeType:(ORDER_ATTRIBUTE)attribute;
 -(void)didSelectPaymentMethod:(NSDictionary*_Nonnull)code index:(NSIndexPath*_Nonnull)index;
--(void)didSelectExtentService:(NSDictionary*_Nonnull)code index:(NSIndexPath*_Nonnull)index;
--(void)didEndEdittingCell:(NSIndexPath*_Nonnull)index attributeType:(ORDER_ATTRIBUTE)attribute returnValue:(NSString*)strValue;
+-(void)didEndEdittingCell:(NSIndexPath*_Nonnull)index attributeType:(ORDER_ATTRIBUTE)attribute returnValue:(NSString*_Nonnull)strValue;
 
 @end
 

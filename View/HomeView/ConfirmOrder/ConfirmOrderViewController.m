@@ -72,7 +72,7 @@
         {
 
             [_txtType setText:@"Dùng lẻ"];
-            [_txtAddressValue setText:[_order workAddress]];
+            [_txtAddressValue setText:[NSString stringWithFormat:@"%@ %@",[_order homeNumber],[_order workAddress]]];
             [_txtWorkDateValue setText:[JUntil stringFromDate:[_order workDate]]];
             
             NSDate *worktime = [_order workTime];
@@ -242,7 +242,7 @@
             }
             
             //location
-            [detailService setObject:[_order workAddress] forKey:ID_LOCATION];
+            [detailService setObject:[NSString stringWithFormat:@"%@ %@",[_order homeNumber],[_order workAddress]] forKey:ID_LOCATION];
             
             //working date
             [detailService setObject:[JUntil stringFromDate:[_order workDate]] forKey:ID_WORKING_DATE];

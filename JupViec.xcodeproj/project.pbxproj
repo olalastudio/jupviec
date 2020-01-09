@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0601E31E238FAEEF00403C95 /* add-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0601E198238FAEEE00403C95 /* add-1.png */; };
-		0601E31F238FAEEF00403C95 /* add-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0601E199238FAEEE00403C95 /* add-2.png */; };
-		0601E320238FAEEF00403C95 /* add-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0601E19A238FAEEE00403C95 /* add-3.png */; };
-		0601E321238FAEEF00403C95 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 0601E19B238FAEEE00403C95 /* add.png */; };
 		0601E322238FAEEF00403C95 /* agenda.png in Resources */ = {isa = PBXBuildFile; fileRef = 0601E19C238FAEEE00403C95 /* agenda.png */; };
 		0601E323238FAEEF00403C95 /* alarm-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0601E19D238FAEEE00403C95 /* alarm-1.png */; };
 		0601E324238FAEEF00403C95 /* alarm-clock-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0601E19E238FAEEE00403C95 /* alarm-clock-1.png */; };
@@ -413,6 +409,14 @@
 		063A1C3C23BDA04100456CBC /* tongvesinh.png in Resources */ = {isa = PBXBuildFile; fileRef = 063A1C3823BDA04100456CBC /* tongvesinh.png */; };
 		063A1C3D23BDA04100456CBC /* dungle.png in Resources */ = {isa = PBXBuildFile; fileRef = 063A1C3923BDA04100456CBC /* dungle.png */; };
 		063A1C4023BDA53F00456CBC /* JButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 063A1C3F23BDA53F00456CBC /* JButton.m */; };
+		064B1FA023C70430006DC513 /* ExtendService.xib in Resources */ = {isa = PBXBuildFile; fileRef = 064B1F9F23C70430006DC513 /* ExtendService.xib */; };
+		064B1FA323C70445006DC513 /* ExtentServiceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 064B1FA223C70445006DC513 /* ExtentServiceTableViewCell.m */; };
+		064B1FA823C70529006DC513 /* select.png in Resources */ = {isa = PBXBuildFile; fileRef = 064B1FA423C70527006DC513 /* select.png */; };
+		064B1FA923C70529006DC513 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 064B1FA523C70528006DC513 /* add.png */; };
+		064B1FAA23C70529006DC513 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 064B1FA623C70528006DC513 /* delete.png */; };
+		064B1FAB23C70529006DC513 /* unselect.png in Resources */ = {isa = PBXBuildFile; fileRef = 064B1FA723C70529006DC513 /* unselect.png */; };
+		064B1FAD23C70912006DC513 /* ServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 064B1FAC23C70912006DC513 /* ServiceCell.xib */; };
+		064B1FB023C70A6D006DC513 /* ServiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 064B1FAF23C70A6D006DC513 /* ServiceCell.m */; };
 		065105E723A33F0500B5339B /* HomePromotionCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 065105E623A33F0500B5339B /* HomePromotionCollectionCell.xib */; };
 		0658BEB9238FAC7800CBBAD1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658BEB8238FAC7800CBBAD1 /* AppDelegate.m */; };
 		0658BEBC238FAC7800CBBAD1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658BEBB238FAC7800CBBAD1 /* ViewController.m */; };
@@ -424,6 +428,7 @@
 		0667ECA523B47867004AAA5E /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0667ECA323B47867004AAA5E /* button.png */; };
 		0667ECA623B47867004AAA5E /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 0667ECA423B47867004AAA5E /* welcome.png */; };
 		0668482A239F9DC900A463A7 /* DateTimePickerPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06684829239F9DC900A463A7 /* DateTimePickerPopupController.m */; };
+		066F890F23C719A8008C9844 /* ExtendServicePopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 066F890E23C719A8008C9844 /* ExtendServicePopupController.m */; };
 		067A399023A88ABC00740FA3 /* ConfirmOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 067A398F23A88ABC00740FA3 /* ConfirmOrderViewController.m */; };
 		068DDEED23990D8C009484E7 /* PlaceOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 068DDEEC23990D8C009484E7 /* PlaceOrderViewController.m */; };
 		068DDEF023991431009484E7 /* CommonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 068DDEEF23991431009484E7 /* CommonCell.xib */; };
@@ -489,10 +494,6 @@
 
 /* Begin PBXFileReference section */
 		0601E194238FAEEE00403C95 /* CommonDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonDefines.h; sourceTree = "<group>"; };
-		0601E198238FAEEE00403C95 /* add-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-1.png"; sourceTree = "<group>"; };
-		0601E199238FAEEE00403C95 /* add-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-2.png"; sourceTree = "<group>"; };
-		0601E19A238FAEEE00403C95 /* add-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-3.png"; sourceTree = "<group>"; };
-		0601E19B238FAEEE00403C95 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		0601E19C238FAEEE00403C95 /* agenda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = agenda.png; sourceTree = "<group>"; };
 		0601E19D238FAEEE00403C95 /* alarm-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alarm-1.png"; sourceTree = "<group>"; };
 		0601E19E238FAEEE00403C95 /* alarm-clock-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alarm-clock-1.png"; sourceTree = "<group>"; };
@@ -913,6 +914,16 @@
 		063A1C3923BDA04100456CBC /* dungle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dungle.png; sourceTree = "<group>"; };
 		063A1C3E23BDA53F00456CBC /* JButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JButton.h; sourceTree = "<group>"; };
 		063A1C3F23BDA53F00456CBC /* JButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JButton.m; sourceTree = "<group>"; };
+		064B1F9F23C70430006DC513 /* ExtendService.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExtendService.xib; sourceTree = "<group>"; };
+		064B1FA123C70445006DC513 /* ExtentServiceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtentServiceTableViewCell.h; sourceTree = "<group>"; };
+		064B1FA223C70445006DC513 /* ExtentServiceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtentServiceTableViewCell.m; sourceTree = "<group>"; };
+		064B1FA423C70527006DC513 /* select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select.png; sourceTree = "<group>"; };
+		064B1FA523C70528006DC513 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		064B1FA623C70528006DC513 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		064B1FA723C70529006DC513 /* unselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unselect.png; sourceTree = "<group>"; };
+		064B1FAC23C70912006DC513 /* ServiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceCell.xib; sourceTree = "<group>"; };
+		064B1FAE23C70A6D006DC513 /* ServiceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceCell.h; sourceTree = "<group>"; };
+		064B1FAF23C70A6D006DC513 /* ServiceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServiceCell.m; sourceTree = "<group>"; };
 		065105E623A33F0500B5339B /* HomePromotionCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePromotionCollectionCell.xib; sourceTree = "<group>"; };
 		0658BEB4238FAC7800CBBAD1 /* JupViec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JupViec.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0658BEB7238FAC7800CBBAD1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -929,6 +940,8 @@
 		0667ECA423B47867004AAA5E /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome.png; sourceTree = "<group>"; };
 		06684828239F9DC900A463A7 /* DateTimePickerPopupController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateTimePickerPopupController.h; sourceTree = "<group>"; };
 		06684829239F9DC900A463A7 /* DateTimePickerPopupController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateTimePickerPopupController.m; sourceTree = "<group>"; };
+		066F890D23C719A8008C9844 /* ExtendServicePopupController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtendServicePopupController.h; sourceTree = "<group>"; };
+		066F890E23C719A8008C9844 /* ExtendServicePopupController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtendServicePopupController.m; sourceTree = "<group>"; };
 		067A398E23A88ABC00740FA3 /* ConfirmOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfirmOrderViewController.h; sourceTree = "<group>"; };
 		067A398F23A88ABC00740FA3 /* ConfirmOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirmOrderViewController.m; sourceTree = "<group>"; };
 		068DDEEB23990D8C009484E7 /* PlaceOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceOrderViewController.h; sourceTree = "<group>"; };
@@ -1053,10 +1066,6 @@
 				0667ECA223B47835004AAA5E /* button */,
 				06B88A4923B0B53900FDA53A /* starfill.png */,
 				06B620BE2397B4540036DCF9 /* makhuyenmai.png */,
-				0601E198238FAEEE00403C95 /* add-1.png */,
-				0601E199238FAEEE00403C95 /* add-2.png */,
-				0601E19A238FAEEE00403C95 /* add-3.png */,
-				0601E19B238FAEEE00403C95 /* add.png */,
 				0601E19C238FAEEE00403C95 /* agenda.png */,
 				0601E19D238FAEEE00403C95 /* alarm-1.png */,
 				0601E19E238FAEEE00403C95 /* alarm-clock-1.png */,
@@ -1521,6 +1530,7 @@
 		06222E21239E47F200AE24C5 /* Popup */ = {
 			isa = PBXGroup;
 			children = (
+				066F890923C71958008C9844 /* ExtendService */,
 				06684827239F9D9F00A463A7 /* DateTime */,
 				0668482B239FAB7D00A463A7 /* TextInput */,
 				06222E25239E4A7200AE24C5 /* PopupView.h */,
@@ -1591,6 +1601,10 @@
 		0667ECA223B47835004AAA5E /* button */ = {
 			isa = PBXGroup;
 			children = (
+				064B1FA523C70528006DC513 /* add.png */,
+				064B1FA623C70528006DC513 /* delete.png */,
+				064B1FA423C70527006DC513 /* select.png */,
+				064B1FA723C70529006DC513 /* unselect.png */,
 				0608E3CC23BF3180000EE8B1 /* rate.png */,
 				0608E3CD23BF3180000EE8B1 /* unrate.png */,
 				83D0FE4623BCB0E800688924 /* headerEllipse.png */,
@@ -1618,6 +1632,15 @@
 				06222E23239E489C00AE24C5 /* TextDetailPopupController.m */,
 			);
 			path = TextInput;
+			sourceTree = "<group>";
+		};
+		066F890923C71958008C9844 /* ExtendService */ = {
+			isa = PBXGroup;
+			children = (
+				066F890D23C719A8008C9844 /* ExtendServicePopupController.h */,
+				066F890E23C719A8008C9844 /* ExtendServicePopupController.m */,
+			);
+			path = ExtendService;
 			sourceTree = "<group>";
 		};
 		067A398D23A88AA000740FA3 /* ConfirmOrder */ = {
@@ -1653,6 +1676,12 @@
 				06ED4C1523A0FD130072EB15 /* DaySelectionCell.xib */,
 				06ED4C1723A0FD220072EB15 /* DaySelectionTableViewCell.h */,
 				06ED4C1823A0FD220072EB15 /* DaySelectionTableViewCell.m */,
+				064B1F9F23C70430006DC513 /* ExtendService.xib */,
+				064B1FA123C70445006DC513 /* ExtentServiceTableViewCell.h */,
+				064B1FA223C70445006DC513 /* ExtentServiceTableViewCell.m */,
+				064B1FAC23C70912006DC513 /* ServiceCell.xib */,
+				064B1FAE23C70A6D006DC513 /* ServiceCell.h */,
+				064B1FAF23C70A6D006DC513 /* ServiceCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1895,6 +1924,7 @@
 				0601E426238FAEF000403C95 /* route.png in Resources */,
 				0601E44A238FAEF000403C95 /* smartphone-7.png in Resources */,
 				0601E35E238FAEEF00403C95 /* compose.png in Resources */,
+				064B1FA023C70430006DC513 /* ExtendService.xib in Resources */,
 				0601E3DA238FAEEF00403C95 /* map-location.png in Resources */,
 				0601E458238FAEF000403C95 /* star-1.png in Resources */,
 				0601E41C238FAEEF00403C95 /* push-pin.png in Resources */,
@@ -1990,7 +2020,6 @@
 				0601E401238FAEEF00403C95 /* notification.png in Resources */,
 				0601E405238FAEEF00403C95 /* pause.png in Resources */,
 				83D0FE5B23BCC4A500688924 /* Roboto-Medium.ttf in Resources */,
-				0601E321238FAEEF00403C95 /* add.png in Resources */,
 				0601E43F238FAEF000403C95 /* sign-1.png in Resources */,
 				0601E32B238FAEEF00403C95 /* archive-3.png in Resources */,
 				0601E3FD238FAEEF00403C95 /* notebook.png in Resources */,
@@ -2018,7 +2047,6 @@
 				0658BEC1238FAC7800CBBAD1 /* Assets.xcassets in Resources */,
 				0601E38E238FAEEF00403C95 /* flag.png in Resources */,
 				0601E418238FAEEF00403C95 /* power.png in Resources */,
-				0601E31F238FAEEF00403C95 /* add-2.png in Resources */,
 				0601E36D238FAEEF00403C95 /* diamond.png in Resources */,
 				06ED4C1123A0EDD10072EB15 /* TimeSelectionCell.xib in Resources */,
 				0601E342238FAEEF00403C95 /* broken-link.png in Resources */,
@@ -2040,6 +2068,7 @@
 				83D0FE5623BCC4A500688924 /* Roboto-Regular.ttf in Resources */,
 				0601E353238FAEEF00403C95 /* cloud-computing-2.png in Resources */,
 				0601E3F1238FAEEF00403C95 /* muted.png in Resources */,
+				064B1FAD23C70912006DC513 /* ServiceCell.xib in Resources */,
 				0601E333238FAEEF00403C95 /* battery-3.png in Resources */,
 				0601E374238FAEEF00403C95 /* document.png in Resources */,
 				83D0FE5723BCC4A500688924 /* Roboto-Light.ttf in Resources */,
@@ -2071,6 +2100,7 @@
 				0601E379238FAEEF00403C95 /* eject.png in Resources */,
 				0601E462238FAEF000403C95 /* street.png in Resources */,
 				0601E36C238FAEEF00403C95 /* database.png in Resources */,
+				064B1FAB23C70529006DC513 /* unselect.png in Resources */,
 				0601E466238FAEF000403C95 /* switch-1.png in Resources */,
 				0601E3FF238FAEEF00403C95 /* notepad-2.png in Resources */,
 				0601E452238FAEF000403C95 /* speaker-5.png in Resources */,
@@ -2113,6 +2143,7 @@
 				0601E38C238FAEEF00403C95 /* flag-3.png in Resources */,
 				0601E35C238FAEEF00403C95 /* compact-disc.png in Resources */,
 				0601E415238FAEEF00403C95 /* play-button-1.png in Resources */,
+				064B1FAA23C70529006DC513 /* delete.png in Resources */,
 				0601E489238FAEF000403C95 /* video-player.png in Resources */,
 				0601E3AB238FAEEF00403C95 /* hide.png in Resources */,
 				0601E3D2238FAEEF00403C95 /* locked.png in Resources */,
@@ -2182,6 +2213,7 @@
 				0601E36A238FAEEF00403C95 /* database-2.png in Resources */,
 				065105E723A33F0500B5339B /* HomePromotionCollectionCell.xib in Resources */,
 				0601E455238FAEF000403C95 /* speaker-8.png in Resources */,
+				064B1FA923C70529006DC513 /* add.png in Resources */,
 				0601E430238FAEF000403C95 /* settings-2.png in Resources */,
 				0601E400238FAEEF00403C95 /* notepad.png in Resources */,
 				0601E324238FAEEF00403C95 /* alarm-clock-1.png in Resources */,
@@ -2220,7 +2252,6 @@
 				0601E467238FAEF000403C95 /* switch-2.png in Resources */,
 				0601E47F238FAEF000403C95 /* user-5.png in Resources */,
 				0601E3DE238FAEEF00403C95 /* menu-1.png in Resources */,
-				0601E31E238FAEEF00403C95 /* add-1.png in Resources */,
 				0601E334238FAEEF00403C95 /* battery-4.png in Resources */,
 				0601E450238FAEF000403C95 /* speaker-3.png in Resources */,
 				0601E380238FAEEF00403C95 /* exit.png in Resources */,
@@ -2250,6 +2281,7 @@
 				0601E39D238FAEEF00403C95 /* folder-4.png in Resources */,
 				83D0FE5C23BCC4A500688924 /* Roboto-Thin.ttf in Resources */,
 				0601E419238FAEEF00403C95 /* previous.png in Resources */,
+				064B1FA823C70529006DC513 /* select.png in Resources */,
 				0601E3EB238FAEEF00403C95 /* multiply.png in Resources */,
 				83D0FE5E23BCC4A500688924 /* Roboto-ThinItalic.ttf in Resources */,
 				0601E396238FAEEF00403C95 /* folder-15.png in Resources */,
@@ -2283,7 +2315,6 @@
 				0601E3E7238FAEEF00403C95 /* more-1.png in Resources */,
 				0601E3C6238FAEEF00403C95 /* like.png in Resources */,
 				0601E3F9238FAEEF00403C95 /* notebook-2.png in Resources */,
-				0601E320238FAEEF00403C95 /* add-3.png in Resources */,
 				0601E3C4238FAEEF00403C95 /* like-1.png in Resources */,
 				06CF5D0D23B5EFF20066A551 /* backbutton.png in Resources */,
 				0601E47E238FAEF000403C95 /* user-4.png in Resources */,
@@ -2410,6 +2441,7 @@
 				CEA83F1723911F60001C1512 /* APIRequest.m in Sources */,
 				068DDEED23990D8C009484E7 /* PlaceOrderViewController.m in Sources */,
 				CEA0919623A79D7300D2502F /* EditAccountInfoViewController.m in Sources */,
+				066F890F23C719A8008C9844 /* ExtendServicePopupController.m in Sources */,
 				06FD73C123A2527F00528A00 /* DayLabel.m in Sources */,
 				06222E24239E489C00AE24C5 /* TextDetailPopupController.m in Sources */,
 				CEA0919323A796FA00D2502F /* AccountInfoViewController.m in Sources */,
@@ -2418,11 +2450,13 @@
 				06DFA80623AB8B6C00FBE763 /* RateViewController.m in Sources */,
 				06EC9F202396736200474EE3 /* HomeTaskTableViewCell.m in Sources */,
 				0633A786239109E60094219D /* HomeViewController.m in Sources */,
+				064B1FB023C70A6D006DC513 /* ServiceCell.m in Sources */,
 				0612A38B23961DA800A82BB9 /* NoticeTableViewCell.m in Sources */,
 				831705F723B7710600A3493E /* JView.m in Sources */,
 				067A399023A88ABC00740FA3 /* ConfirmOrderViewController.m in Sources */,
 				06ED4C1923A0FD220072EB15 /* DaySelectionTableViewCell.m in Sources */,
 				06CF5D0B23B5EF9A0066A551 /* JNavigationViewController.m in Sources */,
+				064B1FA323C70445006DC513 /* ExtentServiceTableViewCell.m in Sources */,
 				06FEA1E8239544F2005D58B9 /* DetailOrderViewController.m in Sources */,
 				06CF5D1323B601670066A551 /* JTextView.m in Sources */,
 				06D6BF19239E39B000AB52DB /* MapsViewController.m in Sources */,
