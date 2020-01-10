@@ -96,7 +96,7 @@
 {
     APIRequest *apirequest = [[APIRequest alloc] init];
     
-    [apirequest requestAPIGetNotifiesWithType:[_user userToken] notifyType:@"notify" completionHandler:^(NSArray * _Nullable resultDict, NSError * _Nonnull error) {
+    [apirequest requestAPIGetNotifiesWithType:[_user userToken] notifyType:NOTIFIES_TYPE_NOTIFY completionHandler:^(NSArray * _Nullable resultDict, NSError * _Nonnull error) {
         if (error.code == 200) {
             [self showNotice:resultDict];
         }
@@ -118,6 +118,23 @@
 -(void)getCoupon
 {
     APIRequest *apirequest = [[APIRequest alloc] init];
+    [apirequest requestAPIGetNotifiesWithType:[_user userToken] notifyType:NOTIFIES_TYPE_PROMOTION completionHandler:^(NSArray * _Nullable resultDict, NSError * _Nonnull error) {
+        if (error.code == 200) {
+            [self showCoupon:resultDict];
+        }
+        else if (error.code == RESPONSE_CODE_NODATA)
+        {
+            [JUntil showPopup:self responsecode:RESPONSE_CODE_NODATA];
+        }
+        else if (error.code == RESPONSE_CODE_TIMEOUT)
+        {
+            [JUntil showPopup:self responsecode:RESPONSE_CODE_TIMEOUT];
+        }
+        else
+        {
+            [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
+        }
+    }];
 }
 
 -(void)showNotice:(NSArray*)notices
@@ -127,6 +144,18 @@
         _listNotices = [NSMutableArray arrayWithArray:notices];
         
          [self showSelectedList];
+        [_tbNotice reloadData];
+    });
+}
+
+-(void)showCoupon:(NSArray*)notices
+{
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        
+        _listCoupons = [NSMutableArray arrayWithArray:notices];
+        
+        [self showSelectedList];
+        [_tbNotice reloadData];
     });
 }
 
@@ -212,7 +241,7 @@
     else if (_selectedNotice == NOTICE_CHOISE_COUPON)
     {
         CouponTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idcouponcell"];
-        
+        [cell setNotifyCoupon:[_listCoupons objectAtIndex:indexPath.row]];
         return cell;
     }
     
@@ -236,6 +265,17 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NoticeDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"idnoticedetail"];
+    if (_selectedNotice == NOTICE_CHOISE_NOTICE)
+    {
+        [detailViewController setNotifyInfo:[_listNotices objectAtIndex:indexPath.row]];
+    }
+    else if (_selectedNotice == NOTICE_CHOISE_COUPON)
+    {
+        CouponTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        NSData* imageData = [cell imageData];
+        [detailViewController setNotifyInfo:[_listCoupons objectAtIndex:indexPath.row]];
+        [detailViewController setImageData:imageData];
+    }
     
     [self.navigationController pushViewController:detailViewController animated:YES];
 }

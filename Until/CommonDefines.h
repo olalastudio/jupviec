@@ -23,6 +23,7 @@
 #define NETWORK_REACHABILITY_STATUS_CHANGED_NOTIFICATION    @"NETWORK_REACHABILITY_STATUS_CHANGED_NOTIFICATION"
 
 #pragma mark API
+#define IP_SEVER                @"http://112.78.4.173"
 #define ADDRESS_SERVER          @"http://112.78.4.173:8080"
 #define API_V1                  @"api/v1"
 #define API_GETOTP              @"get-otp"
@@ -41,6 +42,9 @@
 #define API_FEEDBACK            @"feedback"
 #define API_CANCEL_REQUEST      @"cancer"
 #define API_SEND_DEVICE_TOKEN   @"device"
+
+#define NOTIFIES_TYPE_NOTIFY    @"notify"
+#define NOTIFIES_TYPE_PROMOTION @"promotion"
 
 #define ID_WELCOME_VIEW         @"idwelcomeview"
 

@@ -11,7 +11,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CouponTableViewCell : UITableViewCell
+{
+    NSDictionary* _couponInfo;
+}
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLB;
+@property (weak, nonatomic) IBOutlet UILabel *dateLB;
+@property (strong, nonatomic) NSData* imageData;
 
+- (void)setNotifyCoupon:(NSDictionary*)notifyInfo;
 @end
 
 NS_ASSUME_NONNULL_END
