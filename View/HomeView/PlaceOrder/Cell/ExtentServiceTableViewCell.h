@@ -16,10 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol ExtendServiceCellDelegate <NSObject>
 
 -(void)didPressAddExtentService:(NSDictionary*_Nonnull)code index:(NSIndexPath*_Nonnull)index;
+-(void)didPressDeleteExtendService:(NSMutableArray*_Nonnull)code index:(NSIndexPath*_Nonnull)index;
 
 @end
 
-@interface ExtentServiceTableViewCell : UITableViewCell <UITableViewDelegate, UITableViewDataSource>
+@interface ExtentServiceTableViewCell : UITableViewCell <UITableViewDelegate, UITableViewDataSource, ServiceCellDelegate>
 {
     ORDER_ATTRIBUTE     _ordeAttribute;
     NSIndexPath         *_indexPath;

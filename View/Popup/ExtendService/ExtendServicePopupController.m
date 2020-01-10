@@ -10,7 +10,6 @@
 #import "JButton.h"
 #import "PopupView.h"
 #import "ServiceCell.h"
-#import "CommonDefines.h"
 
 @interface ExtendServicePopupController ()
 
@@ -29,9 +28,6 @@
     [_tbExtendService setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [_tbExtendService setAllowsSelection:YES];
     [_tbExtendService setAllowsMultipleSelection:YES];
-    
-    _selectedservice = [[NSMutableArray alloc] initWithCapacity:0];
-    _totalservice = [[NSMutableArray alloc] initWithCapacity:0];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -72,6 +68,21 @@
 {
     [super viewDidDisappear:animated];
 }
+
+-(void)setOrderAttribute:(ORDER_ATTRIBUTE)attribute
+{
+    _orderAttribute = attribute;
+}
+
+-(void)setIndexPath:(NSIndexPath *)index
+{
+    _index = index;
+}
+
+-(void)setOrder:(Order*)order
+{
+    _order = order;
+}
 /*
 #pragma mark - Navigation
 
@@ -84,6 +95,11 @@
 
 - (IBAction)didClickConfirmButton:(id)sender
 {
+    if (_delegate && [_delegate respondsToSelector:@selector(didSelectExtendService:indexPath:services:)])
+    {
+        [_delegate didSelectExtendService:_orderAttribute indexPath:_index services:_selectedservice];
+    }
+    
      [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -128,11 +144,11 @@
     
     NSDictionary *item = [_totalservice objectAtIndex:indexPath.row];
     [cell setTitle:[item objectForKey:ID_NAME]];
-    
+
     if ([self isSelectedItem:item]) {
-        [cell setSelected:YES];
+        [cell setIsSelect:YES];
     }else{
-        [cell setSelected:NO];
+        [cell setIsSelect:NO];
     }
     
     return cell;
@@ -146,11 +162,19 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ServiceCell *cell = (ServiceCell*)[tableView cellForRowAtIndexPath:indexPath];
+        
+    if ([cell isSelect])
+    {
+        [cell setIsSelect:NO];
+        NSDictionary *deselectitem = [_totalservice objectAtIndex:indexPath.row];
+        [self removeItemFromSelectedService:deselectitem];
+    }
+    else{
+        [cell setIsSelect:YES];
+        [_selectedservice addObject:[_totalservice objectAtIndex:indexPath.row]];
+    }
     
-    [_selectedservice addObject:[_totalservice objectAtIndex:indexPath.row]];
     NSLog(@"%@",_selectedservice);
-    
-    [cell setSelected:YES];
 }
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -158,6 +182,15 @@
     ServiceCell *cell = (ServiceCell*)[tableView cellForRowAtIndexPath:indexPath];
     
     NSDictionary *deselectitem = [_totalservice objectAtIndex:indexPath.row];
+    [self removeItemFromSelectedService:deselectitem];
+    
+    NSLog(@"%@",_selectedservice);
+    
+    [cell setIsSelect:NO];
+}
+
+-(void)removeItemFromSelectedService:(NSDictionary*)deselectitem
+{
     NSString *deselectedcode = [deselectitem objectForKey:ID_CODE];
     int deselectedIndex = 0;
     
@@ -172,9 +205,5 @@
     }
     
     [_selectedservice removeObjectAtIndex:deselectedIndex];
-    
-    NSLog(@"%@",_selectedservice);
-    
-    [cell setSelected:NO];
 }
 @end

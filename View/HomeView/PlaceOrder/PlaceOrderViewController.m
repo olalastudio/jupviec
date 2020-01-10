@@ -562,11 +562,21 @@
     ExtendServicePopupController *addServicePopup = [self.storyboard instantiateViewControllerWithIdentifier:@"idextendservicepopup"];
     [addServicePopup setTotalService:[_serviceInfo objectForKey:ID_SERVICE_EXTEND]];
     [addServicePopup setSelectedService:[_order extraOption]];
+    [addServicePopup setDelegate:self];
+    [addServicePopup setOrder:_order];
+    [addServicePopup setIndexPath:index];
+    [addServicePopup setOrderAttribute:ATTRIBUTE_DICHVUKEMTHEO];
     
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
     [self presentViewController:addServicePopup animated:NO completion:nil];
 }
 
+-(void)didPressDeleteExtendService:(NSMutableArray *)code index:(NSIndexPath *)index
+{
+    [_order setExtraOption:code];
+    
+    [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+}
 #pragma mark - Popup Delegate
 -(void)didPressConfirmDetailPopup:(ORDER_ATTRIBUTE)sender index:(NSIndexPath *)index withReturnValue:(NSString *)str
 {
@@ -622,6 +632,13 @@
         default:
             break;
     }
+    
+    [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+-(void)didSelectExtendService:(ORDER_ATTRIBUTE)sender indexPath:(NSIndexPath*)index services:(NSArray*)services
+{
+    [_order setExtraOption:[NSMutableArray arrayWithArray:services]];
     
     [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
 }

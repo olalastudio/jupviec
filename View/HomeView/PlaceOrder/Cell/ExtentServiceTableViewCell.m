@@ -40,6 +40,8 @@
 -(void)setOrder:(Order *)order
 {
     _order = order;
+    
+    [_tbService reloadData];
 }
 
 -(void)setIndexPath:(NSIndexPath *)index
@@ -66,12 +68,18 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return [[_order extraOption] count];
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ServiceCell *cell = [_tbService dequeueReusableCellWithIdentifier:@"idservicecell"];
+    [cell setServiceCellType:TYPE_ORDER];
+    
+    NSDictionary *item = [[_order extraOption] objectAtIndex:indexPath.row];
+    [cell setTitle:[item objectForKey:ID_NAME]];
+    [cell setIndexPath:indexPath];
+    [cell setDelegate:self];
     
     return cell;
 }
@@ -79,5 +87,18 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 30;
+}
+
+#pragma mark - ServiceCell Delegate
+-(void)didClickDeleteServiceAt:(NSIndexPath *)index
+{
+    NSMutableArray *services = [NSMutableArray arrayWithArray:[_order extraOption]];
+    
+    [services removeObjectAtIndex:index.row];
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(didPressDeleteExtendService:index:)]   )
+    {
+        [_delegate didPressDeleteExtendService:services index:_indexPath];
+    }
 }
 @end

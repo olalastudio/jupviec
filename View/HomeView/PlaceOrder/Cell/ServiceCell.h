@@ -10,6 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol ServiceCellDelegate <NSObject>
+
+-(void)didClickDeleteServiceAt:(NSIndexPath*)index;
+
+@end
+
 typedef enum : NSUInteger {
     TYPE_POPUP,
     TYPE_ORDER,
@@ -18,16 +24,21 @@ typedef enum : NSUInteger {
 @interface ServiceCell : UITableViewCell
 {
     ServiceCellType     _type;
+    BOOL                _isSelect;
+    NSIndexPath         *_index;
 }
 
-@property (weak, nonatomic) IBOutlet UILabel *txtServiceName;
-@property (weak, nonatomic) IBOutlet UIButton *btDelete;
+@property id<ServiceCellDelegate>               delegate;
+@property (weak, nonatomic) IBOutlet UILabel    *txtServiceName;
+@property (weak, nonatomic) IBOutlet UIButton   *btDelete;
 
 - (IBAction)didClickDeleteServiceButton:(id)sender;
 
 -(void)setServiceCellType:(ServiceCellType)type;
+-(void)setIndexPath:(NSIndexPath*)index;
 -(void)setTitle:(NSString*)title;
-
+-(void)setIsSelect:(BOOL)select;
+-(BOOL)isSelect;
 @end
 
 NS_ASSUME_NONNULL_END

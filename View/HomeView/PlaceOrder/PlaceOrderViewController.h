@@ -23,7 +23,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PlaceOrderViewController : JViewController <UITableViewDelegate, UITableViewDataSource, PlaceOrderCommonCellProtocol, TextDetailPopupDelegate,DateTimePickerDelegate, TimeSelectionTableViewCellDelegate,DaySelectionTableViewCellDelegate,ExtendServiceCellDelegate,UIActionSheetDelegate>
+@interface PlaceOrderViewController : JViewController <UITableViewDelegate, UITableViewDataSource, PlaceOrderCommonCellProtocol, TextDetailPopupDelegate,DateTimePickerDelegate, TimeSelectionTableViewCellDelegate,DaySelectionTableViewCellDelegate,ExtendServiceCellDelegate,ExtendServicePopupDelegate,UIActionSheetDelegate>
 {
     TASK_TYPE       _tasktype;
     Order           *_order;
