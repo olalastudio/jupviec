@@ -11,6 +11,8 @@
 #import "CommonDefines.h"
 #import "APIRequest.h"
 
+@class JButton;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SignInViewController : JViewController <UITextFieldDelegate>
@@ -22,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) NSInteger intActionMode;
 @property (weak, nonatomic) IBOutlet UITextField *txtPhone;
+@property (weak, nonatomic) IBOutlet UILabel *txtPhoneTitle;
+@property (weak, nonatomic) IBOutlet JButton *btNext;
 
 - (IBAction)didPressNextButton:(id)sender;
 

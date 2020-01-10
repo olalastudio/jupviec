@@ -24,7 +24,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
+    self.view.layer.masksToBounds = YES;
+    
     [_txtInputUserPhone setDelegate:self];
     [_txtInputUserPass setDelegate:self];
     
@@ -86,11 +89,12 @@
 -(void)keyboardDidShow:(NSNotification*)notification
 {
     NSDictionary *userinfo = [notification userInfo];
-    NSValue *keyboardValue = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
-    CGRect keyboardRect = [keyboardValue CGRectValue];
+    NSValue *keyboardbeginrect = [userinfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    NSValue *keyboardendrect = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect beginrect = [keyboardbeginrect CGRectValue];
+    CGRect endrect = [keyboardendrect CGRectValue];
  
-    NSLog(@"Keyboard did show %@",userinfo);
-    keyboardheight = keyboardRect.size.height - keyboardheight;
+    keyboardheight = beginrect.origin.y - endrect.origin.y;
     
     CGRect questionrect = [_txtQuestion frame];
     questionrect.origin.y -= keyboardheight;
@@ -103,28 +107,35 @@
     CGRect registernowrect = [_btRegisterNow frame];
     registernowrect.origin.y -= keyboardheight;
     [_btRegisterNow setFrame:registernowrect];
-    
 }
 
 -(void)keyboardDidHide:(NSNotification*)notification
 {
     NSDictionary *userinfo = [notification userInfo];
-    NSValue *keyboardValue = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
-    CGRect keyboardRect = [keyboardValue CGRectValue];
- 
-    NSLog(@"Keyboard did hide %@",userinfo);
-    keyboardheight = 0;
+    NSValue *keyboardbeginrect = [userinfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    NSValue *keyboardendrect = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect beginrect = [keyboardbeginrect CGRectValue];
+    CGRect endrect = [keyboardendrect CGRectValue];
+
+    keyboardheight = endrect.origin.y - beginrect.origin.y;
     
     CGRect questionrect = [_txtQuestion frame];
-    questionrect.origin.y += keyboardRect.size.height;
+    if ((questionrect.origin.y + keyboardheight) < [_txtQuestion superview].frame.size.height) {
+        questionrect.origin.y += keyboardheight;
+    }
     [_txtQuestion setFrame:questionrect];
     
     CGRect confirmrect = [_btConfirm frame];
-    confirmrect.origin.y += keyboardRect.size.height;
+    if ((confirmrect.origin.y + keyboardheight) < [_btConfirm superview].frame.size.height) {
+        confirmrect.origin.y += keyboardheight;
+    }
     [_btConfirm setFrame:confirmrect];
     
     CGRect registernowrect = [_btRegisterNow frame];
-    registernowrect.origin.y += keyboardRect.size.height;
+    if ((registernowrect.origin.y + keyboardheight) < [_btRegisterNow superview].frame.size.height) {
+        registernowrect.origin.y += keyboardheight;
+    }
+    
     [_btRegisterNow setFrame:registernowrect];
 }
 /*
@@ -188,23 +199,35 @@
 }
 
 #pragma - Actions
-- (IBAction)didClickedFogetPassword:(id)sender {
+- (IBAction)didClickedFogetPassword:(id)sender
+{
     NSLog(@"clicked forget password");
+    
+    [self.view endEditing:YES];
     intActionMode = MODE_FORGOT_PASSWORD;
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [self performSegueWithIdentifier:@"idLoginToNewRegister" sender:self];
     });
 }
 
-- (IBAction)didClickedRegisterNewAcc:(id)sender {
-    intActionMode = MODE_REGISTER_NEW_ACC;
+- (IBAction)didClickedRegisterNewAcc:(id)sender
+{
+    
     NSLog(@"create new account");
+    
+    intActionMode = MODE_REGISTER_NEW_ACC;
+    [self.view endEditing:YES];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [self performSegueWithIdentifier:@"idLoginToNewRegister" sender:self];
     });
 }
 
-- (IBAction)didClickedLogin:(id)sender {
+- (IBAction)didClickedLogin:(id)sender
+{
+    [self.view endEditing:YES];
+    
     if ([_txtInputUserPhone text] && [_txtInputUserPass text])
     {
         strUserPass = [_txtInputUserPass text];

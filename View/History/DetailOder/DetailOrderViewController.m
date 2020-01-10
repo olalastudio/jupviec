@@ -126,7 +126,7 @@
     NSString *requester = [_detailInfo objectForKey:ID_REQUESTER];
     [_lbPhoneValue setText:requester];
     
-    NSString *requestdate = [_detailInfo objectForKey:ID_UPDATE_DATE];
+    NSString *requestdate = [_detailInfo objectForKey:ID_WORKING_DATE];
     NSDate *workdate = [JUntil dateFromString:requestdate];
     [_lbWorkTimeValue setText:[JUntil stringFromDate:workdate]];
     

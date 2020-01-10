@@ -27,7 +27,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
+    self.view.layer.masksToBounds = YES;
     
     [_tbPlaceOrderContent registerNib:[UINib nibWithNibName:@"CommonCell" bundle:nil] forCellReuseIdentifier:@"idplaceordercommoncell"];
     [_tbPlaceOrderContent registerNib:[UINib nibWithNibName:@"TimeSelectionCell" bundle:nil] forCellReuseIdentifier:@"idplaceordertimeselectioncell"];
@@ -97,9 +99,11 @@
 -(void)keyboardDidShow:(NSNotification*)notification
 {
     NSDictionary *userinfo = [notification userInfo];
-    NSValue *keyboardValue = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
-    CGRect keyboardRect = [keyboardValue CGRectValue];
-    NSInteger inset = keyboardRect.size.height - 83;
+    NSValue *keyboardbeginrect = [userinfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    NSValue *keyboardendrect = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect beginrect = [keyboardbeginrect CGRectValue];
+    CGRect endrect = [keyboardendrect CGRectValue];
+    NSInteger inset = beginrect.origin.y - endrect.origin.y - 83;
     
     UIEdgeInsets contentinset = [_tbPlaceOrderContent contentInset];
     CGPoint contentoffset = [_tbPlaceOrderContent contentOffset];
@@ -115,9 +119,11 @@
 -(void)keyboardDidHide:(NSNotification*)notification
 {
     NSDictionary *userinfo = [notification userInfo];
-    NSValue *keyboardValue = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
-    CGRect keyboardRect = [keyboardValue CGRectValue];
-    NSInteger inset = keyboardRect.size.height - 83;
+    NSValue *keyboardbeginrect = [userinfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    NSValue *keyboardendrect = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect beginrect = [keyboardbeginrect CGRectValue];
+    CGRect endrect = [keyboardendrect CGRectValue];
+    NSInteger inset = endrect.origin.y - beginrect.origin.y - 83;
     
     UIEdgeInsets contentinset = [_tbPlaceOrderContent contentInset];
     CGPoint contentoffset = [_tbPlaceOrderContent contentOffset];
