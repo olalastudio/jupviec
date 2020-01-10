@@ -126,7 +126,7 @@
     NSString *requester = [_detailInfo objectForKey:ID_REQUESTER];
     [_lbPhoneValue setText:requester];
     
-    NSString *requestdate = [_detailInfo objectForKey:ID_UPDATE_DATE];
+    NSString *requestdate = [_detailInfo objectForKey:ID_WORKING_DATE];
     NSDate *workdate = [JUntil dateFromString:requestdate];
     [_lbWorkTimeValue setText:[JUntil stringFromDate:workdate]];
     
@@ -134,7 +134,26 @@
     [_lbAddressValue setText:location];
     
     NSString *worktime = [_detailInfo objectForKey:ID_WORKING_HOUR];
-    [_lbWorkTimeValue setText:worktime];
+    NSString *dayinweek = @"";
+    NSArray *dayinweeks = [_detailInfo objectForKey:ID_WORK_DAYINWEEK];
+    if (![dayinweeks isKindOfClass:[NSNull class]])
+    {
+        for (int i=0; i<[dayinweeks count]; i++)
+        {
+            NSString *day = [dayinweeks objectAtIndex:i];
+            dayinweek = [dayinweek stringByAppendingString:day];
+            
+            if (i < [dayinweeks count] - 1)
+            {
+                dayinweek = [dayinweek stringByAppendingString:@","];
+            }
+            
+            [_lbWorkTimeValue setText:[NSString stringWithFormat:@"%@ - %@",worktime,dayinweek]];
+        }
+    }
+    else{
+        [_lbWorkTimeValue setText:[NSString stringWithFormat:@"%@",worktime]];
+    }
     
     double workhour = [[_detailInfo objectForKey:ID_WORKING_TIME] doubleValue];
     [_lbWorkHourValue setText:[NSString stringWithFormat:@"%.1f",workhour]];
@@ -145,7 +164,7 @@
         NSString *stroptions = @"";
         for (NSString *option in options)
         {
-            stroptions = [stroptions stringByAppendingString:option];
+            stroptions = [stroptions stringByAppendingString:[JUntil stringDisplayWithID:option withCategory:ID_SERVICE_EXTEND fromDefinesDictionary:_definesCode]];
             
             if ([options count] > 1) {
                 stroptions = [stroptions stringByAppendingString:@","];
@@ -157,7 +176,7 @@
     NSString *paymentmethod = [_detailInfo objectForKey:ID_PAYMENT_METHOD];
     if (![paymentmethod isKindOfClass:[NSNull class]])
     {
-        [_lbPaymentValue setText:paymentmethod];
+        [_lbPaymentValue setText:[JUntil stringDisplayWithID:paymentmethod withCategory:ID_PAYMENT_METHOD fromDefinesDictionary:_definesCode]];
     }
     
     NSString *note = [_detailInfo objectForKey:ID_USER_NOTE];

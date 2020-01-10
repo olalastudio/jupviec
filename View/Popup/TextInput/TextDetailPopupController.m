@@ -7,6 +7,7 @@
 //
 
 #import "TextDetailPopupController.h"
+#import "PopupView.h"
 
 @interface TextDetailPopupController ()
 
@@ -27,13 +28,29 @@
     
     [_txtContent setText:_strContent];
     [_txtCurrentLocation setText:_strCurrentLocation];
+    
+    [self.view setBackgroundColor:[UIColor colorWithRed:85.0f/255.0f green:80.0f/255.0f blue:80.0f/255.0f alpha:0.38]];
+    
+    self.popupView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.5, 0.5);
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    [self.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2]];
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        self.popupView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.1, 1.1);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.2 animations:^{
+           self.popupView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.99, 0.99);
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.2 animations:^{
+                self.popupView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
+            } completion:^(BOOL finished) {
+                self.popupView.transform = CGAffineTransformIdentity;
+            }];
+        }];
+    }];
 }
 
 -(void)viewWillDisappear:(BOOL)animated

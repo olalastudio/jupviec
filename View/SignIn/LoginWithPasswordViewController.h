@@ -11,6 +11,8 @@
 #import "CommonDefines.h"
 #import "JUntil.h"
 
+@class JButton;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LoginWithPasswordViewController : JViewController <UITextFieldDelegate>
@@ -21,8 +23,12 @@ NS_ASSUME_NONNULL_BEGIN
     NSString* strToken;
 }
 
-@property (weak, nonatomic) IBOutlet UITextField *txtInputUserPhone;
-@property (weak, nonatomic) IBOutlet UITextField *txtInputUserPass;
+@property (weak, nonatomic) IBOutlet UITextField    *txtInputUserPhone;
+@property (weak, nonatomic) IBOutlet UITextField    *txtInputUserPass;
+@property (weak, nonatomic) IBOutlet UIButton       *btForgotPassword;
+@property (weak, nonatomic) IBOutlet JButton        *btConfirm;
+@property (weak, nonatomic) IBOutlet UIButton       *btRegisterNow;
+@property (weak, nonatomic) IBOutlet UILabel        *txtQuestion;
 
 - (IBAction)didClickedFogetPassword:(id)sender;
 - (IBAction)didClickedRegisterNewAcc:(id)sender;

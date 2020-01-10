@@ -7,6 +7,7 @@
 //
 
 #import "DayLabel.h"
+#import "CommonDefines.h"
 
 @implementation DayLabel
 @synthesize delegate = _delegate;
@@ -29,6 +30,13 @@
     _dayInWeek = DAY_NONE;
     
     [self setBackgroundColor:[UIColor clearColor]];
+    self.layer.cornerRadius = self.frame.size.width/2;
+    self.layer.masksToBounds = YES;
+    self.layer.borderWidth = 1;
+    self.layer.borderColor = [UIColor colorWithRed:218.0f/255.0f green:218.0f/255.0f blue:218.0f/255.0f alpha:0.51].CGColor;
+    self.backgroundColor = [UIColor colorWithRed:240.0f/255.0f green:240.0f/255.0f blue:240.0f/255.0f alpha:0.21];
+    
+    [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 }
 
 - (void)drawRect:(CGRect)rect
@@ -40,7 +48,7 @@
     _selected = selected;
 }
 
--(BOOL)selected
+-(BOOL)isSelected
 {
     return _selected;
 }
@@ -56,11 +64,14 @@
 {
     if (_selected) {
         _selected = NO;
-        [self setBackgroundColor:[UIColor clearColor]];
+        [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        self.backgroundColor = [UIColor colorWithRed:240.0f/255.0f green:240.0f/255.0f blue:240.0f/255.0f alpha:0.21];
     }
     else{
         _selected = YES;
-        [self setBackgroundColor:[UIColor orangeColor]];
+        [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        UIColor *selectedcolor = UIColorFromRGB(0xFF7E46);
+        self.backgroundColor = selectedcolor;
     }
     
     if (_delegate && [_delegate respondsToSelector:@selector(didSelectDayLabel:)]) {
@@ -68,5 +79,10 @@
     }
     
     [self setNeedsDisplay];
+}
+
+-(void)pressesBegan:(NSSet<UIPress *> *)presses withEvent:(UIPressesEvent *)event
+{
+    NSLog(@"");
 }
 @end

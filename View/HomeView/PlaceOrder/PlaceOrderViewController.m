@@ -27,11 +27,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
+    self.view.layer.masksToBounds = YES;
     
     [_tbPlaceOrderContent registerNib:[UINib nibWithNibName:@"CommonCell" bundle:nil] forCellReuseIdentifier:@"idplaceordercommoncell"];
     [_tbPlaceOrderContent registerNib:[UINib nibWithNibName:@"TimeSelectionCell" bundle:nil] forCellReuseIdentifier:@"idplaceordertimeselectioncell"];
     [_tbPlaceOrderContent registerNib:[UINib nibWithNibName:@"DaySelectionCell" bundle:nil] forCellReuseIdentifier:@"idplaceorderdayselectioncell"];
+    [_tbPlaceOrderContent registerNib:[UINib nibWithNibName:@"ExtendService" bundle:nil] forCellReuseIdentifier:@"idextendservicecell"];
     
     [_tbPlaceOrderContent setDelegate:self];
     [_tbPlaceOrderContent setDataSource:self];
@@ -48,8 +51,8 @@
     
     attributeListDungDK = @[[NSNumber numberWithInt:ATTRIBUTE_DIADIEM],
                             [NSNumber numberWithInt:ATTRIBUTE_SONHACANHO],
-                            [NSNumber numberWithInt:ATTRIBUTE_NGAYLAMVIEC],
                             [NSNumber numberWithInt:ATTRIBUTE_NGAYLAMTRONGTUAN],
+                            [NSNumber numberWithInt:ATTRIBUTE_NGAYLAMVIEC],
                             [NSNumber numberWithInt:ATTRIBUTE_GIOLAMVIEC],
                             [NSNumber numberWithInt:ATTRIBUTE_DICHVUKEMTHEO],
                             [NSNumber numberWithInt:ATTRIBUTE_HINHTHUCTHANHTOAN],
@@ -96,9 +99,11 @@
 -(void)keyboardDidShow:(NSNotification*)notification
 {
     NSDictionary *userinfo = [notification userInfo];
-    NSValue *keyboardValue = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
-    CGRect keyboardRect = [keyboardValue CGRectValue];
-    NSInteger inset = keyboardRect.size.height - 83;
+    NSValue *keyboardbeginrect = [userinfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    NSValue *keyboardendrect = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect beginrect = [keyboardbeginrect CGRectValue];
+    CGRect endrect = [keyboardendrect CGRectValue];
+    NSInteger inset = beginrect.origin.y - endrect.origin.y - 83;
     
     UIEdgeInsets contentinset = [_tbPlaceOrderContent contentInset];
     CGPoint contentoffset = [_tbPlaceOrderContent contentOffset];
@@ -114,9 +119,11 @@
 -(void)keyboardDidHide:(NSNotification*)notification
 {
     NSDictionary *userinfo = [notification userInfo];
-    NSValue *keyboardValue = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
-    CGRect keyboardRect = [keyboardValue CGRectValue];
-    NSInteger inset = keyboardRect.size.height - 83;
+    NSValue *keyboardbeginrect = [userinfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    NSValue *keyboardendrect = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect beginrect = [keyboardbeginrect CGRectValue];
+    CGRect endrect = [keyboardendrect CGRectValue];
+    NSInteger inset = endrect.origin.y - beginrect.origin.y - 83;
     
     UIEdgeInsets contentinset = [_tbPlaceOrderContent contentInset];
     CGPoint contentoffset = [_tbPlaceOrderContent contentOffset];
@@ -333,8 +340,15 @@
             break;
         case ATTRIBUTE_DICHVUKEMTHEO:
         {
-            [cell setOderAttribute:ATTRIBUTE_DICHVUKEMTHEO];
+            ExtentServiceTableViewCell * extendserviceCell = [tableView dequeueReusableCellWithIdentifier:@"idextendservicecell"];
+            [extendserviceCell setDelegate:self];
+            [extendserviceCell setOderAttribute:ATTRIBUTE_DICHVUKEMTHEO];
+            [extendserviceCell setIndexPath:indexPath];
+            [extendserviceCell setOrder:_order];
+            
             [self calculatePrice];
+            
+            return extendserviceCell;
         }
             break;
         case ATTRIBUTE_HINHTHUCTHANHTOAN:
@@ -360,12 +374,10 @@
     NSNumber *row = [[self getlistDichVu] objectAtIndex:indexPath.row];
     
     switch ([row intValue]) {
-        case ATTRIBUTE_NGAYLAMTRONGTUAN:
-            return 120;
-            break;
+        case ATTRIBUTE_DICHVUKEMTHEO:
+            return 48 + [[_order extraOption] count]*30;
         case ATTRIBUTE_GHICHU:
             return 198;
-            break;
         default:
             break;
     }
@@ -389,8 +401,6 @@
 #pragma mark - PlaceOrderCommonCellDelegate
 -(void)didPressCellAtIndexPath:(NSIndexPath *)index attributeType:(ORDER_ATTRIBUTE)attribute
 {
-    NSLog(@"did press on order cell %lu",(unsigned long)attribute);
-    
     switch (attribute) {
         case ATTRIBUTE_DIADIEM:
         {
@@ -415,7 +425,7 @@
             [detailpopup setIndex:index];
             
             [self setModalPresentationStyle:UIModalPresentationCurrentContext];
-            [self presentViewController:detailpopup animated:YES completion:nil];
+            [self presentViewController:detailpopup animated:NO completion:nil];
         }
             break;
         case ATTRIBUTE_NGAYLAMVIEC:
@@ -471,7 +481,7 @@
     [timepicker setDelegate:self];
     
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
-    [self presentViewController:timepicker animated:YES completion:nil];
+    [self presentViewController:timepicker animated:NO completion:nil];
 }
 
 -(void)didClickWorkHourSelection:(ORDER_ATTRIBUTE)attribute index:(NSIndexPath *)index hourvalue:(double)hour
@@ -492,7 +502,7 @@
     [datepicker setDelegate:self];
     
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
-    [self presentViewController:datepicker animated:YES completion:nil];
+    [self presentViewController:datepicker animated:NO completion:nil];
 }
 
 -(void)didSelectDayOfTheWeek:(NSMutableArray *)dayofweeks
@@ -550,56 +560,29 @@
     [self presentViewController:actionSheet animated:YES completion:nil];
 }
 
--(void)didSelectExtentService:(NSDictionary *)code index:(NSIndexPath *)index
+#pragma mark - Extend Service Delegate
+-(void)didPressAddExtentService:(NSDictionary *)code index:(NSIndexPath *)index
 {
-    NSArray *serviceextend = [_serviceInfo objectForKey:ID_SERVICE_EXTEND];
+    NSLog(@"did click add more service");
     
-    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"Dịch vụ kèm theo" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    ExtendServicePopupController *addServicePopup = [self.storyboard instantiateViewControllerWithIdentifier:@"idextendservicepopup"];
+    [addServicePopup setTotalService:[_serviceInfo objectForKey:ID_SERVICE_EXTEND]];
+    [addServicePopup setSelectedService:[_order extraOption]];
+    [addServicePopup setDelegate:self];
+    [addServicePopup setOrder:_order];
+    [addServicePopup setIndexPath:index];
+    [addServicePopup setOrderAttribute:ATTRIBUTE_DICHVUKEMTHEO];
+    
+    [self setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [self presentViewController:addServicePopup animated:NO completion:nil];
+}
 
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Bỏ qua" style:UIAlertActionStyleCancel handler:nil];
-    [actionSheet addAction:cancel];
-    
-    //show extend service list
-    for (NSDictionary *item in serviceextend)
-    {
-        NSString *title = [item objectForKey:ID_NAME];
-        NSString *code = [item objectForKey:ID_CODE];
-        
-        UIAlertAction *actionbutton = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            for (NSDictionary* item in serviceextend)
-            {
-                if ([[item objectForKey:ID_CODE] isEqualToString:code])
-                {
-                    [self.order setExtraOption:@[item]];
-                    [self.tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
-                    break;
-                }
-            }
-        }];
-        
-        [actionSheet addAction:actionbutton];
-    }
-    
-    //add checked image
-    if ([_order paymentMethod])
-    {
-        for (UIAlertAction *actionitem in [actionSheet actions])
-        {
-            NSString *paymentTitle = [[_order paymentMethod] objectForKey:ID_NAME];
-            NSString *itemTitle = [actionitem title];
-            
-            if ([paymentTitle isEqualToString:itemTitle])
-            {
-                 [actionitem setValue:[[UIImage imageNamed:@"rate.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forKey:@"image"];
-            }
-        }
-    }
-    
-    [self presentViewController:actionSheet animated:YES completion:nil];
+-(void)didPressDeleteExtendService:(NSMutableArray *)code index:(NSIndexPath *)index
+{
+    [_order setExtraOption:code];
     
     [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
 }
-
 #pragma mark - Popup Delegate
 -(void)didPressConfirmDetailPopup:(ORDER_ATTRIBUTE)sender index:(NSIndexPath *)index withReturnValue:(NSString *)str
 {
@@ -655,6 +638,13 @@
         default:
             break;
     }
+    
+    [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+-(void)didSelectExtendService:(ORDER_ATTRIBUTE)sender indexPath:(NSIndexPath*)index services:(NSArray*)services
+{
+    [_order setExtraOption:[NSMutableArray arrayWithArray:services]];
     
     [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
 }

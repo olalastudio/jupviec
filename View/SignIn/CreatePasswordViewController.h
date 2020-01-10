@@ -12,16 +12,19 @@
 #import "User.h"
 #import "HomeViewController.h"
 
+@class JButton;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CreatePasswordViewController : JViewController <UITextFieldDelegate>
 {
     
 }
-
+@property (weak, nonatomic) IBOutlet UILabel *txtInputPasswordTitle;
+@property (weak, nonatomic) IBOutlet UILabel *txtReInputPasswordTitle;
 @property (weak, nonatomic) IBOutlet UITextField    *txtInputPassword;
 @property (weak, nonatomic) IBOutlet UITextField    *txtReInputPassword;
-@property (weak, nonatomic) IBOutlet UIButton       *btnRegister;
+@property (weak, nonatomic) IBOutlet JButton       *btnRegister;
 
 @property (nonatomic, strong) User          *user;
 @property (nonatomic, strong) NSString      *strPhoneNum;

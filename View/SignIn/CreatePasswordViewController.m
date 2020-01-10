@@ -8,9 +8,12 @@
 
 #import "CreatePasswordViewController.h"
 #import "APIRequest.h"
+#import "JButton.h"
 
 @interface CreatePasswordViewController ()
-
+{
+    NSInteger keyboardheight;
+}
 @end
 
 @implementation CreatePasswordViewController
@@ -18,8 +21,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
+    self.view.layer.masksToBounds = YES;
+    
     [_txtInputPassword setDelegate:self];
+    
+    [_txtInputPassword setTextColor:UIColorFromRGB(0x5C5C5C)];
+    [_txtReInputPassword setTintColor:UIColorFromRGB(0x5C5C5C)];
+    [_txtInputPasswordTitle setTextColor:UIColorFromRGB(0x5C5C5C)];
+    [_txtReInputPasswordTitle setTextColor:UIColorFromRGB(0x5C5C5C)];
+    
+    keyboardheight = 0;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -27,8 +40,61 @@
     [super viewWillAppear:animated];
     
     [self.tabBarController.tabBar setHidden:YES];
+    
+    [self registerFromKeyboardNotification];
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self unregisterFromKeyboardNotification];
+}
+
+-(void)registerFromKeyboardNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+-(void)unregisterFromKeyboardNotification
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+-(void)keyboardDidShow:(NSNotification*)notification
+{
+    NSDictionary *userinfo = [notification userInfo];
+    NSValue *keyboardbeginrect = [userinfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    NSValue *keyboardendrect = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect beginrect = [keyboardbeginrect CGRectValue];
+    CGRect endrect = [keyboardendrect CGRectValue];
+    
+    keyboardheight = beginrect.origin.y - endrect.origin.y;
+    
+    CGRect registernowrect = [_btnRegister frame];
+    registernowrect.origin.y -= keyboardheight;
+    [_btnRegister setFrame:registernowrect];
+    
+}
+
+-(void)keyboardDidHide:(NSNotification*)notification
+{
+    NSDictionary *userinfo = [notification userInfo];
+    NSValue *keyboardbeginrect = [userinfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    NSValue *keyboardendrect = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect beginrect = [keyboardbeginrect CGRectValue];
+    CGRect endrect = [keyboardendrect CGRectValue];
+    
+    keyboardheight = endrect.origin.y - beginrect.origin.y;
+    
+    CGRect rect = [_btnRegister frame];
+    if ((rect.origin.y + keyboardheight) < [_btnRegister superview].frame.size.height) {
+        rect.origin.y += keyboardheight;
+    }
+    [_btnRegister setFrame:rect];
+}
 /*
 #pragma mark - Navigation
 
@@ -91,7 +157,10 @@
      });
 }
 
-- (IBAction)didClickRegisterBtn:(id)sender {
+- (IBAction)didClickRegisterBtn:(id)sender
+{
+    [self.view endEditing:YES];
+    
     if ([[_txtInputPassword text] isEqualToString:[_txtReInputPassword text]])
     {
         APIRequest* apiRequest = [[APIRequest alloc]init];

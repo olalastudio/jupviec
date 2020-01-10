@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface DayLabel : UILabel
+@interface DayLabel : UIButton
 {
     BOOL    _selected;
 }
@@ -26,7 +26,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property id<DayLabelDelegate>  delegate;
 
 @property DAYINWEEK dayInWeek;
-@property BOOL  selected;
 
 @end
 

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="84" id="kNS-sR-5PV" customClass="ExtentServiceTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kNS-sR-5PV" id="ddq-Ba-rPd">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dịch vụ kèm theo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1Q-eY-T0A">
+                        <rect key="frame" x="27" y="12" width="107" height="16"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoz-c3-nBN">
+                        <rect key="frame" x="374" y="12" width="17" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="17" id="76f-G6-P3T"/>
+                            <constraint firstAttribute="height" constant="17" id="JhL-el-si5"/>
+                        </constraints>
+                        <state key="normal" image="add.png" backgroundImage="add.png"/>
+                        <connections>
+                            <action selector="didPressAddMoreExtendService:" destination="kNS-sR-5PV" eventType="touchUpInside" id="yZg-pJ-npG"/>
+                        </connections>
+                    </button>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F3x-5a-boF">
+                        <rect key="frame" x="27" y="37" width="364" height="36"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </tableView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="F3x-5a-boF" secondAttribute="bottom" constant="11" id="1gA-N4-YZe"/>
+                    <constraint firstAttribute="trailing" secondItem="aoz-c3-nBN" secondAttribute="trailing" constant="23" id="6SA-xe-7hA"/>
+                    <constraint firstItem="S1Q-eY-T0A" firstAttribute="top" secondItem="ddq-Ba-rPd" secondAttribute="top" constant="12" id="H9x-6I-Aso"/>
+                    <constraint firstItem="S1Q-eY-T0A" firstAttribute="leading" secondItem="ddq-Ba-rPd" secondAttribute="leading" constant="27" id="J1i-wh-cX9"/>
+                    <constraint firstAttribute="trailing" secondItem="F3x-5a-boF" secondAttribute="trailing" constant="23" id="cVt-CF-Aoa"/>
+                    <constraint firstItem="F3x-5a-boF" firstAttribute="top" secondItem="aoz-c3-nBN" secondAttribute="bottom" constant="8" id="gLg-Gd-41E"/>
+                    <constraint firstItem="F3x-5a-boF" firstAttribute="leading" secondItem="ddq-Ba-rPd" secondAttribute="leading" constant="27" id="qDu-Ot-vUi"/>
+                    <constraint firstItem="aoz-c3-nBN" firstAttribute="top" secondItem="ddq-Ba-rPd" secondAttribute="top" constant="12" id="wuu-jJ-Pbq"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btAdd" destination="aoz-c3-nBN" id="0b3-3G-4ll"/>
+                <outlet property="tbService" destination="F3x-5a-boF" id="W3y-up-dOf"/>
+                <outlet property="txtTitle" destination="S1Q-eY-T0A" id="6qJ-Ph-3vt"/>
+            </connections>
+            <point key="canvasLocation" x="-71.014492753623188" y="22.767857142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="add.png" width="17" height="17"/>
+    </resources>
+</document>

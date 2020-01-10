@@ -1,143 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15508"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="120" id="VbM-gW-iuU" customClass="DaySelectionTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="93" id="VbM-gW-iuU" customClass="DaySelectionTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VbM-gW-iuU" id="yzJ-Ll-fDA">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cxe-Nr-LjL">
-                        <rect key="frame" x="20" y="30.5" width="374" height="79.5"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Tsm-WC-5zt">
-                                <rect key="frame" x="20" y="15" width="334" height="20.5"/>
-                                <subviews>
-                                    <label opaque="NO" contentMode="left" verticalHuggingPriority="251" text="T2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqX-j8-xSl" userLabel="T2" customClass="DayLabel">
-                                        <rect key="frame" x="0.0" y="0.0" width="20.5" height="20.5"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opy-uU-mfJ" userLabel="T3" customClass="DayLabel">
-                                        <rect key="frame" x="51.5" y="0.0" width="20.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="T4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Xx-WA-pdl" userLabel="T4" customClass="DayLabel">
-                                        <rect key="frame" x="103.5" y="0.0" width="20" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuO-gb-f0z" userLabel="T5" customClass="DayLabel">
-                                        <rect key="frame" x="154.5" y="0.0" width="21" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGQ-cJ-XRa" userLabel="T6" customClass="DayLabel">
-                                        <rect key="frame" x="206.5" y="0.0" width="20.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJC-Xf-aVE" userLabel="T7" customClass="DayLabel">
-                                        <rect key="frame" x="258.5" y="0.0" width="20" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="CN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFB-91-zcP" userLabel="CN" customClass="DayLabel">
-                                        <rect key="frame" x="309.5" y="0.0" width="24.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ngày bắt đầu:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOr-zL-8bf">
-                                <rect key="frame" x="10" y="50.5" width="90" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgC-sa-uRp">
-                                <rect key="frame" x="105" y="50.5" width="123" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="53D-Qc-Bak"/>
-                                </constraints>
-                                <state key="normal" title="Thứ 2, 12/12/2019"/>
-                                <connections>
-                                    <action selector="didPressWorkDayButton:" destination="VbM-gW-iuU" eventType="touchUpInside" id="Ddm-gL-ag6"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.95102315989847719" green="0.95102315989847719" blue="0.95102315989847719" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Làm các ngày trong tuần" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaT-Dd-YMk">
+                        <rect key="frame" x="27" y="12" width="364" height="16"/>
                         <constraints>
-                            <constraint firstItem="mOr-zL-8bf" firstAttribute="top" secondItem="Tsm-WC-5zt" secondAttribute="bottom" constant="15" id="29B-rd-lfo"/>
-                            <constraint firstItem="lgC-sa-uRp" firstAttribute="top" secondItem="Tsm-WC-5zt" secondAttribute="bottom" constant="15" id="EwN-Dr-Bs6"/>
-                            <constraint firstItem="mOr-zL-8bf" firstAttribute="leading" secondItem="Cxe-Nr-LjL" secondAttribute="leading" constant="10" id="Jk2-Ez-q2X"/>
-                            <constraint firstItem="Tsm-WC-5zt" firstAttribute="top" secondItem="Cxe-Nr-LjL" secondAttribute="top" constant="15" id="Wki-2X-7Cd"/>
-                            <constraint firstItem="lgC-sa-uRp" firstAttribute="leading" secondItem="mOr-zL-8bf" secondAttribute="trailing" constant="5" id="YQn-83-hjd"/>
-                            <constraint firstItem="Tsm-WC-5zt" firstAttribute="leading" secondItem="Cxe-Nr-LjL" secondAttribute="leading" constant="20" id="ndd-Mb-3RR"/>
-                            <constraint firstAttribute="trailing" secondItem="Tsm-WC-5zt" secondAttribute="trailing" constant="20" id="shN-l2-Ob4"/>
+                            <constraint firstAttribute="height" constant="16" id="fgQ-80-gUS"/>
                         </constraints>
-                    </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="bGl-TC-PGW">
-                        <rect key="frame" x="20" y="5" width="20" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="0Sd-HC-RYC"/>
-                            <constraint firstAttribute="width" constant="20" id="pnI-5W-X0C"/>
-                        </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LỊCH LÀM HÀNG TUẦN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaT-Dd-YMk">
-                        <rect key="frame" x="50" y="5" width="344" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                        <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHb-LQ-O9t" customClass="DayLabel">
+                        <rect key="frame" x="70" y="44" width="34" height="34"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="34" id="RGl-nx-FDb"/>
+                            <constraint firstAttribute="width" constant="34" id="wBA-AP-yhM"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="T3">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfa-Dc-dmP" customClass="DayLabel">
+                        <rect key="frame" x="113" y="44" width="34" height="34"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="34" id="ED1-54-rhw"/>
+                            <constraint firstAttribute="height" constant="34" id="uTb-og-dbU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="T4">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEP-Tz-iHc" customClass="DayLabel">
+                        <rect key="frame" x="27" y="44" width="34" height="34"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="34" id="r8N-df-zWQ"/>
+                            <constraint firstAttribute="width" constant="34" id="wYJ-ty-Rnw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="T2">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTN-gh-0uE" customClass="DayLabel">
+                        <rect key="frame" x="156" y="44" width="34" height="34"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="34" id="7g0-Bl-gED"/>
+                            <constraint firstAttribute="width" constant="34" id="acA-w2-kaT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="T5">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ann-PA-YAu" customClass="DayLabel">
+                        <rect key="frame" x="199" y="44" width="34" height="34"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="34" id="3AB-Pj-JsD"/>
+                            <constraint firstAttribute="width" constant="34" id="5tQ-gN-vdX"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="T6">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NMZ-Yv-Rww" customClass="DayLabel">
+                        <rect key="frame" x="242" y="44" width="34" height="34"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="34" id="clA-t7-0qr"/>
+                            <constraint firstAttribute="width" constant="34" id="fdF-E4-bzM"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="T7">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4n2-n1-g0r" customClass="DayLabel">
+                        <rect key="frame" x="285" y="44" width="34" height="34"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="34" id="urn-7z-RQM"/>
+                            <constraint firstAttribute="width" constant="34" id="zRv-A8-xT3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="CN">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="Cxe-Nr-LjL" secondAttribute="trailing" constant="20" id="338-Q6-xsf"/>
-                    <constraint firstItem="bGl-TC-PGW" firstAttribute="top" secondItem="yzJ-Ll-fDA" secondAttribute="top" constant="5" id="416-Tn-oTE"/>
-                    <constraint firstItem="zaT-Dd-YMk" firstAttribute="leading" secondItem="bGl-TC-PGW" secondAttribute="trailing" constant="10" id="9AJ-Ol-KY0"/>
-                    <constraint firstAttribute="bottom" secondItem="Cxe-Nr-LjL" secondAttribute="bottom" constant="10" id="F3z-ja-TEc"/>
-                    <constraint firstAttribute="trailing" secondItem="zaT-Dd-YMk" secondAttribute="trailing" constant="20" id="aVu-FY-3Ym"/>
-                    <constraint firstItem="zaT-Dd-YMk" firstAttribute="top" secondItem="yzJ-Ll-fDA" secondAttribute="top" constant="5" id="h3G-TL-mNC"/>
-                    <constraint firstItem="Cxe-Nr-LjL" firstAttribute="leading" secondItem="yzJ-Ll-fDA" secondAttribute="leading" constant="20" id="jyM-IU-lRg"/>
-                    <constraint firstItem="bGl-TC-PGW" firstAttribute="leading" secondItem="yzJ-Ll-fDA" secondAttribute="leading" constant="20" id="m6e-pX-cJa"/>
-                    <constraint firstItem="Cxe-Nr-LjL" firstAttribute="top" secondItem="zaT-Dd-YMk" secondAttribute="bottom" constant="5" id="p6w-Kc-APk"/>
+                    <constraint firstAttribute="trailing" secondItem="zaT-Dd-YMk" secondAttribute="trailing" constant="23" id="3GE-0V-bfG"/>
+                    <constraint firstItem="NMZ-Yv-Rww" firstAttribute="leading" secondItem="ann-PA-YAu" secondAttribute="trailing" constant="9" id="40Y-I9-gMu"/>
+                    <constraint firstItem="EHb-LQ-O9t" firstAttribute="leading" secondItem="FEP-Tz-iHc" secondAttribute="trailing" constant="9" id="APY-yl-SOc"/>
+                    <constraint firstItem="zaT-Dd-YMk" firstAttribute="top" secondItem="yzJ-Ll-fDA" secondAttribute="top" constant="12" id="FUq-vH-1cz"/>
+                    <constraint firstItem="4n2-n1-g0r" firstAttribute="leading" secondItem="NMZ-Yv-Rww" secondAttribute="trailing" constant="9" id="Mol-AW-Eqx"/>
+                    <constraint firstItem="cfa-Dc-dmP" firstAttribute="top" secondItem="zaT-Dd-YMk" secondAttribute="bottom" constant="16" id="Odo-l9-yei"/>
+                    <constraint firstItem="cfa-Dc-dmP" firstAttribute="leading" secondItem="EHb-LQ-O9t" secondAttribute="trailing" constant="9" id="PGO-nH-E85"/>
+                    <constraint firstItem="ann-PA-YAu" firstAttribute="top" secondItem="zaT-Dd-YMk" secondAttribute="bottom" constant="16" id="PyO-eZ-ZWs"/>
+                    <constraint firstItem="ann-PA-YAu" firstAttribute="leading" secondItem="OTN-gh-0uE" secondAttribute="trailing" constant="9" id="TQd-Ff-RrQ"/>
+                    <constraint firstItem="OTN-gh-0uE" firstAttribute="leading" secondItem="cfa-Dc-dmP" secondAttribute="trailing" constant="9" id="Ust-qM-A5s"/>
+                    <constraint firstItem="OTN-gh-0uE" firstAttribute="top" secondItem="zaT-Dd-YMk" secondAttribute="bottom" constant="16" id="Wrb-yV-PgO"/>
+                    <constraint firstItem="FEP-Tz-iHc" firstAttribute="leading" secondItem="yzJ-Ll-fDA" secondAttribute="leading" constant="27" id="jZm-cM-GQJ"/>
+                    <constraint firstItem="zaT-Dd-YMk" firstAttribute="leading" secondItem="yzJ-Ll-fDA" secondAttribute="leading" constant="27" id="le2-ZD-vBf"/>
+                    <constraint firstItem="NMZ-Yv-Rww" firstAttribute="top" secondItem="zaT-Dd-YMk" secondAttribute="bottom" constant="16" id="nVr-EC-DYa"/>
+                    <constraint firstItem="EHb-LQ-O9t" firstAttribute="top" secondItem="zaT-Dd-YMk" secondAttribute="bottom" constant="16" id="p0K-33-8ny"/>
+                    <constraint firstItem="4n2-n1-g0r" firstAttribute="top" secondItem="zaT-Dd-YMk" secondAttribute="bottom" constant="16" id="uzv-0p-LaO"/>
+                    <constraint firstItem="FEP-Tz-iHc" firstAttribute="top" secondItem="zaT-Dd-YMk" secondAttribute="bottom" constant="16" id="xkL-TQ-tyH"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="CN" destination="qFB-91-zcP" id="rtz-xT-qQe"/>
-                <outlet property="Thu2" destination="uqX-j8-xSl" id="uAm-Ec-1CE"/>
-                <outlet property="Thu3" destination="opy-uU-mfJ" id="JSh-q8-nbG"/>
-                <outlet property="Thu4" destination="2Xx-WA-pdl" id="EHM-i0-67u"/>
-                <outlet property="Thu5" destination="LuO-gb-f0z" id="V6q-P2-4Qd"/>
-                <outlet property="Thu6" destination="IGQ-cJ-XRa" id="TVb-rb-l7N"/>
-                <outlet property="Thu7" destination="PJC-Xf-aVE" id="xmT-sw-4sQ"/>
-                <outlet property="btWorkDayValue" destination="lgC-sa-uRp" id="dXy-ib-luo"/>
-                <outlet property="imgIcon" destination="bGl-TC-PGW" id="ouR-QZ-UZh"/>
+                <outlet property="CN" destination="4n2-n1-g0r" id="oGO-QR-PoT"/>
+                <outlet property="Thu2" destination="FEP-Tz-iHc" id="ZYD-fP-8Fk"/>
+                <outlet property="Thu3" destination="EHb-LQ-O9t" id="dSW-EW-bnr"/>
+                <outlet property="Thu4" destination="cfa-Dc-dmP" id="zJG-VW-2Nx"/>
+                <outlet property="Thu5" destination="OTN-gh-0uE" id="pO5-gr-es9"/>
+                <outlet property="Thu6" destination="ann-PA-YAu" id="t87-3Q-JgB"/>
+                <outlet property="Thu7" destination="NMZ-Yv-Rww" id="2C1-We-mwq"/>
                 <outlet property="txtTitle" destination="zaT-Dd-YMk" id="upy-V6-hvY"/>
             </connections>
-            <point key="canvasLocation" x="98.550724637681171" y="87.053571428571431"/>
+            <point key="canvasLocation" x="98.550724637681171" y="78.013392857142847"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="calendar-1.png" width="46.428211212158203" height="46.428211212158203"/>
-    </resources>
 </document>

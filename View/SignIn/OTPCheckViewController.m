@@ -8,8 +8,12 @@
 
 #import "OTPCheckViewController.h"
 #import "CreatePasswordViewController.h"
+#import "JButton.h"
 
 @interface OTPCheckViewController ()
+{
+    NSInteger keyboardheight;
+}
 
 @end
 
@@ -17,13 +21,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
+    self.view.layer.masksToBounds = YES;
+    
     [_txtOTPInput setDelegate:self];
     
     //test
     if (_strOTPServer) {
         [_txtOTPInput setText:_strOTPServer];
     }
+    
+    [_txtOTPInput setTextColor:UIColorFromRGB(0x5C5C5C)];
+    [_txtOTPInputTitle setTextColor:UIColorFromRGB(0x5C5C5C)];
+    
+    keyboardheight = 0;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -31,6 +43,59 @@
     [super viewWillAppear:animated];
     
     [self.tabBarController.tabBar setHidden:YES];
+    
+    [self registerFromKeyboardNotification];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self unregisterFromKeyboardNotification];
+}
+
+-(void)registerFromKeyboardNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+-(void)unregisterFromKeyboardNotification
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+-(void)keyboardDidShow:(NSNotification*)notification
+{
+    NSDictionary *userinfo = [notification userInfo];
+    NSValue *keyboardbeginrect = [userinfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    NSValue *keyboardendrect = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect beginrect = [keyboardbeginrect CGRectValue];
+    CGRect endrect = [keyboardendrect CGRectValue];
+    
+    keyboardheight = beginrect.origin.y - endrect.origin.y;
+    
+    CGRect registernowrect = [_btnContinue frame];
+    registernowrect.origin.y -= keyboardheight;
+    [_btnContinue setFrame:registernowrect];
+}
+
+-(void)keyboardDidHide:(NSNotification*)notification
+{
+    NSDictionary *userinfo = [notification userInfo];
+    NSValue *keyboardbeginrect = [userinfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    NSValue *keyboardendrect = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect beginrect = [keyboardbeginrect CGRectValue];
+    CGRect endrect = [keyboardendrect CGRectValue];
+    
+    keyboardheight = endrect.origin.y - beginrect.origin.y;
+    
+    CGRect rect = [_btnContinue frame];
+    if ((rect.origin.y + keyboardheight) < [_btnContinue superview].frame.size.height) {
+        rect.origin.y += keyboardheight;
+    }
+    [_btnContinue setFrame:rect];
 }
 /*
 #pragma mark - Navigation
@@ -64,6 +129,8 @@
 
 - (IBAction)didClickCheckOTPNumber:(id)sender
 {
+    [self.view endEditing:YES];
+    
     if (_strOTPServer && [_strOTPServer isEqualToString:[_txtOTPInput text]])
     {
         NSLog(@"otp correct");

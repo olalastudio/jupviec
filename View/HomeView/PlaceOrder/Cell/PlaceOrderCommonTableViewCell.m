@@ -220,14 +220,6 @@
         {
             [self.delegate didSelectPaymentMethod:[NSDictionary dictionary] index:[self indexPath]];
         }
-    }
-    else if ([self orderAttribute] == ATTRIBUTE_DICHVUKEMTHEO)
-    {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(didSelectExtentService:index:)])
-        {
-            [self.delegate didSelectExtentService:[NSDictionary dictionary] index:[self indexPath]];
-        }
-    }
-    
+    }    
 }
 @end

@@ -14,14 +14,16 @@
 #import "PlaceOrderCommonTableViewCell.h"
 #import "TimeSelectionTableViewCell.h"
 #import "DaySelectionTableViewCell.h"
+#import "ExtentServiceTableViewCell.h"
 #import "MapsViewController.h"
 #import "TextDetailPopupController.h"
+#import "ExtendServicePopupController.h"
 #import "DateTimePickerPopupController.h"
 #import "APIRequest.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PlaceOrderViewController : JViewController <UITableViewDelegate, UITableViewDataSource, PlaceOrderCommonCellProtocol, TextDetailPopupDelegate,DateTimePickerDelegate, TimeSelectionTableViewCellDelegate,DaySelectionTableViewCellDelegate, UIActionSheetDelegate>
+@interface PlaceOrderViewController : JViewController <UITableViewDelegate, UITableViewDataSource, PlaceOrderCommonCellProtocol, TextDetailPopupDelegate,DateTimePickerDelegate, TimeSelectionTableViewCellDelegate,DaySelectionTableViewCellDelegate,ExtendServiceCellDelegate,ExtendServicePopupDelegate,UIActionSheetDelegate>
 {
     TASK_TYPE       _tasktype;
     Order           *_order;

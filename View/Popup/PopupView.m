@@ -30,6 +30,7 @@
     
     [self setBackgroundColor:[UIColor whiteColor]];
     
-    self.layer.cornerRadius = 10;
+    self.layer.cornerRadius = 15;
+    self.layer.masksToBounds = YES;
 }
 @end

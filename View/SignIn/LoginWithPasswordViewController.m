@@ -11,7 +11,12 @@
 #import "SignInViewController.h"
 #import "HomeViewController.h"
 
+#import "JButton.h"
+
 @interface LoginWithPasswordViewController ()
+{
+    NSInteger keyboardheight;
+}
 
 @end
 
@@ -19,11 +24,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
+    self.view.layer.masksToBounds = YES;
+    
     [_txtInputUserPhone setDelegate:self];
     [_txtInputUserPass setDelegate:self];
     
-    [self setTitle:@"Login"];
+    [self setTitle:@"Thông tin cá nhân"];
+    [_btForgotPassword setTitleColor:UIColorFromRGB(0x5C5C5C) forState:UIControlStateNormal];
+    [_btRegisterNow setTitleColor:UIColorFromRGB(0x5C5C5C) forState:UIControlStateNormal];
+    
+    keyboardheight = 0;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -31,6 +43,25 @@
     [super viewWillAppear:animated];
     
     [self.tabBarController.tabBar setHidden:YES];
+    
+    [self registerFromKeyboardNotification];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self unregisterFromKeyboardNotification];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
 }
 
 -(NSString*)userToken
@@ -42,6 +73,71 @@
 {
     return strUserphone;
 }
+
+-(void)registerFromKeyboardNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+-(void)unregisterFromKeyboardNotification
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+-(void)keyboardDidShow:(NSNotification*)notification
+{
+    NSDictionary *userinfo = [notification userInfo];
+    NSValue *keyboardbeginrect = [userinfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    NSValue *keyboardendrect = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect beginrect = [keyboardbeginrect CGRectValue];
+    CGRect endrect = [keyboardendrect CGRectValue];
+ 
+    keyboardheight = beginrect.origin.y - endrect.origin.y;
+    
+    CGRect questionrect = [_txtQuestion frame];
+    questionrect.origin.y -= keyboardheight;
+    [_txtQuestion setFrame:questionrect];
+    
+    CGRect confirmrect = [_btConfirm frame];
+    confirmrect.origin.y -= keyboardheight;
+    [_btConfirm setFrame:confirmrect];
+    
+    CGRect registernowrect = [_btRegisterNow frame];
+    registernowrect.origin.y -= keyboardheight;
+    [_btRegisterNow setFrame:registernowrect];
+}
+
+-(void)keyboardDidHide:(NSNotification*)notification
+{
+    NSDictionary *userinfo = [notification userInfo];
+    NSValue *keyboardbeginrect = [userinfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    NSValue *keyboardendrect = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect beginrect = [keyboardbeginrect CGRectValue];
+    CGRect endrect = [keyboardendrect CGRectValue];
+
+    keyboardheight = endrect.origin.y - beginrect.origin.y;
+    
+    CGRect questionrect = [_txtQuestion frame];
+    if ((questionrect.origin.y + keyboardheight) < [_txtQuestion superview].frame.size.height) {
+        questionrect.origin.y += keyboardheight;
+    }
+    [_txtQuestion setFrame:questionrect];
+    
+    CGRect confirmrect = [_btConfirm frame];
+    if ((confirmrect.origin.y + keyboardheight) < [_btConfirm superview].frame.size.height) {
+        confirmrect.origin.y += keyboardheight;
+    }
+    [_btConfirm setFrame:confirmrect];
+    
+    CGRect registernowrect = [_btRegisterNow frame];
+    if ((registernowrect.origin.y + keyboardheight) < [_btRegisterNow superview].frame.size.height) {
+        registernowrect.origin.y += keyboardheight;
+    }
+    
+    [_btRegisterNow setFrame:registernowrect];
+}
 /*
 #pragma mark - Navigation
 
@@ -52,10 +148,19 @@
 }
 */
 
-#pragma - UITextFielDelegate
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
+}
+#pragma - UITextFielDelegate
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    return YES;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+
 }
 
 - (void)showPopupNewUserPhone
@@ -94,23 +199,35 @@
 }
 
 #pragma - Actions
-- (IBAction)didClickedFogetPassword:(id)sender {
+- (IBAction)didClickedFogetPassword:(id)sender
+{
     NSLog(@"clicked forget password");
+    
+    [self.view endEditing:YES];
     intActionMode = MODE_FORGOT_PASSWORD;
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [self performSegueWithIdentifier:@"idLoginToNewRegister" sender:self];
     });
 }
 
-- (IBAction)didClickedRegisterNewAcc:(id)sender {
-    intActionMode = MODE_REGISTER_NEW_ACC;
+- (IBAction)didClickedRegisterNewAcc:(id)sender
+{
+    
     NSLog(@"create new account");
+    
+    intActionMode = MODE_REGISTER_NEW_ACC;
+    [self.view endEditing:YES];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [self performSegueWithIdentifier:@"idLoginToNewRegister" sender:self];
     });
 }
 
-- (IBAction)didClickedLogin:(id)sender {
+- (IBAction)didClickedLogin:(id)sender
+{
+    [self.view endEditing:YES];
+    
     if ([_txtInputUserPhone text] && [_txtInputUserPass text])
     {
         strUserPass = [_txtInputUserPass text];
