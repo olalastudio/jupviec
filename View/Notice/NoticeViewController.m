@@ -234,6 +234,7 @@
     if (_selectedNotice == NOTICE_CHOISE_NOTICE)
     {
         NoticeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idnoticecell"];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         [cell setNoticeInfo:[_listNotices objectAtIndex:indexPath.row]];
         
         return cell;
@@ -241,6 +242,7 @@
     else if (_selectedNotice == NOTICE_CHOISE_COUPON)
     {
         CouponTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idcouponcell"];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         [cell setNotifyCoupon:[_listCoupons objectAtIndex:indexPath.row]];
         return cell;
     }
@@ -252,11 +254,11 @@
 {
     if (_selectedNotice == NOTICE_CHOISE_NOTICE)
     {
-        return 90;
+        return 130;
     }
     else if (_selectedNotice == NOTICE_CHOISE_COUPON)
     {
-        return 120;
+        return 167;
     }
     
     return 50;
@@ -277,6 +279,11 @@
         [detailViewController setImageData:imageData];
     }
     
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    UIViewController *topview = [self.navigationController topViewController];
+    
+    if (![topview isKindOfClass:[NoticeDetailViewController class]])
+    {
+        [self.navigationController pushViewController:detailViewController animated:YES];
+    }
 }
 @end

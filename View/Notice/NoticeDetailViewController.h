@@ -9,16 +9,25 @@
 #import <UIKit/UIKit.h>
 #import "JViewController.h"
 
+@class JView;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NoticeDetailViewController : JViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLB;
-@property (weak, nonatomic) IBOutlet UIImageView *notifyImageView;
-@property (weak, nonatomic) IBOutlet UITextView *notifyContentTextView;
-@property (weak, nonatomic) IBOutlet UILabel *notifyDateLB;
-@property (strong, nonatomic) NSDictionary* notifyInfo;
-@property (strong, nonatomic) NSData* imageData;
+@property (weak, nonatomic) IBOutlet JView *contentView;
+@property (weak, nonatomic) IBOutlet UILabel        *titleLB;
+@property (weak, nonatomic) IBOutlet UIImageView    *notifyImageView;
+@property (weak, nonatomic) IBOutlet UILabel        *contentLB;
+@property (weak, nonatomic) IBOutlet UILabel        *notifyDateLB;
+@property (weak, nonatomic) IBOutlet UIView         *separatorline;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageviewTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageviewHeightConstraint;
+
+
+@property (strong, nonatomic) NSDictionary          *notifyInfo;
+@property (strong, nonatomic) NSData                *imageData;
 
 @end
 
