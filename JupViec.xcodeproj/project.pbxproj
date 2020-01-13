@@ -443,6 +443,7 @@
 		06CF5D0D23B5EFF20066A551 /* backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CF5D0C23B5EFF20066A551 /* backbutton.png */; };
 		06CF5D1023B5FE880066A551 /* JTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CF5D0F23B5FE880066A551 /* JTableView.m */; };
 		06CF5D1323B601670066A551 /* JTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CF5D1223B601670066A551 /* JTextView.m */; };
+		06CF638323CC555C00F95329 /* JTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CF638223CC555C00F95329 /* JTextField.m */; };
 		06D6BF19239E39B000AB52DB /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6BF18239E39B000AB52DB /* MapsViewController.m */; };
 		06DFA80223A9C69F00FBE763 /* JUntil.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DFA80123A9C69F00FBE763 /* JUntil.m */; };
 		06DFA80623AB8B6C00FBE763 /* RateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DFA80523AB8B6C00FBE763 /* RateViewController.m */; };
@@ -966,6 +967,8 @@
 		06CF5D0F23B5FE880066A551 /* JTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTableView.m; sourceTree = "<group>"; };
 		06CF5D1123B601670066A551 /* JTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTextView.h; sourceTree = "<group>"; };
 		06CF5D1223B601670066A551 /* JTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTextView.m; sourceTree = "<group>"; };
+		06CF638123CC555C00F95329 /* JTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTextField.h; sourceTree = "<group>"; };
+		06CF638223CC555C00F95329 /* JTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTextField.m; sourceTree = "<group>"; };
 		06D6BF17239E39B000AB52DB /* MapsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapsViewController.h; sourceTree = "<group>"; };
 		06D6BF18239E39B000AB52DB /* MapsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapsViewController.m; sourceTree = "<group>"; };
 		06DFA80023A9C69F00FBE763 /* JUntil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JUntil.h; sourceTree = "<group>"; };
@@ -1733,6 +1736,8 @@
 				831705F623B7710600A3493E /* JView.m */,
 				063A1C3E23BDA53F00456CBC /* JButton.h */,
 				063A1C3F23BDA53F00456CBC /* JButton.m */,
+				06CF638123CC555C00F95329 /* JTextField.h */,
+				06CF638223CC555C00F95329 /* JTextField.m */,
 			);
 			path = CustomControll;
 			sourceTree = "<group>";
@@ -2417,6 +2422,7 @@
 				063A1C4023BDA53F00456CBC /* JButton.m in Sources */,
 				0601E49C238FAEF000403C95 /* SignInViewController.m in Sources */,
 				0612A384239617DA00A82BB9 /* InformationViewController.m in Sources */,
+				06CF638323CC555C00F95329 /* JTextField.m in Sources */,
 				06B1F32D23B6101400B70CEE /* JLabel.m in Sources */,
 				06DFA80223A9C69F00FBE763 /* JUntil.m in Sources */,
 				06ED4C1423A0EDE90072EB15 /* TimeSelectionTableViewCell.m in Sources */,
