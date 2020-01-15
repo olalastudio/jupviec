@@ -504,6 +504,9 @@
 		83D0FE5D23BCC4A500688924 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83D0FE5123BCC4A400688924 /* Roboto-MediumItalic.ttf */; };
 		83D0FE5E23BCC4A500688924 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83D0FE5223BCC4A500688924 /* Roboto-ThinItalic.ttf */; };
 		83D0FE5F23BCC4A500688924 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83D0FE5323BCC4A500688924 /* Roboto-LightItalic.ttf */; };
+		CE344EA923CF03A800824260 /* FAQTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE344EA723CF03A800824260 /* FAQTableViewCell.m */; };
+		CE344EAA23CF03A800824260 /* FAQTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE344EA823CF03A800824260 /* FAQTableViewCell.xib */; };
+		CE344EAD23CF1F1100824260 /* FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE344EAC23CF1F1100824260 /* FAQViewController.m */; };
 		CEA0919323A796FA00D2502F /* AccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0919223A796FA00D2502F /* AccountInfoViewController.m */; };
 		CEA0919623A79D7300D2502F /* EditAccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0919523A79D7300D2502F /* EditAccountInfoViewController.m */; };
 		CEA83F1723911F60001C1512 /* APIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA83F1523911F5F001C1512 /* APIRequest.m */; };
@@ -1064,6 +1067,11 @@
 		83D0FE5223BCC4A500688924 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
 		83D0FE5323BCC4A500688924 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
 		C5473C782A87585FD2C38DA3 /* Pods-JupViec.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JupViec.release.xcconfig"; path = "Target Support Files/Pods-JupViec/Pods-JupViec.release.xcconfig"; sourceTree = "<group>"; };
+		CE344EA623CF03A800824260 /* FAQTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAQTableViewCell.h; sourceTree = "<group>"; };
+		CE344EA723CF03A800824260 /* FAQTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAQTableViewCell.m; sourceTree = "<group>"; };
+		CE344EA823CF03A800824260 /* FAQTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQTableViewCell.xib; sourceTree = "<group>"; };
+		CE344EAB23CF1F1100824260 /* FAQViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAQViewController.h; sourceTree = "<group>"; };
+		CE344EAC23CF1F1100824260 /* FAQViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAQViewController.m; sourceTree = "<group>"; };
 		CEA0919123A796FA00D2502F /* AccountInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountInfoViewController.h; sourceTree = "<group>"; };
 		CEA0919223A796FA00D2502F /* AccountInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountInfoViewController.m; sourceTree = "<group>"; };
 		CEA0919423A79D7300D2502F /* EditAccountInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditAccountInfoViewController.h; sourceTree = "<group>"; };
@@ -1548,11 +1556,16 @@
 			children = (
 				0612A382239617DA00A82BB9 /* InformationViewController.h */,
 				0612A383239617DA00A82BB9 /* InformationViewController.m */,
+				CE344EAB23CF1F1100824260 /* FAQViewController.h */,
+				CE344EAC23CF1F1100824260 /* FAQViewController.m */,
 				0612A38F239621AE00A82BB9 /* InformationCell.xib */,
 				0612A391239621F500A82BB9 /* InformationTableViewCell.h */,
 				0612A392239621F500A82BB9 /* InformationTableViewCell.m */,
 				0612A39A239657E700A82BB9 /* InformationDetailViewController.h */,
 				0612A39B239657E700A82BB9 /* InformationDetailViewController.m */,
+				CE344EA623CF03A800824260 /* FAQTableViewCell.h */,
+				CE344EA723CF03A800824260 /* FAQTableViewCell.m */,
+				CE344EA823CF03A800824260 /* FAQTableViewCell.xib */,
 			);
 			path = Information;
 			sourceTree = "<group>";
@@ -2113,6 +2126,7 @@
 				0601E490238FAEF000403C95 /* wifi-1.png in Resources */,
 				0608E3CF23BF3180000EE8B1 /* unrate.png in Resources */,
 				0601E36E238FAEEF00403C95 /* diploma.png in Resources */,
+				CE344EAA23CF03A800824260 /* FAQTableViewCell.xib in Resources */,
 				0601E431238FAEF000403C95 /* settings-3.png in Resources */,
 				06CF639B23CC8C2E00F95329 /* Home@2x.png in Resources */,
 				0601E495238FAEF000403C95 /* windows-4.png in Resources */,
@@ -2526,6 +2540,7 @@
 				0601E49D238FAEF000403C95 /* WelcomeViewController.m in Sources */,
 				06FEA1DF2394BCC0005D58B9 /* HistoryViewController.m in Sources */,
 				0612A38E23961DB900A82BB9 /* CouponTableViewCell.m in Sources */,
+				CE344EAD23CF1F1100824260 /* FAQViewController.m in Sources */,
 				CEA83F1723911F60001C1512 /* APIRequest.m in Sources */,
 				068DDEED23990D8C009484E7 /* PlaceOrderViewController.m in Sources */,
 				CEA0919623A79D7300D2502F /* EditAccountInfoViewController.m in Sources */,
@@ -2540,6 +2555,7 @@
 				0633A786239109E60094219D /* HomeViewController.m in Sources */,
 				064B1FB023C70A6D006DC513 /* ServiceCell.m in Sources */,
 				0612A38B23961DA800A82BB9 /* NoticeTableViewCell.m in Sources */,
+				CE344EA923CF03A800824260 /* FAQTableViewCell.m in Sources */,
 				831705F723B7710600A3493E /* JView.m in Sources */,
 				067A399023A88ABC00740FA3 /* ConfirmOrderViewController.m in Sources */,
 				06ED4C1923A0FD220072EB15 /* DaySelectionTableViewCell.m in Sources */,
