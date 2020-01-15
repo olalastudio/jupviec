@@ -443,6 +443,19 @@
 		06CF5D0D23B5EFF20066A551 /* backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CF5D0C23B5EFF20066A551 /* backbutton.png */; };
 		06CF5D1023B5FE880066A551 /* JTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CF5D0F23B5FE880066A551 /* JTableView.m */; };
 		06CF5D1323B601670066A551 /* JTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CF5D1223B601670066A551 /* JTextView.m */; };
+		06CF638323CC555C00F95329 /* JTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CF638223CC555C00F95329 /* JTextField.m */; };
+		06CF638723CC646F00F95329 /* JAlertPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CF638623CC646F00F95329 /* JAlertPopupController.m */; };
+		06CF638A23CC6C9000F95329 /* Contact.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CF638823CC6C8F00F95329 /* Contact.png */; };
+		06CF638B23CC6C9000F95329 /* FAQ.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CF638923CC6C9000F95329 /* FAQ.png */; };
+		06CF639123CC874900F95329 /* Main.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CF638C23CC874900F95329 /* Main.png */; };
+		06CF639223CC874900F95329 /* Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CF638D23CC874900F95329 /* Profile.png */; };
+		06CF639323CC874900F95329 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CF638E23CC874900F95329 /* Home.png */; };
+		06CF639423CC874900F95329 /* History.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CF638F23CC874900F95329 /* History.png */; };
+		06CF639523CC874900F95329 /* Promotion.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CF639023CC874900F95329 /* Promotion.png */; };
+		06CF639923CC8C2E00F95329 /* Profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CF639623CC8C2900F95329 /* Profile@2x.png */; };
+		06CF639A23CC8C2E00F95329 /* History@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CF639723CC8C2A00F95329 /* History@2x.png */; };
+		06CF639B23CC8C2E00F95329 /* Home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CF639823CC8C2E00F95329 /* Home@2x.png */; };
+		06CF639D23CC8C8500F95329 /* Promotion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CF639C23CC8C8000F95329 /* Promotion@2x.png */; };
 		06D6BF19239E39B000AB52DB /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6BF18239E39B000AB52DB /* MapsViewController.m */; };
 		06DFA80223A9C69F00FBE763 /* JUntil.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DFA80123A9C69F00FBE763 /* JUntil.m */; };
 		06DFA80623AB8B6C00FBE763 /* RateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DFA80523AB8B6C00FBE763 /* RateViewController.m */; };
@@ -966,6 +979,21 @@
 		06CF5D0F23B5FE880066A551 /* JTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTableView.m; sourceTree = "<group>"; };
 		06CF5D1123B601670066A551 /* JTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTextView.h; sourceTree = "<group>"; };
 		06CF5D1223B601670066A551 /* JTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTextView.m; sourceTree = "<group>"; };
+		06CF638123CC555C00F95329 /* JTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTextField.h; sourceTree = "<group>"; };
+		06CF638223CC555C00F95329 /* JTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTextField.m; sourceTree = "<group>"; };
+		06CF638523CC646F00F95329 /* JAlertPopupController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JAlertPopupController.h; sourceTree = "<group>"; };
+		06CF638623CC646F00F95329 /* JAlertPopupController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JAlertPopupController.m; sourceTree = "<group>"; };
+		06CF638823CC6C8F00F95329 /* Contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Contact.png; sourceTree = "<group>"; };
+		06CF638923CC6C9000F95329 /* FAQ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FAQ.png; sourceTree = "<group>"; };
+		06CF638C23CC874900F95329 /* Main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main.png; sourceTree = "<group>"; };
+		06CF638D23CC874900F95329 /* Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Profile.png; sourceTree = "<group>"; };
+		06CF638E23CC874900F95329 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home.png; sourceTree = "<group>"; };
+		06CF638F23CC874900F95329 /* History.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = History.png; sourceTree = "<group>"; };
+		06CF639023CC874900F95329 /* Promotion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Promotion.png; sourceTree = "<group>"; };
+		06CF639623CC8C2900F95329 /* Profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Profile@2x.png"; sourceTree = "<group>"; };
+		06CF639723CC8C2A00F95329 /* History@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "History@2x.png"; sourceTree = "<group>"; };
+		06CF639823CC8C2E00F95329 /* Home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home@2x.png"; sourceTree = "<group>"; };
+		06CF639C23CC8C8000F95329 /* Promotion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Promotion@2x.png"; sourceTree = "<group>"; };
 		06D6BF17239E39B000AB52DB /* MapsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapsViewController.h; sourceTree = "<group>"; };
 		06D6BF18239E39B000AB52DB /* MapsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapsViewController.m; sourceTree = "<group>"; };
 		06DFA80023A9C69F00FBE763 /* JUntil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JUntil.h; sourceTree = "<group>"; };
@@ -1530,6 +1558,7 @@
 		06222E21239E47F200AE24C5 /* Popup */ = {
 			isa = PBXGroup;
 			children = (
+				06CF638423CC631500F95329 /* Alert */,
 				066F890923C71958008C9844 /* ExtendService */,
 				06684827239F9D9F00A463A7 /* DateTime */,
 				0668482B239FAB7D00A463A7 /* TextInput */,
@@ -1733,8 +1762,19 @@
 				831705F623B7710600A3493E /* JView.m */,
 				063A1C3E23BDA53F00456CBC /* JButton.h */,
 				063A1C3F23BDA53F00456CBC /* JButton.m */,
+				06CF638123CC555C00F95329 /* JTextField.h */,
+				06CF638223CC555C00F95329 /* JTextField.m */,
 			);
 			path = CustomControll;
+			sourceTree = "<group>";
+		};
+		06CF638423CC631500F95329 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				06CF638523CC646F00F95329 /* JAlertPopupController.h */,
+				06CF638623CC646F00F95329 /* JAlertPopupController.m */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		06D6BF16239E399000AB52DB /* Maps */ = {
@@ -1790,6 +1830,17 @@
 		831705F223B76F3B00A3493E /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				06CF639C23CC8C8000F95329 /* Promotion@2x.png */,
+				06CF639723CC8C2A00F95329 /* History@2x.png */,
+				06CF639823CC8C2E00F95329 /* Home@2x.png */,
+				06CF639623CC8C2900F95329 /* Profile@2x.png */,
+				06CF638F23CC874900F95329 /* History.png */,
+				06CF638E23CC874900F95329 /* Home.png */,
+				06CF638C23CC874900F95329 /* Main.png */,
+				06CF638D23CC874900F95329 /* Profile.png */,
+				06CF639023CC874900F95329 /* Promotion.png */,
+				06CF638823CC6C8F00F95329 /* Contact.png */,
+				06CF638923CC6C9000F95329 /* FAQ.png */,
 				063A1C3723BDA04000456CBC /* dungdinhky.png */,
 				063A1C3923BDA04100456CBC /* dungle.png */,
 				063A1C3623BDA04000456CBC /* giatsofa.png */,
@@ -1913,8 +1964,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06CF639123CC874900F95329 /* Main.png in Resources */,
 				0601E3B0238FAEEF00403C95 /* hourglass-1.png in Resources */,
 				0601E350238FAEEF00403C95 /* clock.png in Resources */,
+				06CF639423CC874900F95329 /* History.png in Resources */,
 				0601E394238FAEEF00403C95 /* folder-13.png in Resources */,
 				063A1C3B23BDA04100456CBC /* dungdinhky.png in Resources */,
 				0601E410238FAEEF00403C95 /* placeholder-1.png in Resources */,
@@ -1954,6 +2007,7 @@
 				0601E45A238FAEF000403C95 /* stop-1.png in Resources */,
 				0601E47D238FAEF000403C95 /* user-3.png in Resources */,
 				0601E337238FAEEF00403C95 /* battery-7.png in Resources */,
+				06CF639A23CC8C2E00F95329 /* History@2x.png in Resources */,
 				0601E332238FAEEF00403C95 /* battery-2.png in Resources */,
 				068DDEF023991431009484E7 /* CommonCell.xib in Resources */,
 				0601E3AA238FAEEF00403C95 /* help.png in Resources */,
@@ -1975,6 +2029,7 @@
 				0601E468238FAEF000403C95 /* switch-3.png in Resources */,
 				0601E471238FAEF000403C95 /* television-1.png in Resources */,
 				0601E464238FAEF000403C95 /* substract.png in Resources */,
+				06CF638A23CC6C9000F95329 /* Contact.png in Resources */,
 				0601E469238FAEF000403C95 /* switch-4.png in Resources */,
 				06B620BF2397B4540036DCF9 /* makhuyenmai.png in Resources */,
 				0601E395238FAEEF00403C95 /* folder-14.png in Resources */,
@@ -2029,6 +2084,7 @@
 				0601E397238FAEEF00403C95 /* folder-16.png in Resources */,
 				0601E420238FAEF000403C95 /* repeat-1.png in Resources */,
 				0601E478238FAEF000403C95 /* unlocked-2.png in Resources */,
+				06CF639323CC874900F95329 /* Home.png in Resources */,
 				0601E3DD238FAEEF00403C95 /* megaphone.png in Resources */,
 				0601E3E8238FAEEF00403C95 /* more-2.png in Resources */,
 				063A1C3C23BDA04100456CBC /* tongvesinh.png in Resources */,
@@ -2039,6 +2095,7 @@
 				0608E3CF23BF3180000EE8B1 /* unrate.png in Resources */,
 				0601E36E238FAEEF00403C95 /* diploma.png in Resources */,
 				0601E431238FAEF000403C95 /* settings-3.png in Resources */,
+				06CF639B23CC8C2E00F95329 /* Home@2x.png in Resources */,
 				0601E495238FAEF000403C95 /* windows-4.png in Resources */,
 				0601E447238FAEF000403C95 /* smartphone-4.png in Resources */,
 				0601E498238FAEF000403C95 /* worldwide-1.png in Resources */,
@@ -2092,8 +2149,10 @@
 				0601E35A238FAEEF00403C95 /* compact-disc-1.png in Resources */,
 				0601E336238FAEEF00403C95 /* battery-6.png in Resources */,
 				0601E32D238FAEEF00403C95 /* attachment.png in Resources */,
+				06CF639923CC8C2E00F95329 /* Profile@2x.png in Resources */,
 				0601E3C3238FAEEF00403C95 /* layers.png in Resources */,
 				0601E480238FAEF000403C95 /* user-6.png in Resources */,
+				06CF639223CC874900F95329 /* Profile.png in Resources */,
 				0601E3B3238FAEEF00403C95 /* hourglass.png in Resources */,
 				0601E494238FAEF000403C95 /* windows-3.png in Resources */,
 				0601E41F238FAEEF00403C95 /* record.png in Resources */,
@@ -2233,6 +2292,7 @@
 				0612A38623961D7E00A82BB9 /* NoticeCell.xib in Resources */,
 				0601E434238FAEF000403C95 /* settings-6.png in Resources */,
 				0601E487238FAEF000403C95 /* video-player-1.png in Resources */,
+				06CF638B23CC6C9000F95329 /* FAQ.png in Resources */,
 				0601E43B238FAEF000403C95 /* share.png in Resources */,
 				0601E348238FAEEF00403C95 /* calendar-4.png in Resources */,
 				0601E351238FAEEF00403C95 /* close.png in Resources */,
@@ -2266,6 +2326,7 @@
 				0601E33A238FAEEF00403C95 /* battery.png in Resources */,
 				0601E3ED238FAEEF00403C95 /* music-player-2.png in Resources */,
 				0601E392238FAEEF00403C95 /* folder-11.png in Resources */,
+				06CF639523CC874900F95329 /* Promotion.png in Resources */,
 				0601E3B9238FAEEF00403C95 /* id-card-5.png in Resources */,
 				0601E3D7238FAEEF00403C95 /* magnet.png in Resources */,
 				0601E461238FAEF000403C95 /* street-1.png in Resources */,
@@ -2299,6 +2360,7 @@
 				0601E3F8238FAEEF00403C95 /* notebook-1.png in Resources */,
 				0601E331238FAEEF00403C95 /* battery-1.png in Resources */,
 				0601E367238FAEEF00403C95 /* controls-9.png in Resources */,
+				06CF639D23CC8C8500F95329 /* Promotion@2x.png in Resources */,
 				0601E3F7238FAEEF00403C95 /* note.png in Resources */,
 				0601E384238FAEEF00403C95 /* fax.png in Resources */,
 				0601E3BA238FAEEF00403C95 /* id-card.png in Resources */,
@@ -2417,6 +2479,7 @@
 				063A1C4023BDA53F00456CBC /* JButton.m in Sources */,
 				0601E49C238FAEF000403C95 /* SignInViewController.m in Sources */,
 				0612A384239617DA00A82BB9 /* InformationViewController.m in Sources */,
+				06CF638323CC555C00F95329 /* JTextField.m in Sources */,
 				06B1F32D23B6101400B70CEE /* JLabel.m in Sources */,
 				06DFA80223A9C69F00FBE763 /* JUntil.m in Sources */,
 				06ED4C1423A0EDE90072EB15 /* TimeSelectionTableViewCell.m in Sources */,
@@ -2434,6 +2497,7 @@
 				06FEA1E42394CC0E005D58B9 /* HistoryTableViewCell.m in Sources */,
 				06CF5D0523B5EF760066A551 /* JViewController.m in Sources */,
 				06EC9F252396786100474EE3 /* HomePromotionTableViewCell.m in Sources */,
+				06CF638723CC646F00F95329 /* JAlertPopupController.m in Sources */,
 				0658BEB9238FAC7800CBBAD1 /* AppDelegate.m in Sources */,
 				0601E49D238FAEF000403C95 /* WelcomeViewController.m in Sources */,
 				06FEA1DF2394BCC0005D58B9 /* HistoryViewController.m in Sources */,
