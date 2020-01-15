@@ -14,6 +14,7 @@
 
 #import "PlaceOrderViewController.h"
 #import "AccountInfoViewController.h"
+#import "LoginWithPasswordViewController.h"
 
 #import "HistoryViewController.h"
 #import "NoticeViewController.h"
@@ -68,6 +69,12 @@
     
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];
     [self.tabBarController setDelegate:self];
+    
+    for (UITabBarItem *item in self.tabBarController.tabBar.items) {
+        item.selectedImage = [item.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        item.image = [item.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        item.title = @"";
+    }
 }
 
 -(void)setUser:(User *)user
@@ -253,11 +260,20 @@
 
 -(void)showAccountView
 {
-    AccountInfoViewController *accountview = [self.storyboard instantiateViewControllerWithIdentifier:@"idaccountview"];
-    accountview.user = _user;
-    accountview.tokenStr = _strUserToken;
+    UIViewController *selectedcontroller = [(UINavigationController*)[[self tabBarController] selectedViewController] visibleViewController];
     
-    [self.navigationController pushViewController:accountview animated:YES];
+    if ([selectedcontroller isKindOfClass:[LoginWithPasswordViewController class]])
+    {
+        
+    }
+    else if ([selectedcontroller isKindOfClass:[AccountInfoViewController class]])
+    {
+        AccountInfoViewController *accountview = (AccountInfoViewController*)selectedcontroller;
+        accountview.user = _user;
+        accountview.tokenStr = _strUserToken;
+        
+        [accountview updateContentView];
+    }
 }
 
 -(void)logOut
@@ -270,14 +286,9 @@
     [[NSUserDefaults standardUserDefaults] setObject:_strUserToken forKey:ID_USER_TOKEN];
 }
 
-- (IBAction)didClickLoginButton:(id)sender {
-    
-    if (!_user)
-    {
-        //change to login view
-        [self showLoginView];
-    }
-    else if (![_user userNameStr])
+- (void)switchLoginView:(id)sender
+{
+    if (![_user userNameStr])
     {
         //view user info
         APIRequest* api = [[APIRequest alloc]init];
@@ -535,6 +546,28 @@
             [self askForLogIn];
             return NO;
         }
+    }
+    else if ([selectedview isKindOfClass:[LoginWithPasswordViewController class]])
+    {
+        if ([self isLogedIn])
+        {
+            AccountInfoViewController *accountview = [self.storyboard instantiateViewControllerWithIdentifier:@"idaccountview"];
+            [(UINavigationController*)viewController setViewControllers:@[accountview]];
+            [self switchLoginView:nil];
+        }
+        else
+        {
+            LoginWithPasswordViewController *loginview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloginview"];
+            [(UINavigationController*)viewController setViewControllers:@[loginview]];
+        }
+    }
+    else if ([selectedview isKindOfClass:[AccountInfoViewController class]])
+    {
+        AccountInfoViewController *accountview = (AccountInfoViewController*)selectedview;
+        accountview.user = _user;
+        accountview.tokenStr = _strUserToken;
+        
+        [accountview updateContentView];
     }
     
     return YES;

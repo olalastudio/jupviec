@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *txtPhoneTitle;
 @property (weak, nonatomic) IBOutlet JButton *btNext;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 - (IBAction)didPressNextButton:(id)sender;
 
 @end

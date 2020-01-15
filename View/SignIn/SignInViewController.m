@@ -38,6 +38,7 @@
     [super viewWillAppear:animated];
     
     [self.tabBarController.tabBar setHidden:YES];
+    [self.navigationController.navigationBar setHidden:NO];
     
     [self registerFromKeyboardNotification];
 }
@@ -71,10 +72,9 @@
  
     keyboardheight = beginrect.origin.y - endrect.origin.y;
     
-    CGRect registernowrect = [_btNext frame];
-    registernowrect.origin.y -= keyboardheight;
-    [_btNext setFrame:registernowrect];
+    _bottomConstraint.constant += keyboardheight;
     
+    [self.view layoutIfNeeded];
 }
 
 -(void)keyboardDidHide:(NSNotification*)notification
@@ -87,13 +87,11 @@
     
     keyboardheight = endrect.origin.y - beginrect.origin.y;
     
-    CGRect rect = [_btNext frame];
-    
-    if ((rect.origin.y + keyboardheight) < [_btNext superview].frame.size.height) {
-        rect.origin.y += keyboardheight;
+    if ((_bottomConstraint.constant - keyboardheight) > 0) {
+        _bottomConstraint.constant -= keyboardheight;
     }
-
-    [_btNext setFrame:rect];
+    
+    [self.view layoutIfNeeded];
 }
 /*
 #pragma mark - Navigation

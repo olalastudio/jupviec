@@ -22,24 +22,8 @@
     // Do any additional setup after loading the view.
     [_userNameTF setDelegate:self];
     _isChangeInfo = NO;
-    _accountGeneralInfo = [[_user dictUserInfo]mutableCopy];
-    if (_accountGeneralInfo) {
-        if ([[_accountGeneralInfo objectForKey:@"name"] isKindOfClass:[NSString class]]) {
-            _userNameTF.text = [_accountGeneralInfo objectForKey:@"name"];
-        }
-        if ([[_accountGeneralInfo objectForKey:@"email"] isKindOfClass:[NSString class]]) {
-            _emailTF.text = [_accountGeneralInfo objectForKey:@"email"];
-        }
-        if ([[_accountGeneralInfo objectForKey:@"age"] isKindOfClass:[NSNumber class]]) {
-            _ageTF.text = [[_accountGeneralInfo objectForKey:@"age"]stringValue];
-        }
-        if ([[_accountGeneralInfo objectForKey:@"address"] isKindOfClass:[NSString class]]) {
-            _addressTF.text = [_accountGeneralInfo objectForKey:@"address"];
-        }
-        if ([[_accountGeneralInfo objectForKey:@"identity_card"] isKindOfClass:[NSNumber class]]) {
-            _identifyCardTF.text = [[_accountGeneralInfo objectForKey:@"identity_card"]stringValue];
-        }
-    }
+    _accountGeneralInfo = [[_user dictUserInfo] mutableCopy];
+    
     [_userNameTF addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [_emailTF addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [_ageTF addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
@@ -47,6 +31,47 @@
     [_identifyCardTF addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     
     self.view.layer.masksToBounds = YES;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.navigationController.navigationBar setHidden:NO];
+    
+    _accountGeneralInfo = [NSMutableDictionary dictionaryWithDictionary:[_user dictUserInfo]];
+    if (_accountGeneralInfo) {
+        if ([[_accountGeneralInfo objectForKey:@"name"] isKindOfClass:[NSString class]]) {
+            _userNameTF.text = [_accountGeneralInfo objectForKey:@"name"];
+        }
+        else{
+            _userNameTF.text = @"";
+        }
+        if ([[_accountGeneralInfo objectForKey:@"email"] isKindOfClass:[NSString class]]) {
+            _emailTF.text = [_accountGeneralInfo objectForKey:@"email"];
+        }
+        else{
+            _emailTF.text = @"";
+        }
+        if ([[_accountGeneralInfo objectForKey:@"age"] isKindOfClass:[NSNumber class]]) {
+            _ageTF.text = [[_accountGeneralInfo objectForKey:@"age"]stringValue];
+        }
+        else{
+            _ageTF.text = @"";
+        }
+        if ([[_accountGeneralInfo objectForKey:@"address"] isKindOfClass:[NSString class]]) {
+            _addressTF.text = [_accountGeneralInfo objectForKey:@"address"];
+        }
+        else{
+            _addressTF.text = @"";
+        }
+        if ([[_accountGeneralInfo objectForKey:@"identity_card"] isKindOfClass:[NSNumber class]]) {
+            _identifyCardTF.text = [[_accountGeneralInfo objectForKey:@"identity_card"]stringValue];
+        }
+        else{
+            _identifyCardTF.text = @"";
+        }
+    }
 }
 
 - (void)textFieldDidChange:(UITextField*)textField
@@ -106,6 +131,7 @@
         {
             AccountInfoViewController* accountInfoVC = (AccountInfoViewController*)vc;
             accountInfoVC.user = user;
+            [accountInfoVC updateContentView];
         }
         else if ([vc isKindOfClass:[HomeViewController class]])
         {

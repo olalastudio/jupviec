@@ -139,13 +139,14 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         AppDelegate *appdelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
         UITabBarController *tabController = (UITabBarController*)[self.storyboard instantiateViewControllerWithIdentifier:@"idTabBarView"];
+        [tabController setSelectedIndex:2];
         
         // get info of services
         APIRequest* apiRequest = [[APIRequest alloc]init];
         [apiRequest requestAPIGetConfiguration:^(NSDictionary * _Nullable configurationInfo, NSError * _Nonnull error) {
             if (error.code == RESPONSE_CODE_NORMARL) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    HomeViewController *homeVC = [(UINavigationController*)[[tabController viewControllers] objectAtIndex:0] visibleViewController];
+                    HomeViewController *homeVC = [(UINavigationController*)[[tabController viewControllers] objectAtIndex:2] visibleViewController];
                     homeVC.configurationInfoDict = configurationInfo;
                 
                     appdelegate.window.rootViewController = tabController;

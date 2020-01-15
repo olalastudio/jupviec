@@ -76,9 +76,9 @@
     
     keyboardheight = beginrect.origin.y - endrect.origin.y;
     
-    CGRect registernowrect = [_btnContinue frame];
-    registernowrect.origin.y -= keyboardheight;
-    [_btnContinue setFrame:registernowrect];
+    _bottomConstraint.constant += keyboardheight;
+    
+    [self.view layoutIfNeeded];
 }
 
 -(void)keyboardDidHide:(NSNotification*)notification
@@ -91,11 +91,11 @@
     
     keyboardheight = endrect.origin.y - beginrect.origin.y;
     
-    CGRect rect = [_btnContinue frame];
-    if ((rect.origin.y + keyboardheight) < [_btnContinue superview].frame.size.height) {
-        rect.origin.y += keyboardheight;
+    if ((_bottomConstraint.constant - keyboardheight) > 0) {
+        _bottomConstraint.constant -= keyboardheight;
     }
-    [_btnContinue setFrame:rect];
+    
+    [self.view layoutIfNeeded];
 }
 /*
 #pragma mark - Navigation

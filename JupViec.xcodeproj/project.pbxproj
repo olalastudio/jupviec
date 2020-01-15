@@ -437,6 +437,12 @@
 		06B620BD2397B3930036DCF9 /* HomePromotionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */; };
 		06B620BF2397B4540036DCF9 /* makhuyenmai.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B620BE2397B4540036DCF9 /* makhuyenmai.png */; };
 		06B88A4A23B0B53900FDA53A /* starfill.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B88A4923B0B53900FDA53A /* starfill.png */; };
+		06CB381E23CD7636004F8162 /* History@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CB381823CD7635004F8162 /* History@3x.png */; };
+		06CB381F23CD7636004F8162 /* Main@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CB381923CD7635004F8162 /* Main@3x.png */; };
+		06CB382023CD7636004F8162 /* Promotion@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CB381A23CD7635004F8162 /* Promotion@3x.png */; };
+		06CB382123CD7636004F8162 /* Main@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CB381B23CD7636004F8162 /* Main@2x.png */; };
+		06CB382223CD7636004F8162 /* Profile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CB381C23CD7636004F8162 /* Profile@3x.png */; };
+		06CB382323CD7636004F8162 /* Home@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CB381D23CD7636004F8162 /* Home@3x.png */; };
 		06CF5D0523B5EF760066A551 /* JViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CF5D0423B5EF760066A551 /* JViewController.m */; };
 		06CF5D0823B5EF860066A551 /* JNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CF5D0723B5EF860066A551 /* JNavigationBar.m */; };
 		06CF5D0B23B5EF9A0066A551 /* JNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CF5D0A23B5EF9A0066A551 /* JNavigationViewController.m */; };
@@ -968,6 +974,12 @@
 		06B620BC2397B3930036DCF9 /* HomePromotionCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePromotionCollectionViewCell.m; sourceTree = "<group>"; };
 		06B620BE2397B4540036DCF9 /* makhuyenmai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = makhuyenmai.png; sourceTree = "<group>"; };
 		06B88A4923B0B53900FDA53A /* starfill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starfill.png; sourceTree = "<group>"; };
+		06CB381823CD7635004F8162 /* History@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "History@3x.png"; sourceTree = "<group>"; };
+		06CB381923CD7635004F8162 /* Main@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Main@3x.png"; sourceTree = "<group>"; };
+		06CB381A23CD7635004F8162 /* Promotion@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Promotion@3x.png"; sourceTree = "<group>"; };
+		06CB381B23CD7636004F8162 /* Main@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Main@2x.png"; sourceTree = "<group>"; };
+		06CB381C23CD7636004F8162 /* Profile@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Profile@3x.png"; sourceTree = "<group>"; };
+		06CB381D23CD7636004F8162 /* Home@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home@3x.png"; sourceTree = "<group>"; };
 		06CF5D0323B5EF760066A551 /* JViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JViewController.h; sourceTree = "<group>"; };
 		06CF5D0423B5EF760066A551 /* JViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JViewController.m; sourceTree = "<group>"; };
 		06CF5D0623B5EF860066A551 /* JNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JNavigationBar.h; sourceTree = "<group>"; };
@@ -1830,6 +1842,12 @@
 		831705F223B76F3B00A3493E /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				06CB381823CD7635004F8162 /* History@3x.png */,
+				06CB381D23CD7636004F8162 /* Home@3x.png */,
+				06CB381B23CD7636004F8162 /* Main@2x.png */,
+				06CB381923CD7635004F8162 /* Main@3x.png */,
+				06CB381C23CD7636004F8162 /* Profile@3x.png */,
+				06CB381A23CD7635004F8162 /* Promotion@3x.png */,
 				06CF639C23CC8C8000F95329 /* Promotion@2x.png */,
 				06CF639723CC8C2A00F95329 /* History@2x.png */,
 				06CF639823CC8C2E00F95329 /* Home@2x.png */,
@@ -1978,6 +1996,7 @@
 				0601E44A238FAEF000403C95 /* smartphone-7.png in Resources */,
 				0601E35E238FAEEF00403C95 /* compose.png in Resources */,
 				064B1FA023C70430006DC513 /* ExtendService.xib in Resources */,
+				06CB381F23CD7636004F8162 /* Main@3x.png in Resources */,
 				0601E3DA238FAEEF00403C95 /* map-location.png in Resources */,
 				0601E458238FAEF000403C95 /* star-1.png in Resources */,
 				0601E41C238FAEEF00403C95 /* push-pin.png in Resources */,
@@ -2107,6 +2126,7 @@
 				0601E36D238FAEEF00403C95 /* diamond.png in Resources */,
 				06ED4C1123A0EDD10072EB15 /* TimeSelectionCell.xib in Resources */,
 				0601E342238FAEEF00403C95 /* broken-link.png in Resources */,
+				06CB381E23CD7636004F8162 /* History@3x.png in Resources */,
 				0601E385238FAEEF00403C95 /* file-1.png in Resources */,
 				0601E330238FAEEF00403C95 /* background.jpg in Resources */,
 				0601E375238FAEEF00403C95 /* download.png in Resources */,
@@ -2180,6 +2200,7 @@
 				0601E3BB238FAEEF00403C95 /* idea.png in Resources */,
 				0601E355238FAEEF00403C95 /* cloud-computing-4.png in Resources */,
 				0601E444238FAEF000403C95 /* smartphone-11.png in Resources */,
+				06CB382323CD7636004F8162 /* Home@3x.png in Resources */,
 				0601E356238FAEEF00403C95 /* cloud-computing-5.png in Resources */,
 				0601E3D8238FAEEF00403C95 /* map-1.png in Resources */,
 				0601E481238FAEF000403C95 /* user-7.png in Resources */,
@@ -2219,6 +2240,7 @@
 				0601E413238FAEEF00403C95 /* placeholder.png in Resources */,
 				0601E389238FAEEF00403C95 /* fingerprint.png in Resources */,
 				0601E33F238FAEEF00403C95 /* bookmark-1.png in Resources */,
+				06CB382123CD7636004F8162 /* Main@2x.png in Resources */,
 				0601E496238FAEF000403C95 /* windows.png in Resources */,
 				0601E3B2238FAEEF00403C95 /* hourglass-3.png in Resources */,
 				0601E463238FAEF000403C95 /* substract-1.png in Resources */,
@@ -2323,6 +2345,7 @@
 				83D0FE4723BCB0E900688924 /* headerEllipse.png in Resources */,
 				0601E479238FAEF000403C95 /* unlocked.png in Resources */,
 				0601E448238FAEF000403C95 /* smartphone-5.png in Resources */,
+				06CB382023CD7636004F8162 /* Promotion@3x.png in Resources */,
 				0601E33A238FAEEF00403C95 /* battery.png in Resources */,
 				0601E3ED238FAEEF00403C95 /* music-player-2.png in Resources */,
 				0601E392238FAEEF00403C95 /* folder-11.png in Resources */,
@@ -2334,6 +2357,7 @@
 				0601E474238FAEF000403C95 /* trash.png in Resources */,
 				0601E34F238FAEEF00403C95 /* clock-1.png in Resources */,
 				0601E376238FAEEF00403C95 /* edit-1.png in Resources */,
+				06CB382223CD7636004F8162 /* Profile@3x.png in Resources */,
 				0601E33C238FAEEF00403C95 /* blueprint.png in Resources */,
 				0601E3C2238FAEEF00403C95 /* layers-1.png in Resources */,
 				0601E32E238FAEEF00403C95 /* back-button.png in Resources */,
