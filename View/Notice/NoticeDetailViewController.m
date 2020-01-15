@@ -25,11 +25,20 @@
     self.view.layer.masksToBounds = YES;
     
     [self setTitle:@"Chi tiết"];
-    
     [_titleLB setTextColor:UIColorFromRGB(0x000000)];
     [_contentLB setTextColor:UIColorFromRGB(0x5C5C5C)];
     [_notifyDateLB setTextColor:UIColorFromRGB(0xACB3BF)];
     [_separatorline setBackgroundColor:UIColorFromRGB(0xF0F0F0)];
+    if (![[_notifyInfo objectForKey:@"image"] isKindOfClass:[NSString class]] || ![_notifyInfo objectForKey:@"image"])
+    {
+        [_notifyImageView setHidden:YES];
+    }
+    if (_imageData)
+    {
+        [_notifyImageView setImage:[UIImage imageWithData:_imageData]];
+    }
+    [_titleLB setText:[_notifyInfo objectForKey:@"title"]];
+    [_notifyDateLB setText:[_notifyInfo objectForKey:@"updated_at"]];
     
     _notifyImageView.layer.cornerRadius = 10;
     _notifyImageView.layer.masksToBounds = YES;
@@ -38,6 +47,10 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    if (![[_notifyInfo objectForKey:@"image"] isKindOfClass:[NSString class]] || ![_notifyInfo objectForKey:@"image"])
+    {
+        [_notifyImageView setHidden:YES];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated

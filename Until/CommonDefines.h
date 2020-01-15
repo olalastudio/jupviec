@@ -42,6 +42,7 @@
 #define API_FEEDBACK            @"feedback"
 #define API_CANCEL_REQUEST      @"cancer"
 #define API_SEND_DEVICE_TOKEN   @"device"
+#define API_FAQ                 @"faq"
 
 #define NOTIFIES_TYPE_NOTIFY    @"notify"
 #define NOTIFIES_TYPE_PROMOTION @"promotion"
