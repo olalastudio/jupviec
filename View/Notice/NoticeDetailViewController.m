@@ -22,6 +22,11 @@
     self.view.layer.masksToBounds = YES;
     
     [self setTitle:@"Chi tiết"];
+    
+    [_titleLB setText:[_notifyInfo objectForKey:@"title"]];
+    [_notifyDateLB setText:[_notifyInfo objectForKey:@"updated_at"]];
+    [_notifyContentTextView setText:[_notifyInfo objectForKey:@"content"]];
+    
     if (![[_notifyInfo objectForKey:@"image"] isKindOfClass:[NSString class]] || ![_notifyInfo objectForKey:@"image"])
     {
         [_notifyImageView setHidden:YES];
@@ -30,19 +35,12 @@
     {
         [_notifyImageView setImage:[UIImage imageWithData:_imageData]];
     }
-    [_titleLB setText:[_notifyInfo objectForKey:@"title"]];
-    [_notifyDateLB setText:[_notifyInfo objectForKey:@"updated_at"]];
-    [_notifyContentTextView setText:[_notifyInfo objectForKey:@"content"]];
     
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    if (![[_notifyInfo objectForKey:@"image"] isKindOfClass:[NSString class]] || ![_notifyInfo objectForKey:@"image"])
-    {
-        [_notifyImageView setHidden:YES];
-    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
