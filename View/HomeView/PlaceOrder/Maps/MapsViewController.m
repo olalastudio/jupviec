@@ -61,7 +61,7 @@
         if ([vc isKindOfClass:[PlaceOrderViewController class]])
         {
             placeview = (PlaceOrderViewController*)vc;
-            [placeview setCurrentLocation:selectedLocation];
+            [placeview setLocation:[_txtAddress text] coordinate:selectedLocation];
         }
     }
     

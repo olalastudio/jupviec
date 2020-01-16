@@ -42,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)setTaskType:(TASK_TYPE)type;
 -(void)setCurrentLocation:(CLLocationCoordinate2D)currentlocation;
+-(void)setLocation:(NSString*)location coordinate:(CLLocationCoordinate2D)coordinate;
 
 - (IBAction)didPressNextToConfirmOrder:(id)sender;
 
