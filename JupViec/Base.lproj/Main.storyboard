@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -386,13 +384,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sEQ-wf-OHj">
-                                        <rect key="frame" x="25" y="63" width="339" height="30"/>
+                                        <rect key="frame" x="25" y="63" width="339" height="34"/>
                                         <color key="backgroundColor" red="0.96472231217616577" green="0.96472231217616577" blue="0.96472231217616577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Địa chỉ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaB-HN-ocq">
-                                        <rect key="frame" x="25" y="113" width="339" height="14"/>
+                                        <rect key="frame" x="25" y="117" width="339" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="p74-hR-5Wl"/>
                                         </constraints>
@@ -401,19 +399,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R5d-Nd-bWF">
-                                        <rect key="frame" x="25" y="221" width="339" height="30"/>
+                                        <rect key="frame" x="25" y="229" width="339" height="34"/>
                                         <color key="backgroundColor" red="0.97427542098445596" green="0.97427542098445596" blue="0.97427542098445596" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8eU-ij-kNk">
-                                        <rect key="frame" x="25" y="142" width="339" height="30"/>
+                                        <rect key="frame" x="25" y="146" width="339" height="34"/>
                                         <color key="backgroundColor" red="0.96870952072538863" green="0.96870952072538863" blue="0.96870952072538863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCz-sO-fpS">
-                                        <rect key="frame" x="25" y="192" width="339" height="14"/>
+                                        <rect key="frame" x="25" y="200" width="339" height="14"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -519,34 +517,63 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQp-gS-cGi" customClass="JView">
                                 <rect key="frame" x="14" y="108" width="389" height="705"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BXN-c6-XN4">
-                                        <rect key="frame" x="18" y="15" width="353" height="46.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="BXN-c6-XN4" secondAttribute="height" multiplier="311:40" id="5us-K9-yXL"/>
-                                        </constraints>
-                                        <segments>
-                                            <segment title="THÔNG BÁO"/>
-                                            <segment title="KHUYẾN MÃI"/>
-                                        </segments>
-                                        <connections>
-                                            <action selector="didSelectNoticeType:" destination="iYU-ih-EFX" eventType="valueChanged" id="xi3-8I-Bxf"/>
-                                        </connections>
-                                    </segmentedControl>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="idnoticetable" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mxU-CA-Weo">
-                                        <rect key="frame" x="18" y="74.5" width="353" height="630.5"/>
+                                        <rect key="frame" x="18" y="65" width="353" height="640"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tSk-lO-aDL">
+                                        <rect key="frame" x="18" y="15" width="353" height="40"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4H-X3-AHl">
+                                                <rect key="frame" x="176" y="4" width="1" height="32"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="1" id="ALn-nA-5Wl"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mud-3T-vKr">
+                                                <rect key="frame" x="2" y="2" width="172" height="36"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                                <state key="normal" title="Thông báo"/>
+                                                <connections>
+                                                    <action selector="didSelectNoticeType:" destination="iYU-ih-EFX" eventType="touchUpInside" id="1a8-YP-518"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npG-ir-mDu">
+                                                <rect key="frame" x="179" y="2" width="172" height="36"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                                <state key="normal" title="Khuyến mại"/>
+                                                <connections>
+                                                    <action selector="didSelectPromotionType:" destination="iYU-ih-EFX" eventType="touchUpInside" id="wAx-qQ-hby"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="g4H-X3-AHl" firstAttribute="centerX" secondItem="tSk-lO-aDL" secondAttribute="centerX" id="3N9-WU-Y8O"/>
+                                            <constraint firstItem="npG-ir-mDu" firstAttribute="leading" secondItem="g4H-X3-AHl" secondAttribute="trailing" constant="2" id="G6r-h0-8zb"/>
+                                            <constraint firstItem="npG-ir-mDu" firstAttribute="top" secondItem="tSk-lO-aDL" secondAttribute="top" constant="2" id="I2j-NM-G1B"/>
+                                            <constraint firstItem="Mud-3T-vKr" firstAttribute="leading" secondItem="tSk-lO-aDL" secondAttribute="leading" constant="2" id="LGO-LD-Oze"/>
+                                            <constraint firstAttribute="bottom" secondItem="Mud-3T-vKr" secondAttribute="bottom" constant="2" id="Rud-dD-cGq"/>
+                                            <constraint firstItem="g4H-X3-AHl" firstAttribute="top" secondItem="tSk-lO-aDL" secondAttribute="top" constant="4" id="WZ8-D1-R0i"/>
+                                            <constraint firstAttribute="bottom" secondItem="npG-ir-mDu" secondAttribute="bottom" constant="2" id="XWY-IH-qKZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="npG-ir-mDu" secondAttribute="trailing" constant="2" id="Z54-oi-F9p"/>
+                                            <constraint firstItem="g4H-X3-AHl" firstAttribute="leading" secondItem="Mud-3T-vKr" secondAttribute="trailing" constant="2" id="bZQ-uU-UYj"/>
+                                            <constraint firstAttribute="height" constant="40" id="cvu-Xv-h60"/>
+                                            <constraint firstAttribute="bottom" secondItem="g4H-X3-AHl" secondAttribute="bottom" constant="4" id="maW-zq-zwM"/>
+                                            <constraint firstItem="Mud-3T-vKr" firstAttribute="top" secondItem="tSk-lO-aDL" secondAttribute="top" constant="2" id="tVw-Hs-wdu"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="tSk-lO-aDL" secondAttribute="trailing" constant="18" id="4cb-25-x55"/>
                                     <constraint firstAttribute="bottom" secondItem="mxU-CA-Weo" secondAttribute="bottom" id="Cx7-uB-wnk"/>
-                                    <constraint firstItem="BXN-c6-XN4" firstAttribute="leading" secondItem="gQp-gS-cGi" secondAttribute="leading" constant="18" id="dRs-qy-nFx"/>
-                                    <constraint firstItem="BXN-c6-XN4" firstAttribute="centerX" secondItem="gQp-gS-cGi" secondAttribute="centerX" id="kdy-eB-d07"/>
-                                    <constraint firstItem="BXN-c6-XN4" firstAttribute="top" secondItem="gQp-gS-cGi" secondAttribute="top" constant="15" id="kr3-7L-YVI"/>
+                                    <constraint firstItem="tSk-lO-aDL" firstAttribute="leading" secondItem="gQp-gS-cGi" secondAttribute="leading" constant="18" id="GcW-QA-Nz1"/>
+                                    <constraint firstItem="mxU-CA-Weo" firstAttribute="top" secondItem="tSk-lO-aDL" secondAttribute="bottom" constant="10" id="b1O-rG-pIU"/>
                                     <constraint firstItem="mxU-CA-Weo" firstAttribute="leading" secondItem="gQp-gS-cGi" secondAttribute="leading" constant="18" id="mj9-LM-uYo"/>
                                     <constraint firstAttribute="trailing" secondItem="mxU-CA-Weo" secondAttribute="trailing" constant="18" id="p4J-Kh-aFs"/>
-                                    <constraint firstItem="mxU-CA-Weo" firstAttribute="top" secondItem="BXN-c6-XN4" secondAttribute="bottom" constant="14" id="rJg-xw-Tc7"/>
+                                    <constraint firstItem="tSk-lO-aDL" firstAttribute="top" secondItem="gQp-gS-cGi" secondAttribute="top" constant="15" id="vtr-mo-2uR"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thông báo, khuyến mãi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2m-Gv-GF7">
@@ -577,7 +604,10 @@
                     <navigationItem key="navigationItem" title="Thông Báo" id="cUd-k9-QoT"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="sgSelection" destination="BXN-c6-XN4" id="n97-tE-pyV"/>
+                        <outlet property="btNotice" destination="Mud-3T-vKr" id="OeB-5L-BIt"/>
+                        <outlet property="btPromotion" destination="npG-ir-mDu" id="XPR-qb-PW8"/>
+                        <outlet property="categoriesSelectionView" destination="tSk-lO-aDL" id="o4a-bR-yYE"/>
+                        <outlet property="separationView" destination="g4H-X3-AHl" id="iSX-f9-4Yk"/>
                         <outlet property="tbNotice" destination="mxU-CA-Weo" id="9V7-Fg-PbT"/>
                     </connections>
                 </viewController>
@@ -1430,7 +1460,7 @@
                                 <rect key="frame" x="11" y="110" width="389" height="786"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nhập số điện thoại" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uZS-IX-Rms" customClass="JTextField">
-                                        <rect key="frame" x="29" y="72" width="327" height="30"/>
+                                        <rect key="frame" x="29" y="72" width="327" height="34"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                     </textField>
@@ -1512,7 +1542,7 @@
                                 <rect key="frame" x="11" y="110" width="389" height="786"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mã OPT" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IJr-ew-Xpj" customClass="JTextField">
-                                        <rect key="frame" x="29" y="72.5" width="327" height="30"/>
+                                        <rect key="frame" x="29" y="72.5" width="327" height="34"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
@@ -1608,7 +1638,7 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mật Khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gIr-ee-mMV" customClass="JTextField">
-                                        <rect key="frame" x="29" y="72" width="327" height="30"/>
+                                        <rect key="frame" x="29" y="72" width="327" height="34"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
@@ -1619,13 +1649,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nhập lại mật khẩu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwF-Ud-E3W">
-                                        <rect key="frame" x="29" y="128" width="327" height="16"/>
+                                        <rect key="frame" x="29" y="132" width="327" height="16"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Xác Nhận Mật Khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nFj-fz-4zK" customClass="JTextField">
-                                        <rect key="frame" x="29" y="167" width="327" height="30"/>
+                                        <rect key="frame" x="29" y="171" width="327" height="34"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
@@ -1803,7 +1833,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBD-uX-thm">
-                                        <rect key="frame" x="272" y="217" width="82" height="14"/>
+                                        <rect key="frame" x="272" y="225" width="82" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="GPS-Q1-LLW"/>
                                         </constraints>
@@ -1816,12 +1846,12 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Số điện thoại" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZCE-JG-RTZ" customClass="JTextField">
-                                        <rect key="frame" x="29" y="65" width="327" height="30"/>
+                                        <rect key="frame" x="29" y="65" width="327" height="34"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sSC-1j-QHc" customClass="JTextField">
-                                        <rect key="frame" x="29" y="140" width="327" height="30"/>
+                                        <rect key="frame" x="29" y="144" width="327" height="34"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
@@ -1935,18 +1965,18 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select your location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6xC-3H-zrQ">
-                                        <rect key="frame" x="27" y="64" width="340" height="30"/>
+                                        <rect key="frame" x="27" y="64" width="340" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chọn vị trí của bạn trên bản đồ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZW-hC-dRc">
-                                        <rect key="frame" x="27" y="114" width="343" height="15"/>
+                                        <rect key="frame" x="27" y="118" width="343" height="15"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NVo-U9-Ijh" customClass="GMSMapView">
-                                        <rect key="frame" x="26" y="143" width="340" height="531"/>
+                                        <rect key="frame" x="26" y="147" width="340" height="527"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     </view>
                                 </subviews>
@@ -2447,7 +2477,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iVo-Iw-Hcp">
-                                        <rect key="frame" x="317" y="25" width="67" height="33"/>
+                                        <rect key="frame" x="316" y="25" width="68" height="33"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <state key="normal" title="Tiếp Tục">

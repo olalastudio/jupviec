@@ -27,6 +27,8 @@
     [_emailLb setTextColor:UIColorFromRGB(0xACB3BF)];
     [_logoutBtn setTitleColor:UIColorFromRGB(0xFF5B14) forState:UIControlStateNormal];
     
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];
+    
     self.view.layer.masksToBounds = YES;
 }
 

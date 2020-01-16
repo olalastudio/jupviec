@@ -35,6 +35,8 @@
     [_btForgotPassword setTitleColor:UIColorFromRGB(0x5C5C5C) forState:UIControlStateNormal];
     [_btRegisterNow setTitleColor:UIColorFromRGB(0x5C5C5C) forState:UIControlStateNormal];
     
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];
+    
     keyboardheight = 0;
 }
 

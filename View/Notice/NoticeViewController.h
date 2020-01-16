@@ -20,10 +20,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) User  *user;
 
-@property (weak, nonatomic) IBOutlet UISegmentedControl *sgSelection;
 @property (weak, nonatomic) IBOutlet UITableView *tbNotice;
+@property (weak, nonatomic) IBOutlet UIView *categoriesSelectionView;
+@property (weak, nonatomic) IBOutlet UIView *separationView;
+@property (weak, nonatomic) IBOutlet UIButton *btNotice;
+@property (weak, nonatomic) IBOutlet UIButton *btPromotion;
 
 - (IBAction)didSelectNoticeType:(id)sender;
+- (IBAction)didSelectPromotionType:(id)sender;
 
 -(void)showCouponView;
 -(void)showNoticeView;
