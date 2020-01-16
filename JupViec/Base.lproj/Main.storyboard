@@ -25,6 +25,34 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Loading View Controller-->
+        <scene sceneID="vzA-3D-tAx">
+            <objects>
+                <viewController storyboardIdentifier="idloadingview" modalPresentationStyle="overCurrentContext" id="QW3-Fw-0yL" customClass="LoadingViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Ai-sF-NaJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="VRP-eM-4gh">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VRP-eM-4gh" firstAttribute="centerY" secondItem="2Ai-sF-NaJ" secondAttribute="centerY" id="3JG-qY-Xbc"/>
+                            <constraint firstItem="VRP-eM-4gh" firstAttribute="centerX" secondItem="2Ai-sF-NaJ" secondAttribute="centerX" id="bIz-yx-jJ7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7CQ-Ug-of6"/>
+                    </view>
+                    <connections>
+                        <outlet property="loadingIndicator" destination="VRP-eM-4gh" id="RVZ-9d-TVJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BkE-fg-Uj1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4132" y="507"/>
+        </scene>
         <!--Alert Popup Controller-->
         <scene sceneID="3gl-wi-Unu">
             <objects>
