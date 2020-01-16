@@ -146,6 +146,7 @@ typedef enum : NSUInteger {
     RESPONSE_CODE_TIMEOUT      = 502, // timeout
     RESPONSE_CODE_NOT_LOGEDIN  = 503, //not logedin
     RESPONSE_CODE_MISSING_VALUE = 504, //missing field value
+    RESPONSE_CODE_ACCOUNT_NOT_EXIST = 505, //account not exist
 } RESPONSE_CODE;
 
 #define RESPONSE_TIMEOUT_VALUE  10 // 10s

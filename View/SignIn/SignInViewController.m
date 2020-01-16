@@ -9,6 +9,7 @@
 #import "SignInViewController.h"
 #import "OTPCheckViewController.h"
 #import "JButton.h"
+#import "JUntil.h"
 
 @interface SignInViewController ()
 {
@@ -147,16 +148,9 @@
             [self presentViewController:alertControler animated:YES completion:nil];
         });
     }
-    else if (errCode == 400 && _intActionMode == MODE_FORGOT_PASSWORD)
+    else if (errCode == 400 && _intActionMode == MODE_FORGOT_PASSWORD)  // account not existed
     {
-        UIAlertController *alertControler = [UIAlertController alertControllerWithTitle:@"Popup" message:@"Account is not existed" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* alertAct = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            NSLog(@"Account is not existed");
-        }];
-        [alertControler addAction:alertAct];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self presentViewController:alertControler animated:YES completion:nil];
-        });
+        [JUntil showPopup:self responsecode:RESPONSE_CODE_ACCOUNT_NOT_EXIST];
     }
 }
 

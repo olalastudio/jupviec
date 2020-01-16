@@ -31,7 +31,7 @@
     self.layer.borderWidth = 1;
     self.layer.cornerRadius = 10;
     
-    self.textContainerInset = UIEdgeInsetsMake(13, 14, 13, 14);
+    self.textContainerInset = UIEdgeInsetsMake(11, 14, 13, 14);
 }
 
 @end

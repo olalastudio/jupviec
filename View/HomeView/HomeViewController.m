@@ -243,19 +243,10 @@
 
 -(void)askForLogIn
 {
-    [JUntil showPopup:self responsecode:RESPONSE_CODE_NOT_LOGEDIN completionHandler:^(POPUP_ACTION action){
-        if (action == ACTION_OK)
-        {
-            [self showLoginView];
-        }
+    UINavigationController *selecteditem = (UINavigationController*)[self.tabBarController selectedViewController];
+    [JUntil showPopup:[selecteditem visibleViewController] responsecode:RESPONSE_CODE_NOT_LOGEDIN completionHandler:^(POPUP_ACTION action) {
+        
     }];
-}
-
--(void)showLoginView
-{
-    SignInViewController *signinview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloginview"];
-    
-    [self.navigationController pushViewController:signinview animated:YES];
 }
 
 -(void)showAccountView

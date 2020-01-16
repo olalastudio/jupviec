@@ -16,6 +16,7 @@
 @end
 
 @implementation JAlertPopupController
+@synthesize delegate = _delegate;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,6 +26,11 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [_txtMessage setText:_message];
+    if (_confirmTitle) {
+        [_btConfirm setTitle:_confirmTitle forState:UIControlStateNormal];
+    }
     
     self.popupView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.5, 0.5);
     [self.view setBackgroundColor:[UIColor colorWithRed:85.0f/255.0f green:80.0f/255.0f blue:80.0f/255.0f alpha:0.38]];
@@ -60,6 +66,16 @@
 {
     [super viewDidDisappear:animated];
 }
+
+-(void)setMessage:(NSString*)message
+{
+    _message = message;
+}
+
+-(void)setConfirmButtonTitle:(NSString*)title
+{
+    _confirmTitle = title;
+}
 /*
 #pragma mark - Navigation
 
@@ -72,6 +88,11 @@
 
 - (IBAction)didPressConfirmPopupButton:(id)sender
 {
+    if (_delegate && [_delegate respondsToSelector:@selector(didCloseAlertPopupWithCode:)])
+    {
+        [_delegate didCloseAlertPopupWithCode:ACTION_OK];
+    }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

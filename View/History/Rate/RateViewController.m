@@ -7,6 +7,7 @@
 //
 
 #import "RateViewController.h"
+#import "LoadingViewController.h"
 #import "APIRequest.h"
 #import "CommonDefines.h"
 #import "JUntil.h"
@@ -173,7 +174,12 @@
     NSString *content = [_txtComment text];
     NSDictionary *rateInfo = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:score], @"rate_score", content, @"content", nil];
     
+    LoadingViewController *loadingview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloadingview"];
+    [loadingview show:self];
+    
     [apirequest requestAPIRateService:_token idService:_idservice rateServiceInfo:rateInfo completionHandler:^(NSDictionary * _Nullable resultDict, NSError * _Nonnull error) {
+        
+        [loadingview dismiss];
         
         if (error.code == 200) {
             NSLog(@"rate service successful %@",resultDict);
@@ -185,9 +191,6 @@
                 }
             
                 [JUntil showPopup:self responsecode:RESPONSE_CODE_RATE_SUCCESS completionHandler:^(POPUP_ACTION action) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self.navigationController popViewControllerAnimated:YES];
-                    });
                 }];
             });
         }
@@ -204,5 +207,12 @@
             [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
         }
     }];
+}
+
+-(void)didCloseAlertPopupWithCode:(POPUP_ACTION)code
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.navigationController popViewControllerAnimated:YES];
+    });
 }
 @end

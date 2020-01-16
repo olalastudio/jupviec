@@ -8,6 +8,7 @@
 
 #import "HistoryViewController.h"
 #import "HistoryTableViewCell.h"
+#import "LoadingViewController.h"
 #import "APIRequest.h"
 
 @interface HistoryViewController ()
@@ -96,9 +97,15 @@
     {
         APIRequest *apirequest = [[APIRequest alloc] init];
         
+        LoadingViewController *loadingview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloadingview"];
+        [loadingview show:self];
+        
         [apirequest requestAPIGetAllRequests:[_user userToken] completionHandler:^(NSArray * _Nullable resultDict, NSError * _Nonnull error)
         {
             dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [loadingview dismiss];
+                
                 if (error.code == 200) { //sucess
                     [self showHistory:resultDict];
                 }
