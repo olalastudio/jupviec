@@ -139,6 +139,7 @@ typedef enum : NSUInteger {
     RESPONSE_CODE_NORMARL = 200, //Normal operation
     RESPONSE_CODE_NODATA = 204, //is valid auth, but no data
     RESPONSE_CODE_INVALID = 400, //invalid body data, query param, missing header
+    RESPONSE_CODE_PASSWORD_MISMATCH = 402, //password mismatch
     RESPONSE_CODE_INVALID_PASSWORD = 403, //invalid password, token expire or access is not available api
     RESPONSE_CODE_API_NOT_FOUND = 404, //API path not exist
     RESPONSE_CODE_SERVER_ERROR = 500, //some data can pass on validator but server error
@@ -147,6 +148,7 @@ typedef enum : NSUInteger {
     RESPONSE_CODE_NOT_LOGEDIN  = 503, //not logedin
     RESPONSE_CODE_MISSING_VALUE = 504, //missing field value
     RESPONSE_CODE_ACCOUNT_NOT_EXIST = 505, //account not exist
+    RESPONSE_CODE_OTP_INCORRECT = 506, //otp incorrect
 } RESPONSE_CODE;
 
 #define RESPONSE_TIMEOUT_VALUE  10 // 10s

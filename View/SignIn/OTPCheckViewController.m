@@ -8,6 +8,7 @@
 
 #import "OTPCheckViewController.h"
 #import "CreatePasswordViewController.h"
+#import "JUntil.h"
 #import "JButton.h"
 
 @interface OTPCheckViewController ()
@@ -138,15 +139,7 @@
     }
     else
     {
-        UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Popup" message:@"Mã OTP chưa chính xác vui lòng nhập lại" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            NSLog(@"otp incorrect, re-input");
-            [self->_txtOTPInput setText:@""];
-        }];
-        [alertController addAction:okAction];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self presentViewController:alertController animated:YES completion:nil];
-        });
+        [JUntil showPopup:self responsecode:RESPONSE_CODE_OTP_INCORRECT];
     }
         
 }

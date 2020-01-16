@@ -211,6 +211,12 @@
                 [alert setConfirmButtonTitle:@"Nhập lại"];
             }
                 break;
+            case RESPONSE_CODE_PASSWORD_MISMATCH:
+            {
+                [alert setMessage:@"Nhập lại mật khẩu cần trùng khớp"];
+                [alert setConfirmButtonTitle:@"Nhập lại"];
+            }
+                break;
             case RESPONSE_CODE_NOINTERNET:
             {
                 [alert setMessage:@"Không có kết nối mạng, vui lòng kiểm tra lại"];
@@ -231,7 +237,13 @@
                 break;
             case RESPONSE_CODE_ACCOUNT_NOT_EXIST:
             {
-                [alert setMessage:@"Số điện thoại chưa được đăng ký"];
+                [alert setMessage:@"Số điện thoại chưa được đăng ký.\nVui lòng nhập lại hoặc quay về đăng ký"];
+                [alert setConfirmButtonTitle:@"Nhập lại"];
+            }
+                break;
+            case RESPONSE_CODE_OTP_INCORRECT:
+            {
+                [alert setMessage:@"Mã OTP chưa chính xác\nVui lòng nhập lại"];
                 [alert setConfirmButtonTitle:@"Nhập lại"];
             }
                 break;

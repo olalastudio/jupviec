@@ -208,12 +208,7 @@
                 }
                 else if (err.code == 400)
                 {
-                    UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Popup" message:@"Invalid data or phone existed" preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *alertAct = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                    [alertController addAction:alertAct];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self presentViewController:alertController animated:YES completion:nil];
-                    });
+                    [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
                 }
                 else if (err.code == RESPONSE_CODE_TIMEOUT)
                 {
@@ -226,15 +221,7 @@
             }];
         }
     }else{
-        NSLog(@"password is not match");
-        UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Popup" message:@"Nhập lại mật khẩu cần trùng khớp" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *alertAct = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self->_txtReInputPassword setText:@""];
-        }];
-        [alertController addAction:alertAct];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self presentViewController:alertController animated:YES completion:nil];
-        });
+        [JUntil showPopup:self responsecode:RESPONSE_CODE_PASSWORD_MISMATCH];
     }
 }
 @end

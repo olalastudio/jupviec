@@ -21,6 +21,13 @@
     [self.view setBackgroundColor:[UIColor colorWithRed:85.0f/255.0f green:80.0f/255.0f blue:80.0f/255.0f alpha:0.38]];
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self.view setBackgroundColor:[UIColor clearColor]];
+}
+
 -(void)show:(UIViewController*)sender
 {
     [self performSelectorOnMainThread:@selector(startAnimation) withObject:nil waitUntilDone:NO];
