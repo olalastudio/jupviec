@@ -9,6 +9,7 @@
 #import "LoginWithPasswordViewController.h"
 #import "APIRequest.h"
 #import "SignInViewController.h"
+#import "AccountInfoViewController.h"
 #import "HomeViewController.h"
 
 #import "JButton.h"
@@ -31,9 +32,10 @@
     [_txtInputUserPhone setDelegate:self];
     [_txtInputUserPass setDelegate:self];
     
-    [self setTitle:@"Thông tin cá nhân"];
     [_btForgotPassword setTitleColor:UIColorFromRGB(0x5C5C5C) forState:UIControlStateNormal];
     [_btRegisterNow setTitleColor:UIColorFromRGB(0x5C5C5C) forState:UIControlStateNormal];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];
     
     keyboardheight = 0;
 }
@@ -42,7 +44,8 @@
 {
     [super viewWillAppear:animated];
     
-    [self.tabBarController.tabBar setHidden:YES];
+    [self.tabBarController.tabBar setHidden:NO];
+    [self.navigationController.navigationBar setHidden:YES];
     
     [self registerFromKeyboardNotification];
 }
@@ -93,20 +96,12 @@
     NSValue *keyboardendrect = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect beginrect = [keyboardbeginrect CGRectValue];
     CGRect endrect = [keyboardendrect CGRectValue];
- 
+    
     keyboardheight = beginrect.origin.y - endrect.origin.y;
     
-    CGRect questionrect = [_txtQuestion frame];
-    questionrect.origin.y -= keyboardheight;
-    [_txtQuestion setFrame:questionrect];
+    _bottomConstraint.constant += keyboardheight;
     
-    CGRect confirmrect = [_btConfirm frame];
-    confirmrect.origin.y -= keyboardheight;
-    [_btConfirm setFrame:confirmrect];
-    
-    CGRect registernowrect = [_btRegisterNow frame];
-    registernowrect.origin.y -= keyboardheight;
-    [_btRegisterNow setFrame:registernowrect];
+    [self.view layoutIfNeeded];
 }
 
 -(void)keyboardDidHide:(NSNotification*)notification
@@ -119,24 +114,11 @@
 
     keyboardheight = endrect.origin.y - beginrect.origin.y;
     
-    CGRect questionrect = [_txtQuestion frame];
-    if ((questionrect.origin.y + keyboardheight) < [_txtQuestion superview].frame.size.height) {
-        questionrect.origin.y += keyboardheight;
-    }
-    [_txtQuestion setFrame:questionrect];
-    
-    CGRect confirmrect = [_btConfirm frame];
-    if ((confirmrect.origin.y + keyboardheight) < [_btConfirm superview].frame.size.height) {
-        confirmrect.origin.y += keyboardheight;
-    }
-    [_btConfirm setFrame:confirmrect];
-    
-    CGRect registernowrect = [_btRegisterNow frame];
-    if ((registernowrect.origin.y + keyboardheight) < [_btRegisterNow superview].frame.size.height) {
-        registernowrect.origin.y += keyboardheight;
+    if ((_bottomConstraint.constant - keyboardheight) > 0) {
+        _bottomConstraint.constant -= keyboardheight;
     }
     
-    [_btRegisterNow setFrame:registernowrect];
+    [self.view layoutIfNeeded];
 }
 /*
 #pragma mark - Navigation
@@ -152,6 +134,7 @@
 {
     [self.view endEditing:YES];
 }
+
 #pragma - UITextFielDelegate
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
@@ -238,16 +221,17 @@
             {
                 self->strToken = token;
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    for (UIViewController *vc in [self.navigationController viewControllers])
+                    for (UINavigationController *item in [self.tabBarController viewControllers])
                     {
+                        UIViewController *vc = [item visibleViewController];
                         if ([vc isKindOfClass:[HomeViewController class]])
                         {
                             [(HomeViewController*)vc logIn:[self userToken] phoneNumber:[self userPhoneNumber]];
+                            [self.tabBarController setSelectedViewController:item];
                             break;
                         }
                     }
                     
-                    [self.navigationController popToRootViewControllerAnimated:YES];
                     NSLog(@"lofin success: go to home view");
                 });
             }

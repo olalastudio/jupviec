@@ -7,17 +7,32 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonDefines.h"
 
 @class JButton;
 @class PopupView;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JAlertPopupController : UIViewController
+@protocol JAlertPopupDelegate <NSObject>
 
-@property (weak, nonatomic) IBOutlet PopupView *popupView;
-@property (weak, nonatomic) IBOutlet UILabel *txtMessage;
-@property (weak, nonatomic) IBOutlet JButton *btConfirm;
+-(void)didCloseAlertPopupWithCode:(POPUP_ACTION)code;
+
+@end
+
+@interface JAlertPopupController : UIViewController
+{
+    NSString *_message;
+    NSString *_confirmTitle;
+}
+
+@property id<JAlertPopupDelegate>               delegate;
+@property (weak, nonatomic) IBOutlet PopupView  *popupView;
+@property (weak, nonatomic) IBOutlet UILabel    *txtMessage;
+@property (weak, nonatomic) IBOutlet JButton    *btConfirm;
+
+-(void)setMessage:(NSString*)message;
+-(void)setConfirmButtonTitle:(NSString*)title;
 
 - (IBAction)didPressConfirmPopupButton:(id)sender;
 

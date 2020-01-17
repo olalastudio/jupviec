@@ -73,10 +73,9 @@
     
     keyboardheight = beginrect.origin.y - endrect.origin.y;
     
-    CGRect registernowrect = [_btnRegister frame];
-    registernowrect.origin.y -= keyboardheight;
-    [_btnRegister setFrame:registernowrect];
+    _bottomConstraint.constant += keyboardheight;
     
+    [self.view layoutIfNeeded];
 }
 
 -(void)keyboardDidHide:(NSNotification*)notification
@@ -89,11 +88,11 @@
     
     keyboardheight = endrect.origin.y - beginrect.origin.y;
     
-    CGRect rect = [_btnRegister frame];
-    if ((rect.origin.y + keyboardheight) < [_btnRegister superview].frame.size.height) {
-        rect.origin.y += keyboardheight;
+    if ((_bottomConstraint.constant - keyboardheight) > 0) {
+        _bottomConstraint.constant -= keyboardheight;
     }
-    [_btnRegister setFrame:rect];
+    
+    [self.view layoutIfNeeded];
 }
 /*
 #pragma mark - Navigation
@@ -130,15 +129,18 @@
                         [self setStrToken:token];
                         [self.user setUserToken:token];
                         
-                        for (UIViewController *vc in [self.navigationController viewControllers]) {
-                            
-                            if ([vc isKindOfClass:[HomeViewController class]]) {
+                        for (UINavigationController *item in [self.tabBarController viewControllers])
+                        {
+                            UIViewController *vc = [item visibleViewController];
+                            if ([vc isKindOfClass:[HomeViewController class]])
+                            {
                                 [(HomeViewController*)vc setUser:self.user];
+                                
+                                [self.tabBarController setSelectedViewController:item];
+                                [self.navigationController popToRootViewControllerAnimated:NO];
                                 break;
                             }
                         }
-                        
-                        [self.navigationController popToRootViewControllerAnimated:YES];
                     });
                 }
                 else if (error.code == RESPONSE_CODE_NODATA)
@@ -170,9 +172,10 @@
                 if (error.code == 200)
                 {
                     NSLog(@"change password success");
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self performSegueWithIdentifier:@"idUserHomeVC" sender:self];
-                    });
+                    self.user = user;
+                    
+                    //login to get token
+                    [self requestLogin];
                 }
                 else if (error.code == 204)
                 {
@@ -205,12 +208,7 @@
                 }
                 else if (err.code == 400)
                 {
-                    UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Popup" message:@"Invalid data or phone existed" preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *alertAct = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                    [alertController addAction:alertAct];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self presentViewController:alertController animated:YES completion:nil];
-                    });
+                    [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
                 }
                 else if (err.code == RESPONSE_CODE_TIMEOUT)
                 {
@@ -223,15 +221,7 @@
             }];
         }
     }else{
-        NSLog(@"password is not match");
-        UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Popup" message:@"Nhập lại mật khẩu cần trùng khớp" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *alertAct = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self->_txtReInputPassword setText:@""];
-        }];
-        [alertController addAction:alertAct];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self presentViewController:alertController animated:YES completion:nil];
-        });
+        [JUntil showPopup:self responsecode:RESPONSE_CODE_PASSWORD_MISMATCH];
     }
 }
 @end

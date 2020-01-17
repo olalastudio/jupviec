@@ -9,6 +9,7 @@
 #import "SignInViewController.h"
 #import "OTPCheckViewController.h"
 #import "JButton.h"
+#import "JUntil.h"
 
 @interface SignInViewController ()
 {
@@ -38,6 +39,7 @@
     [super viewWillAppear:animated];
     
     [self.tabBarController.tabBar setHidden:YES];
+    [self.navigationController.navigationBar setHidden:NO];
     
     [self registerFromKeyboardNotification];
 }
@@ -71,10 +73,9 @@
  
     keyboardheight = beginrect.origin.y - endrect.origin.y;
     
-    CGRect registernowrect = [_btNext frame];
-    registernowrect.origin.y -= keyboardheight;
-    [_btNext setFrame:registernowrect];
+    _bottomConstraint.constant += keyboardheight;
     
+    [self.view layoutIfNeeded];
 }
 
 -(void)keyboardDidHide:(NSNotification*)notification
@@ -87,13 +88,11 @@
     
     keyboardheight = endrect.origin.y - beginrect.origin.y;
     
-    CGRect rect = [_btNext frame];
-    
-    if ((rect.origin.y + keyboardheight) < [_btNext superview].frame.size.height) {
-        rect.origin.y += keyboardheight;
+    if ((_bottomConstraint.constant - keyboardheight) > 0) {
+        _bottomConstraint.constant -= keyboardheight;
     }
-
-    [_btNext setFrame:rect];
+    
+    [self.view layoutIfNeeded];
 }
 /*
 #pragma mark - Navigation
@@ -149,16 +148,9 @@
             [self presentViewController:alertControler animated:YES completion:nil];
         });
     }
-    else if (errCode == 400 && _intActionMode == MODE_FORGOT_PASSWORD)
+    else if (errCode == 400 && _intActionMode == MODE_FORGOT_PASSWORD)  // account not existed
     {
-        UIAlertController *alertControler = [UIAlertController alertControllerWithTitle:@"Popup" message:@"Account is not existed" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* alertAct = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            NSLog(@"Account is not existed");
-        }];
-        [alertControler addAction:alertAct];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self presentViewController:alertControler animated:YES completion:nil];
-        });
+        [JUntil showPopup:self responsecode:RESPONSE_CODE_ACCOUNT_NOT_EXIST];
     }
 }
 

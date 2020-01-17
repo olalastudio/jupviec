@@ -31,8 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSDictionary          *configurationInfoDict;
 @property (nonatomic, strong) NSString              *strPhoneNum;
 
-- (IBAction)didClickLoginButton:(id)sender;
-
 -(void)logIn:(NSString*)strToken phoneNumber:(NSString*)phonenumber;
 -(void)logOut;
 

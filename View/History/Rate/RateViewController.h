@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "JViewController.h"
+#import "JAlertPopupController.h"
 
 @protocol RateViewDelegate <NSObject>
 
@@ -17,7 +18,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RateViewController : JViewController
+@interface RateViewController : JViewController <JAlertPopupDelegate>
 {
     NSString    *_token;
     NSString    *_idservice;

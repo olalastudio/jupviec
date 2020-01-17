@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextField    *txtInputPassword;
 @property (weak, nonatomic) IBOutlet UITextField    *txtReInputPassword;
 @property (weak, nonatomic) IBOutlet JButton       *btnRegister;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 
 @property (nonatomic, strong) User          *user;
 @property (nonatomic, strong) NSString      *strPhoneNum;

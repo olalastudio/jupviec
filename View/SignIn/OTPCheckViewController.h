@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSString* strPhoneNum;
 @property (nonatomic, assign) NSString* strToken;
 @property (nonatomic, assign) NSInteger intActionMode;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 
 - (IBAction)didClickCheckOTPNumber:(id)sender;
 

@@ -8,6 +8,7 @@
 
 #import "OTPCheckViewController.h"
 #import "CreatePasswordViewController.h"
+#import "JUntil.h"
 #import "JButton.h"
 
 @interface OTPCheckViewController ()
@@ -76,9 +77,9 @@
     
     keyboardheight = beginrect.origin.y - endrect.origin.y;
     
-    CGRect registernowrect = [_btnContinue frame];
-    registernowrect.origin.y -= keyboardheight;
-    [_btnContinue setFrame:registernowrect];
+    _bottomConstraint.constant += keyboardheight;
+    
+    [self.view layoutIfNeeded];
 }
 
 -(void)keyboardDidHide:(NSNotification*)notification
@@ -91,11 +92,11 @@
     
     keyboardheight = endrect.origin.y - beginrect.origin.y;
     
-    CGRect rect = [_btnContinue frame];
-    if ((rect.origin.y + keyboardheight) < [_btnContinue superview].frame.size.height) {
-        rect.origin.y += keyboardheight;
+    if ((_bottomConstraint.constant - keyboardheight) > 0) {
+        _bottomConstraint.constant -= keyboardheight;
     }
-    [_btnContinue setFrame:rect];
+    
+    [self.view layoutIfNeeded];
 }
 /*
 #pragma mark - Navigation
@@ -138,15 +139,7 @@
     }
     else
     {
-        UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Popup" message:@"Mã OTP chưa chính xác vui lòng nhập lại" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            NSLog(@"otp incorrect, re-input");
-            [self->_txtOTPInput setText:@""];
-        }];
-        [alertController addAction:okAction];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self presentViewController:alertController animated:YES completion:nil];
-        });
+        [JUntil showPopup:self responsecode:RESPONSE_CODE_OTP_INCORRECT];
     }
         
 }

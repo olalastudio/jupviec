@@ -30,6 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton       *btRegisterNow;
 @property (weak, nonatomic) IBOutlet UILabel        *txtQuestion;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
+
 - (IBAction)didClickedFogetPassword:(id)sender;
 - (IBAction)didClickedRegisterNewAcc:(id)sender;
 - (IBAction)didClickedLogin:(id)sender;

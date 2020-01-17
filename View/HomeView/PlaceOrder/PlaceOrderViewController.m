@@ -251,6 +251,13 @@
     }];
 }
 
+-(void)setLocation:(NSString*)location coordinate:(CLLocationCoordinate2D)coordinate
+{
+    _location = coordinate;
+    [self.order setWorkAddress:location];
+    [self.tbPlaceOrderContent reloadData];
+}
+
 - (IBAction)didPressNextToConfirmOrder:(id)sender
 {
     if ((![_order paymentMethod] || [[_order workAddress] isEqualToString:@""]) && ([_order orderType] == TYPE_DUNGLE || [_order orderType] == TYPE_DUNGDINHKY))

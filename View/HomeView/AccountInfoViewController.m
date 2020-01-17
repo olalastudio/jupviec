@@ -8,6 +8,7 @@
 
 #import "AccountInfoViewController.h"
 #import "EditAccountInfoViewController.h"
+#import "LoginWithPasswordViewController.h"
 #import "HomeViewController.h"
 #import "CommonDefines.h"
 
@@ -21,36 +22,49 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    if (_user) {
-        _generalInfo = [_user dictUserInfo];
-        if ([[_generalInfo objectForKey:@"name"] isKindOfClass:[NSString class]]) {
-            _usernameLb.text = [_generalInfo objectForKey:@"name"];
-        }
-        if ([[_generalInfo objectForKey:@"email"] isKindOfClass:[NSString class]]) {
-            _emailLb.text = [_generalInfo objectForKey:@"email"];
-        }
-        _phoneNumLb.text = [_user userPhoneNum];
-    }
-    
     [_addressLb setTextColor:UIColorFromRGB(0xACB3BF)];
     [_phoneNumLb setTextColor:UIColorFromRGB(0xACB3BF)];
     [_emailLb setTextColor:UIColorFromRGB(0xACB3BF)];
+    [_logoutBtn setTitleColor:UIColorFromRGB(0xFF5B14) forState:UIControlStateNormal];
     
-    [self.tabBarController.tabBar setHidden:YES];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];
     
     self.view.layer.masksToBounds = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
+    [self.tabBarController.tabBar setHidden:NO];
+    [self.navigationController.navigationBar setHidden:YES];
+}
+
+-(void)updateContentView
+{
     if (_user) {
         _generalInfo = [_user dictUserInfo];
         if ([[_generalInfo objectForKey:@"name"] isKindOfClass:[NSString class]]) {
             _usernameLb.text = [_generalInfo objectForKey:@"name"];
         }
+        else{
+            _usernameLb.text = @"Không có sẵn";
+        }
+        
+        if ([[_generalInfo objectForKey:@"address"] isKindOfClass:[NSString class]]) {
+            _addressLb.text = [_generalInfo objectForKey:@"address"];
+        }
+        else{
+            _addressLb.text = @"Không có sẵn";
+        }
+        
         if ([[_generalInfo objectForKey:@"email"] isKindOfClass:[NSString class]]) {
             _emailLb.text = [_generalInfo objectForKey:@"email"];
         }
+        else{
+            _emailLb.text = @"Không có sẵn";
+        }
+        
         _phoneNumLb.text = [_user userPhoneNum];
     }
 }
@@ -69,16 +83,23 @@
 {
     HomeViewController *homeview;
     
-    for (UIViewController *item in [self.navigationController viewControllers])
+    for (UINavigationController *item in [self.tabBarController viewControllers])
     {
-        if ([item isKindOfClass:[HomeViewController class]])
+        UIViewController *viewcontroll = [item visibleViewController];
+        
+        if ([viewcontroll isKindOfClass:[HomeViewController class]])
         {
-            homeview = (HomeViewController*)item;
+            homeview = (HomeViewController*)viewcontroll;
             
             [homeview logOut];
-            
-            [self.navigationController popViewControllerAnimated:YES];
+            break;
         }
     }
+    
+    LoginWithPasswordViewController *loginview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloginview"];
+    [self.navigationController setViewControllers:@[loginview] animated:YES];
+    
+    _user = nil;
+    _tokenStr = @"";
 }
 @end

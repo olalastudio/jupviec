@@ -10,6 +10,7 @@
 #import "HomeViewController.h"
 #import "APIRequest.h"
 #import "CommonDefines.h"
+#import "LoadingViewController.h"
 
 @interface ViewController ()
 
@@ -136,20 +137,31 @@
 -(void)getStart
 {
     NSLog(@"did press start or skip");
+    LoadingViewController *loadingview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloadingview"];
+    [loadingview show:self];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         AppDelegate *appdelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
         UITabBarController *tabController = (UITabBarController*)[self.storyboard instantiateViewControllerWithIdentifier:@"idTabBarView"];
+        [tabController setSelectedIndex:2];
         
         // get info of services
         APIRequest* apiRequest = [[APIRequest alloc]init];
         [apiRequest requestAPIGetConfiguration:^(NSDictionary * _Nullable configurationInfo, NSError * _Nonnull error) {
+            
+            [loadingview dismiss];
+            
             if (error.code == RESPONSE_CODE_NORMARL) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    HomeViewController *homeVC = [(UINavigationController*)[[tabController viewControllers] objectAtIndex:0] visibleViewController];
+                    HomeViewController *homeVC = [(UINavigationController*)[[tabController viewControllers] objectAtIndex:2] visibleViewController];
                     homeVC.configurationInfoDict = configurationInfo;
                 
                     appdelegate.window.rootViewController = tabController;
                     [appdelegate.window makeKeyAndVisible];
+                
+                    [self.pageController removeFromParentViewController];
+                    [self.pageController.view removeFromSuperview];
+                    [self.pageControll removeFromSuperview];
                 });
             }
             else if (error.code == RESPONSE_CODE_NODATA)
@@ -170,9 +182,6 @@
             }
         }];
     });
-    [self.pageController removeFromParentViewController];
-    [self.pageController.view removeFromSuperview];
-    [self.pageControll removeFromSuperview];
 }
 
 - (IBAction)didPressSkipButton:(id)sender

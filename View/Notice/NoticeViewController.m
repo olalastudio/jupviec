@@ -29,9 +29,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [_sgSelection setBackgroundColor:[UIColor clearColor]];
-    [_sgSelection setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont fontWithName:@"Roboto-Regular" size:15]} forState:UIControlStateNormal];
-    [_sgSelection setTitleTextAttributes:@{NSForegroundColorAttributeName: UIColorFromRGB(0xFF7E46), NSFontAttributeName: [UIFont fontWithName:@"Roboto-Regular" size:15]} forState:UIControlStateSelected];
+    [_separationView setBackgroundColor:UIColorFromRGB(0xEBEBEB)];
+    [_categoriesSelectionView setBackgroundColor:[UIColor colorWithRed:240.0f/255.0f green:240.0f/255.0f blue:240.0f/255.0f alpha:0.21]];
+    [_categoriesSelectionView.layer setCornerRadius:10];
+    [_categoriesSelectionView.layer setBorderWidth:1];
+    [_categoriesSelectionView.layer setBorderColor:[UIColor colorWithRed:218.0f/255.0f green:218.0f/255.0f blue:218.0f/255.0f alpha:0.51].CGColor];
     
     _listNotices = [[NSMutableArray alloc] initWithCapacity:0];
     _listCoupons = [[NSMutableArray alloc] initWithCapacity:0];
@@ -45,6 +47,8 @@
     [_tbNotice setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];
+    
+    _selectedNotice = NOTICE_CHOISE_NOTICE;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -159,14 +163,34 @@
     });
 }
 
+- (IBAction)didSelectNoticeType:(id)sender
+{
+    [self showNoticeView];
+}
+
+- (IBAction)didSelectPromotionType:(id)sender
+{
+    [self showCouponView];
+}
+
 -(void)showCouponView
 {
     _selectedNotice = NOTICE_CHOISE_COUPON;
+    
+    [_btNotice setTitleColor:UIColorFromRGB(0x000000) forState:UIControlStateNormal];
+    [_btPromotion setTitleColor:UIColorFromRGB(0xFF7E46) forState:UIControlStateNormal];
+    
+    [_tbNotice reloadData];
 }
 
 -(void)showNoticeView
 {
     _selectedNotice = NOTICE_CHOISE_NOTICE;
+    
+    [_btNotice setTitleColor:UIColorFromRGB(0xFF7E46) forState:UIControlStateNormal];
+    [_btPromotion setTitleColor:UIColorFromRGB(0x000000) forState:UIControlStateNormal];
+    
+    [_tbNotice reloadData];
 }
 /*
 #pragma mark - Navigation
@@ -178,29 +202,17 @@
 }
 */
 
-- (IBAction)didSelectNoticeType:(id)sender
-{
-    if ([_sgSelection selectedSegmentIndex] == 0)
-    {
-        _selectedNotice = NOTICE_CHOISE_NOTICE;
-    }
-    else
-    {
-        _selectedNotice = NOTICE_CHOISE_COUPON;
-    }
-    
-    [_tbNotice reloadData];
-}
-
 -(void)showSelectedList
 {
     if (_selectedNotice == NOTICE_CHOISE_NOTICE)
     {
-        [_sgSelection setSelectedSegmentIndex:0];
+        [_btNotice setTitleColor:UIColorFromRGB(0xFF7E46) forState:UIControlStateNormal];
+        [_btPromotion setTitleColor:UIColorFromRGB(0x000000) forState:UIControlStateNormal];
     }
     else
     {
-        [_sgSelection setSelectedSegmentIndex:1];
+        [_btPromotion setTitleColor:UIColorFromRGB(0xFF7E46) forState:UIControlStateNormal];
+        [_btNotice setTitleColor:UIColorFromRGB(0x000000) forState:UIControlStateNormal];
     }
 }
 

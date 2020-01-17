@@ -21,11 +21,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel    *usernameLb;
 @property (weak, nonatomic) IBOutlet UILabel    *phoneNumLb;
 @property (weak, nonatomic) IBOutlet UILabel    *emailLb;
+@property (weak, nonatomic) IBOutlet UIButton   *logoutBtn;
+
 @property (strong, nonatomic) User              *user;
 @property (strong, nonatomic) NSString          *tokenStr;
 
 - (IBAction)didPressLogoutButton:(id)sender;
 
+-(void)updateContentView;
 @end
 
 NS_ASSUME_NONNULL_END

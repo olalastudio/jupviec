@@ -8,11 +8,15 @@
 
 #import "ConfirmOrderViewController.h"
 #import "HomeViewController.h"
+#import "LoadingViewController.h"
 #import "CommonDefines.h"
 #import "APIRequest.h"
 #import "JUntil.h"
 
 @interface ConfirmOrderViewController ()
+{
+    NSDictionary *_serviceInfo;
+}
 
 @end
 
@@ -385,8 +389,12 @@
     
     APIRequest *apiRequest = [[APIRequest alloc] init];
     
+    LoadingViewController *loadingview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloadingview"];
+    [loadingview show:self];
+    
     [apiRequest requestAPIBookService:strToken detailService:detailService completionhandler:^(NSDictionary * _Nullable serviceInfo, NSError * _Nonnull error) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            [loadingview dismiss];
             [self showConfirmAlert:serviceInfo error:error];
         });
     }];
@@ -401,25 +409,36 @@
     }
     else
     {
+        _serviceInfo = [NSDictionary dictionaryWithDictionary:serviceInfo];
         [JUntil showPopup:self responsecode:RESPONSE_CODE_PLACE_ORDER_SUCCESS completionHandler:^(POPUP_ACTION action) {
-            if (action == ACTION_OK)
-            {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    NSArray *viewcontrollers = [self.navigationController viewControllers];
-                    
-                    for (UIViewController *viewcontroll in viewcontrollers)
-                    {
-                        if ([viewcontroll isKindOfClass:[HomeViewController class]])
-                        {
-                            HomeViewController *homeview = (HomeViewController*)viewcontroll;
-                            [homeview didCompleteOrder:serviceInfo];
-                            
-                            [self.navigationController popToViewController:homeview animated:YES];
-                        }
-                    }
-                });
-            }
+            
         }];
+    }
+}
+
+-(NSDictionary*)completeServiceInfo
+{
+    return _serviceInfo;
+}
+
+-(void)didCloseAlertPopupWithCode:(POPUP_ACTION)code
+{
+    if (code == ACTION_OK)
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSArray *viewcontrollers = [self.navigationController viewControllers];
+            
+            for (UIViewController *viewcontroll in viewcontrollers)
+            {
+                if ([viewcontroll isKindOfClass:[HomeViewController class]])
+                {
+                    HomeViewController *homeview = (HomeViewController*)viewcontroll;
+                    [homeview didCompleteOrder:[self completeServiceInfo]];
+                    
+                    [self.navigationController popToViewController:homeview animated:YES];
+                }
+            }
+        });
     }
 }
 @end
