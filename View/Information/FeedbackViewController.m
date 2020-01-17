@@ -50,8 +50,16 @@
         [feedbackDict setObject:_contentTextView.text forKey:@"content"];
         [feedbackDict setObject:_user.userPhoneNum forKey:@"phone"];
         [feedbackDict setObject:dateTimeStr forKey:@"created_at"];
+        
+        LoadingViewController *loadingview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloadingview"];
+        [loadingview show:self];
+        
         [api requestAPISendFeedbackForApp:feedbackDict withToken:[_user userToken] completionHandler:^(NSDictionary * _Nullable resultDict, NSError * _Nonnull error) {
-            if (error.code != 200)
+            [loadingview dismiss];
+            if (error.code == 200) {
+                [self.contentTextView setText:@""];
+            }
+            else
             {
                 [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
             }

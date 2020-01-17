@@ -10,6 +10,7 @@
 #import "OTPCheckViewController.h"
 #import "JButton.h"
 #import "JUntil.h"
+#import "LoadingViewController.h"
 
 @interface SignInViewController ()
 {
@@ -175,12 +176,16 @@
     
     if ([_txtPhone text])
     {
+        LoadingViewController *loadingview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloadingview"];
+        [loadingview show:self];
+        
         strPhoneNumber = [_txtPhone text];
         APIRequest* apiRequest = [[APIRequest alloc]init];
         
         if (_intActionMode == MODE_REGISTER_NEW_ACC)
         {
             [apiRequest requestAPIGetOTP:strPhoneNumber completionHandler:^(NSString * _Nullable otpStr, NSError * _Nonnull err){
+                [loadingview dismiss];
                 NSLog(@"otp: %@", otpStr);
                 [self didSuccessGetRequest:otpStr error:err.code];
             }];
@@ -188,6 +193,7 @@
         else if (_intActionMode == MODE_FORGOT_PASSWORD)
         {
             [apiRequest requestAPIForgotPassword:strPhoneNumber completionHandler:^(NSDictionary * _Nullable data, NSError * _Nonnull err){
+                [loadingview dismiss];
                 if (err.code == 200)
                 {
                     NSString* otp = [data objectForKey:@"otp"];

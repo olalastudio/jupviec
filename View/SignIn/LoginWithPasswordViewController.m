@@ -11,6 +11,7 @@
 #import "SignInViewController.h"
 #import "AccountInfoViewController.h"
 #import "HomeViewController.h"
+#import "LoadingViewController.h"
 
 #import "JButton.h"
 
@@ -215,8 +216,13 @@
     {
         strUserPass = [_txtInputUserPass text];
         strUserphone = [_txtInputUserPhone text];
+        
+        LoadingViewController *loadingview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloadingview"];
+        [loadingview show:self];
+        
         APIRequest *request = [[APIRequest alloc]init];
         [request requestAPILogin:strUserphone password:strUserPass completionHandler:^(NSString * _Nullable token, NSError * _Nonnull error) {
+            [loadingview dismiss];
             if (error.code == RESPONSE_CODE_NORMARL)
             {
                 self->strToken = token;

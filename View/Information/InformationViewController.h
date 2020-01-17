@@ -12,6 +12,7 @@
 #import "APIRequest.h"
 #import "FeedbackViewController.h"
 #import "User.h"
+#import "LoadingViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

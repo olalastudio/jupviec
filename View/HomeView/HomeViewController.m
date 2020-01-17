@@ -21,6 +21,7 @@
 #import "InformationViewController.h"
 
 #import "LoginButton.h"
+#import "LoadingViewController.h"
 
 @interface HomeViewController ()
 {
@@ -282,8 +283,11 @@
     if (![_user userNameStr])
     {
         //view user info
+        LoadingViewController *loadingview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloadingview"];
+        [loadingview show:self];
         APIRequest* api = [[APIRequest alloc]init];
         [api requestAPIGetAccountInfo:[_user userToken] completionHandler:^(User * _Nullable user, NSError * _Nonnull error) {
+            [loadingview dismiss];
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (error.code == 200) {
                     user.userToken = [self.user userToken];

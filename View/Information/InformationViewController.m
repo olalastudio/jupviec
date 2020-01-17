@@ -92,8 +92,11 @@
 {
     UITableViewCell* cell = [_tbInformation cellForRowAtIndexPath:indexPath];
     if ([cell.textLabel.text isEqualToString:@"Câu hỏi thường gặp"]) {
+        LoadingViewController *loadingview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloadingview"];
+        [loadingview show:self];
         APIRequest* api = [[APIRequest alloc]init];
         [api requestAPIGetFAQ:^(NSArray * _Nullable resultData, NSError * _Nonnull err) {
+            [loadingview dismiss];
             dispatch_async(dispatch_get_main_queue(), ^{
                 FAQViewController* faqVC = [self.storyboard instantiateViewControllerWithIdentifier:@"idfaqviewcontroller"];
                 faqVC.faqArr = resultData;

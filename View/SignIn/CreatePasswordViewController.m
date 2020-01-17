@@ -9,6 +9,7 @@
 #import "CreatePasswordViewController.h"
 #import "APIRequest.h"
 #import "JButton.h"
+#import "LoadingViewController.h"
 
 @interface CreatePasswordViewController ()
 {
@@ -163,12 +164,16 @@
 {
     [self.view endEditing:YES];
     
+    LoadingViewController *loadingview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloadingview"];
+    [loadingview show:self];
+    
     if ([[_txtInputPassword text] isEqualToString:[_txtReInputPassword text]])
     {
         APIRequest* apiRequest = [[APIRequest alloc]init];
         if (_intActionMode == MODE_FORGOT_PASSWORD)
         {
             [apiRequest requestAPIUpdatePassword:_strPhoneNum password:[_txtInputPassword text] token:_strToken completionHandler:^(User * _Nullable user, NSError * _Nonnull error) {
+                [loadingview dismiss];
                 if (error.code == 200)
                 {
                     NSLog(@"change password success");
@@ -199,6 +204,7 @@
         else if (_intActionMode == MODE_REGISTER_NEW_ACC)
         {
             [apiRequest requestAPIRegister:_strPhoneNum password:[_txtInputPassword text] completionHandler:^(User * _Nonnull user, NSError * _Nullable err) {
+                [loadingview dismiss];
                 if (err.code == 200)
                 {
                     NSLog(@"Register success");
@@ -220,7 +226,10 @@
                 }
             }];
         }
-    }else{
+    }
+    else
+    {
+        [loadingview dismiss];
         [JUntil showPopup:self responsecode:RESPONSE_CODE_PASSWORD_MISMATCH];
     }
 }

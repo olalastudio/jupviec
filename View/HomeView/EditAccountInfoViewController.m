@@ -10,6 +10,7 @@
 #import "APIRequest.h"
 #import "AccountInfoViewController.h"
 #import "HomeViewController.h"
+#import "LoadingViewController.h"
 
 @interface EditAccountInfoViewController ()
 
@@ -96,10 +97,14 @@
         [_accountGeneralInfo setObject:_addressTF.text forKey:@"address"];
         [_accountGeneralInfo setObject:[NSNumber numberWithInteger:[_identifyCardTF.text integerValue]] forKey:@"identity_card"];
         
+        LoadingViewController *loadingview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloadingview"];
+        [loadingview show:self];
+        
         APIRequest* api = [[APIRequest alloc]init];
         
         [api requestAPIUpdateAccountInfo:[_user userToken] accountInfo:_accountGeneralInfo completionHandler:^(User * _Nullable user, NSError * _Nonnull error)
         {
+            [loadingview dismiss];
             if (error.code == 200)
             {
                 dispatch_async(dispatch_get_main_queue(), ^{
