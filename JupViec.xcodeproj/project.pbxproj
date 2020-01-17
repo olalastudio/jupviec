@@ -501,6 +501,9 @@
 		CE344EA923CF03A800824260 /* FAQTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE344EA723CF03A800824260 /* FAQTableViewCell.m */; };
 		CE344EAA23CF03A800824260 /* FAQTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE344EA823CF03A800824260 /* FAQTableViewCell.xib */; };
 		CE344EAD23CF1F1100824260 /* FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE344EAC23CF1F1100824260 /* FAQViewController.m */; };
+		CE717E2923D0588E007C5ACC /* Polygon 6.png in Resources */ = {isa = PBXBuildFile; fileRef = CE717E2723D0588E007C5ACC /* Polygon 6.png */; };
+		CE717E2A23D0588E007C5ACC /* Polygon 7.png in Resources */ = {isa = PBXBuildFile; fileRef = CE717E2823D0588E007C5ACC /* Polygon 7.png */; };
+		CE717E2D23D0685A007C5ACC /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE717E2C23D0685A007C5ACC /* FeedbackViewController.m */; };
 		CEA0919323A796FA00D2502F /* AccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0919223A796FA00D2502F /* AccountInfoViewController.m */; };
 		CEA0919623A79D7300D2502F /* EditAccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0919523A79D7300D2502F /* EditAccountInfoViewController.m */; };
 		CEA83F1723911F60001C1512 /* APIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA83F1523911F5F001C1512 /* APIRequest.m */; };
@@ -1060,6 +1063,10 @@
 		CE344EA823CF03A800824260 /* FAQTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQTableViewCell.xib; sourceTree = "<group>"; };
 		CE344EAB23CF1F1100824260 /* FAQViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAQViewController.h; sourceTree = "<group>"; };
 		CE344EAC23CF1F1100824260 /* FAQViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAQViewController.m; sourceTree = "<group>"; };
+		CE717E2723D0588E007C5ACC /* Polygon 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Polygon 6.png"; sourceTree = "<group>"; };
+		CE717E2823D0588E007C5ACC /* Polygon 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Polygon 7.png"; sourceTree = "<group>"; };
+		CE717E2B23D0685A007C5ACC /* FeedbackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		CE717E2C23D0685A007C5ACC /* FeedbackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 		CEA0919123A796FA00D2502F /* AccountInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountInfoViewController.h; sourceTree = "<group>"; };
 		CEA0919223A796FA00D2502F /* AccountInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountInfoViewController.m; sourceTree = "<group>"; };
 		CEA0919423A79D7300D2502F /* EditAccountInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditAccountInfoViewController.h; sourceTree = "<group>"; };
@@ -1546,6 +1553,8 @@
 				0612A383239617DA00A82BB9 /* InformationViewController.m */,
 				CE344EAB23CF1F1100824260 /* FAQViewController.h */,
 				CE344EAC23CF1F1100824260 /* FAQViewController.m */,
+				CE717E2B23D0685A007C5ACC /* FeedbackViewController.h */,
+				CE717E2C23D0685A007C5ACC /* FeedbackViewController.m */,
 				0612A38F239621AE00A82BB9 /* InformationCell.xib */,
 				0612A391239621F500A82BB9 /* InformationTableViewCell.h */,
 				0612A392239621F500A82BB9 /* InformationTableViewCell.m */,
@@ -1643,6 +1652,8 @@
 		0667ECA223B47835004AAA5E /* button */ = {
 			isa = PBXGroup;
 			children = (
+				CE717E2723D0588E007C5ACC /* Polygon 6.png */,
+				CE717E2823D0588E007C5ACC /* Polygon 7.png */,
 				064B1FA523C70528006DC513 /* add.png */,
 				064B1FA623C70528006DC513 /* delete.png */,
 				064B1FA423C70527006DC513 /* select.png */,
@@ -2103,6 +2114,7 @@
 				063A1C3C23BDA04100456CBC /* tongvesinh.png in Resources */,
 				0601E436238FAEF000403C95 /* settings-8.png in Resources */,
 				0601E37A238FAEEF00403C95 /* equal-1.png in Resources */,
+				CE717E2923D0588E007C5ACC /* Polygon 6.png in Resources */,
 				0658BEC4238FAC7800CBBAD1 /* LaunchScreen.storyboard in Resources */,
 				0601E490238FAEF000403C95 /* wifi-1.png in Resources */,
 				0608E3CF23BF3180000EE8B1 /* unrate.png in Resources */,
@@ -2373,6 +2385,7 @@
 				0601E33E238FAEEF00403C95 /* bluetooth.png in Resources */,
 				0601E3F8238FAEEF00403C95 /* notebook-1.png in Resources */,
 				0601E331238FAEEF00403C95 /* battery-1.png in Resources */,
+				CE717E2A23D0588E007C5ACC /* Polygon 7.png in Resources */,
 				0601E367238FAEEF00403C95 /* controls-9.png in Resources */,
 				06CF639D23CC8C8500F95329 /* Promotion@2x.png in Resources */,
 				0601E3F7238FAEEF00403C95 /* note.png in Resources */,
@@ -2507,6 +2520,7 @@
 				06EC9F2D23968C7000474EE3 /* HomePromotionHeaderViewCell.m in Sources */,
 				06B620BD2397B3930036DCF9 /* HomePromotionCollectionViewCell.m in Sources */,
 				0658BEC7238FAC7800CBBAD1 /* main.m in Sources */,
+				CE717E2D23D0685A007C5ACC /* FeedbackViewController.m in Sources */,
 				068DDEF32399144C009484E7 /* PlaceOrderCommonTableViewCell.m in Sources */,
 				06FEA1E42394CC0E005D58B9 /* HistoryTableViewCell.m in Sources */,
 				06CF5D0523B5EF760066A551 /* JViewController.m in Sources */,

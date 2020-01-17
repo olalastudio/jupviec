@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)monitorNetworkReachabilityChanges;
 
 +(NSString*)stringFromDate:(NSDate*)date;
++(NSString*)stringFromDateAndTime:(NSDate*)date;
 +(NSDate*)dateFromString:(NSString*)string;
 +(NSInteger)hourFromDate:(NSDate*)date;
 +(NSInteger)minuteFromDate:(NSDate*)date;

@@ -126,6 +126,14 @@
     return [formater stringFromDate:date];
 }
 
++(NSString*)stringFromDateAndTime:(NSDate*)date
+{
+    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+    [formater setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
+    
+    return [formater stringFromDate:date];
+}
+
 +(NSDate*)dateFromString:(NSString*)string
 {
     NSDateFormatter *formater = [[NSDateFormatter alloc] init];

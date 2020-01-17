@@ -19,13 +19,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [_tbInformation registerNib:[UINib nibWithNibName:@"InformationCell" bundle:nil] forCellReuseIdentifier:@"idinformationcell"];
-    
+        
     [_tbInformation setDelegate:self];
     [_tbInformation setDataSource:self];
     
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];
+    
+    _informationArr = [NSArray arrayWithObjects:@"Câu hỏi thường gặp", @"Pháp lý", @"Góp Ý", @"Liên hệ", nil];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -68,13 +68,18 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return [_informationArr count];
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    InformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idinformationcell"];
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    }
     
+    [cell.textLabel setText:[_informationArr objectAtIndex:indexPath.row]];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
@@ -85,8 +90,23 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    InformationDetailViewController *infoDetail = [self.storyboard instantiateViewControllerWithIdentifier:@"idinformationdetail"];
+    UITableViewCell* cell = [_tbInformation cellForRowAtIndexPath:indexPath];
+    if ([cell.textLabel.text isEqualToString:@"Câu hỏi thường gặp"]) {
+        APIRequest* api = [[APIRequest alloc]init];
+        [api requestAPIGetFAQ:^(NSArray * _Nullable resultData, NSError * _Nonnull err) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                FAQViewController* faqVC = [self.storyboard instantiateViewControllerWithIdentifier:@"idfaqviewcontroller"];
+                faqVC.faqArr = resultData;
+                [self.navigationController pushViewController:faqVC animated:YES];
+            });
+        }];        
+    }
+    else if ([cell.textLabel.text isEqualToString:@"Góp Ý"])
+    {
+        FeedbackViewController* feedbackVC = [self.storyboard instantiateViewControllerWithIdentifier:@"idfeedback"];
+        [feedbackVC setUser:_user];
+        [self.navigationController pushViewController:feedbackVC animated:YES];
+    }
     
-    [self.navigationController pushViewController:infoDetail animated:YES];
 }
 @end

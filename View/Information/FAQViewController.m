@@ -19,14 +19,22 @@
     // Do any additional setup after loading the view.
     [self setTitle:@"Câu hỏi thường gặp"];
     
+    [_tableView setDelegate:self];
+    [_tableView setDataSource:self];
     _tableView.estimatedRowHeight = 100;
     _tableView.rowHeight = UITableViewAutomaticDimension;
     _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController.navigationBar setHidden:NO];
+    [self.tabBarController.tabBar setHidden:YES];
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [titlesArr count];
+    return [_faqArr count];
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -38,18 +46,20 @@
     }
     [cell setDelegate:self];
     cell.indexPath = indexPath;
-    [cell.titleLabel setText:[titlesArr objectAtIndex:indexPath.row]];
+    [cell.titleLabel setText:[[_faqArr objectAtIndex:indexPath.row]objectForKey:@"title"]];
     //    [cell.detailLabel setText:[detailsArr objectAtIndex:indexPath.row]];
     if (_faqCell.isShowContent == YES)
     {
         cell.contentLabel.numberOfLines = 10;
-        [cell.contentLabel setText:[contentsArr objectAtIndex:indexPath.row]];
+        [cell.contentLabel setText:[[_faqArr objectAtIndex:indexPath.row]objectForKey:@"content"]];
         cell.isShowContent = YES;
+        [cell.showContentBtn setImage:[UIImage imageNamed:@"Polygon 7.png"] forState:UIControlStateNormal];
     }
     else
     {
         cell.contentLabel.numberOfLines = 0;
         cell.isShowContent = NO;
+        [cell.showContentBtn setImage:[UIImage imageNamed:@"Polygon 6.png"] forState:UIControlStateNormal];
     }
     
     return cell;

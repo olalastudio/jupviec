@@ -654,7 +654,7 @@
     }]resume];
 }
 
-- (void)requestAPISendFeedbackForApp:(NSDictionary *)feedbackDict completionHandler:(void (^)(NSDictionary * _Nullable, NSError * _Nonnull))completionHandler
+- (void)requestAPISendFeedbackForApp:(NSDictionary*)feedbackDict withToken:(NSString*)token completionHandler:(void (^)(NSDictionary * _Nullable resultDict, NSError * error))completionHandler
 {
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
     config.timeoutIntervalForRequest = 30.0;
@@ -662,9 +662,12 @@
     config.requestCachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
     NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
     
+    NSData* bodyData = [self createBodyRequest:feedbackDict];
     NSMutableURLRequest* request = [self createURLRequest:[API_V1 stringByAppendingPathComponent:API_FEEDBACK] withParam:nil];
-    [request setHTTPMethod:@"GET"];
+    [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:token forHTTPHeaderField:@"Authorization"];
+    [request setHTTPBody:bodyData];
     
     [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         //handle response
@@ -672,7 +675,7 @@
         {
             NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
             NSDictionary* resultDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-            NSLog(@"send feedback with id: %@", resultDict);
+            NSLog(@"send feedback: %@", resultDict);
             
             if ([httpResponse statusCode] == 200)
             {

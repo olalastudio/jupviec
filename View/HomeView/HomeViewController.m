@@ -561,6 +561,8 @@
     }
     else if ([selectedview isKindOfClass:[InformationViewController class]])
     {
+        InformationViewController* infoVC = (InformationViewController*)selectedview;
+        [infoVC setUser:_user];
         NSLog(@"select info tab");
     }
     else if ([selectedview isKindOfClass:[HomeViewController class]])
