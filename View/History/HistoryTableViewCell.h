@@ -25,7 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *txtWorkTime;
 @property (weak, nonatomic) IBOutlet UILabel *txtWorkAddress;
 @property (weak, nonatomic) IBOutlet UILabel *txtTotalMoney;
-@property (weak, nonatomic) IBOutlet UILabel *txtClientStatus;
 
 -(void)setDefineCodeGetFromServer:(NSMutableDictionary*)codes;
 

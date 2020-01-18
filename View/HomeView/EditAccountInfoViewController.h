@@ -18,9 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
     NSMutableDictionary* _accountGeneralInfo;
 }
 @property (weak, nonatomic) IBOutlet UITextField *userNameTF;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLbTitle;
 @property (weak, nonatomic) IBOutlet UITextField *emailTF;
+@property (weak, nonatomic) IBOutlet UILabel *emailLbTitle;
 @property (weak, nonatomic) IBOutlet UITextField *ageTF;
 @property (weak, nonatomic) IBOutlet UITextField *addressTF;
+@property (weak, nonatomic) IBOutlet UILabel *addressLbTitle;
 @property (weak, nonatomic) IBOutlet UITextField *identifyCardTF;
 @property (strong, nonatomic) User* user;
 @property (strong, nonatomic) NSString* tokenStr;

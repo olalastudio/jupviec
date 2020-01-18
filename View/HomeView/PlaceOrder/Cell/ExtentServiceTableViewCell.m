@@ -24,6 +24,11 @@
     [_tbService setDelegate:self];
     [_tbService setDataSource:self];
     [_tbService setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [_tbService setBackgroundColor:[UIColor whiteColor]];
+    
+    [_txtTitle setTextColor:UIColorFromRGB(0x000000)];
+    
+    [self setBackgroundColor:[UIColor whiteColor]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

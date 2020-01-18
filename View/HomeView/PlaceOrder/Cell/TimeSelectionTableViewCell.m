@@ -31,6 +31,12 @@
     [_workTime setRestorationIdentifier:@"idworktime"];
     [_workHour setRestorationIdentifier:@"idworkhour"];
     
+    [self setBackgroundColor:[UIColor whiteColor]];
+    [_txtWorkHour setTextColor:UIColorFromRGB(0x000000)];
+    [_txtWorkTime setTextColor:UIColorFromRGB(0x000000)];
+    [_workHour setTextColor:UIColorFromRGB(0xACB3BF)];
+    [_workTime setTextColor:UIColorFromRGB(0xACB3BF)];
+    
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 

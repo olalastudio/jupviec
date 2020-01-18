@@ -18,6 +18,9 @@
 
     [_txtStatus setTextColor:UIColorFromRGB(0xFFFAFA)];
     [_txtDate setTextColor:UIColorFromRGB(0xACB3BF)];
+    [_txtWorkAddress setTextColor:UIColorFromRGB(0x000000)];
+    
+    [self setBackgroundColor:[UIColor whiteColor]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -92,9 +95,6 @@
     
     NSString *strLocation = [_historyData objectForKey:ID_LOCATION];
     [_txtWorkAddress setText:strLocation];
-    
-    NSString *clientStatus = [_historyData objectForKey:ID_CLIENT_STATUS];
-    [_txtClientStatus setText:clientStatus];
     
     double totalMoney = [[_historyData objectForKey:ID_TOTAL_PRICE] doubleValue];
     [_txtTotalMoney setText:[NSString stringWithFormat:@"%0.3fđ",totalMoney]];

@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *txtAddress;
+@property (weak, nonatomic) IBOutlet UILabel *txtAddressTitle;
+@property (weak, nonatomic) IBOutlet UILabel *txtMapTitle;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIButton *btConfirmLocation;
 

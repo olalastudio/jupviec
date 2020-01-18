@@ -37,6 +37,7 @@
     
     //register cell
     [_tbHistory registerNib:[UINib nibWithNibName:@"HistoryCell" bundle:nil] forCellReuseIdentifier:@"idhistorycell"];
+    [_tbHistory setBackgroundColor:[UIColor whiteColor]];
     
     [self initData];
     [self getHistory];

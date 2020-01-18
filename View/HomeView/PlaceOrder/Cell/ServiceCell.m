@@ -14,6 +14,10 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    [_txtServiceName setTextColor:[UIColor blackColor]];
+    
+    [self setBackgroundColor:[UIColor whiteColor]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

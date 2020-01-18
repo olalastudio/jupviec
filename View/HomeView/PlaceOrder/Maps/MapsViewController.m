@@ -34,6 +34,9 @@
     _mapView.layer.cornerRadius = 10;
     _mapView.layer.borderWidth = 1;
     _mapView.layer.borderColor = [UIColor colorWithRed:210.0f/255.0f green:218.0f/255.0f blue:218.0f/255.0f alpha:0.51].CGColor;
+
+    [_txtMapTitle setTextColor:[UIColor blackColor]];
+    [_txtAddressTitle setTextColor:[UIColor blackColor]];
     
     [self setTitle:@"Bản đồ"];
     self.view.layer.masksToBounds = YES;

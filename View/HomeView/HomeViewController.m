@@ -278,13 +278,14 @@
     [[NSUserDefaults standardUserDefaults] setObject:_strUserToken forKey:ID_USER_TOKEN];
 }
 
-- (void)switchLoginView:(id)sender
+- (void)switchLoginView:(UIViewController*)sender
 {
     if (![_user userNameStr])
     {
         //view user info
         LoadingViewController *loadingview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloadingview"];
-        [loadingview show:self];
+        [loadingview show:sender];
+        
         APIRequest* api = [[APIRequest alloc]init];
         [api requestAPIGetAccountInfo:[_user userToken] completionHandler:^(User * _Nullable user, NSError * _Nonnull error) {
             [loadingview dismiss];
@@ -548,7 +549,7 @@
         {
             AccountInfoViewController *accountview = [self.storyboard instantiateViewControllerWithIdentifier:@"idaccountview"];
             [(UINavigationController*)viewController setViewControllers:@[accountview]];
-            [self switchLoginView:nil];
+            [self switchLoginView:accountview];
         }
         else
         {

@@ -15,6 +15,7 @@
     [super awakeFromNib];
     // Initialization code
     
+    [self setBackgroundColor:[UIColor whiteColor]];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     [_Thu2 setDayInWeek:DAY_THU2];

@@ -31,6 +31,13 @@
     [_addressTF addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [_identifyCardTF addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     
+    [_userNameLbTitle setTextColor:[UIColor blackColor]];
+    [_emailLbTitle setTextColor:[UIColor blackColor]];
+    [_addressLbTitle setTextColor:[UIColor blackColor]];
+    [_userNameTF setTextColor:[UIColor blackColor]];
+    [_emailTF setTextColor:[UIColor blackColor]];
+    [_addressTF setTextColor:[UIColor blackColor]];
+    
     self.view.layer.masksToBounds = YES;
 }
 

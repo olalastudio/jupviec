@@ -39,12 +39,6 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#HĐ: 123456" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGg-6c-M4f">
-                        <rect key="frame" x="352" y="105" width="97" height="20"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ca chiều (13:00 - 16:00)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xta-Q8-Ufo">
                         <rect key="frame" x="15" y="48" width="429" height="14.5"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
@@ -75,7 +69,6 @@
                     <constraint firstItem="DkG-33-FGf" firstAttribute="leading" secondItem="uQ5-4t-X6y" secondAttribute="leading" constant="15" id="04S-mA-wwg"/>
                     <constraint firstAttribute="trailing" secondItem="BeN-MM-yPd" secondAttribute="trailing" constant="25" id="0PX-rJ-8iD"/>
                     <constraint firstItem="0Fj-RA-mM0" firstAttribute="top" secondItem="uQ5-4t-X6y" secondAttribute="top" constant="21" id="0bT-St-AkH"/>
-                    <constraint firstAttribute="bottom" secondItem="qGg-6c-M4f" secondAttribute="bottom" id="2jq-Lh-Ua0"/>
                     <constraint firstItem="0Fj-RA-mM0" firstAttribute="leading" secondItem="uQ5-4t-X6y" secondAttribute="leading" constant="15" id="2vB-WA-vw4"/>
                     <constraint firstAttribute="trailing" secondItem="Xta-Q8-Ufo" secondAttribute="trailing" constant="25" id="8mL-Sj-3mI"/>
                     <constraint firstItem="BeN-MM-yPd" firstAttribute="leading" secondItem="uQ5-4t-X6y" secondAttribute="leading" constant="15" id="9BX-Jb-5p1"/>
@@ -84,7 +77,6 @@
                     <constraint firstItem="DkG-33-FGf" firstAttribute="top" secondItem="BeN-MM-yPd" secondAttribute="bottom" constant="10" id="CIL-oT-p4h"/>
                     <constraint firstItem="Xta-Q8-Ufo" firstAttribute="leading" secondItem="uQ5-4t-X6y" secondAttribute="leading" constant="15" id="Fpv-no-feK"/>
                     <constraint firstAttribute="trailing" secondItem="t9e-Qx-6my" secondAttribute="trailing" constant="25" id="LAb-EC-8CR"/>
-                    <constraint firstAttribute="trailing" secondItem="qGg-6c-M4f" secondAttribute="trailing" constant="20" id="gDX-U9-drc"/>
                     <constraint firstItem="oFs-iy-HQi" firstAttribute="top" secondItem="uQ5-4t-X6y" secondAttribute="top" constant="25" id="lhJ-wD-fJA"/>
                     <constraint firstItem="t9e-Qx-6my" firstAttribute="leading" secondItem="uQ5-4t-X6y" secondAttribute="leading" constant="15" id="sZP-qg-GeR"/>
                     <constraint firstAttribute="bottom" secondItem="t9e-Qx-6my" secondAttribute="bottom" id="tsV-Er-CEn"/>
@@ -92,7 +84,6 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="txtClientStatus" destination="qGg-6c-M4f" id="aFg-6u-lzJ"/>
                 <outlet property="txtDate" destination="oFs-iy-HQi" id="6NH-GC-g8x"/>
                 <outlet property="txtStatus" destination="0Fj-RA-mM0" id="qPs-zJ-2xI"/>
                 <outlet property="txtTotalMoney" destination="DkG-33-FGf" id="DTt-6P-SZj"/>

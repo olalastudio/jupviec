@@ -36,6 +36,11 @@
     [_txtOTPInput setTextColor:UIColorFromRGB(0x5C5C5C)];
     [_txtOTPInputTitle setTextColor:UIColorFromRGB(0x5C5C5C)];
     
+    [_txtOTPInput setFont:[UIFont fontWithName:@"Roboto-Bold" size:20]];
+    NSAttributedString *otpAttribute = [[NSAttributedString alloc] initWithString:_txtOTPInput.placeholder
+                                                                         attributes:@{NSForegroundColorAttributeName: UIColorFromRGB(0x5C5C5C), NSFontAttributeName: [UIFont fontWithName:@"Roboto-Bold" size:20]}];
+    [_txtOTPInput setAttributedPlaceholder:otpAttribute];
+    
     keyboardheight = 0;
 }
 

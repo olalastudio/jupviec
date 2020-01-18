@@ -37,6 +37,8 @@
     self.backgroundColor = [UIColor colorWithRed:240.0f/255.0f green:240.0f/255.0f blue:240.0f/255.0f alpha:0.21];
     
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [self.titleLabel setFont:[UIFont fontWithName:@"Roboto-Regular" size:14]];
 }
 
 - (void)drawRect:(CGRect)rect
@@ -65,11 +67,13 @@
     if (_selected) {
         _selected = NO;
         [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self.titleLabel setFont:[UIFont fontWithName:@"Roboto-Regular" size:14]];
         self.backgroundColor = [UIColor colorWithRed:240.0f/255.0f green:240.0f/255.0f blue:240.0f/255.0f alpha:0.21];
     }
     else{
         _selected = YES;
         [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.titleLabel setFont:[UIFont fontWithName:@"Roboto-Bold" size:12]];
         UIColor *selectedcolor = UIColorFromRGB(0xFF7E46);
         self.backgroundColor = selectedcolor;
     }

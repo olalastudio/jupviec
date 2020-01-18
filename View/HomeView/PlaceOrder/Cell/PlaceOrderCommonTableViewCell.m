@@ -23,6 +23,9 @@
     [_txtContent setScrollEnabled:NO];
     [_txtContent setShowsHorizontalScrollIndicator:NO];
     [_txtContent setShowsVerticalScrollIndicator:NO];
+    
+    [_txtTitle setTextColor:UIColorFromRGB(0x000000)];
+    [_txtContent setTextColor:UIColorFromRGB(0xACB3BF)];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -19,6 +19,8 @@
     
     [_clPromotionCode setDelegate:self];
     [_clPromotionCode setDataSource:self];
+    
+    [_clPromotionCode setBackgroundColor:[UIColor whiteColor]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -83,7 +85,7 @@
     CGSize size = [collectionView frame].size;
     
     size.height -= 20;
-    size.width -= 130;
+    size.width = 230;
     
     return size;
 }

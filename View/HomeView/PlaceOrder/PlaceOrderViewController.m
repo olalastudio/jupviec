@@ -39,6 +39,7 @@
     [_tbPlaceOrderContent setDelegate:self];
     [_tbPlaceOrderContent setDataSource:self];
     
+    [_tbPlaceOrderContent setBackgroundColor:[UIColor whiteColor]];
     [_tbPlaceOrderContent setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     attributeListDungLe = @[[NSNumber numberWithInt:ATTRIBUTE_DIADIEM],
@@ -74,6 +75,11 @@
     _order = [[Order alloc] init];
     
     [_order setOrderType:_tasktype];
+    
+    [_txtTotalMoneyValue setFont:[UIFont fontWithName:@"Roboto-Bold" size:14]];
+    [_btNext.titleLabel setFont:[UIFont fontWithName:@"Roboto-Bold" size:14]];
+    [_txtTotalMoneyValue setTextColor:UIColorFromRGB(0xFF143E)];
+    [_btNext setTitleColor:UIColorFromRGB(0xFF5B14) forState:UIControlStateNormal];
     
     UITapGestureRecognizer *tapgesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tapgesture];
@@ -395,7 +401,7 @@
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *headerview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 22)];
-    headerview.backgroundColor = [UIColor clearColor];
+    headerview.backgroundColor = [UIColor whiteColor];
     
     return headerview;
 }

@@ -33,6 +33,16 @@
     [_txtInputPasswordTitle setTextColor:UIColorFromRGB(0x5C5C5C)];
     [_txtReInputPasswordTitle setTextColor:UIColorFromRGB(0x5C5C5C)];
     
+    [_txtInputPassword setFont:[UIFont fontWithName:@"Roboto-Regular" size:14]];
+    NSAttributedString *passAttribute = [[NSAttributedString alloc] initWithString:_txtInputPassword.placeholder
+                                                                         attributes:@{NSForegroundColorAttributeName: UIColorFromRGB(0x5C5C5C), NSFontAttributeName: [UIFont fontWithName:@"Roboto-Regular" size:14]}];
+    [_txtInputPassword setAttributedPlaceholder:passAttribute];
+    
+    [_txtReInputPassword setFont:[UIFont fontWithName:@"Roboto-Regular" size:14]];
+       NSAttributedString *reinputpassAttribute = [[NSAttributedString alloc] initWithString:_txtReInputPassword.placeholder
+                                                                            attributes:@{NSForegroundColorAttributeName: UIColorFromRGB(0x5C5C5C), NSFontAttributeName: [UIFont fontWithName:@"Roboto-Regular" size:14]}];
+    [_txtReInputPassword setAttributedPlaceholder:reinputpassAttribute];
+    
     keyboardheight = 0;
 }
 

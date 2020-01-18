@@ -25,6 +25,10 @@
     [_addressLb setTextColor:UIColorFromRGB(0xACB3BF)];
     [_phoneNumLb setTextColor:UIColorFromRGB(0xACB3BF)];
     [_emailLb setTextColor:UIColorFromRGB(0xACB3BF)];
+    [_usernameLb setTextColor:[UIColor blackColor]];
+    [_addressLbTitle setTextColor:[UIColor blackColor]];
+    [_phoneNumLbTitle setTextColor:[UIColor blackColor]];
+    [_emailLbTitle setTextColor:[UIColor blackColor]];
     [_logoutBtn setTitleColor:UIColorFromRGB(0xFF5B14) forState:UIControlStateNormal];
     
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];

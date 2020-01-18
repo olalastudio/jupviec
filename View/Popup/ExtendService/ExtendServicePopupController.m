@@ -28,6 +28,8 @@
     [_tbExtendService setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [_tbExtendService setAllowsSelection:YES];
     [_tbExtendService setAllowsMultipleSelection:YES];
+    
+    [_tbExtendService setBackgroundColor:[UIColor whiteColor]];
 }
 
 -(void)viewWillAppear:(BOOL)animated

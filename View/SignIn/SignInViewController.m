@@ -32,6 +32,11 @@
     [_txtPhone setTextColor:UIColorFromRGB(0x5C5C5C)];
     [_txtPhoneTitle setTextColor:UIColorFromRGB(0x5C5C5C)];
     
+    [_txtPhone setFont:[UIFont fontWithName:@"Roboto-Bold" size:20]];
+    NSAttributedString *phoneAttribute = [[NSAttributedString alloc] initWithString:_txtPhone.placeholder
+                                                                         attributes:@{NSForegroundColorAttributeName: UIColorFromRGB(0x5C5C5C), NSFontAttributeName: [UIFont fontWithName:@"Roboto-Bold" size:20]}];
+    [_txtPhone setAttributedPlaceholder:phoneAttribute];
+    
     keyboardheight = 0;
 }
 
