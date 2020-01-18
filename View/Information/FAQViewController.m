@@ -24,6 +24,8 @@
     _tableView.estimatedRowHeight = 100;
     _tableView.rowHeight = UITableViewAutomaticDimension;
     _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    
+    [_tableView setBackgroundColor:[UIColor whiteColor]];
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -20,6 +20,8 @@
     [_txtContent setTextColor:UIColorFromRGB(0x5C5C5C)];
     [_txtDate setTextColor:UIColorFromRGB(0xACB3BF)];
     [_separateline setBackgroundColor:UIColorFromRGB(0xF0F0F0)];
+    
+    [self setBackgroundColor:[UIColor whiteColor]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -45,6 +45,7 @@
     [_tbNotice setDataSource:self];
     
     [_tbNotice setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [_tbNotice setBackgroundColor:[UIColor whiteColor]];
     
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];
     

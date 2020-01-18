@@ -23,6 +23,8 @@
     [_tbInformation setDelegate:self];
     [_tbInformation setDataSource:self];
     
+    [_tbInformation setBackgroundColor:[UIColor whiteColor]];
+    
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];
     
     _informationArr = [NSArray arrayWithObjects:@"Câu hỏi thường gặp", @"Pháp lý", @"Góp Ý", @"Liên hệ", nil];
@@ -78,7 +80,11 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     
+    [cell setBackgroundColor:[UIColor whiteColor]];
     [cell.textLabel setText:[_informationArr objectAtIndex:indexPath.row]];
+    [cell.textLabel setFont:[UIFont fontWithName:@"Roboto-Regular" size:16]];
+    [cell.textLabel setTextColor:[UIColor blackColor]];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }

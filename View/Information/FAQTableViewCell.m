@@ -15,6 +15,11 @@
     // Initialization code
     _contentLabel.numberOfLines = 0;
     [_contentLabel setText:@""];
+    
+    [_titleLabel setTextColor:[UIColor blackColor]];
+    [_contentLabel setTextColor:[UIColor blackColor]];
+    
+    [self setBackgroundColor:[UIColor whiteColor]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

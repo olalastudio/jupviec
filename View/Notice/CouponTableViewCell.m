@@ -25,6 +25,8 @@
     
     [_titleLB setTextColor:UIColorFromRGB(0xFF7E46)];
     [_dateLB setTextColor:UIColorFromRGB(0xACB3BF)];
+    
+    [self setBackgroundColor:[UIColor whiteColor]];
 }
 
 - (void)awakeFromNib {

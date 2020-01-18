@@ -785,29 +785,29 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ln-L3-p5V">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ln-L3-p5V" customClass="JView">
                                 <rect key="frame" x="14" y="108.5" width="386" height="704.5"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mCg-zQ-ktW">
-                                        <rect key="frame" x="0.0" y="234" width="386" height="470.5"/>
+                                        <rect key="frame" x="0.0" y="229" width="386" height="475.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FAQ.png" translatesAutoresizingMaskIntoConstraints="NO" id="A13-c1-ZyP">
-                                        <rect key="frame" x="16.5" y="0.0" width="353" height="214"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FAQ.png" translatesAutoresizingMaskIntoConstraints="NO" id="A13-c1-ZyP">
+                                        <rect key="frame" x="0.0" y="0.0" width="386" height="214"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="214" id="YD1-jo-nHy"/>
-                                            <constraint firstAttribute="width" secondItem="A13-c1-ZyP" secondAttribute="height" multiplier="353:214" id="why-ZK-OiQ"/>
+                                            <constraint firstAttribute="height" constant="214" id="3Lk-X3-INy"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="A13-c1-ZyP" firstAttribute="top" secondItem="1Ln-L3-p5V" secondAttribute="top" id="3xM-Z6-2ec"/>
-                                    <constraint firstItem="mCg-zQ-ktW" firstAttribute="leading" secondItem="1Ln-L3-p5V" secondAttribute="leading" id="6qA-e4-j9K"/>
-                                    <constraint firstItem="mCg-zQ-ktW" firstAttribute="top" secondItem="A13-c1-ZyP" secondAttribute="bottom" constant="20" id="H9y-7N-oCL"/>
-                                    <constraint firstAttribute="bottom" secondItem="mCg-zQ-ktW" secondAttribute="bottom" id="kSO-mq-13m"/>
-                                    <constraint firstAttribute="trailing" secondItem="mCg-zQ-ktW" secondAttribute="trailing" id="n4J-cW-GOJ"/>
-                                    <constraint firstItem="A13-c1-ZyP" firstAttribute="centerX" secondItem="1Ln-L3-p5V" secondAttribute="centerX" id="phh-aa-wha"/>
+                                    <constraint firstItem="mCg-zQ-ktW" firstAttribute="top" secondItem="A13-c1-ZyP" secondAttribute="bottom" constant="15" id="47V-X3-RT7"/>
+                                    <constraint firstAttribute="trailing" secondItem="A13-c1-ZyP" secondAttribute="trailing" id="Ddf-nf-I76"/>
+                                    <constraint firstAttribute="bottom" secondItem="mCg-zQ-ktW" secondAttribute="bottom" id="Nsa-9W-ZZf"/>
+                                    <constraint firstAttribute="trailing" secondItem="mCg-zQ-ktW" secondAttribute="trailing" id="RKm-bx-ckG"/>
+                                    <constraint firstItem="mCg-zQ-ktW" firstAttribute="leading" secondItem="1Ln-L3-p5V" secondAttribute="leading" id="iw3-O2-uLu"/>
+                                    <constraint firstItem="A13-c1-ZyP" firstAttribute="leading" secondItem="1Ln-L3-p5V" secondAttribute="leading" id="l8j-jh-ny4"/>
+                                    <constraint firstItem="A13-c1-ZyP" firstAttribute="top" secondItem="1Ln-L3-p5V" secondAttribute="top" id="mVZ-US-uFR"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -850,7 +850,7 @@
                                     <constraint firstAttribute="height" constant="370" id="zm8-VO-1GQ"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fSN-Ez-BaA">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fSN-Ez-BaA" customClass="JTableView">
                                 <rect key="frame" x="13" y="154" width="389" height="708"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -890,7 +890,7 @@
                                     <constraint firstAttribute="width" secondItem="7vA-k5-6MG" secondAttribute="height" multiplier="616:370" id="egu-LA-hon"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QdI-IM-kus">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QdI-IM-kus" customClass="JView">
                                 <rect key="frame" x="11" y="110" width="392" height="752"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nội dung góp ý" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJQ-1J-UQ5">
@@ -901,20 +901,24 @@
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.20999999999999999" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="95o-Mm-5R6">
                                         <rect key="frame" x="29" y="87.5" width="334" height="128"/>
-                                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="95o-Mm-5R6" secondAttribute="height" multiplier="167:64" id="hQM-Og-4zl"/>
                                         </constraints>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bqc-hn-Bh5">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bqc-hn-Bh5" customClass="JButton">
                                         <rect key="frame" x="22" y="686" width="348" height="44"/>
                                         <color key="backgroundColor" red="1" green="0.53725490196078429" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Bqc-hn-Bh5" secondAttribute="height" multiplier="87:11" id="oYz-U3-6da"/>
                                         </constraints>
-                                        <state key="normal" title="Xác nhận"/>
+                                        <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="14"/>
+                                        <state key="normal" title="Xác nhận">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="didClickSendFeedbackButton:" destination="S4p-Sk-1dz" eventType="touchUpInside" id="0gO-PE-shH"/>
                                         </connections>
@@ -950,6 +954,7 @@
                     <connections>
                         <outlet property="contentTextView" destination="95o-Mm-5R6" id="L9X-qN-4OU"/>
                         <outlet property="feedbackBtn" destination="Bqc-hn-Bh5" id="pRO-6N-jm1"/>
+                        <outlet property="feedbackTitle" destination="cJQ-1J-UQ5" id="qi5-xL-y2I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ibt-md-3N5" userLabel="First Responder" sceneMemberID="firstResponder"/>
