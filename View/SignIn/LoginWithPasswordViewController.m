@@ -14,6 +14,7 @@
 #import "LoadingViewController.h"
 
 #import "JButton.h"
+#import "JTextField.h"
 
 @interface LoginWithPasswordViewController ()
 {
@@ -35,6 +36,21 @@
     
     [_btForgotPassword setTitleColor:UIColorFromRGB(0x5C5C5C) forState:UIControlStateNormal];
     [_btRegisterNow setTitleColor:UIColorFromRGB(0x5C5C5C) forState:UIControlStateNormal];
+    
+    [_txtInputUserPhone setFont:[UIFont fontWithName:@"Roboto-Bold" size:14]];
+    [_txtInputUserPass setFont:[UIFont fontWithName:@"Roboto-Bold" size:14]];
+    
+    NSAttributedString *phoneAttribute = [[NSAttributedString alloc] initWithString:_txtInputUserPhone.placeholder
+                                                                         attributes:@{NSForegroundColorAttributeName: UIColorFromRGB(0x5C5C5C), NSFontAttributeName: [UIFont fontWithName:@"Roboto-Regular" size:14]}];
+    [_txtInputUserPhone setAttributedPlaceholder:phoneAttribute];
+    
+    NSAttributedString *passAttribute = [[NSAttributedString alloc] initWithString:_txtInputUserPass.placeholder
+                                                                         attributes:@{NSForegroundColorAttributeName: UIColorFromRGB(0x5C5C5C), NSFontAttributeName: [UIFont fontWithName:@"Roboto-Regular" size:14]}];
+    [_txtInputUserPass setAttributedPlaceholder:passAttribute];
+    
+    [_txtInputUserPhone setTextColor:UIColorFromRGB(0x5C5C5C)];
+    [_txtInputUserPass setTextColor:UIColorFromRGB(0x5C5C5C)];
+    [_txtQuestion setTextColor:UIColorFromRGB(0x5C5C5C)];
     
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];
     
