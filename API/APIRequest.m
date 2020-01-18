@@ -89,6 +89,9 @@
              error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"successful operation"}];
             completionHandler(resultDict, error);
         }
+        else{
+            completionHandler(nil, error);
+        }
         
     }]resume];
 }
@@ -128,6 +131,9 @@
                 error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"Error unknown"}];
                 completionHandler(nil, error);
             }
+        }
+        else{
+            completionHandler(nil, error);
         }
     }]resume];
 }
@@ -169,6 +175,9 @@
                 completionHandler(nil, error);
             }
             
+        }
+        else{
+            completionHandler(nil, error);
         }
         
     }]resume];
@@ -227,6 +236,9 @@
             }
             
         }
+        else{
+            completionHandler(nil, error);
+        }
     }]resume];
 }
 
@@ -263,6 +275,9 @@
                 completionHandler(nil, error);
             }
         }
+        else{
+            completionHandler(nil, error);
+        }
     }]resume];
 }
 
@@ -292,11 +307,14 @@
                 if ([resultDict objectForKey:@"messages"]) {
                     NSLog(@"get configuration fail with: %@", [resultDict objectForKey:@"messages"]);
                 } else
-                    NSLog(@"get configuration fail with: %d", [httpResponse statusCode]);
+                    NSLog(@"get configuration fail with: %ld", (long)[httpResponse statusCode]);
                 error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"unknown error"}];
-                completionHandler(nil, error);
+                completionHandler(resultDict, error);
                 
             }
+        }
+        else{
+            completionHandler(nil,error);
         }
     }]resume];
 }
@@ -341,6 +359,9 @@
                 completionHandler(nil, error);
             }
         }
+        else{
+            completionHandler(nil, error);
+        }
     }]resume];
 }
 
@@ -380,6 +401,9 @@
                 error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"unknown error"}];
                 completionHandler(nil, error);
             }
+        }
+        else{
+            completionHandler(nil, error);
         }
     }]resume];
 }
@@ -422,6 +446,9 @@
                 completionHandler(nil, error);
             }
         }
+        else{
+            completionHandler(nil, error);
+        }
     }]resume];
 }
 
@@ -458,6 +485,9 @@
                 error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"failed"}];
                 completionHandler(nil, error);
             }
+        }
+        else{
+            completionHandler(nil, error);
         }
     }]resume];
 }
@@ -499,6 +529,9 @@
                 completionHandler(nil, error);
             }
         }
+        else{
+            completionHandler(nil, error);
+        }
     }]resume];
 }
 
@@ -536,6 +569,9 @@
                 completionHandler(nil, error);
             }
         }
+        else{
+            completionHandler(nil, error);
+        }
     }]resume];
 }
 
@@ -571,6 +607,9 @@
                 error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"error message"}];
                 completionHandler(nil, error);
             }
+        }
+        else{
+            completionHandler(nil, error);
         }
     }]resume];
 }
@@ -610,6 +649,9 @@
                 error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"unknown error"}];
                 completionHandler(nil, error);
             }
+        }
+        else{
+            completionHandler(nil, error);
         }
     }]resume];
 }
@@ -651,6 +693,9 @@
                 completionHandler(nil, error);
             }
         }
+        else{
+            completionHandler(nil, error);
+        }
     }]resume];
 }
 
@@ -691,6 +736,9 @@
                 error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"unknown error"}];
                 completionHandler(nil, error);
             }
+        }
+        else{
+            completionHandler(nil, error);
         }
     }]resume];
 }
@@ -737,6 +785,9 @@
                 completionHandler(nil, error);
             }
         }
+        else{
+            completionHandler(nil, error);
+        }
     }]resume];
 }
 
@@ -771,6 +822,9 @@
                 error = [NSError errorWithDomain:@"test_domain" code:[httpResponse statusCode] userInfo:@{NSLocalizedDescriptionKey:@"unknown error"}];
                 completionHandler(nil, error);
             }
+        }
+        else{
+            completionHandler(nil, error);
         }
     }]resume];
 }
