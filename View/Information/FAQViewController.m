@@ -71,6 +71,21 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    FAQTableViewCell *selectCell = [_tableView cellForRowAtIndexPath:indexPath];
+    
+    if (selectCell.isShowContent == NO)
+    {
+        selectedIndex = [NSIndexPath indexPathForRow:indexPath.row inSection:1];
+    }
+    else{
+        selectedIndex = [NSIndexPath indexPathForRow:indexPath.row inSection:0];
+    }
+    
+    [_tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+}
+
 - (void)showFAQContentInfo:(NSIndexPath *)indexPath
 {
     FAQTableViewCell *selectCell = [_tableView cellForRowAtIndexPath:indexPath];
