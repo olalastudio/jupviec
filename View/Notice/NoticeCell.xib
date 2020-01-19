@@ -34,7 +34,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R6N-3Z-15f">
-                        <rect key="frame" x="18" y="129" width="374" height="1"/>
+                        <rect key="frame" x="0.0" y="129" width="414" height="1"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="rxJ-fj-Yai"/>
@@ -56,10 +56,10 @@
                     <constraint firstAttribute="trailing" secondItem="CrD-sc-ugX" secondAttribute="trailing" constant="3" id="aCd-yf-bI8"/>
                     <constraint firstItem="KcA-ct-GfK" firstAttribute="top" secondItem="Ky5-f3-3G9" secondAttribute="top" constant="18" id="mzd-ay-9z5"/>
                     <constraint firstAttribute="trailing" secondItem="KcA-ct-GfK" secondAttribute="trailing" constant="3" id="tCY-mg-OMH"/>
-                    <constraint firstAttribute="trailing" secondItem="R6N-3Z-15f" secondAttribute="trailing" constant="22" id="vf3-xj-HUD"/>
+                    <constraint firstAttribute="trailing" secondItem="R6N-3Z-15f" secondAttribute="trailing" id="vf3-xj-HUD"/>
                     <constraint firstAttribute="bottom" secondItem="R6N-3Z-15f" secondAttribute="bottom" id="y2W-7D-ZZY"/>
                     <constraint firstAttribute="trailing" secondItem="hIa-CT-cma" secondAttribute="trailing" constant="3" id="z9u-fY-5px"/>
-                    <constraint firstItem="R6N-3Z-15f" firstAttribute="leading" secondItem="Ky5-f3-3G9" secondAttribute="leading" constant="18" id="ztF-1S-Izo"/>
+                    <constraint firstItem="R6N-3Z-15f" firstAttribute="leading" secondItem="Ky5-f3-3G9" secondAttribute="leading" id="ztF-1S-Izo"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
