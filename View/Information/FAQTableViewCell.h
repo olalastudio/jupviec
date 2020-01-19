@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UIButton *showContentBtn;
+@property (weak, nonatomic) IBOutlet UIView *separateLine;
+
 @property (strong, nonatomic) NSIndexPath* indexPath;
 @property id<FAQTableViewCellDelegate> delegate;
 @property (assign, nonatomic) BOOL isShowContent;

@@ -7,6 +7,7 @@
 //
 
 #import "FAQTableViewCell.h"
+#import "CommonDefines.h"
 
 @implementation FAQTableViewCell
 
@@ -17,7 +18,8 @@
     [_contentLabel setText:@""];
     
     [_titleLabel setTextColor:[UIColor blackColor]];
-    [_contentLabel setTextColor:[UIColor blackColor]];
+    [_contentLabel setTextColor:UIColorFromRGB(0xACB3BF)];
+    [_separateLine setBackgroundColor:UIColorFromRGB(0xF0F0F0)];
     
     [self setBackgroundColor:[UIColor whiteColor]];
 }

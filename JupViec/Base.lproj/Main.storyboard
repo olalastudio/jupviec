@@ -851,7 +851,7 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fSN-Ez-BaA" customClass="JTableView">
-                                <rect key="frame" x="13" y="154" width="389" height="708"/>
+                                <rect key="frame" x="13" y="110" width="389" height="752"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -862,7 +862,7 @@
                             <constraint firstItem="7ze-zV-9XN" firstAttribute="trailing" secondItem="fSN-Ez-BaA" secondAttribute="trailing" constant="12" id="Qd1-tJ-Jco"/>
                             <constraint firstAttribute="trailing" secondItem="vAZ-f8-QLX" secondAttribute="trailing" constant="-201" id="S1j-2a-GpP"/>
                             <constraint firstItem="fSN-Ez-BaA" firstAttribute="leading" secondItem="7ze-zV-9XN" secondAttribute="leading" constant="13" id="bQk-qB-DYR"/>
-                            <constraint firstItem="fSN-Ez-BaA" firstAttribute="top" secondItem="7ze-zV-9XN" secondAttribute="top" constant="66" id="tKd-lY-Zu1"/>
+                            <constraint firstItem="fSN-Ez-BaA" firstAttribute="top" secondItem="7ze-zV-9XN" secondAttribute="top" constant="22" id="tKd-lY-Zu1"/>
                             <constraint firstItem="7ze-zV-9XN" firstAttribute="bottom" secondItem="fSN-Ez-BaA" secondAttribute="bottom" id="u5Y-O8-SN0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7ze-zV-9XN"/>

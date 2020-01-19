@@ -9,6 +9,9 @@
 #import "FAQViewController.h"
 
 @interface FAQViewController ()
+{
+    NSIndexPath *selectedIndex;
+}
 
 @end
 
@@ -24,8 +27,10 @@
     _tableView.estimatedRowHeight = 100;
     _tableView.rowHeight = UITableViewAutomaticDimension;
     _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    
+    [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [_tableView setBackgroundColor:[UIColor whiteColor]];
+    
+    [_tableView registerNib:[UINib nibWithNibName:@"FAQTableViewCell" bundle:nil] forCellReuseIdentifier:@"faqcell"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -42,17 +47,15 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FAQTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"faqcell"];
-    if (!cell) {
-        [tableView registerNib:[UINib nibWithNibName:@"FAQTableViewCell" bundle:nil] forCellReuseIdentifier:@"faqcell"];
-        cell = [tableView dequeueReusableCellWithIdentifier:@"faqcell"];
-    }
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell setDelegate:self];
     cell.indexPath = indexPath;
     [cell.titleLabel setText:[[_faqArr objectAtIndex:indexPath.row]objectForKey:@"title"]];
-    //    [cell.detailLabel setText:[detailsArr objectAtIndex:indexPath.row]];
-    if (_faqCell.isShowContent == YES)
+    
+    if (selectedIndex.row == indexPath.row && selectedIndex.section == 1)
     {
-        cell.contentLabel.numberOfLines = 10;
+        cell.contentLabel.numberOfLines = 20;
         [cell.contentLabel setText:[[_faqArr objectAtIndex:indexPath.row]objectForKey:@"content"]];
         cell.isShowContent = YES;
         [cell.showContentBtn setImage:[UIImage imageNamed:@"Polygon 7.png"] forState:UIControlStateNormal];
@@ -60,6 +63,7 @@
     else
     {
         cell.contentLabel.numberOfLines = 0;
+        [cell.contentLabel setText:@""];
         cell.isShowContent = NO;
         [cell.showContentBtn setImage:[UIImage imageNamed:@"Polygon 6.png"] forState:UIControlStateNormal];
     }
@@ -69,7 +73,16 @@
 
 - (void)showFAQContentInfo:(NSIndexPath *)indexPath
 {
-    _faqCell = [_tableView cellForRowAtIndexPath:indexPath];
+    FAQTableViewCell *selectCell = [_tableView cellForRowAtIndexPath:indexPath];
+    
+    if (selectCell.isShowContent == YES)
+    {
+        selectedIndex = [NSIndexPath indexPathForRow:indexPath.row inSection:1];
+    }
+    else{
+        selectedIndex = [NSIndexPath indexPathForRow:indexPath.row inSection:0];
+    }
+    
     [_tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 

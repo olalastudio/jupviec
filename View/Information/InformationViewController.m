@@ -24,6 +24,7 @@
     [_tbInformation setDataSource:self];
     
     [_tbInformation setBackgroundColor:[UIColor whiteColor]];
+    [_tbInformation setSeparatorColor:UIColorFromRGB(0xF0F0F0)];
     
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];
     

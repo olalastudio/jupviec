@@ -16,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 {
     NSArray* titlesArr;
     NSArray* contentsArr;
-    FAQTableViewCell* _faqCell;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray* faqArr;
