@@ -1593,8 +1593,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X3u-GA-avp" customClass="JView">
                                 <rect key="frame" x="11" y="110" width="389" height="786"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nhập số điện thoại" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uZS-IX-Rms" customClass="JTextField">
-                                        <rect key="frame" x="29" y="72" width="327" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Nhập số điện thoại" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uZS-IX-Rms" customClass="JTextField">
+                                        <rect key="frame" x="29" y="50" width="327" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="tuy-ta-T3A"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                     </textField>
@@ -1625,7 +1628,7 @@
                                     <constraint firstItem="f9H-Q4-WDq" firstAttribute="top" secondItem="X3u-GA-avp" secondAttribute="top" constant="33" id="Nrm-6A-30b"/>
                                     <constraint firstItem="uZS-IX-Rms" firstAttribute="leading" secondItem="X3u-GA-avp" secondAttribute="leading" constant="29" id="Oye-ot-Wk4"/>
                                     <constraint firstItem="f9H-Q4-WDq" firstAttribute="leading" secondItem="X3u-GA-avp" secondAttribute="leading" constant="29" id="PhL-D3-05o"/>
-                                    <constraint firstItem="uZS-IX-Rms" firstAttribute="top" secondItem="f9H-Q4-WDq" secondAttribute="bottom" constant="23" id="URL-ND-qru"/>
+                                    <constraint firstItem="uZS-IX-Rms" firstAttribute="top" secondItem="f9H-Q4-WDq" secondAttribute="bottom" constant="1" id="URL-ND-qru"/>
                                     <constraint firstItem="Scl-lK-jPE" firstAttribute="leading" secondItem="X3u-GA-avp" secondAttribute="leading" constant="20" id="Vdq-a9-isu"/>
                                     <constraint firstAttribute="bottom" secondItem="Scl-lK-jPE" secondAttribute="bottom" constant="22" id="f95-9e-1Ua"/>
                                     <constraint firstAttribute="trailing" secondItem="Scl-lK-jPE" secondAttribute="trailing" constant="18" id="ouS-bW-GHJ"/>
@@ -1675,8 +1678,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AK8-Vd-jtC" customClass="JView">
                                 <rect key="frame" x="11" y="110" width="389" height="786"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mã OPT" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IJr-ew-Xpj" customClass="JTextField">
-                                        <rect key="frame" x="29" y="72.5" width="327" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Mã OPT" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IJr-ew-Xpj" customClass="JTextField">
+                                        <rect key="frame" x="29" y="50.5" width="327" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="v7L-Gt-BKu"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
@@ -1705,7 +1711,7 @@
                                 <constraints>
                                     <constraint firstItem="TFy-qh-52j" firstAttribute="top" secondItem="AK8-Vd-jtC" secondAttribute="top" constant="33" id="Cqg-pZ-lQa"/>
                                     <constraint firstItem="IJr-ew-Xpj" firstAttribute="leading" secondItem="AK8-Vd-jtC" secondAttribute="leading" constant="29" id="HjN-yX-2IP"/>
-                                    <constraint firstItem="IJr-ew-Xpj" firstAttribute="top" secondItem="TFy-qh-52j" secondAttribute="bottom" constant="23" id="NOn-dg-ux4"/>
+                                    <constraint firstItem="IJr-ew-Xpj" firstAttribute="top" secondItem="TFy-qh-52j" secondAttribute="bottom" constant="1" id="NOn-dg-ux4"/>
                                     <constraint firstAttribute="trailing" secondItem="TFy-qh-52j" secondAttribute="trailing" constant="33" id="V74-Db-U8L"/>
                                     <constraint firstItem="7vh-lh-eYX" firstAttribute="leading" secondItem="AK8-Vd-jtC" secondAttribute="leading" constant="20" id="b8z-xG-jZ9"/>
                                     <constraint firstAttribute="trailing" secondItem="IJr-ew-Xpj" secondAttribute="trailing" constant="33" id="eQz-IH-1vA"/>
@@ -1771,8 +1777,11 @@
                                             <action selector="didClickRegisterBtn:" destination="Q1f-LT-eeZ" eventType="touchUpInside" id="dzP-aq-Zqo"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mật Khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gIr-ee-mMV" customClass="JTextField">
-                                        <rect key="frame" x="29" y="72" width="327" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Mật Khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gIr-ee-mMV" customClass="JTextField">
+                                        <rect key="frame" x="29" y="50" width="327" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Ftv-Ha-PXq"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
@@ -1783,13 +1792,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nhập lại mật khẩu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwF-Ud-E3W">
-                                        <rect key="frame" x="29" y="132" width="327" height="16"/>
+                                        <rect key="frame" x="29" y="126" width="327" height="16"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Xác Nhận Mật Khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nFj-fz-4zK" customClass="JTextField">
-                                        <rect key="frame" x="29" y="171" width="327" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Xác Nhận Mật Khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nFj-fz-4zK" customClass="JTextField">
+                                        <rect key="frame" x="29" y="143" width="327" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="fcK-bb-pDy"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
@@ -1802,8 +1814,8 @@
                                     <constraint firstItem="gIr-ee-mMV" firstAttribute="leading" secondItem="s2Z-z3-RQy" secondAttribute="leading" constant="29" id="Hwb-Ib-17l"/>
                                     <constraint firstAttribute="trailing" secondItem="vM2-jS-CXb" secondAttribute="trailing" constant="18" id="KBA-Zt-r25"/>
                                     <constraint firstItem="XwF-Ud-E3W" firstAttribute="leading" secondItem="s2Z-z3-RQy" secondAttribute="leading" constant="29" id="SbU-b5-V1m"/>
-                                    <constraint firstItem="gIr-ee-mMV" firstAttribute="top" secondItem="fNg-3m-fFR" secondAttribute="bottom" constant="23" id="VD5-Cp-kMm"/>
-                                    <constraint firstItem="nFj-fz-4zK" firstAttribute="top" secondItem="XwF-Ud-E3W" secondAttribute="bottom" constant="23" id="YPq-LA-QMt"/>
+                                    <constraint firstItem="gIr-ee-mMV" firstAttribute="top" secondItem="fNg-3m-fFR" secondAttribute="bottom" constant="1" id="VD5-Cp-kMm"/>
+                                    <constraint firstItem="nFj-fz-4zK" firstAttribute="top" secondItem="XwF-Ud-E3W" secondAttribute="bottom" constant="1" id="YPq-LA-QMt"/>
                                     <constraint firstAttribute="trailing" secondItem="gIr-ee-mMV" secondAttribute="trailing" constant="33" id="amc-NU-gDt"/>
                                     <constraint firstAttribute="trailing" secondItem="XwF-Ud-E3W" secondAttribute="trailing" constant="33" id="ey0-CI-Axv"/>
                                     <constraint firstAttribute="trailing" secondItem="fNg-3m-fFR" secondAttribute="trailing" constant="30" id="jj9-Nz-c1B"/>
@@ -1967,7 +1979,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBD-uX-thm">
-                                        <rect key="frame" x="272" y="225" width="82" height="14"/>
+                                        <rect key="frame" x="272" y="204" width="82" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="GPS-Q1-LLW"/>
                                         </constraints>
@@ -1979,13 +1991,19 @@
                                             <action selector="didClickedFogetPassword:" destination="KoS-9M-EeF" eventType="touchUpInside" id="u6a-JU-11A"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Số điện thoại" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZCE-JG-RTZ" customClass="JTextField">
-                                        <rect key="frame" x="29" y="65" width="327" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Số điện thoại" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZCE-JG-RTZ" customClass="JTextField">
+                                        <rect key="frame" x="29" y="38" width="327" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="iFd-f7-Dmb"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sSC-1j-QHc" customClass="JTextField">
-                                        <rect key="frame" x="29" y="144" width="327" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sSC-1j-QHc" customClass="JTextField">
+                                        <rect key="frame" x="29" y="109" width="327" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="V90-Dk-gPw"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
@@ -2015,18 +2033,18 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="OYP-RS-Bh1" firstAttribute="centerX" secondItem="8lF-O5-Ao6" secondAttribute="centerX" constant="-50" id="7LJ-Hb-CHk"/>
+                                    <constraint firstItem="ZCE-JG-RTZ" firstAttribute="leading" secondItem="8lF-O5-Ao6" secondAttribute="leading" constant="29" id="7Nb-me-gg1"/>
                                     <constraint firstItem="jUj-VT-fHc" firstAttribute="leading" secondItem="OYP-RS-Bh1" secondAttribute="trailing" constant="5" id="B4E-ZM-rp5"/>
-                                    <constraint firstItem="sSC-1j-QHc" firstAttribute="top" secondItem="ZCE-JG-RTZ" secondAttribute="bottom" constant="45" id="Bzi-Ki-V6I"/>
-                                    <constraint firstAttribute="trailing" secondItem="sSC-1j-QHc" secondAttribute="trailing" constant="33" id="FRK-qE-Dof"/>
+                                    <constraint firstItem="zBD-uX-thm" firstAttribute="top" secondItem="sSC-1j-QHc" secondAttribute="bottom" constant="45" id="C3v-dP-cPo"/>
                                     <constraint firstAttribute="bottom" secondItem="3gI-n1-bCi" secondAttribute="bottom" constant="22" id="NF8-Yh-2Z6"/>
-                                    <constraint firstAttribute="trailing" secondItem="ZCE-JG-RTZ" secondAttribute="trailing" constant="33" id="QZg-Rf-bgY"/>
-                                    <constraint firstItem="ZCE-JG-RTZ" firstAttribute="top" secondItem="8lF-O5-Ao6" secondAttribute="top" constant="65" id="RRj-ww-Gz9"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZCE-JG-RTZ" secondAttribute="trailing" constant="33" id="Nib-7M-M1Q"/>
                                     <constraint firstAttribute="trailing" secondItem="zBD-uX-thm" secondAttribute="trailing" constant="35" id="Sox-IM-PFf"/>
-                                    <constraint firstItem="ZCE-JG-RTZ" firstAttribute="leading" secondItem="8lF-O5-Ao6" secondAttribute="leading" constant="29" id="Z4M-23-Ako"/>
-                                    <constraint firstItem="zBD-uX-thm" firstAttribute="top" secondItem="sSC-1j-QHc" secondAttribute="bottom" constant="47" id="gPR-U8-8p2"/>
-                                    <constraint firstItem="sSC-1j-QHc" firstAttribute="leading" secondItem="8lF-O5-Ao6" secondAttribute="leading" constant="29" id="jOK-Q2-Uw3"/>
+                                    <constraint firstItem="ZCE-JG-RTZ" firstAttribute="top" secondItem="8lF-O5-Ao6" secondAttribute="top" constant="38" id="Wkl-5o-97Y"/>
+                                    <constraint firstAttribute="trailing" secondItem="sSC-1j-QHc" secondAttribute="trailing" constant="33" id="gJP-1r-HLI"/>
+                                    <constraint firstItem="sSC-1j-QHc" firstAttribute="leading" secondItem="8lF-O5-Ao6" secondAttribute="leading" constant="29" id="kB2-zu-yqL"/>
                                     <constraint firstAttribute="trailing" secondItem="3gI-n1-bCi" secondAttribute="trailing" constant="18" id="lAh-l4-uhA"/>
                                     <constraint firstItem="3gI-n1-bCi" firstAttribute="top" secondItem="jUj-VT-fHc" secondAttribute="bottom" constant="32" id="vCN-Gi-Nyb"/>
+                                    <constraint firstItem="sSC-1j-QHc" firstAttribute="top" secondItem="ZCE-JG-RTZ" secondAttribute="bottom" constant="21" id="veT-iC-p4H"/>
                                     <constraint firstItem="3gI-n1-bCi" firstAttribute="top" secondItem="OYP-RS-Bh1" secondAttribute="bottom" constant="32" id="xxY-TD-SIa"/>
                                     <constraint firstItem="3gI-n1-bCi" firstAttribute="leading" secondItem="8lF-O5-Ao6" secondAttribute="leading" constant="20" id="yOh-Zj-49H"/>
                                 </constraints>

@@ -30,14 +30,7 @@
     [super awakeFromNib];
     
     self.borderStyle = UITextBorderStyleNone;
-    self.backgroundColor = [UIColor clearColor];
-    
-    CGRect frame = [self frame];
-    CGFloat fontsize = self.font.lineHeight;
-    
-    frame.size.height = fontsize + 7*2;
-    
-    [self setFrame:frame];
+    self.backgroundColor = [UIColor whiteColor];
 }
 
 -(void)setFrame:(CGRect)frame
@@ -47,14 +40,14 @@
 
 -(CGRect)textRectForBounds:(CGRect)bounds
 {
-    bounds.origin.y -= 7;
+    bounds.origin.y += 7;
     
     return bounds;
 }
 
 -(CGRect)editingRectForBounds:(CGRect)bounds
 {
-    bounds.origin.y -= 7;
+    bounds.origin.y += 7;
     
     return bounds;
 }
