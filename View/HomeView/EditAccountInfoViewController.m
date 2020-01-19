@@ -114,6 +114,7 @@
             [loadingview dismiss];
             if (error.code == 200)
             {
+                [user setUserToken:[self.user userToken]];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self didSuccessChangeAccountInfo:user];
                 });

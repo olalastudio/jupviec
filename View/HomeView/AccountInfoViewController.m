@@ -34,6 +34,7 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];
     
     self.view.layer.masksToBounds = YES;
+    [self.tabBarController setDelegate:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -42,6 +43,23 @@
     
     [self.tabBarController.tabBar setHidden:NO];
     [self.navigationController.navigationBar setHidden:YES];
+}
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+{
+    NSArray* viewControllerArr = [self.tabBarController viewControllers];
+    for (UINavigationController* item in viewControllerArr)
+    {
+        UIViewController *itemVC = [(UINavigationController*)item visibleViewController];
+        if ([itemVC isKindOfClass:[HomeViewController class]])
+        {
+            HomeViewController *homeVC = (HomeViewController*)itemVC;
+            [homeVC setUser:_user];
+            break;
+        }
+    }
+
+    return YES;
 }
 
 -(void)updateContentView

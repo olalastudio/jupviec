@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AccountInfoViewController : JViewController
+@interface AccountInfoViewController : JViewController <UITabBarControllerDelegate>
 {
     NSDictionary* _generalInfo;
 }

@@ -534,6 +534,7 @@
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
 {
     UIViewController *selectedview = [(UINavigationController*)viewController visibleViewController];
+    NSArray* arr = [self.navigationController viewControllers];
     
     if ([selectedview isKindOfClass:[HistoryViewController class]])
     {
