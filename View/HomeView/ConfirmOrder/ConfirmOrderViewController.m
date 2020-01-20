@@ -56,6 +56,17 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    if ([_order orderType] == TYPE_TONGVESINH || [_order orderType] == TYPE_JUPSOFA)
+    {
+        [_txtWorkHourTitle setHidden:YES];
+        [_txtWorkHourValue setHidden:YES];
+    }
+    else
+    {
+        [_txtWorkHourTitle setHidden:NO];
+        [_txtWorkHourValue setHidden:NO];
+    }
+    
     [self showContent];
 }
 
