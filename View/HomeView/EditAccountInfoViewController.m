@@ -38,6 +38,8 @@
     [_userNameTF setTextColor:[UIColor blackColor]];
     [_emailTF setTextColor:[UIColor blackColor]];
     [_addressTF setTextColor:[UIColor blackColor]];
+    [_sexTitleLb setTextColor:[UIColor blackColor]];
+    [_sexTF setTextColor:[UIColor blackColor]];
     
     self.view.layer.masksToBounds = YES;
 }

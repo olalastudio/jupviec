@@ -389,10 +389,12 @@
                         <outlet property="emailLb" destination="4Rv-ZH-tTy" id="6Pa-gW-zqj"/>
                         <outlet property="emailLbTitle" destination="P4J-7K-1IU" id="asK-e6-8cI"/>
                         <outlet property="levelLb" destination="USq-SO-PFo" id="hsI-7E-c0r"/>
+                        <outlet property="levelTitleLb" destination="CJx-5g-cGs" id="qh5-k7-DSe"/>
                         <outlet property="logoutBtn" destination="KfW-j0-0tH" id="5VQ-vI-hzZ"/>
                         <outlet property="phoneNumLb" destination="5QO-l6-frl" id="5Sg-36-skd"/>
                         <outlet property="phoneNumLbTitle" destination="iDL-HM-SaH" id="J8P-H0-5t1"/>
                         <outlet property="sexLb" destination="5D5-Yq-tpv" id="bQZ-l3-Sft"/>
+                        <outlet property="sexTitleLb" destination="gaV-h6-ty4" id="Lpg-0L-dKl"/>
                         <outlet property="usernameLb" destination="LSO-RK-U8C" id="phh-Yr-bGK"/>
                     </connections>
                 </viewController>
@@ -538,6 +540,7 @@
                         <outlet property="emailLbTitle" destination="dCz-sO-fpS" id="dpE-sj-bi6"/>
                         <outlet property="emailTF" destination="R5d-Nd-bWF" id="KGD-sw-xws"/>
                         <outlet property="sexTF" destination="E3M-2m-401" id="NyS-DF-i24"/>
+                        <outlet property="sexTitleLb" destination="oWv-O3-yvM" id="nVe-Qx-bWD"/>
                         <outlet property="userNameLbTitle" destination="h5c-Nh-sjR" id="AoT-YY-HU8"/>
                         <outlet property="userNameTF" destination="sEQ-wf-OHj" id="VsP-rs-Hpl"/>
                     </connections>
@@ -930,11 +933,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.20999999999999999" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="95o-Mm-5R6">
-                                        <rect key="frame" x="29" y="87.5" width="334" height="128"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="95o-Mm-5R6">
+                                        <rect key="frame" x="29" y="87.5" width="334" height="207"/>
+                                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="0.20999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="95o-Mm-5R6" secondAttribute="height" multiplier="167:64" id="hQM-Og-4zl"/>
+                                            <constraint firstAttribute="width" secondItem="95o-Mm-5R6" secondAttribute="height" multiplier="300:186" id="hQM-Og-4zl"/>
                                         </constraints>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>

@@ -27,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton   *logoutBtn;
 @property (weak, nonatomic) IBOutlet UILabel *sexLb;
 @property (weak, nonatomic) IBOutlet UILabel *levelLb;
+@property (weak, nonatomic) IBOutlet UILabel *sexTitleLb;
+@property (weak, nonatomic) IBOutlet UILabel *levelTitleLb;
 
 @property (strong, nonatomic) User              *user;
 @property (strong, nonatomic) NSString          *tokenStr;
