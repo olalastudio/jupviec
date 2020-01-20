@@ -158,6 +158,14 @@
     double workhour = [[_detailInfo objectForKey:ID_WORKING_TIME] doubleValue];
     [_lbWorkHourValue setText:[NSString stringWithFormat:@"%.1f",workhour]];
     
+    if ([rqType isEqualToString:CODE_TONGVESINH] || [rqType isEqualToString:CODE_SOFA]){
+        [_lbWorkHourTitle setHidden:YES];
+        [_lbWorkHourValue setHidden:YES];
+    }else{
+        [_lbWorkHourTitle setHidden:NO];
+        [_lbWorkHourValue setHidden:NO];
+    }
+    
     NSArray *options = [_detailInfo objectForKey:ID_SERVICE_EXTEND];
     if (![options isKindOfClass:[NSNull class]])
     {

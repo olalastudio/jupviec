@@ -55,6 +55,17 @@
 {
     _order = order;
     
+    if ([order orderType] == TYPE_TONGVESINH || [order orderType] == TYPE_JUPSOFA)
+    {
+        [_workHour setHidden:YES];
+        [_txtWorkHour setHidden:YES];
+    }
+    else
+    {
+        [_workHour setHidden:NO];
+        [_txtWorkHour setHidden:NO];
+    }
+    
     [self showTime];
 }
 
