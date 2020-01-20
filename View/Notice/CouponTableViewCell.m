@@ -60,20 +60,29 @@
     _couponInfo = notifyInfo;
     [_titleLB setText:[_couponInfo objectForKey:@"content"]];
     [_dateLB setText:[_couponInfo objectForKey:@"updated_at"]];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (![[[self notifyCoupon] objectForKey:@"image"] isKindOfClass:[NSNull class]])
+    
+    NSString *image = [_couponInfo objectForKey:@"image"];
+    
+    if (![image isKindOfClass:[NSNull class]] && ![image isEqualToString:@""])
+    {
+        if ([JUntil imageExisted:image])
         {
-            NSString* urlStr = [[IP_SEVER stringByAppendingPathComponent:@"images"]stringByAppendingPathComponent:[self->_couponInfo objectForKey:@"image"]];
-            NSData* imageData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:@"http://112.78.4.173/images/5e15b6832256d83a391b1bd1-5e132985e5dc10455476d9cf-Screenshot%20from%202019-09-03%2004-42-39.png"]];
-            self.imageData = imageData;
-            UIImage *img = [UIImage imageWithData:imageData];
-            [self.imageView setImage:img];
+            [_imageView setImage:[UIImage imageWithContentsOfFile:[JUntil pathOfFile:image]]];
         }
         else
         {
+            image = [image stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            NSString *fileURL = [[IP_SEVER stringByAppendingPathComponent:@"images"] stringByAppendingPathComponent:image];
             
+            [JUntil downloadFileFromURL:fileURL completionHandler:^(NSURL * _Nonnull file) {
+                NSLog(@"downloaded file %@",file);
+                [self.imageView setImage:[UIImage imageWithContentsOfFile:[file path]]];
+            }];
         }
-    });
+    }
+    else{
+        [_imageView setImage:[UIImage imageNamed:@"makhuyenmai.png"]];
+    }
     
     [self reloadContentView];
 }

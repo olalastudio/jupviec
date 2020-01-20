@@ -23,9 +23,25 @@
     // Do any additional setup after loading the view.
     
     [_btskip setTitleColor:UIColorFromRGB(0xFF5B14) forState:UIControlStateNormal];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
     //show welcome view at the first launch
-    [self setupWelcomeView];
+    BOOL isFirstLaunch = [[[NSUserDefaults standardUserDefaults] objectForKey:@"isFirstLaunch"] boolValue];
+    if (!isFirstLaunch)
+    {
+        [_btStart setHidden:NO];
+        [_btskip setHidden:NO];
+        [self setupWelcomeView];
+    }
+    else{
+        [_btStart setHidden:YES];
+        [_btskip setHidden:YES];
+        [self getStart];
+    }
 }
 
 -(void)setupWelcomeView
@@ -145,41 +161,59 @@
         UITabBarController *tabController = (UITabBarController*)[self.storyboard instantiateViewControllerWithIdentifier:@"idTabBarView"];
         [tabController setSelectedIndex:2];
         
+        HomeViewController *homeVC = (HomeViewController*)[(UINavigationController*)[[tabController viewControllers] objectAtIndex:2] visibleViewController];
+        
         // get info of services
         APIRequest* apiRequest = [[APIRequest alloc]init];
         [apiRequest requestAPIGetConfiguration:^(NSDictionary * _Nullable configurationInfo, NSError * _Nonnull error) {
             
-            [loadingview dismiss];
-            
-            if (error.code == RESPONSE_CODE_NORMARL) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    HomeViewController *homeVC = [(UINavigationController*)[[tabController viewControllers] objectAtIndex:2] visibleViewController];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (error.code == RESPONSE_CODE_NORMARL && configurationInfo) {
                     homeVC.configurationInfoDict = configurationInfo;
-                
-                    appdelegate.window.rootViewController = tabController;
-                    [appdelegate.window makeKeyAndVisible];
-                
-                    [self.pageController removeFromParentViewController];
-                    [self.pageController.view removeFromSuperview];
-                    [self.pageControll removeFromSuperview];
-                });
-            }
-            else if (error.code == RESPONSE_CODE_NODATA)
-            {
-                [JUntil showPopup:self responsecode:RESPONSE_CODE_NODATA];
-            }
-            else if (error.code == RESPONSE_CODE_TIMEOUT)
-            {
-                [JUntil showPopup:self responsecode:RESPONSE_CODE_TIMEOUT];
-            }
-            else if (error.code == RESPONSE_CODE_NOINTERNET)
-            {
-                [JUntil showPopup:self responsecode:RESPONSE_CODE_NOINTERNET];
-            }
-            else
-            {
-                [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
-            }
+                    
+                    //get coupon
+                    [apiRequest requestAPIGetNotifiesWithType:@"" notifyType:NOTIFIES_TYPE_PROMOTION completionHandler:^(NSArray * _Nullable resultDict, NSError * _Nonnull error) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                            [loadingview dismiss];
+                            
+                            if (error.code == 200 ){
+                                [homeVC setCouponArray:[NSMutableArray arrayWithArray:resultDict]];
+                            }
+                            else if (error.code == RESPONSE_CODE_NODATA){
+                                [JUntil showPopup:self responsecode:RESPONSE_CODE_NODATA];
+                            }
+                            else if (error.code == RESPONSE_CODE_TIMEOUT){
+                                [JUntil showPopup:self responsecode:RESPONSE_CODE_TIMEOUT];
+                            }
+                            else{
+                                [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
+                            }
+                            
+                            appdelegate.window.rootViewController = tabController;
+                            [appdelegate.window makeKeyAndVisible];
+                        
+                            [self.pageController removeFromParentViewController];
+                            [self.pageController.view removeFromSuperview];
+                            [self.pageControll removeFromSuperview];
+                            
+                            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isFirstLaunch"];
+                        });
+                    }];
+                }
+                else if (error.code == RESPONSE_CODE_NODATA){
+                    [JUntil showPopup:self responsecode:RESPONSE_CODE_NODATA];
+                }
+                else if (error.code == RESPONSE_CODE_TIMEOUT){
+                    [JUntil showPopup:self responsecode:RESPONSE_CODE_TIMEOUT];
+                }
+                else if (error.code == RESPONSE_CODE_NOINTERNET){
+                    [JUntil showPopup:self responsecode:RESPONSE_CODE_NOINTERNET];
+                }
+                else{
+                    [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
+                }
+            });
         }];
     });
 }

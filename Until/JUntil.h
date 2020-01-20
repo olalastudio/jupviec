@@ -10,6 +10,8 @@
 #import "APIRequest.h"
 #import "CommonDefines.h"
 
+#import <AFNetworking/AFNetworking.h>
+
 #include <netinet/in.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <sys/socket.h>
@@ -37,6 +39,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(void)showPopup:(UIViewController*)sender responsecode:(RESPONSE_CODE)code;
 +(void)showPopup:(UIViewController*)sender responsecode:(RESPONSE_CODE)code completionHandler:(void(^)(POPUP_ACTION action))completionHandler;
+
++(void)downloadFileFromURL:(NSString*)fileURL completionHandler:(void(^)(NSURL *file))completionHandler;
++(BOOL)imageExisted:(NSString*)imagename;
++(NSString*)pathOfFile:(NSString*)filename;
 
 @end
 

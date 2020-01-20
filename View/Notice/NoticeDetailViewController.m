@@ -29,16 +29,6 @@
     [_contentLB setTextColor:UIColorFromRGB(0x5C5C5C)];
     [_notifyDateLB setTextColor:UIColorFromRGB(0xACB3BF)];
     [_separatorline setBackgroundColor:UIColorFromRGB(0xF0F0F0)];
-    if (![[_notifyInfo objectForKey:@"image"] isKindOfClass:[NSString class]] || ![_notifyInfo objectForKey:@"image"])
-    {
-        [_notifyImageView setHidden:YES];
-    }
-    if (_imageData)
-    {
-        [_notifyImageView setImage:[UIImage imageWithData:_imageData]];
-    }
-    [_titleLB setText:[_notifyInfo objectForKey:@"title"]];
-    [_notifyDateLB setText:[_notifyInfo objectForKey:@"updated_at"]];
     
     _notifyImageView.layer.cornerRadius = 10;
     _notifyImageView.layer.masksToBounds = YES;
@@ -47,10 +37,6 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    if (![[_notifyInfo objectForKey:@"image"] isKindOfClass:[NSString class]] || ![_notifyInfo objectForKey:@"image"])
-    {
-        [_notifyImageView setHidden:YES];
-    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -67,28 +53,19 @@
         _notifyImageView.layer.borderColor = [UIColor clearColor].CGColor;
         
         [_notifyImageView setImage:nil];
+        [_notifyImageView setHidden:YES];
     }
     else
     {
-        if (!_imageData)
-        {
-            UIImage *defaultImage = [UIImage imageNamed:@"makhuyenmai.png"];
-            [_notifyImageView setImage:defaultImage];
-        }
-        else
-        {
-            [_notifyImageView setImage:[UIImage imageWithData:_imageData]];
-        }
-        
         _imageviewTopConstraint.constant = 25;
         _imageviewHeightConstraint.constant = 230;
         [_contentView layoutIfNeeded];
         
         _notifyImageView.layer.borderWidth = 1;
         _notifyImageView.layer.borderColor = UIColorFromRGB(0xF0F0F0).CGColor;
+        [_notifyImageView setHidden:NO];
     }
     
-    [_titleLB setText:[_notifyInfo objectForKey:@"title"]];
     [_contentLB setText:[_notifyInfo objectForKey:@"content"]];
     
     NSString *strdate = [_notifyInfo objectForKey:@"expired_date"];
@@ -99,6 +76,26 @@
     [format setLocale:[NSLocale localeWithLocaleIdentifier:@"vi_VN"]];
     
     [_notifyDateLB setText:[format stringFromDate:date]];
+    
+    NSString *image = [_notifyInfo objectForKey:@"image"];
+    if (![image isKindOfClass:[NSNull class]] && ![image isEqualToString:@""])
+    {
+        if ([JUntil imageExisted:image])
+        {
+            [_notifyImageView setImage:[UIImage imageWithContentsOfFile:[JUntil pathOfFile:image]]];
+        }
+        else
+        {
+            [_notifyImageView setImage:[UIImage imageNamed:@"makhuyenmai.png"]];
+        }
+    }
+    else{
+        [_notifyImageView setImage:[UIImage imageNamed:@"makhuyenmai.png"]];
+        
+    }
+    
+    [_titleLB setText:[_notifyInfo objectForKey:@"title"]];
+    [_notifyDateLB setText:[_notifyInfo objectForKey:@"updated_at"]];
 }
 
 -(void)viewDidDisappear:(BOOL)animated

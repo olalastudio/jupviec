@@ -11,6 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "HomePromotionHeaderViewCell.h"
 #import "HomePromotionCollectionViewCell.h"
+#import "HomePromotionTableViewCell.h"
 #import "User.h"
 #import "JUntil.h"
 
@@ -18,9 +19,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeViewController : JViewController <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UITabBarControllerDelegate, HomePromotionHeaderDelegate>
+@interface HomeViewController : JViewController <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UITabBarControllerDelegate, HomePromotionHeaderDelegate, HomePromotionProtocol>
 {
     NSMutableDictionary     *_serviceInfo;
+    NSMutableArray          *_couponArray;
     NSArray                 *_serviceTypesArr;
 }
 
@@ -30,6 +32,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) NSString                *strUserToken;
 @property (nonatomic, strong) NSDictionary          *configurationInfoDict;
 @property (nonatomic, strong) NSString              *strPhoneNum;
+
+-(void)setCouponArray:(NSMutableArray*)coupon;
+-(NSMutableArray*)couponDict;
 
 -(void)logIn:(NSString*)strToken phoneNumber:(NSString*)phonenumber;
 -(void)logOut;

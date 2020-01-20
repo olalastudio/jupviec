@@ -33,4 +33,14 @@
     [self setBackgroundColor:[UIColor clearColor]];
 }
 
+-(void)setPromotionImage:(NSString*)imagefile
+{
+    if (imagefile){
+        UIImage *image = [UIImage imageWithContentsOfFile:imagefile];
+        [_imgPromotion setImage:image];
+    }
+    else{
+        [_imgPromotion setImage:[UIImage imageNamed:@"makhuyenmai.png"]];
+    }
+}
 @end

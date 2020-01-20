@@ -326,6 +326,57 @@
         NSLog(@"cannot get device token");
 }
 
+#pragma mark - Download File
++(void)downloadFileFromURL:(NSString*)fileURL completionHandler:(void(^)(NSURL *file))completionHandler
+{
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+
+    NSURL *URL = [[NSURL alloc] initWithString:fileURL];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+
+    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil
+                                                                  destination:^NSURL *(NSURL *targetPath, NSURLResponse *response)
+    {
+        NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory
+                                                                              inDomain:NSUserDomainMask
+                                                                     appropriateForURL:nil
+                                                                                create:NO
+                                                                                 error:nil];
+        
+        return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+    }
+    completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error)
+    {
+        completionHandler(filePath);
+    }];
+    [downloadTask resume];
+}
+
++(BOOL)imageExisted:(NSString*)imagename
+{
+    NSString* documentsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    
+    NSString* foofile = [documentsPath stringByAppendingPathComponent:imagename];
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:foofile];
+    
+    return fileExists;
+}
+
++(NSString*)pathOfFile:(NSString*)filename
+{
+    NSString* documentsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    
+    NSString* filepath = [documentsPath stringByAppendingPathComponent:filename];
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:filepath];
+    
+    if (fileExists)
+    {
+        return filepath;
+    }
+    
+    return nil;
+}
 #pragma mark - Internet
 + (INTERNET_STATUS)internetConnectionStatus
 {

@@ -10,8 +10,9 @@
 #import "HomeTaskTableViewCell.h"
 #import "HomePromotionTableViewCell.h"
 #import "HomePromotionHeaderViewCell.h"
-#import "SignInViewController.h"
+#import "NoticeDetailViewController.h"
 
+#import "SignInViewController.h"
 #import "PlaceOrderViewController.h"
 #import "AccountInfoViewController.h"
 #import "LoginWithPasswordViewController.h"
@@ -175,6 +176,16 @@
         default:
             break;
     }
+}
+
+-(void)setCouponArray:(NSMutableArray*)coupon
+{
+    _couponArray = coupon;
+}
+
+-(NSMutableArray*)couponDict
+{
+    return _couponArray;
 }
 
 -(void)setConfigurationInfoDict:(NSDictionary *)configurationInfoDict
@@ -387,6 +398,8 @@
     {
         HomePromotionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idhomepromotioncell"];
         [cell setSessionType:SESSION_PROMOTION];
+        [cell setPromotion:_couponArray];
+        [cell setDelegate:self];
         
         return cell;
     }
@@ -508,6 +521,14 @@
             break;
         }
     }
+}
+
+-(void)didSelectPromotionCode:(NSDictionary *)promotioncode
+{
+    NoticeDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"idnoticedetail"];
+    [detailViewController setNotifyInfo:promotioncode];
+    
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 -(void)didCompleteOrder:(NSDictionary *)orderInfo

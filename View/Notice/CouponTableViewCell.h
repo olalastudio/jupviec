@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLB;
 @property (weak, nonatomic) IBOutlet UILabel *dateLB;
-@property (strong, nonatomic) NSData* imageData;
 
 - (void)setNotifyCoupon:(NSDictionary*)notifyInfo;
 @end

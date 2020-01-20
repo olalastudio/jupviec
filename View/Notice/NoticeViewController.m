@@ -286,10 +286,7 @@
     }
     else if (_selectedNotice == NOTICE_CHOISE_COUPON)
     {
-        CouponTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        NSData* imageData = [cell imageData];
         [detailViewController setNotifyInfo:[_listCoupons objectAtIndex:indexPath.row]];
-        [detailViewController setImageData:imageData];
     }
     
     UIViewController *topview = [self.navigationController topViewController];

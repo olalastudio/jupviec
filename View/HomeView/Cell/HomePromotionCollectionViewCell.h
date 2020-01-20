@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HomePromotionCollectionViewCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgPromotion;
+
+-(void)setPromotionImage:(NSString*)imagefile;
+
 @end
 
 NS_ASSUME_NONNULL_END

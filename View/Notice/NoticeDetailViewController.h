@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NoticeDetailViewController : JViewController
 
-@property (weak, nonatomic) IBOutlet JView *contentView;
+@property (weak, nonatomic) IBOutlet JView          *contentView;
 @property (weak, nonatomic) IBOutlet UILabel        *titleLB;
 @property (weak, nonatomic) IBOutlet UIImageView    *notifyImageView;
 @property (weak, nonatomic) IBOutlet UILabel        *contentLB;
