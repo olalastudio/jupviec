@@ -70,7 +70,7 @@
             _usernameLb.text = [_generalInfo objectForKey:@"name"];
         }
         else{
-            _usernameLb.text = @"Không có sẵn";
+            _usernameLb.text = [_user userPhoneNum];
         }
         
         if ([[_generalInfo objectForKey:@"address"] isKindOfClass:[NSString class]]) {
@@ -85,6 +85,21 @@
         }
         else{
             _emailLb.text = @"Không có sẵn";
+        }
+        
+        if ([[_generalInfo objectForKey:@"sex"] isKindOfClass:[NSNumber class]]) {
+            if ([[_generalInfo objectForKey:@"sex"] boolValue] == YES) {
+                _sexLb.text = @"nam";
+            }else
+                _sexLb.text = @"nữ";
+        }else{
+            _sexLb.text = @"Không có sẵn";
+        }
+        
+        if ([_user userTier]) {
+            _levelLb.text = [_user userTier];
+        }else{
+            _sexLb.text = @"Không có sẵn";
         }
         
         _phoneNumLb.text = [_user userPhoneNum];

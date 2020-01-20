@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextField *addressTF;
 @property (weak, nonatomic) IBOutlet UILabel *addressLbTitle;
 @property (weak, nonatomic) IBOutlet UITextField *identifyCardTF;
+@property (weak, nonatomic) IBOutlet UITextField *sexTF;
 @property (strong, nonatomic) User* user;
 @property (strong, nonatomic) NSString* tokenStr;
 - (IBAction)changeEdittedAccountInfo:(id)sender;

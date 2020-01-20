@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSDictionary  *dictUserInfo;
 @property (nonatomic, assign) NSInteger     userStatus;
 @property (nonatomic, assign) NSInteger     userLevel;
+@property (nonatomic, assign) NSString  *userTier;
 
 
 -(id)initUserWithInfoData:(NSDictionary*)infoDict;

@@ -28,6 +28,7 @@
         if ([infoDict objectForKey:@"level"]) {
             _userLevel = [[infoDict objectForKey:@"level"]integerValue];
         }
+        _userTier = [infoDict objectForKey:@"tier"];
     }
     
     return self;

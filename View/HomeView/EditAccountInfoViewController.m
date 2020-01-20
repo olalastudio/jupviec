@@ -30,6 +30,7 @@
     [_ageTF addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [_addressTF addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [_identifyCardTF addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [_sexTF addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     
     [_userNameLbTitle setTextColor:[UIColor blackColor]];
     [_emailLbTitle setTextColor:[UIColor blackColor]];
@@ -79,6 +80,15 @@
         else{
             _identifyCardTF.text = @"";
         }
+        
+        if ([[_accountGeneralInfo objectForKey:@"sex"] isKindOfClass:[NSNumber class]]) {
+            if ([[_accountGeneralInfo objectForKey:@"sex"] boolValue] == YES) {
+                _sexTF.text = @"nam";
+            }else
+                _sexTF.text = @"nữ";
+        }else{
+            _sexTF.text = @"";
+        }
     }
 }
 
@@ -103,6 +113,10 @@
         [_accountGeneralInfo setObject:[NSNumber numberWithInteger:[_ageTF.text integerValue]] forKey:@"age"];
         [_accountGeneralInfo setObject:_addressTF.text forKey:@"address"];
         [_accountGeneralInfo setObject:[NSNumber numberWithInteger:[_identifyCardTF.text integerValue]] forKey:@"identity_card"];
+        if ([[_sexTF.text lowercaseString] isEqualToString:@"nam"]) {
+            [_accountGeneralInfo setObject:[NSNumber numberWithBool:YES] forKey:@"sex"];
+        }else
+            [_accountGeneralInfo setObject:[NSNumber numberWithBool:NO] forKey:@"sex"];
         
         LoadingViewController *loadingview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloadingview"];
         [loadingview show:self];
