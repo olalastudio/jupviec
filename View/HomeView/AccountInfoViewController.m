@@ -27,6 +27,7 @@
     [_emailLb setTextColor:UIColorFromRGB(0xACB3BF)];
     [_sexLb setTextColor:UIColorFromRGB(0xACB3BF)];
     [_levelTitleLb setTextColor:UIColorFromRGB(0xACB3BF)];
+    [_levelLb setTextColor:UIColorFromRGB(0xACB3BF)];
     [_usernameLb setTextColor:[UIColor blackColor]];
     [_addressLbTitle setTextColor:[UIColor blackColor]];
     [_phoneNumLbTitle setTextColor:[UIColor blackColor]];
@@ -103,7 +104,7 @@
         if ([_user userTier]) {
             _levelLb.text = [_user userTier];
         }else{
-            _sexLb.text = @"Không có sẵn";
+            _levelLb.text = @"Không có sẵn";
         }
         
         _phoneNumLb.text = [_user userPhoneNum];

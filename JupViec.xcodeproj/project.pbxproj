@@ -430,6 +430,10 @@
 		0668482A239F9DC900A463A7 /* DateTimePickerPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06684829239F9DC900A463A7 /* DateTimePickerPopupController.m */; };
 		066F890F23C719A8008C9844 /* ExtendServicePopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 066F890E23C719A8008C9844 /* ExtendServicePopupController.m */; };
 		067A399023A88ABC00740FA3 /* ConfirmOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 067A398F23A88ABC00740FA3 /* ConfirmOrderViewController.m */; };
+		06831E2D23D6FAEE0059A123 /* unrate@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06831E2923D6FAEE0059A123 /* unrate@3x.png */; };
+		06831E2E23D6FAEE0059A123 /* rate@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06831E2A23D6FAEE0059A123 /* rate@3x.png */; };
+		06831E2F23D6FAEE0059A123 /* unrate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06831E2B23D6FAEE0059A123 /* unrate@2x.png */; };
+		06831E3023D6FAEE0059A123 /* rate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06831E2C23D6FAEE0059A123 /* rate@2x.png */; };
 		068DDEED23990D8C009484E7 /* PlaceOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 068DDEEC23990D8C009484E7 /* PlaceOrderViewController.m */; };
 		068DDEF023991431009484E7 /* CommonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 068DDEEF23991431009484E7 /* CommonCell.xib */; };
 		068DDEF32399144C009484E7 /* PlaceOrderCommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 068DDEF22399144C009484E7 /* PlaceOrderCommonTableViewCell.m */; };
@@ -970,6 +974,10 @@
 		066F890E23C719A8008C9844 /* ExtendServicePopupController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtendServicePopupController.m; sourceTree = "<group>"; };
 		067A398E23A88ABC00740FA3 /* ConfirmOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfirmOrderViewController.h; sourceTree = "<group>"; };
 		067A398F23A88ABC00740FA3 /* ConfirmOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirmOrderViewController.m; sourceTree = "<group>"; };
+		06831E2923D6FAEE0059A123 /* unrate@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unrate@3x.png"; sourceTree = "<group>"; };
+		06831E2A23D6FAEE0059A123 /* rate@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rate@3x.png"; sourceTree = "<group>"; };
+		06831E2B23D6FAEE0059A123 /* unrate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unrate@2x.png"; sourceTree = "<group>"; };
+		06831E2C23D6FAEE0059A123 /* rate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rate@2x.png"; sourceTree = "<group>"; };
 		068DDEEB23990D8C009484E7 /* PlaceOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceOrderViewController.h; sourceTree = "<group>"; };
 		068DDEEC23990D8C009484E7 /* PlaceOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceOrderViewController.m; sourceTree = "<group>"; };
 		068DDEEF23991431009484E7 /* CommonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonCell.xib; sourceTree = "<group>"; };
@@ -1668,6 +1676,10 @@
 		0667ECA223B47835004AAA5E /* button */ = {
 			isa = PBXGroup;
 			children = (
+				06831E2C23D6FAEE0059A123 /* rate@2x.png */,
+				06831E2A23D6FAEE0059A123 /* rate@3x.png */,
+				06831E2B23D6FAEE0059A123 /* unrate@2x.png */,
+				06831E2923D6FAEE0059A123 /* unrate@3x.png */,
 				CE717E2723D0588E007C5ACC /* Polygon 6.png */,
 				CE717E2823D0588E007C5ACC /* Polygon 7.png */,
 				064B1FA523C70528006DC513 /* add.png */,
@@ -2124,6 +2136,7 @@
 				0601E3C0238FAEEF00403C95 /* key.png in Resources */,
 				0601E47C238FAEF000403C95 /* user-2.png in Resources */,
 				83D0FE5423BCC4A500688924 /* Roboto-Black.ttf in Resources */,
+				06831E3023D6FAEE0059A123 /* rate@2x.png in Resources */,
 				0601E323238FAEEF00403C95 /* alarm-1.png in Resources */,
 				0601E3A0238FAEEF00403C95 /* folder-7.png in Resources */,
 				0601E44C238FAEF000403C95 /* smartphone-9.png in Resources */,
@@ -2228,6 +2241,7 @@
 				0601E465238FAEF000403C95 /* success.png in Resources */,
 				0601E36B238FAEEF00403C95 /* database-3.png in Resources */,
 				0601E3CB238FAEEF00403C95 /* lock.png in Resources */,
+				06831E2F23D6FAEE0059A123 /* unrate@2x.png in Resources */,
 				0601E3AE238FAEEF00403C95 /* home-2.png in Resources */,
 				0601E3CA238FAEEF00403C95 /* lock-1.png in Resources */,
 				0601E491238FAEF000403C95 /* wifi.png in Resources */,
@@ -2251,6 +2265,7 @@
 				0601E3AC238FAEEF00403C95 /* hold.png in Resources */,
 				0608E3CE23BF3180000EE8B1 /* rate.png in Resources */,
 				0601E3FE238FAEEF00403C95 /* notepad-1.png in Resources */,
+				06831E2E23D6FAEE0059A123 /* rate@3x.png in Resources */,
 				0601E427238FAEF000403C95 /* save.png in Resources */,
 				0601E492238FAEF000403C95 /* windows-1.png in Resources */,
 				0601E3C9238FAEEF00403C95 /* list.png in Resources */,
@@ -2427,6 +2442,7 @@
 				06CF639D23CC8C8500F95329 /* Promotion@2x.png in Resources */,
 				0601E3F7238FAEEF00403C95 /* note.png in Resources */,
 				0601E384238FAEEF00403C95 /* fax.png in Resources */,
+				06831E2D23D6FAEE0059A123 /* unrate@3x.png in Resources */,
 				0601E3BA238FAEEF00403C95 /* id-card.png in Resources */,
 				83D0FE4323BCA14900688924 /* Comfortaa-Bold.ttf in Resources */,
 				0601E46F238FAEF000403C95 /* tabs.png in Resources */,

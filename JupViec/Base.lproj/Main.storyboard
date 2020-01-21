@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -429,13 +427,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sEQ-wf-OHj">
-                                        <rect key="frame" x="25" y="63" width="339" height="30"/>
+                                        <rect key="frame" x="25" y="63" width="339" height="34"/>
                                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="0.20999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Địa chỉ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaB-HN-ocq">
-                                        <rect key="frame" x="25" y="113" width="339" height="14"/>
+                                        <rect key="frame" x="25" y="117" width="339" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="p74-hR-5Wl"/>
                                         </constraints>
@@ -444,19 +442,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R5d-Nd-bWF">
-                                        <rect key="frame" x="25" y="223.5" width="339" height="30"/>
+                                        <rect key="frame" x="25" y="231.5" width="339" height="34"/>
                                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="0.20999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8eU-ij-kNk">
-                                        <rect key="frame" x="25" y="142" width="339" height="30"/>
+                                        <rect key="frame" x="25" y="146" width="339" height="34"/>
                                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="0.20999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCz-sO-fpS">
-                                        <rect key="frame" x="25" y="192" width="339" height="16.5"/>
+                                        <rect key="frame" x="25" y="200" width="339" height="16.5"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -476,15 +474,14 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giới tính" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWv-O3-yvM">
-                                        <rect key="frame" x="25" y="273.5" width="51.5" height="16.5"/>
+                                        <rect key="frame" x="25" y="285.5" width="51.5" height="16.5"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E3M-2m-401">
-                                        <rect key="frame" x="25" y="305" width="339" height="30"/>
+                                        <rect key="frame" x="25" y="317" width="339" height="34"/>
                                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="0.20999999999999999" colorSpace="calibratedRGB"/>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -1457,7 +1454,7 @@
                                 <rect key="frame" x="12" y="110" width="390" height="786"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nội dung đánh giá" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFF-DO-bak">
-                                        <rect key="frame" x="25" y="146" width="345" height="14"/>
+                                        <rect key="frame" x="25" y="169" width="345" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="ogS-TF-9cZ"/>
                                         </constraints>
@@ -1466,10 +1463,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBi-rG-cQ1" userLabel="2">
-                                        <rect key="frame" x="52" y="99" width="19" height="19"/>
+                                        <rect key="frame" x="75" y="99" width="42" height="42"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="19" id="ixa-YG-mvl"/>
-                                            <constraint firstAttribute="width" constant="19" id="pqn-ph-lpc"/>
+                                            <constraint firstAttribute="height" constant="42" id="ixa-YG-mvl"/>
+                                            <constraint firstAttribute="width" constant="42" id="pqn-ph-lpc"/>
                                         </constraints>
                                         <state key="normal" image="unrate.png"/>
                                         <connections>
@@ -1477,10 +1474,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1a-bn-Rq5" userLabel="3">
-                                        <rect key="frame" x="79" y="99" width="19" height="19"/>
+                                        <rect key="frame" x="125" y="99" width="42" height="42"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="19" id="C6a-Tg-Nhh"/>
-                                            <constraint firstAttribute="height" constant="19" id="qJP-5b-5CL"/>
+                                            <constraint firstAttribute="width" constant="42" id="C6a-Tg-Nhh"/>
+                                            <constraint firstAttribute="height" constant="42" id="qJP-5b-5CL"/>
                                         </constraints>
                                         <state key="normal" image="unrate.png"/>
                                         <connections>
@@ -1488,10 +1485,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKa-j9-s4A" userLabel="4">
-                                        <rect key="frame" x="106" y="99" width="19" height="19"/>
+                                        <rect key="frame" x="175" y="99" width="42" height="42"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="19" id="Fyg-ak-o8g"/>
-                                            <constraint firstAttribute="height" constant="19" id="ebs-OD-yby"/>
+                                            <constraint firstAttribute="width" constant="42" id="Fyg-ak-o8g"/>
+                                            <constraint firstAttribute="height" constant="42" id="ebs-OD-yby"/>
                                         </constraints>
                                         <state key="normal" image="unrate.png"/>
                                         <connections>
@@ -1499,10 +1496,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fue-cb-TgU" userLabel="5">
-                                        <rect key="frame" x="133" y="99" width="19" height="19"/>
+                                        <rect key="frame" x="225" y="99" width="42" height="42"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="19" id="ISO-xk-Q3c"/>
-                                            <constraint firstAttribute="width" constant="19" id="o1J-PT-1EI"/>
+                                            <constraint firstAttribute="height" constant="42" id="ISO-xk-Q3c"/>
+                                            <constraint firstAttribute="width" constant="42" id="o1J-PT-1EI"/>
                                         </constraints>
                                         <state key="normal" image="unrate.png"/>
                                         <connections>
@@ -1510,10 +1507,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EA7-Ag-och" userLabel="1">
-                                        <rect key="frame" x="25" y="99" width="19" height="19"/>
+                                        <rect key="frame" x="25" y="99" width="42" height="42"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="19" id="eIW-eI-FOn"/>
-                                            <constraint firstAttribute="height" constant="19" id="lYq-Yk-VyS"/>
+                                            <constraint firstAttribute="width" constant="42" id="eIW-eI-FOn"/>
+                                            <constraint firstAttribute="height" constant="42" id="lYq-Yk-VyS"/>
                                         </constraints>
                                         <state key="normal" image="rate.png"/>
                                         <connections>
@@ -1530,7 +1527,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write your comment" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XrD-Rr-DhA">
-                                        <rect key="frame" x="27" y="175" width="340" height="186"/>
+                                        <rect key="frame" x="27" y="198" width="340" height="186"/>
                                         <color key="backgroundColor" white="0.89728702910958902" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="186" id="Lx7-hq-TJi"/>
@@ -2151,18 +2148,18 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select your location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6xC-3H-zrQ">
-                                        <rect key="frame" x="27" y="64" width="340" height="30"/>
+                                        <rect key="frame" x="27" y="64" width="340" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chọn vị trí của bạn trên bản đồ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZW-hC-dRc">
-                                        <rect key="frame" x="27" y="114" width="343" height="15"/>
+                                        <rect key="frame" x="27" y="118" width="343" height="15"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NVo-U9-Ijh" customClass="GMSMapView">
-                                        <rect key="frame" x="26" y="143" width="340" height="531"/>
+                                        <rect key="frame" x="26" y="147" width="340" height="527"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     </view>
                                 </subviews>
@@ -2665,7 +2662,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iVo-Iw-Hcp">
-                                        <rect key="frame" x="317" y="25" width="67" height="33"/>
+                                        <rect key="frame" x="316" y="25" width="68" height="33"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <state key="normal" title="Tiếp Tục">
