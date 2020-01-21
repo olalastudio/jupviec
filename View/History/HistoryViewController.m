@@ -127,14 +127,41 @@
     }
 }
 
+//"updated_at" = "2020-01-07T09:01:49.544+0000";
 -(void)showHistory:(NSArray*)arrayHistory
 {
-    for (NSDictionary *item in arrayHistory)
-    {
-        [_listData addObject:item];
-    }
+    _listData = [self sortArray:arrayHistory];
     
     [_tbHistory reloadData];
+}
+
+-(NSMutableArray*)sortArray:(NSArray*)array
+{
+    NSArray *sortedarray = [array sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2)
+    {
+        static NSDateFormatter *dateFormatter = nil;
+
+        if (!dateFormatter) {
+            dateFormatter = [[NSDateFormatter alloc] init];
+            dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZ";
+        }
+
+        NSString *date1String = [obj1 valueForKey:ID_UPDATE_DATE];
+        NSString *date2String = [obj2 valueForKey:ID_UPDATE_DATE];
+
+        NSDate *date1 = [dateFormatter dateFromString:date1String];
+        NSDate *date2 = [dateFormatter dateFromString:date2String];
+
+        return [date1 compare:date2];
+    }];
+    
+    NSMutableArray *sortedlist = [[NSMutableArray alloc] initWithCapacity:0];
+    for (int i = [sortedarray count] - 1; i >= 0; i--)
+    {
+        [sortedlist addObject:[sortedarray objectAtIndex:i]];
+    }
+    
+    return sortedlist;
 }
 /*
 #pragma mark - Navigation
@@ -201,6 +228,8 @@
     
     [_listData addObject:orderInfo];
     
+    _listData = [self sortArray:_listData];
+    
     [_tbHistory reloadData];
 }
 
@@ -231,6 +260,8 @@
     //update back old list
     _listData = [[NSMutableArray alloc] initWithArray:newArray];
     
+    _listData = [self sortArray:_listData];
+    
     [_tbHistory reloadData];
 }
 
@@ -260,6 +291,8 @@
     
     //update back old list
     _listData = [[NSMutableArray alloc] initWithArray:newArray];
+    
+    _listData = [self sortArray:_listData];
     
     [_tbHistory reloadData];
 }

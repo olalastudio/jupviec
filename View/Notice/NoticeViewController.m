@@ -145,21 +145,23 @@
 -(void)showNotice:(NSArray*)notices
 {
     dispatch_sync(dispatch_get_main_queue(), ^{
+                
+        _listNotices = [self sortArray:notices];
         
-        _listNotices = [NSMutableArray arrayWithArray:notices];
+        [self showSelectedList];
         
-         [self showSelectedList];
         [_tbNotice reloadData];
     });
 }
 
--(void)showCoupon:(NSArray*)notices
+-(void)showCoupon:(NSArray*)coupons
 {
     dispatch_sync(dispatch_get_main_queue(), ^{
         
-        _listCoupons = [NSMutableArray arrayWithArray:notices];
+        _listCoupons = [self sortArray:coupons];
         
         [self showSelectedList];
+        
         [_tbNotice reloadData];
     });
 }
@@ -192,6 +194,35 @@
     [_btPromotion setTitleColor:UIColorFromRGB(0x000000) forState:UIControlStateNormal];
     
     [_tbNotice reloadData];
+}
+
+-(NSMutableArray*)sortArray:(NSArray*)array
+{
+    NSArray *sortedarray = [array sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2)
+    {
+        static NSDateFormatter *dateFormatter = nil;
+
+        if (!dateFormatter) {
+            dateFormatter = [[NSDateFormatter alloc] init];
+            dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZ";
+        }
+
+        NSString *date1String = [obj1 valueForKey:ID_UPDATE_DATE];
+        NSString *date2String = [obj2 valueForKey:ID_UPDATE_DATE];
+
+        NSDate *date1 = [dateFormatter dateFromString:date1String];
+        NSDate *date2 = [dateFormatter dateFromString:date2String];
+
+        return [date1 compare:date2];
+    }];
+    
+    NSMutableArray *sortedlist = [[NSMutableArray alloc] initWithCapacity:0];
+    for (int i = [sortedarray count] - 1; i >= 0; i--)
+    {
+        [sortedlist addObject:[sortedarray objectAtIndex:i]];
+    }
+    
+    return sortedlist;
 }
 /*
 #pragma mark - Navigation

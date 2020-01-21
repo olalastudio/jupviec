@@ -79,6 +79,37 @@
     }
 }
 
+-(void)broadcastUser
+{
+    if (_user) {
+        
+        NSArray *navicontrols = [self.tabBarController viewControllers];
+        for (UINavigationController *navicontrol in navicontrols) {
+        
+            UIViewController *viewcontrol = [navicontrol visibleViewController];
+            if ([viewcontrol isKindOfClass:[HistoryViewController class]])
+            {
+                HistoryViewController *historyview = (HistoryViewController*)viewcontrol;
+                [historyview setDefineCodeGetFromServer:[self definesCode:@[ID_REQUEST_TYPE, ID_CLIENT_STATUS, ID_DEFINE_MESSAGE, ID_FEEDBACK_STATUS, ID_REQUEST_STATUS, ID_PAYMENT_STATUS, ID_PAYMENT_METHOD, ID_SERVICE_EXTEND]]];
+                [historyview setUser:_user];
+            }
+            else if ([viewcontrol isKindOfClass:[NoticeViewController class]])
+            {
+                NoticeViewController *noticeview = (NoticeViewController*)viewcontrol;
+                [noticeview setUser:_user];
+            }
+            else if ([viewcontrol isKindOfClass:[InformationViewController class]])
+            {
+                InformationViewController* infoVC = (InformationViewController*)viewcontrol;
+                [infoVC setUser:_user];
+            }
+            else if ([viewcontrol isKindOfClass:[HomeViewController class]])
+            {
+            }
+        }
+    }
+}
+
 -(void)setUser:(User *)user
 {
     _user = user;
@@ -89,6 +120,8 @@
     [[NSUserDefaults standardUserDefaults] setObject:[_user userPhoneNum] forKey:ID_USER_PHONENUMBER];
     
     [JUntil sendFCMDeviceTokenToServer:_strUserToken];
+    
+    [self broadcastUser];
 }
 
 -(User*)user
@@ -241,6 +274,8 @@
 {
     [self setStrUserToken:strToken];
     [self setStrPhoneNum:phonenumber];
+    
+    [self broadcastUser];
 }
 
 -(BOOL)isLogedIn

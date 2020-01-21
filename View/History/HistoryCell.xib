@@ -51,8 +51,8 @@
                         <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="1 Phạm văn bạch, Yên Hoà, Cầu giấy, Hà nội, Việt Nam ha nòi" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeN-MM-yPd">
-                        <rect key="frame" x="15" y="68.5" width="429" height="14.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="1 Phạm văn bạch, Yên Hoà, Cầu giấy, Hà nội, Việt Nam" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="BeN-MM-yPd">
+                        <rect key="frame" x="15" y="62.5" width="429" height="30.5"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -74,9 +74,10 @@
                     <constraint firstItem="BeN-MM-yPd" firstAttribute="leading" secondItem="uQ5-4t-X6y" secondAttribute="leading" constant="15" id="9BX-Jb-5p1"/>
                     <constraint firstItem="oFs-iy-HQi" firstAttribute="leading" secondItem="0Fj-RA-mM0" secondAttribute="trailing" constant="17" id="9oL-Hz-QV0"/>
                     <constraint firstItem="Xta-Q8-Ufo" firstAttribute="top" secondItem="0Fj-RA-mM0" secondAttribute="bottom" constant="6" id="AK5-40-mEG"/>
-                    <constraint firstItem="DkG-33-FGf" firstAttribute="top" secondItem="BeN-MM-yPd" secondAttribute="bottom" constant="10" id="CIL-oT-p4h"/>
+                    <constraint firstItem="DkG-33-FGf" firstAttribute="top" secondItem="BeN-MM-yPd" secondAttribute="bottom" id="CIL-oT-p4h"/>
                     <constraint firstItem="Xta-Q8-Ufo" firstAttribute="leading" secondItem="uQ5-4t-X6y" secondAttribute="leading" constant="15" id="Fpv-no-feK"/>
                     <constraint firstAttribute="trailing" secondItem="t9e-Qx-6my" secondAttribute="trailing" constant="25" id="LAb-EC-8CR"/>
+                    <constraint firstItem="BeN-MM-yPd" firstAttribute="top" secondItem="Xta-Q8-Ufo" secondAttribute="bottom" id="Rpb-6X-iHX"/>
                     <constraint firstItem="oFs-iy-HQi" firstAttribute="top" secondItem="uQ5-4t-X6y" secondAttribute="top" constant="25" id="lhJ-wD-fJA"/>
                     <constraint firstItem="t9e-Qx-6my" firstAttribute="leading" secondItem="uQ5-4t-X6y" secondAttribute="leading" constant="15" id="sZP-qg-GeR"/>
                     <constraint firstAttribute="bottom" secondItem="t9e-Qx-6my" secondAttribute="bottom" id="tsV-Er-CEn"/>

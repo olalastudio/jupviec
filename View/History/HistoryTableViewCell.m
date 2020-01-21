@@ -83,7 +83,7 @@
     NSString *requestStatus = [_historyData objectForKey:ID_REQUEST_STATUS];
     [_txtStatus setText:[self stringDisplayWithStatusID:ID_REQUEST_STATUS code:requestStatus]];
     
-    NSString *strDate = [_historyData objectForKey:ID_WORKING_DATE];
+    NSString *strDate = [_historyData objectForKey:ID_UPDATE_DATE];
     NSDate *updateDate = [JUntil dateFromString:strDate];
     [_txtDate setText:[JUntil stringFromDate:updateDate]];
     
