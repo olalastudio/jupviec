@@ -7,6 +7,7 @@ target 'JupViec' do
 
   # Pods for JupViec
   pod 'JGActionSheet'
+  pod 'AFNetworking'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod 'Firebase/Core', :inhibit_warnings => true
