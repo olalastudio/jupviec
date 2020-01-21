@@ -42,6 +42,8 @@
     [self initData];
     [self getHistory];
     
+    [self configPullToRefreshControl];
+    
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];
 }
 
@@ -49,6 +51,45 @@
 {
     if (!_listData) {
         _listData = [[NSMutableArray alloc] initWithCapacity:0];
+    }
+}
+
+-(void)configPullToRefreshControl
+{
+    UIRefreshControl *refreshControll = [[UIRefreshControl alloc] init];
+    [refreshControll addTarget:self action:@selector(willRefreshContent) forControlEvents:UIControlEventValueChanged];
+    
+    _tbHistory.refreshControl = refreshControll;
+}
+
+-(void)willRefreshContent
+{
+    if (_user)
+    {
+        APIRequest *apirequest = [[APIRequest alloc] init];
+        [apirequest requestAPIGetAllRequests:[_user userToken] completionHandler:^(NSArray * _Nullable resultDict, NSError * _Nonnull error)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self.tbHistory.refreshControl endRefreshing];
+                
+                if (error.code == 200) { //sucess
+                    [self showHistory:resultDict];
+                }
+                else if (error.code == RESPONSE_CODE_NODATA)
+                {
+                    [JUntil showPopup:self responsecode:RESPONSE_CODE_NODATA];
+                }
+                else if (error.code == RESPONSE_CODE_TIMEOUT)
+                {
+                    [JUntil showPopup:self responsecode:RESPONSE_CODE_TIMEOUT];
+                }
+                else
+                {
+                    [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
+                }
+            });
+        }];
     }
 }
 

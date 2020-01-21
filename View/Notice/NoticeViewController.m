@@ -50,6 +50,8 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];
     
     _selectedNotice = NOTICE_CHOISE_NOTICE;
+    
+    [self configPullToRefreshControl];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -87,6 +89,48 @@
     [super viewDidDisappear:animated];
 }
 
+-(void)configPullToRefreshControl
+{
+    UIRefreshControl *refreshControll = [[UIRefreshControl alloc] init];
+    [refreshControll addTarget:self action:@selector(willRefreshContent) forControlEvents:UIControlEventValueChanged];
+    
+    _tbNotice.refreshControl = refreshControll;
+}
+
+-(void)willRefreshContent
+{
+    if (_selectedNotice == NOTICE_CHOISE_NOTICE)
+    {
+        APIRequest *apirequest = [[APIRequest alloc] init];
+        [apirequest requestAPIGetNotifiesWithType:[_user userToken] notifyType:NOTIFIES_TYPE_NOTIFY completionHandler:^(NSArray * _Nullable resultDict, NSError * _Nonnull error)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self.tbNotice.refreshControl endRefreshing];
+                
+                if (error.code == 200) {
+                    [self showNotice:resultDict];
+                }
+            });
+        }];
+    }
+    else
+    {
+        APIRequest *apirequest = [[APIRequest alloc] init];
+        [apirequest requestAPIGetNotifiesWithType:[_user userToken] notifyType:NOTIFIES_TYPE_PROMOTION completionHandler:^(NSArray * _Nullable resultDict, NSError * _Nonnull error)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self.tbNotice.refreshControl endRefreshing];
+                
+                if (error.code == 200) {
+                    [self showCoupon:resultDict];
+                }
+            });
+        }];
+    }
+}
+
 -(void)setUser:(User *)user
 {
     _user = user;
@@ -100,70 +144,69 @@
 -(void)getNotice
 {
     APIRequest *apirequest = [[APIRequest alloc] init];
-    
-    [apirequest requestAPIGetNotifiesWithType:[_user userToken] notifyType:NOTIFIES_TYPE_NOTIFY completionHandler:^(NSArray * _Nullable resultDict, NSError * _Nonnull error) {
-        if (error.code == 200) {
-            [self showNotice:resultDict];
-        }
-        else if (error.code == RESPONSE_CODE_NODATA)
-        {
-            [JUntil showPopup:self responsecode:RESPONSE_CODE_NODATA];
-        }
-        else if (error.code == RESPONSE_CODE_TIMEOUT)
-        {
-            [JUntil showPopup:self responsecode:RESPONSE_CODE_TIMEOUT];
-        }
-        else
-        {
-            [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
-        }
+    [apirequest requestAPIGetNotifiesWithType:[_user userToken] notifyType:NOTIFIES_TYPE_NOTIFY completionHandler:^(NSArray * _Nullable resultDict, NSError * _Nonnull error)
+    {
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            if (error.code == 200) {
+                [self showNotice:resultDict];
+            }
+            else if (error.code == RESPONSE_CODE_NODATA)
+            {
+                [JUntil showPopup:self responsecode:RESPONSE_CODE_NODATA];
+            }
+            else if (error.code == RESPONSE_CODE_TIMEOUT)
+            {
+                [JUntil showPopup:self responsecode:RESPONSE_CODE_TIMEOUT];
+            }
+            else
+            {
+                [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
+            }
+        });
     }];
 }
 
 -(void)getCoupon
 {
     APIRequest *apirequest = [[APIRequest alloc] init];
-    [apirequest requestAPIGetNotifiesWithType:[_user userToken] notifyType:NOTIFIES_TYPE_PROMOTION completionHandler:^(NSArray * _Nullable resultDict, NSError * _Nonnull error) {
-        if (error.code == 200) {
-            [self showCoupon:resultDict];
-        }
-        else if (error.code == RESPONSE_CODE_NODATA)
-        {
-            [JUntil showPopup:self responsecode:RESPONSE_CODE_NODATA];
-        }
-        else if (error.code == RESPONSE_CODE_TIMEOUT)
-        {
-            [JUntil showPopup:self responsecode:RESPONSE_CODE_TIMEOUT];
-        }
-        else
-        {
-            [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
-        }
+    [apirequest requestAPIGetNotifiesWithType:[_user userToken] notifyType:NOTIFIES_TYPE_PROMOTION completionHandler:^(NSArray * _Nullable resultDict, NSError * _Nonnull error)
+    {
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            if (error.code == 200) {
+                [self showCoupon:resultDict];
+            }
+            else if (error.code == RESPONSE_CODE_NODATA)
+            {
+                [JUntil showPopup:self responsecode:RESPONSE_CODE_NODATA];
+            }
+            else if (error.code == RESPONSE_CODE_TIMEOUT)
+            {
+                [JUntil showPopup:self responsecode:RESPONSE_CODE_TIMEOUT];
+            }
+            else
+            {
+                [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
+            }
+        });
     }];
 }
 
 -(void)showNotice:(NSArray*)notices
 {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-                
-        _listNotices = [self sortArray:notices];
-        
-        [self showSelectedList];
-        
-        [_tbNotice reloadData];
-    });
+    _listNotices = [self sortArray:notices];
+    
+    [self showSelectedList];
+    
+    [_tbNotice reloadData];
 }
 
 -(void)showCoupon:(NSArray*)coupons
 {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        
-        _listCoupons = [self sortArray:coupons];
-        
-        [self showSelectedList];
-        
-        [_tbNotice reloadData];
-    });
+    _listCoupons = [self sortArray:coupons];
+    
+    [self showSelectedList];
+    
+    [_tbNotice reloadData];
 }
 
 - (IBAction)didSelectNoticeType:(id)sender
