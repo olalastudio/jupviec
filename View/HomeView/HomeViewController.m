@@ -171,6 +171,7 @@
     
     [self.navigationController.navigationBar setHidden:YES];
     [self.tabBarController.tabBar setHidden:NO];
+    [self.tabBarController setDelegate:self];
     
     [self showLoginUser];
 }
