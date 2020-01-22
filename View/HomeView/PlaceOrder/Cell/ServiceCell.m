@@ -58,6 +58,14 @@
 -(void)setServiceCellType:(ServiceCellType)type
 {
     _type = type;
+    
+    if (type == TYPE_POPUP)
+    {
+        [_btDelete setHidden:NO];
+    }
+    else{
+        [_btDelete setHidden:YES];
+    }
 }
 
 -(void)setIndexPath:(NSIndexPath*)index
