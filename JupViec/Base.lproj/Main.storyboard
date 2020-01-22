@@ -2807,8 +2807,8 @@
         <image name="Promotion.png" width="16.666666030883789" height="16.333333969116211"/>
         <image name="headerEllipse.png" width="375" height="221"/>
         <image name="multiply.png" width="24.891288757324219" height="24.891288757324219"/>
-        <image name="rate.png" width="19" height="18"/>
-        <image name="unrate.png" width="19" height="18"/>
+        <image name="rate.png" width="26.666666030883789" height="25.666666030883789"/>
+        <image name="unrate.png" width="26.666666030883789" height="25.666666030883789"/>
         <image name="welcome.png" width="333" height="333"/>
     </resources>
 </document>

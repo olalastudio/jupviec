@@ -17,7 +17,7 @@
     
     [_txtServiceName setTextColor:[UIColor blackColor]];
     
-    [self setBackgroundColor:[UIColor whiteColor]];
+    [self setBackgroundColor:[UIColor clearColor]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

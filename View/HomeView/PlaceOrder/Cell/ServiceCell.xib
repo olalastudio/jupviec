@@ -22,10 +22,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olc-aq-lcw">
-                        <rect key="frame" x="399" y="9" width="12" height="12"/>
+                        <rect key="frame" x="391" y="5" width="20" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="12" id="EQp-da-IuY"/>
-                            <constraint firstAttribute="height" constant="12" id="HLn-9A-mCq"/>
+                            <constraint firstAttribute="width" constant="20" id="EQp-da-IuY"/>
+                            <constraint firstAttribute="height" constant="20" id="HLn-9A-mCq"/>
                         </constraints>
                         <state key="normal" image="delete.png" backgroundImage="delete.png"/>
                         <connections>
@@ -33,7 +33,7 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đi chợ mua thức ăn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yva-f5-chb">
-                        <rect key="frame" x="20" y="7" width="121" height="16"/>
+                        <rect key="frame" x="14" y="7" width="121" height="16"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -42,8 +42,8 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="olc-aq-lcw" secondAttribute="trailing" constant="3" id="7Ji-l5-RQv"/>
                     <constraint firstItem="olc-aq-lcw" firstAttribute="centerY" secondItem="Eg0-z9-OWG" secondAttribute="centerY" id="Zi4-yT-cRm"/>
-                    <constraint firstItem="yva-f5-chb" firstAttribute="leading" secondItem="Eg0-z9-OWG" secondAttribute="leading" constant="20" id="n9q-qT-hf0"/>
-                    <constraint firstItem="yva-f5-chb" firstAttribute="centerY" secondItem="Eg0-z9-OWG" secondAttribute="centerY" id="vim-5y-B1X"/>
+                    <constraint firstItem="yva-f5-chb" firstAttribute="centerY" secondItem="Eg0-z9-OWG" secondAttribute="centerY" id="ebN-I1-xpA"/>
+                    <constraint firstItem="yva-f5-chb" firstAttribute="leading" secondItem="Eg0-z9-OWG" secondAttribute="leading" constant="14" id="n9q-qT-hf0"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

@@ -28,10 +28,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoz-c3-nBN">
-                        <rect key="frame" x="374" y="12" width="17" height="17"/>
+                        <rect key="frame" x="371" y="12" width="20" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="17" id="76f-G6-P3T"/>
-                            <constraint firstAttribute="height" constant="17" id="JhL-el-si5"/>
+                            <constraint firstAttribute="width" constant="20" id="76f-G6-P3T"/>
+                            <constraint firstAttribute="height" constant="20" id="JhL-el-si5"/>
                         </constraints>
                         <state key="normal" image="add.png" backgroundImage="add.png"/>
                         <connections>
@@ -39,7 +39,7 @@
                         </connections>
                     </button>
                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F3x-5a-boF">
-                        <rect key="frame" x="27" y="37" width="364" height="36"/>
+                        <rect key="frame" x="27" y="40" width="364" height="33"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </tableView>
                 </subviews>

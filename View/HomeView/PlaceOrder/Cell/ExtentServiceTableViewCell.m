@@ -24,7 +24,10 @@
     [_tbService setDelegate:self];
     [_tbService setDataSource:self];
     [_tbService setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    [_tbService setBackgroundColor:[UIColor whiteColor]];
+    [_tbService setBackgroundColor:[UIColor colorWithRed:240.0f/255.0f green:240.0f/255.0f blue:240.0f/255.0f alpha:0.21]];
+    _tbService.layer.cornerRadius = 7;
+    _tbService.layer.borderWidth = 1;
+    _tbService.layer.borderColor = [UIColor colorWithRed:218.0f/255.0f green:218.0f/255.0f blue:218.0f/255.0f alpha:0.51].CGColor;
     
     [_txtTitle setTextColor:UIColorFromRGB(0x000000)];
     

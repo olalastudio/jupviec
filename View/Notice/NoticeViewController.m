@@ -36,7 +36,10 @@
     [_categoriesSelectionView.layer setBorderColor:[UIColor colorWithRed:218.0f/255.0f green:218.0f/255.0f blue:218.0f/255.0f alpha:0.51].CGColor];
     
     _listNotices = [[NSMutableArray alloc] initWithCapacity:0];
-    _listCoupons = [[NSMutableArray alloc] initWithCapacity:0];
+    
+    if (!_listCoupons) {
+        _listCoupons = [[NSMutableArray alloc] initWithCapacity:0];
+    }
     
     [_tbNotice registerNib:[UINib nibWithNibName:@"NoticeCell" bundle:nil] forCellReuseIdentifier:@"idnoticecell"];
     [_tbNotice registerNib:[UINib nibWithNibName:@"CouponCell" bundle:nil] forCellReuseIdentifier:@"idcouponcell"];
@@ -48,8 +51,6 @@
     [_tbNotice setBackgroundColor:[UIColor whiteColor]];
     
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];
-    
-    _selectedNotice = NOTICE_CHOISE_NOTICE;
     
     [self configPullToRefreshControl];
 }

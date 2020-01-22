@@ -31,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)showCouponView;
 -(void)showNoticeView;
+-(void)showCoupon:(NSArray*)coupons;
 @end
 
 NS_ASSUME_NONNULL_END

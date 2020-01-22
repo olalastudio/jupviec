@@ -388,7 +388,7 @@
     
     switch ([row intValue]) {
         case ATTRIBUTE_DICHVUKEMTHEO:
-            return 48 + [[_order extraOption] count]*30;
+            return 51 + [[_order extraOption] count]*32;
         case ATTRIBUTE_GHICHU:
             return 198;
         default:

@@ -551,6 +551,7 @@
         {
             NoticeViewController *noticeview = (NoticeViewController*)selectedview;
             [noticeview showCouponView];
+            [noticeview showCoupon:_couponArray];
             [noticeview setUser:_user];
             
             [self.tabBarController setSelectedViewController:item];
@@ -591,7 +592,6 @@
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
 {
     UIViewController *selectedview = [(UINavigationController*)viewController visibleViewController];
-    NSArray* arr = [self.navigationController viewControllers];
     
     if ([selectedview isKindOfClass:[HistoryViewController class]])
     {
