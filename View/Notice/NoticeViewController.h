@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIView *separationView;
 @property (weak, nonatomic) IBOutlet UIButton *btNotice;
 @property (weak, nonatomic) IBOutlet UIButton *btPromotion;
+@property (weak, nonatomic) IBOutlet UILabel *lbNoData;
 
 - (IBAction)didSelectNoticeType:(id)sender;
 - (IBAction)didSelectPromotionType:(id)sender;

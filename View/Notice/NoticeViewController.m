@@ -29,6 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [_lbNoData setTextColor:UIColorFromRGB(0x5C5C5C)];
     [_separationView setBackgroundColor:UIColorFromRGB(0xEBEBEB)];
     [_categoriesSelectionView setBackgroundColor:[UIColor colorWithRed:240.0f/255.0f green:240.0f/255.0f blue:240.0f/255.0f alpha:0.21]];
     [_categoriesSelectionView.layer setCornerRadius:10];
@@ -295,13 +296,37 @@
 -(NSMutableArray*)getSelectedList
 {
     if (_selectedNotice == NOTICE_CHOISE_NOTICE)
+   {
+       if ([_listNotices count] == 0)
        {
-           return _listNotices;
+           [_tbNotice setHidden:YES];
+           [_lbNoData setHidden:NO];
+           
+           [_lbNoData setText:@"Danh sách thông báo chưa có dữ liệu"];
        }
-       else if (_selectedNotice == NOTICE_CHOISE_COUPON)
+       else{
+           [_tbNotice setHidden:NO];
+           [_lbNoData setHidden:YES];
+       }
+       
+       return _listNotices;
+   }
+   else if (_selectedNotice == NOTICE_CHOISE_COUPON)
+   {
+       if ([_listCoupons count] == 0)
        {
-           return _listCoupons;
+           [_tbNotice setHidden:YES];
+           [_lbNoData setHidden:NO];
+           
+           [_lbNoData setText:@"Danh sách khuyến mại chưa có dữ liệu"];
        }
+       else{
+           [_tbNotice setHidden:NO];
+           [_lbNoData setHidden:YES];
+       }
+       
+       return _listCoupons;
+   }
     
     return [[NSMutableArray alloc] initWithCapacity:0];
 }

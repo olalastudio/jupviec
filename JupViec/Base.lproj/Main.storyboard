@@ -582,7 +582,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQp-gS-cGi" customClass="JView">
                                 <rect key="frame" x="14" y="108" width="389" height="705"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="idnoticetable" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mxU-CA-Weo">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danh sách Thông Báo chưa có dữ liệu" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6e-a1-oj1">
+                                        <rect key="frame" x="80" y="331.5" width="229" height="42.5"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="idnoticetable" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mxU-CA-Weo">
                                         <rect key="frame" x="18" y="65" width="353" height="640"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
@@ -633,9 +639,12 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="tSk-lO-aDL" secondAttribute="trailing" constant="18" id="4cb-25-x55"/>
+                                    <constraint firstItem="u6e-a1-oj1" firstAttribute="centerY" secondItem="gQp-gS-cGi" secondAttribute="centerY" id="7SL-EA-lHM"/>
                                     <constraint firstAttribute="bottom" secondItem="mxU-CA-Weo" secondAttribute="bottom" id="Cx7-uB-wnk"/>
                                     <constraint firstItem="tSk-lO-aDL" firstAttribute="leading" secondItem="gQp-gS-cGi" secondAttribute="leading" constant="18" id="GcW-QA-Nz1"/>
+                                    <constraint firstItem="u6e-a1-oj1" firstAttribute="leading" secondItem="gQp-gS-cGi" secondAttribute="leading" constant="80" id="XLE-AA-HcL"/>
                                     <constraint firstItem="mxU-CA-Weo" firstAttribute="top" secondItem="tSk-lO-aDL" secondAttribute="bottom" constant="10" id="b1O-rG-pIU"/>
+                                    <constraint firstAttribute="trailing" secondItem="u6e-a1-oj1" secondAttribute="trailing" constant="80" id="m9O-vS-nNb"/>
                                     <constraint firstItem="mxU-CA-Weo" firstAttribute="leading" secondItem="gQp-gS-cGi" secondAttribute="leading" constant="18" id="mj9-LM-uYo"/>
                                     <constraint firstAttribute="trailing" secondItem="mxU-CA-Weo" secondAttribute="trailing" constant="18" id="p4J-Kh-aFs"/>
                                     <constraint firstItem="tSk-lO-aDL" firstAttribute="top" secondItem="gQp-gS-cGi" secondAttribute="top" constant="15" id="vtr-mo-2uR"/>
@@ -672,6 +681,7 @@
                         <outlet property="btNotice" destination="Mud-3T-vKr" id="OeB-5L-BIt"/>
                         <outlet property="btPromotion" destination="npG-ir-mDu" id="XPR-qb-PW8"/>
                         <outlet property="categoriesSelectionView" destination="tSk-lO-aDL" id="o4a-bR-yYE"/>
+                        <outlet property="lbNoData" destination="u6e-a1-oj1" id="LT9-iN-WXm"/>
                         <outlet property="separationView" destination="g4H-X3-AHl" id="iSX-f9-4Yk"/>
                         <outlet property="tbNotice" destination="mxU-CA-Weo" id="9V7-Fg-PbT"/>
                     </connections>
