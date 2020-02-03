@@ -174,11 +174,11 @@
 {
     [self.view endEditing:YES];
     
-    LoadingViewController *loadingview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloadingview"];
-    [loadingview show:self];
-    
-    if ([[_txtInputPassword text] isEqualToString:[_txtReInputPassword text]])
+    if ([[_txtInputPassword text]length] > 0 && [[_txtInputPassword text] isEqualToString:[_txtReInputPassword text]])
     {
+        LoadingViewController *loadingview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloadingview"];
+        [loadingview show:self];
+        
         APIRequest* apiRequest = [[APIRequest alloc]init];
         if (_intActionMode == MODE_FORGOT_PASSWORD)
         {
@@ -237,9 +237,8 @@
             }];
         }
     }
-    else
+    else if ([[_txtInputPassword text]length] > 0 && ![[_txtInputPassword text] isEqualToString:[_txtReInputPassword text]])
     {
-        [loadingview dismiss];
         [JUntil showPopup:self responsecode:RESPONSE_CODE_PASSWORD_MISMATCH];
     }
 }

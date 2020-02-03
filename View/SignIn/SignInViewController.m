@@ -11,6 +11,7 @@
 #import "JButton.h"
 #import "JUntil.h"
 #import "LoadingViewController.h"
+#import "LoginWithPasswordViewController.h"
 
 @interface SignInViewController ()
 {
@@ -34,7 +35,7 @@
     
     [_txtPhone setFont:[UIFont fontWithName:@"Roboto-Bold" size:20]];
     NSAttributedString *phoneAttribute = [[NSAttributedString alloc] initWithString:_txtPhone.placeholder
-                                                                         attributes:@{NSForegroundColorAttributeName: UIColorFromRGB(0x5C5C5C), NSFontAttributeName: [UIFont fontWithName:@"Roboto-Bold" size:20]}];
+                                                                         attributes:@{NSForegroundColorAttributeName: UIColorFromRGB(0x5C5C5C), NSFontAttributeName: [UIFont fontWithName:@"Roboto-Bold" size:14]}];
     [_txtPhone setAttributedPlaceholder:phoneAttribute];
     
     keyboardheight = 0;
@@ -145,7 +146,8 @@
         UIAlertAction* registerAction = [UIAlertAction actionWithTitle:@"Dang nhap" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             NSLog(@"sdt da ton tai move to login view");
             // move to login view
-            [self performSegueWithIdentifier:@"idLogin" sender:self];
+            LoginWithPasswordViewController *loginview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloginview"];
+            [self.navigationController setViewControllers:@[loginview] animated:YES];
         }];
         
         [alertControler addAction:reTypePhoneNumAction];
