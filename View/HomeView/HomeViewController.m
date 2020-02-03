@@ -300,18 +300,30 @@
 -(void)showAccountView
 {
     UIViewController *selectedcontroller = [(UINavigationController*)[[self tabBarController] selectedViewController] visibleViewController];
-    
+
     if ([selectedcontroller isKindOfClass:[LoginWithPasswordViewController class]])
     {
-        
+
     }
     else if ([selectedcontroller isKindOfClass:[AccountInfoViewController class]])
     {
         AccountInfoViewController *accountview = (AccountInfoViewController*)selectedcontroller;
         accountview.user = _user;
         accountview.tokenStr = _strUserToken;
-        
+
         [accountview updateContentView];
+    }
+    else if ([selectedcontroller isKindOfClass:[LoadingViewController class]])
+    {
+        selectedcontroller = [(UINavigationController*)[[self tabBarController] selectedViewController] topViewController];
+        if ([selectedcontroller isKindOfClass:[AccountInfoViewController class]])
+        {
+            AccountInfoViewController *accountview = (AccountInfoViewController*)selectedcontroller;
+            accountview.user = _user;
+            accountview.tokenStr = _strUserToken;
+            
+            [accountview updateContentView];
+        }
     }
 }
 
@@ -329,18 +341,18 @@
 {
     if (![_user userNameStr])
     {
-        //view user info
-        LoadingViewController *loadingview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloadingview"];
-        [loadingview show:sender];
+//        //view user info
+//        LoadingViewController *loadingview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloadingview"];
+//        [loadingview show:sender];
         
         APIRequest* api = [[APIRequest alloc]init];
         [api requestAPIGetAccountInfo:[_user userToken] completionHandler:^(User * _Nullable user, NSError * _Nonnull error) {
-            [loadingview dismiss];
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (error.code == 200) {
                     user.userToken = [self.user userToken];
                     self->_user = user;
                     [self showAccountView];
+//                    [loadingview dismiss];
                 }
                 else if (error.code == 204)
                 {

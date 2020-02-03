@@ -40,6 +40,10 @@
     
     self.view.layer.masksToBounds = YES;
     [self.tabBarController setDelegate:self];
+    if (!_loadingView) {
+        _loadingView = [self.storyboard instantiateViewControllerWithIdentifier:@"idloadingview"];
+        [_loadingView show:self];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -108,6 +112,10 @@
         }
         
         _phoneNumLb.text = [_user userPhoneNum];
+        
+        if (_loadingView) {
+            [_loadingView dismiss];
+        }
     }
 }
 

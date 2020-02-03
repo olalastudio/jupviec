@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "JViewController.h"
 #import "User.h"
+#import "LoadingViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -32,6 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) User              *user;
 @property (strong, nonatomic) NSString          *tokenStr;
+@property (strong, nonatomic) LoadingViewController* loadingView;
 
 - (IBAction)didPressLogoutButton:(id)sender;
 
