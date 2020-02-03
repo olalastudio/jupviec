@@ -68,6 +68,11 @@
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    if ([_promotionArray count] > 10)
+    {
+        return 10;
+    }
+    
     return [_promotionArray count];
 }
 

@@ -32,7 +32,7 @@
 {
     [self performSelectorOnMainThread:@selector(startAnimation) withObject:nil waitUntilDone:NO];
     
-    [sender setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [self setModalPresentationStyle:UIModalPresentationOverFullScreen];
     [sender presentViewController:self animated:NO completion:nil];
 }
 
@@ -50,7 +50,7 @@
 {
     [_loadingIndicator stopAnimating];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 /*
 #pragma mark - Navigation

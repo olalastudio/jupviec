@@ -245,16 +245,17 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     for (UINavigationController *item in [self.tabBarController viewControllers])
                     {
-                        UIViewController *vc = [item visibleViewController];
+                        UIViewController *vc = [[item viewControllers] objectAtIndex:0];
                         if ([vc isKindOfClass:[HomeViewController class]])
                         {
                             [(HomeViewController*)vc logIn:[self userToken] phoneNumber:[self userPhoneNumber]];
                             [self.tabBarController setSelectedViewController:item];
+                            
+                            NSLog(@"lofin success: go to home view");
+                            
                             break;
                         }
                     }
-                    
-                    NSLog(@"lofin success: go to home view");
                 });
             }
             else if (error.code == RESPONSE_CODE_INVALID_PASSWORD)

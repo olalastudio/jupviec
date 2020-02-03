@@ -97,6 +97,19 @@
 
 - (IBAction)didClickConfirmButton:(id)sender
 {
+    _selectedservice = [NSMutableArray arrayWithCapacity:0];
+    
+    for (int i = 0; i < [_totalservice count]; i++)
+    {
+        NSIndexPath *indexpath = [NSIndexPath indexPathForRow:i inSection:0];
+        ServiceCell *cell = [_tbExtendService cellForRowAtIndexPath:indexpath];
+                                  
+        if ([cell isSelect])
+        {
+            [_selectedservice addObject:[_totalservice objectAtIndex:i]];
+        }
+    }
+    
     if (_delegate && [_delegate respondsToSelector:@selector(didSelectExtendService:indexPath:services:)])
     {
         [_delegate didSelectExtendService:_orderAttribute indexPath:_index services:_selectedservice];
@@ -168,44 +181,23 @@
     if ([cell isSelect])
     {
         [cell setIsSelect:NO];
-        NSDictionary *deselectitem = [_totalservice objectAtIndex:indexPath.row];
-        [self removeItemFromSelectedService:deselectitem];
     }
     else{
         [cell setIsSelect:YES];
-        [_selectedservice addObject:[_totalservice objectAtIndex:indexPath.row]];
     }
     
-    NSLog(@"%@",_selectedservice);
 }
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ServiceCell *cell = (ServiceCell*)[tableView cellForRowAtIndexPath:indexPath];
     
-    NSDictionary *deselectitem = [_totalservice objectAtIndex:indexPath.row];
-    [self removeItemFromSelectedService:deselectitem];
-    
-    NSLog(@"%@",_selectedservice);
-    
-    [cell setIsSelect:NO];
-}
-
--(void)removeItemFromSelectedService:(NSDictionary*)deselectitem
-{
-    NSString *deselectedcode = [deselectitem objectForKey:ID_CODE];
-    int deselectedIndex = 0;
-    
-    for (int i=0; i<[_selectedservice count];i++)
+    if ([cell isSelect])
     {
-        NSDictionary *item = [_selectedservice objectAtIndex:i];
-        NSString *itemcode = [item objectForKey:ID_CODE];
-        
-        if ([deselectedcode isEqualToString:itemcode]) {
-            deselectedIndex = i;
-        }
+        [cell setIsSelect:NO];
     }
-    
-    [_selectedservice removeObjectAtIndex:deselectedIndex];
+    else{
+        [cell setIsSelect:YES];
+    }
 }
 @end

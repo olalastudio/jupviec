@@ -142,7 +142,7 @@
                         
                         for (UINavigationController *item in [self.tabBarController viewControllers])
                         {
-                            UIViewController *vc = [item visibleViewController];
+                            UIViewController *vc = [[item viewControllers] objectAtIndex:0];
                             if ([vc isKindOfClass:[HomeViewController class]])
                             {
                                 [(HomeViewController*)vc setUser:self.user];

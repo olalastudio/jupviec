@@ -90,7 +90,7 @@
     }
     else
     {
-        NSLog(@"unselect");
+        [self setIsSelect:!_isSelect];
     }
 }
 @end
