@@ -472,6 +472,8 @@
 		06CF639B23CC8C2E00F95329 /* Home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CF639823CC8C2E00F95329 /* Home@2x.png */; };
 		06CF639D23CC8C8500F95329 /* Promotion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CF639C23CC8C8000F95329 /* Promotion@2x.png */; };
 		06D6BF19239E39B000AB52DB /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6BF18239E39B000AB52DB /* MapsViewController.m */; };
+		06DB663123E808A70062476C /* backbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DB662F23E808A60062476C /* backbutton@2x.png */; };
+		06DB663223E808A70062476C /* backbutton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DB663023E808A70062476C /* backbutton@3x.png */; };
 		06DFA80223A9C69F00FBE763 /* JUntil.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DFA80123A9C69F00FBE763 /* JUntil.m */; };
 		06DFA80623AB8B6C00FBE763 /* RateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DFA80523AB8B6C00FBE763 /* RateViewController.m */; };
 		06EC9F1D2396734A00474EE3 /* HomeTaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06EC9F1C2396734A00474EE3 /* HomeTaskCell.xib */; };
@@ -1033,6 +1035,8 @@
 		06CF639C23CC8C8000F95329 /* Promotion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Promotion@2x.png"; sourceTree = "<group>"; };
 		06D6BF17239E39B000AB52DB /* MapsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapsViewController.h; sourceTree = "<group>"; };
 		06D6BF18239E39B000AB52DB /* MapsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapsViewController.m; sourceTree = "<group>"; };
+		06DB662F23E808A60062476C /* backbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backbutton@2x.png"; sourceTree = "<group>"; };
+		06DB663023E808A70062476C /* backbutton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backbutton@3x.png"; sourceTree = "<group>"; };
 		06DFA80023A9C69F00FBE763 /* JUntil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JUntil.h; sourceTree = "<group>"; };
 		06DFA80123A9C69F00FBE763 /* JUntil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JUntil.m; sourceTree = "<group>"; };
 		06DFA80423AB8B6C00FBE763 /* RateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RateViewController.h; sourceTree = "<group>"; };
@@ -1703,6 +1707,8 @@
 				83D0FE4623BCB0E800688924 /* headerEllipse.png */,
 				83D0FE4423BCACAF00688924 /* buttonrect.png */,
 				06CF5D0C23B5EFF20066A551 /* backbutton.png */,
+				06DB662F23E808A60062476C /* backbutton@2x.png */,
+				06DB663023E808A70062476C /* backbutton@3x.png */,
 				0667ECA323B47867004AAA5E /* button.png */,
 				0667ECA423B47867004AAA5E /* welcome.png */,
 			);
@@ -2082,6 +2088,7 @@
 				0601E47B238FAEF000403C95 /* user-1.png in Resources */,
 				0601E48B238FAEF000403C95 /* view-2.png in Resources */,
 				0601E423238FAEF000403C95 /* resume.png in Resources */,
+				06DB663223E808A70062476C /* backbutton@3x.png in Resources */,
 				0601E382238FAEEF00403C95 /* fast-forward-1.png in Resources */,
 				0601E3CD238FAEEF00403C95 /* locked-2.png in Resources */,
 				0601E386238FAEEF00403C95 /* file-2.png in Resources */,
@@ -2296,6 +2303,7 @@
 				0601E489238FAEF000403C95 /* video-player.png in Resources */,
 				0601E3AB238FAEEF00403C95 /* hide.png in Resources */,
 				0601E3D2238FAEEF00403C95 /* locked.png in Resources */,
+				06DB663123E808A70062476C /* backbutton@2x.png in Resources */,
 				0601E42F238FAEF000403C95 /* settings-1.png in Resources */,
 				0601E445238FAEF000403C95 /* smartphone-2.png in Resources */,
 				0601E378238FAEEF00403C95 /* eject-1.png in Resources */,
