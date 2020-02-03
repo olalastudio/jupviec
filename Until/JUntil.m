@@ -259,7 +259,7 @@
                 break;
         }
         
-        [sender setModalPresentationStyle:UIModalPresentationCurrentContext];
+        [alert setModalPresentationStyle:UIModalPresentationOverFullScreen];
         [sender presentViewController:alert animated:NO completion:nil];
     });
 }
@@ -305,7 +305,7 @@
                 break;
         }
         
-        [sender setModalPresentationStyle:UIModalPresentationCurrentContext];
+        [alert setModalPresentationStyle:UIModalPresentationOverFullScreen];
         [sender presentViewController:alert animated:NO completion:nil];
     });
 }

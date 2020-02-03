@@ -213,12 +213,25 @@
 
 - (IBAction)didSelectNoticeType:(id)sender
 {
-    [self showNoticeView];
+    if ([_listNotices count] == 0)
+    {
+        [self getNotice];
+    }
+    else{
+        [self showNoticeView];
+    }
+    
 }
 
 - (IBAction)didSelectPromotionType:(id)sender
 {
-    [self showCouponView];
+    if ([_listCoupons count] == 0)
+    {
+        [self getCoupon];
+    }
+    else{
+        [self showCouponView];
+    }
 }
 
 -(void)showCouponView

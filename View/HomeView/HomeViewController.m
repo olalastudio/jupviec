@@ -86,7 +86,7 @@
         NSArray *navicontrols = [self.tabBarController viewControllers];
         for (UINavigationController *navicontrol in navicontrols) {
         
-            UIViewController *viewcontrol = [navicontrol visibleViewController];
+            UIViewController *viewcontrol = [[navicontrol viewControllers] objectAtIndex:0];
             if ([viewcontrol isKindOfClass:[HistoryViewController class]])
             {
                 HistoryViewController *historyview = (HistoryViewController*)viewcontrol;
