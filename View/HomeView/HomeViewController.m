@@ -72,11 +72,9 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];
     [self.tabBarController setDelegate:self];
     
-    for (UITabBarItem *item in self.tabBarController.tabBar.items) {
-        item.selectedImage = [item.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        item.image = [item.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        item.title = @"";
-    }
+    [self.tabBarController.tabBar setTintColor:[UIColor colorWithRed:228.0f/255.0f green:103.0f/255.0f blue:45.0f/255.0f alpha:1]];
+    [self.tabBarController.tabBar setUnselectedItemTintColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.7]];
+    [self.tabBarController.tabBar setItemPositioning:UITabBarItemPositioningCentered];
 }
 
 -(void)broadcastUser

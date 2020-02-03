@@ -791,7 +791,7 @@
         <scene sceneID="KUP-gU-E91">
             <objects>
                 <navigationController id="YXu-EL-9uG" customClass="JNavigationViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Home.png" id="oBy-RA-yHd">
+                    <tabBarItem key="tabBarItem" title="" image="menu.png" id="oBy-RA-yHd">
                         <color key="badgeColor" cocoaTouchSystemColor="darkTextColor"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xGG-PK-TJm" customClass="JNavigationBar">
@@ -1032,7 +1032,7 @@
         <scene sceneID="S0b-FD-51C">
             <objects>
                 <navigationController id="sS1-XG-n9T" customClass="JNavigationViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Main.png" id="jhK-Uz-bDR">
+                    <tabBarItem key="tabBarItem" title="" image="Home.png" id="jhK-Uz-bDR">
                         <color key="badgeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3SW-6m-HRt" customClass="JNavigationBar">
@@ -2796,11 +2796,11 @@
                         <color key="selectedImageTintColor" cocoaTouchSystemColor="darkTextColor"/>
                     </tabBar>
                     <connections>
-                        <segue destination="YXu-EL-9uG" kind="relationship" relationship="viewControllers" id="crZ-BM-hhy"/>
-                        <segue destination="kdK-No-f3l" kind="relationship" relationship="viewControllers" id="l9Z-ZC-BaG"/>
-                        <segue destination="sS1-XG-n9T" kind="relationship" relationship="viewControllers" id="0vT-9r-DtT"/>
-                        <segue destination="COS-fK-IaD" kind="relationship" relationship="viewControllers" id="qE4-3s-4RN"/>
-                        <segue destination="ShD-hq-aid" kind="relationship" relationship="viewControllers" id="orc-vd-pJT"/>
+                        <segue destination="ShD-hq-aid" kind="relationship" relationship="viewControllers" id="Hn7-d6-Ymb"/>
+                        <segue destination="kdK-No-f3l" kind="relationship" relationship="viewControllers" id="R64-9J-ZGb"/>
+                        <segue destination="sS1-XG-n9T" kind="relationship" relationship="viewControllers" id="mza-L9-YRY"/>
+                        <segue destination="COS-fK-IaD" kind="relationship" relationship="viewControllers" id="a1L-1I-GOF"/>
+                        <segue destination="YXu-EL-9uG" kind="relationship" relationship="viewControllers" id="pMq-QU-cix"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eMP-uz-sCx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2810,12 +2810,12 @@
     </scenes>
     <resources>
         <image name="FAQ.png" width="353" height="214"/>
-        <image name="History.png" width="23.333333969116211" height="23.333333969116211"/>
-        <image name="Home.png" width="23.333333969116211" height="23.333333969116211"/>
-        <image name="Main.png" width="41" height="23.333333969116211"/>
-        <image name="Profile.png" width="23.333333969116211" height="23.333333969116211"/>
-        <image name="Promotion.png" width="16.666666030883789" height="16.333333969116211"/>
+        <image name="History.png" width="25" height="25"/>
+        <image name="Home.png" width="25" height="25"/>
+        <image name="Profile.png" width="25" height="25"/>
+        <image name="Promotion.png" width="25" height="25"/>
         <image name="headerEllipse.png" width="375" height="221"/>
+        <image name="menu.png" width="25" height="25"/>
         <image name="multiply.png" width="24.891288757324219" height="24.891288757324219"/>
         <image name="rate.png" width="26.666666030883789" height="25.666666030883789"/>
         <image name="unrate.png" width="26.666666030883789" height="25.666666030883789"/>
