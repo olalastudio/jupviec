@@ -301,6 +301,13 @@
                 [alert setConfirmButtonTitle:@"Xác nhận"];
             }
                 break;
+            case RESPONSE_CODE_LOGIN_SUCCESS:
+            {
+                [alert setDelegate:sender];
+                [alert setMessage:@"Chúc mừng\nBạn đã đăng nhập dịch vụ thành công"];
+                [alert setConfirmButtonTitle:@"Xác nhận"];
+            }
+                break;
             default:
                 break;
         }

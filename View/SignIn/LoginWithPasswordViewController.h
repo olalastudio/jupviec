@@ -11,13 +11,15 @@
 #import "CommonDefines.h"
 #import "JUntil.h"
 
+#import "JAlertPopupController.h"
+
 @class JButton;
 @class JTextField;
 @class JTextField;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LoginWithPasswordViewController : JViewController <UITextFieldDelegate>
+@interface LoginWithPasswordViewController : JViewController <UITextFieldDelegate, JAlertPopupDelegate>
 {
     NSString* strUserphone;
     NSString* strUserPass;

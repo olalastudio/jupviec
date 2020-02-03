@@ -242,21 +242,7 @@
             if (error.code == RESPONSE_CODE_NORMARL)
             {
                 self->strToken = token;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    for (UINavigationController *item in [self.tabBarController viewControllers])
-                    {
-                        UIViewController *vc = [[item viewControllers] objectAtIndex:0];
-                        if ([vc isKindOfClass:[HomeViewController class]])
-                        {
-                            [(HomeViewController*)vc logIn:[self userToken] phoneNumber:[self userPhoneNumber]];
-                            [self.tabBarController setSelectedViewController:item];
-                            
-                            NSLog(@"lofin success: go to home view");
-                            
-                            break;
-                        }
-                    }
-                });
+                [JUntil showPopup:self responsecode:RESPONSE_CODE_LOGIN_SUCCESS completionHandler:^(POPUP_ACTION action) {}];
             }
             else if (error.code == RESPONSE_CODE_INVALID_PASSWORD)
             {
@@ -277,6 +263,32 @@
                 [JUntil showPopup:self responsecode:RESPONSE_CODE_OTHER];
             }
         }];
+    }
+}
+
+-(void)confirmLoginSuccess
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        for (UINavigationController *item in [self.tabBarController viewControllers])
+        {
+            UIViewController *vc = [[item viewControllers] objectAtIndex:0];
+            if ([vc isKindOfClass:[HomeViewController class]])
+            {
+                [(HomeViewController*)vc logIn:[self userToken] phoneNumber:[self userPhoneNumber]];
+                [self.tabBarController setSelectedViewController:item];
+                
+                NSLog(@"lofin success: go to home view");
+                break;
+            }
+        }
+    });
+}
+
+-(void)didCloseAlertPopupWithCode:(POPUP_ACTION)code
+{
+    if (code == ACTION_OK)
+    {
+        [self confirmLoginSuccess];
     }
 }
 @end
