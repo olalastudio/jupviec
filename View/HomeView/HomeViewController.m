@@ -24,6 +24,32 @@
 #import "LoginButton.h"
 #import "LoadingViewController.h"
 
+@interface UIImage (imageWithColor)
++(UIImage*)imageWithColor:(UIColor*)color size:(CGSize)size;
+@end
+
+@implementation UIImage (imageWithColor)
+
++(UIImage*)imageWithColor:(UIColor*)color size:(CGSize)size
+{
+    CGRect rect = CGRectMake((size.width - 40)/2, 2, 40, 3);
+    
+    UIGraphicsBeginImageContextWithOptions(size, false, 0);
+    
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:2];
+    
+    [color setFill];
+    [path fill];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
+@end
+
 @interface HomeViewController ()
 {
     PlaceOrderViewController    *orderview;
@@ -72,8 +98,13 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Comfortaa-Regular" size:20]}];
     [self.tabBarController setDelegate:self];
     
-    [self.tabBarController.tabBar setTintColor:[UIColor colorWithRed:228.0f/255.0f green:103.0f/255.0f blue:45.0f/255.0f alpha:1]];
+    NSInteger numberitems = [[self.tabBarController.tabBar items] count];
+    CGSize size = [self.tabBarController.tabBar frame].size;
+    
+    UIColor *selectedColor = [UIColor colorWithRed:228.0f/255.0f green:103.0f/255.0f blue:45.0f/255.0f alpha:1];
+    [self.tabBarController.tabBar setTintColor:selectedColor];
     [self.tabBarController.tabBar setUnselectedItemTintColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.7]];
+    [self.tabBarController.tabBar setSelectionIndicatorImage:[UIImage imageWithColor:selectedColor size:CGSizeMake(size.width/numberitems, size.height)]];
     [self.tabBarController.tabBar setItemPositioning:UITabBarItemPositioningCentered];
 }
 
