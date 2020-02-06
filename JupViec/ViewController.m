@@ -30,8 +30,8 @@
     [super viewWillAppear:animated];
     
     //show welcome view at the first launch
-    BOOL isFirstLaunch = [[[NSUserDefaults standardUserDefaults] objectForKey:@"isFirstLaunch"] boolValue];
-    if (!isFirstLaunch)
+    BOOL isSecondLaunch = [[[NSUserDefaults standardUserDefaults] objectForKey:@"isSecondLaunch"] boolValue];
+    if (!isSecondLaunch)
     {
         [_btStart setHidden:NO];
         [_btskip setHidden:NO];
@@ -40,6 +40,16 @@
     else{
         [_btStart setHidden:YES];
         [_btskip setHidden:YES];
+    }
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    BOOL isSecondLaunch = [[[NSUserDefaults standardUserDefaults] objectForKey:@"isSecondLaunch"] boolValue];
+    if (isSecondLaunch)
+    {
         [self getStart];
     }
 }
@@ -197,7 +207,7 @@
                             [self.pageController.view removeFromSuperview];
                             [self.pageControll removeFromSuperview];
                             
-                            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isFirstLaunch"];
+                            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isSecondLaunch"];
                         });
                     }];
                 }
