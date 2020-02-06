@@ -288,7 +288,9 @@
 {
     if (code == ACTION_OK)
     {
-        [self confirmLoginSuccess];
+        if ([self userToken]) {
+            [self confirmLoginSuccess];
+        }
     }
 }
 @end
