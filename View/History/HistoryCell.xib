@@ -22,9 +22,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Fj-RA-mM0" customClass="JLabel">
-                        <rect key="frame" x="15" y="21" width="38.5" height="21"/>
+                        <rect key="frame" x="15" y="21" width="50" height="21"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="width" constant="50" id="hwD-KS-6Qo"/>
                             <constraint firstAttribute="height" constant="21" id="z1O-bC-hXd"/>
                         </constraints>
                         <string key="text">Đã Huỷ
@@ -34,7 +35,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="04/12/2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFs-iy-HQi">
-                        <rect key="frame" x="70.5" y="25" width="64" height="14.5"/>
+                        <rect key="frame" x="82" y="25" width="64" height="14.5"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -85,6 +86,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="statusConstraintWidth" destination="hwD-KS-6Qo" id="Oa0-aO-OZY"/>
                 <outlet property="txtDate" destination="oFs-iy-HQi" id="6NH-GC-g8x"/>
                 <outlet property="txtStatus" destination="0Fj-RA-mM0" id="qPs-zJ-2xI"/>
                 <outlet property="txtTotalMoney" destination="DkG-33-FGf" id="DTt-6P-SZj"/>

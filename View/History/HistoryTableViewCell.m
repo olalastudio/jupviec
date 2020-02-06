@@ -82,6 +82,11 @@
 {
     NSString *requestStatus = [_historyData objectForKey:ID_REQUEST_STATUS];
     [_txtStatus setText:[self stringDisplayWithStatusID:ID_REQUEST_STATUS code:requestStatus]];
+    [_txtStatus sizeToFit];
+    
+    CGRect rect = [_txtStatus frame];
+    rect.size.width += 8;
+    _statusConstraintWidth.constant = rect.size.width;
     
     NSString *strDate = [_historyData objectForKey:ID_UPDATE_DATE];
     NSDate *updateDate = [JUntil dateFromString:strDate];
