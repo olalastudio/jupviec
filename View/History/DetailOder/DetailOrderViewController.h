@@ -57,8 +57,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel        *lbNoteValue;
 @property (weak, nonatomic) IBOutlet UILabel        *lbTotalPriceTitle;
 @property (weak, nonatomic) IBOutlet UILabel        *lbTotalPriceValue;
-
 @property (weak, nonatomic) IBOutlet UIButton       *btStopService;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *statusWidthConstrains;
 
 -(IBAction)didPressRateButton:(id)sender;
 - (IBAction)didPressStopServiceButton:(id)sender;

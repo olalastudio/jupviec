@@ -16,6 +16,7 @@
 
 -(void)didSelectDate:(ORDER_ATTRIBUTE)sender date:(NSDate*_Nullable)date indexPath:(NSIndexPath*_Nonnull)index;
 -(void)didSelectTime:(ORDER_ATTRIBUTE)sender indexPath:(NSIndexPath*_Nonnull)index workTime:(NSDate*_Nonnull)worktime;
+-(void)didSelectNumberHour:(ORDER_ATTRIBUTE)sender indexPath:(NSIndexPath*_Nonnull)index workTime:(double)hour;
 
 @end
 

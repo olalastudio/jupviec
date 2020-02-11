@@ -41,7 +41,7 @@
 {
     NSString *title = [_noticeInfo objectForKey:@"title"];
     NSString *content = [_noticeInfo objectForKey:@"content"];
-    NSString *strdate = [_noticeInfo objectForKey:@"updated_at"];
+    NSString *strdate = [_noticeInfo objectForKey:@"expired_date"];
     
     [_txtTitle setText:title];
     [_txtContent setText:content];

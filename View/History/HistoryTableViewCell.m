@@ -82,11 +82,9 @@
 {
     NSString *requestStatus = [_historyData objectForKey:ID_REQUEST_STATUS];
     [_txtStatus setText:[self stringDisplayWithStatusID:ID_REQUEST_STATUS code:requestStatus]];
-    [_txtStatus sizeToFit];
     
-    CGRect rect = [_txtStatus frame];
-    rect.size.width += 8;
-    _statusConstraintWidth.constant = rect.size.width;
+    [_txtStatus sizeToFit];
+    _statusConstraintWidth.constant = _txtStatus.frame.size.width + 8;
     
     NSString *strDate = [_historyData objectForKey:ID_UPDATE_DATE];
     NSDate *updateDate = [JUntil dateFromString:strDate];
@@ -102,7 +100,15 @@
     [_txtWorkAddress setText:strLocation];
     
     double totalMoney = [[_historyData objectForKey:ID_TOTAL_PRICE] doubleValue];
-    [_txtTotalMoney setText:[NSString stringWithFormat:@"%0.3fđ",totalMoney]];
+    
+    if ([requestType isEqualToString:CODE_SOFA] || [requestType isEqualToString:CODE_TONGVESINH])
+    {
+        [_txtTotalMoney setText:@"Miễn phí"];
+    }
+    else{
+        [_txtTotalMoney setText:[NSString stringWithFormat:@"%0.3fđ",totalMoney]];
+    }
+    
 }
 
 -(NSString*)stringDisplayWithRequestType:(NSString*)type

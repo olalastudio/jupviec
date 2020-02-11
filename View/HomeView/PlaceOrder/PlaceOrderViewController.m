@@ -497,11 +497,16 @@
     [self presentViewController:timepicker animated:NO completion:nil];
 }
 
--(void)didClickWorkHourSelection:(ORDER_ATTRIBUTE)attribute index:(NSIndexPath *)index hourvalue:(double)hour
+-(void)didClickWorkHourSelection:(ORDER_ATTRIBUTE)attribute index:(NSIndexPath *)index
 {
-    [_order setWorkHour:hour];
+    DateTimePickerPopupController *timepicker = [self.storyboard instantiateViewControllerWithIdentifier:@"iddatetimepicker"];
+    [timepicker setOrderAttribute:ATTRIBUTE_SOGIOLAM];
+    [timepicker setOrder:_order];
+    [timepicker setIndexPath:index];
+    [timepicker setDelegate:self];
     
-    [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+    [self setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [self presentViewController:timepicker animated:NO completion:nil];
 }
 
 -(void)didClickChangeDaySelection:(ORDER_ATTRIBUTE)sender index:(NSIndexPath *)index
@@ -652,6 +657,12 @@
             break;
     }
     
+    [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+-(void)didSelectNumberHour:(ORDER_ATTRIBUTE)sender indexPath:(NSIndexPath *)index workTime:(double)hour
+{
+    [_order setWorkHour:hour];
     [_tbPlaceOrderContent reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
 }
 

@@ -120,6 +120,9 @@
     [_lbStatus setBackgroundColor:[JUntil colorDisplayForStatusID:status]];
     [_lbStatus setTextColor:UIColorFromRGB(0xFFFAFA)];
     
+    [_lbStatus sizeToFit];
+    _statusWidthConstrains.constant = _lbStatus.frame.size.width + 8;
+    
     NSString *rqType = [_detailInfo objectForKey:ID_REQUEST_TYPE];
     [_lbServiceValue setText:[JUntil stringDisplayWithID:rqType withCategory:ID_REQUEST_TYPE fromDefinesDictionary:_definesCode]];
     
@@ -193,11 +196,19 @@
         [_lbNoteValue setText:[NSString stringWithFormat:@" %@",note]];
     }
     
-    NSNumber *price = [_detailInfo objectForKey:ID_TOTAL_PRICE];
-    if (![price isKindOfClass:[NSNull class]])
+    if ([rqType isEqualToString:CODE_TONGVESINH] || [rqType isEqualToString:CODE_SOFA])
     {
-        [_lbTotalPriceValue setText:[NSString stringWithFormat:@"%.3fđ",[price doubleValue]]];
+        [_lbTotalPriceValue setText:@"Miễn phí"];
     }
+    else
+    {
+        NSNumber *price = [_detailInfo objectForKey:ID_TOTAL_PRICE];
+        if (![price isKindOfClass:[NSNull class]])
+        {
+            [_lbTotalPriceValue setText:[NSString stringWithFormat:@"%.3fđ",[price doubleValue]]];
+        }
+    }
+    
         
     [self showStopButton];
     [self showRateButton];

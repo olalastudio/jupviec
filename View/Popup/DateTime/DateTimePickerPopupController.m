@@ -49,7 +49,12 @@
     self.popupView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.5, 0.5);
     [self.view setBackgroundColor:[UIColor colorWithRed:85.0f/255.0f green:80.0f/255.0f blue:80.0f/255.0f alpha:0.38]];
     
-    if (_orderAttribute == ATTRIBUTE_NGAYLAMVIEC)
+    if (_orderAttribute == ATTRIBUTE_SOGIOLAM)
+    {
+        [_timePicker setDatePickerMode:UIDatePickerModeCountDownTimer];
+        [_timePicker setCountDownDuration:[_order workHour]*60*60];
+    }
+    else if (_orderAttribute == ATTRIBUTE_NGAYLAMVIEC)
     {
         [_timePicker setDatePickerMode:UIDatePickerModeDate];
         [_timePicker setDate:[_order workDate]];
@@ -74,7 +79,7 @@
         [_timePicker setDatePickerMode:UIDatePickerModeTime];
         [_timePicker setDate:[_order timeOfExamine]];
     }
-    
+        
     [self setTimeForPickerView];
 }
 
@@ -118,8 +123,15 @@
     [components setHour:hour];
     [components setMinute:minute];
     
-    [_timePicker setMinimumDate:[calendar dateFromComponents:components]];
-    [_timePicker setMinuteInterval:10];
+    if (_orderAttribute == ATTRIBUTE_SOGIOLAM)
+    {
+        [_timePicker setMinuteInterval:30];
+    }
+    else
+    {
+        [_timePicker setMinimumDate:[calendar dateFromComponents:components]];
+        [_timePicker setMinuteInterval:10];
+    }
 }
 /*
 #pragma mark - Navigation
@@ -147,9 +159,19 @@
             [_delegate didSelectTime:_orderAttribute indexPath:_index workTime:selectedTime];
         }
     }
+    else if (_orderAttribute == ATTRIBUTE_SOGIOLAM)
+    {
+        NSTimeInterval timeinterval = [_timePicker countDownDuration];
+        double hour = timeinterval/3600;
+        
+        if (_delegate && [_delegate respondsToSelector:@selector(didSelectNumberHour:indexPath:workTime:)])
+        {
+            [_delegate didSelectNumberHour:_orderAttribute indexPath:_index workTime:hour];
+        }
+    }
     else
     {
-        if (_delegate && [_delegate respondsToSelector:@selector(didSelectTime:indexPath:workTime:)])
+        if (_delegate && [_delegate respondsToSelector:@selector(didSelectDate:date:indexPath:)])
         {
             [_delegate didSelectDate:_orderAttribute date:selectedTime indexPath:_index];
         }

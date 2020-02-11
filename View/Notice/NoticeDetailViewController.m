@@ -95,7 +95,6 @@
     }
     
     [_titleLB setText:[_notifyInfo objectForKey:@"title"]];
-    [_notifyDateLB setText:[_notifyInfo objectForKey:@"updated_at"]];
 }
 
 -(void)viewDidDisappear:(BOOL)animated

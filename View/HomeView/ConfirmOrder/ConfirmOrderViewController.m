@@ -90,6 +90,8 @@
             [_txtAddressValue setText:[NSString stringWithFormat:@"%@ %@",[_order homeNumber],[_order workAddress]]];
             [_txtWorkDateValue setText:[JUntil stringFromDate:[_order workDate]]];
             
+            [_txtPhoneNumberValue setText:[_user userPhoneNum]];
+            
             NSDate *worktime = [_order workTime];
             NSInteger hour = [JUntil hourFromDate:worktime];
             NSInteger minute = [JUntil minuteFromDate:worktime];
@@ -129,6 +131,8 @@
             [_txtType setText:@"Dùng định kỳ"];
             [_txtAddressValue setText:[_order workAddress]];
             [_txtWorkDateValue setText:[JUntil stringFromDate:[_order workDate]]];
+            
+            [_txtPhoneNumberValue setText:[_user userPhoneNum]];
             
             NSDate *worktime = [_order workTime];
             NSInteger hour = [JUntil hourFromDate:worktime];
@@ -189,6 +193,8 @@
             [_txtAddressValue setText:[_order workAddress]];
             [_txtWorkDateValue setText:[JUntil stringFromDate:[_order dayOfExamine]]];
             
+            [_txtPhoneNumberValue setText:[_user userPhoneNum]];
+            
             NSDate *worktime = [_order timeOfExamine];
             NSInteger hour = [JUntil hourFromDate:worktime];
             NSInteger minute = [JUntil minuteFromDate:worktime];
@@ -207,6 +213,8 @@
             [_txtType setText:@"Đặt JupSofa"];
             [_txtAddressValue setText:[_order workAddress]];
             [_txtWorkDateValue setText:[JUntil stringFromDate:[_order workDate]]];
+            
+            [_txtPhoneNumberValue setText:[_user userPhoneNum]];
             
             NSDate *worktime = [_order workTime];
             NSInteger hour = [JUntil hourFromDate:worktime];
