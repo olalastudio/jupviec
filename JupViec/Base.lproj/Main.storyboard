@@ -550,7 +550,7 @@
         <scene sceneID="Jkx-LV-M8X">
             <objects>
                 <navigationController id="kdK-No-f3l" customClass="JNavigationViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Thông báo" image="Promotion.png" id="c1w-8Z-PBw">
+                    <tabBarItem key="tabBarItem" title="Thông báo" image="Promotion.png" selectedImage="Promotion_selected" id="c1w-8Z-PBw">
                         <color key="badgeColor" cocoaTouchSystemColor="darkTextColor"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qv9-MS-X4D" customClass="JNavigationBar">
@@ -791,7 +791,7 @@
         <scene sceneID="KUP-gU-E91">
             <objects>
                 <navigationController id="YXu-EL-9uG" customClass="JNavigationViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Thông tin" image="menu.png" id="oBy-RA-yHd">
+                    <tabBarItem key="tabBarItem" title="Thông tin" image="menu.png" selectedImage="menu_selected" id="oBy-RA-yHd">
                         <color key="badgeColor" cocoaTouchSystemColor="darkTextColor"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xGG-PK-TJm" customClass="JNavigationBar">
@@ -1032,7 +1032,7 @@
         <scene sceneID="S0b-FD-51C">
             <objects>
                 <navigationController id="sS1-XG-n9T" customClass="JNavigationViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Dịch vụ" image="Home.png" id="jhK-Uz-bDR">
+                    <tabBarItem key="tabBarItem" title="Dịch vụ" image="Home.png" selectedImage="home_selected.png" id="jhK-Uz-bDR">
                         <color key="badgeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3SW-6m-HRt" customClass="JNavigationBar">
@@ -1051,7 +1051,7 @@
         <scene sceneID="SNT-BN-hEB">
             <objects>
                 <navigationController id="COS-fK-IaD" customClass="JNavigationViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Lịch sử" image="History.png" id="qh1-WN-OTq"/>
+                    <tabBarItem key="tabBarItem" title="Lịch sử" image="History.png" selectedImage="History_selected" id="qh1-WN-OTq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jtK-52-qSb" customClass="JNavigationBar">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1068,7 +1068,7 @@
         <scene sceneID="bpI-Tf-Ai8">
             <objects>
                 <navigationController id="ShD-hq-aid" customClass="JNavigationViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Cá nhân" image="Profile.png" selectedImage="Profile.png" id="dUX-Wq-OvG"/>
+                    <tabBarItem key="tabBarItem" title="Cá nhân" image="Profile.png" selectedImage="Profile_selected" id="dUX-Wq-OvG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CaT-wz-nUZ" customClass="JNavigationBar">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2812,12 +2812,17 @@
     </scenes>
     <resources>
         <image name="FAQ.png" width="353" height="214"/>
-        <image name="History.png" width="18.75" height="18.75"/>
+        <image name="History.png" width="25" height="25"/>
+        <image name="History_selected" width="16" height="16"/>
         <image name="Home.png" width="18.75" height="18.75"/>
         <image name="Profile.png" width="18.75" height="18.75"/>
+        <image name="Profile_selected" width="16" height="16"/>
         <image name="Promotion.png" width="18.75" height="18.75"/>
+        <image name="Promotion_selected" width="16" height="16"/>
         <image name="headerEllipse.png" width="375" height="221"/>
+        <image name="home_selected.png" width="25" height="25"/>
         <image name="menu.png" width="18.75" height="18.75"/>
+        <image name="menu_selected" width="16" height="16"/>
         <image name="multiply.png" width="24.891288757324219" height="24.891288757324219"/>
         <image name="rate.png" width="30" height="28.75"/>
         <image name="unrate.png" width="30" height="28.75"/>
