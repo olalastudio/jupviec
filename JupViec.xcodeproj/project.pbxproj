@@ -112,6 +112,14 @@
 		06D6BF19239E39B000AB52DB /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6BF18239E39B000AB52DB /* MapsViewController.m */; };
 		06DB663123E808A70062476C /* backbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DB662F23E808A60062476C /* backbutton@2x.png */; };
 		06DB663223E808A70062476C /* backbutton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DB663023E808A70062476C /* backbutton@3x.png */; };
+		06DC9ED023FB9DC600E721E5 /* dungdinhky@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DC9ECE23FB9DC600E721E5 /* dungdinhky@2x.png */; };
+		06DC9ED123FB9DC600E721E5 /* dungdinhky@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DC9ECF23FB9DC600E721E5 /* dungdinhky@3x.png */; };
+		06DC9ED423FB9EFD00E721E5 /* giatsofa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DC9ED223FB9EFD00E721E5 /* giatsofa@2x.png */; };
+		06DC9ED523FB9EFD00E721E5 /* giatsofa@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DC9ED323FB9EFD00E721E5 /* giatsofa@3x.png */; };
+		06DC9ED823FBA0DE00E721E5 /* dungle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DC9ED623FBA0DE00E721E5 /* dungle@3x.png */; };
+		06DC9ED923FBA0DE00E721E5 /* dungle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DC9ED723FBA0DE00E721E5 /* dungle@2x.png */; };
+		06DC9EDC23FBA15300E721E5 /* tongvesinh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DC9EDA23FBA15300E721E5 /* tongvesinh@2x.png */; };
+		06DC9EDD23FBA15300E721E5 /* tongvesinh@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DC9EDB23FBA15300E721E5 /* tongvesinh@3x.png */; };
 		06DFA80223A9C69F00FBE763 /* JUntil.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DFA80123A9C69F00FBE763 /* JUntil.m */; };
 		06DFA80623AB8B6C00FBE763 /* RateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DFA80523AB8B6C00FBE763 /* RateViewController.m */; };
 		06EC9F1D2396734A00474EE3 /* HomeTaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06EC9F1C2396734A00474EE3 /* HomeTaskCell.xib */; };
@@ -312,6 +320,14 @@
 		06D6BF18239E39B000AB52DB /* MapsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapsViewController.m; sourceTree = "<group>"; };
 		06DB662F23E808A60062476C /* backbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backbutton@2x.png"; sourceTree = "<group>"; };
 		06DB663023E808A70062476C /* backbutton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backbutton@3x.png"; sourceTree = "<group>"; };
+		06DC9ECE23FB9DC600E721E5 /* dungdinhky@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dungdinhky@2x.png"; sourceTree = "<group>"; };
+		06DC9ECF23FB9DC600E721E5 /* dungdinhky@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dungdinhky@3x.png"; sourceTree = "<group>"; };
+		06DC9ED223FB9EFD00E721E5 /* giatsofa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "giatsofa@2x.png"; sourceTree = "<group>"; };
+		06DC9ED323FB9EFD00E721E5 /* giatsofa@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "giatsofa@3x.png"; sourceTree = "<group>"; };
+		06DC9ED623FBA0DE00E721E5 /* dungle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dungle@3x.png"; sourceTree = "<group>"; };
+		06DC9ED723FBA0DE00E721E5 /* dungle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dungle@2x.png"; sourceTree = "<group>"; };
+		06DC9EDA23FBA15300E721E5 /* tongvesinh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tongvesinh@2x.png"; sourceTree = "<group>"; };
+		06DC9EDB23FBA15300E721E5 /* tongvesinh@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tongvesinh@3x.png"; sourceTree = "<group>"; };
 		06DFA80023A9C69F00FBE763 /* JUntil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JUntil.h; sourceTree = "<group>"; };
 		06DFA80123A9C69F00FBE763 /* JUntil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JUntil.m; sourceTree = "<group>"; };
 		06DFA80423AB8B6C00FBE763 /* RateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RateViewController.h; sourceTree = "<group>"; };
@@ -806,6 +822,14 @@
 		831705F223B76F3B00A3493E /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				06DC9EDA23FBA15300E721E5 /* tongvesinh@2x.png */,
+				06DC9EDB23FBA15300E721E5 /* tongvesinh@3x.png */,
+				06DC9ED723FBA0DE00E721E5 /* dungle@2x.png */,
+				06DC9ED623FBA0DE00E721E5 /* dungle@3x.png */,
+				06DC9ED223FB9EFD00E721E5 /* giatsofa@2x.png */,
+				06DC9ED323FB9EFD00E721E5 /* giatsofa@3x.png */,
+				06DC9ECE23FB9DC600E721E5 /* dungdinhky@2x.png */,
+				06DC9ECF23FB9DC600E721E5 /* dungdinhky@3x.png */,
 				06A440FB23F3FDC800E201AE /* menu_selected.png */,
 				06A440F623F3FDC700E201AE /* menu_selected@2x.png */,
 				06A440F423F3FDC700E201AE /* menu_selected@3x.png */,
@@ -975,6 +999,7 @@
 				06EC9F2723968A6200474EE3 /* HomePromotionHeaderCell.xib in Resources */,
 				83D0FE3F23BCA14900688924 /* Comfortaa-SemiBold.ttf in Resources */,
 				83D0FE5423BCC4A500688924 /* Roboto-Black.ttf in Resources */,
+				06DC9EDC23FBA15300E721E5 /* tongvesinh@2x.png in Resources */,
 				06831E3023D6FAEE0059A123 /* rate@2x.png in Resources */,
 				83D0FE5B23BCC4A500688924 /* Roboto-Medium.ttf in Resources */,
 				83D0FE5D23BCC4A500688924 /* Roboto-MediumItalic.ttf in Resources */,
@@ -1011,7 +1036,9 @@
 				83D0FE5923BCC4A500688924 /* Roboto-Italic.ttf in Resources */,
 				0664AADB23D838BF006E7993 /* select@2x.png in Resources */,
 				0608E3CE23BF3180000EE8B1 /* rate.png in Resources */,
+				06DC9EDD23FBA15300E721E5 /* tongvesinh@3x.png in Resources */,
 				06831E2E23D6FAEE0059A123 /* rate@3x.png in Resources */,
+				06DC9ED423FB9EFD00E721E5 /* giatsofa@2x.png in Resources */,
 				064B1FAA23C70529006DC513 /* delete.png in Resources */,
 				06DB663123E808A70062476C /* backbutton@2x.png in Resources */,
 				06F6E4FF23A8AFC60006DAB8 /* GoogleService-Info.plist in Resources */,
@@ -1022,12 +1049,15 @@
 				0658BEBF238FAC7800CBBAD1 /* Main.storyboard in Resources */,
 				065105E723A33F0500B5339B /* HomePromotionCollectionCell.xib in Resources */,
 				064B1FA923C70529006DC513 /* add.png in Resources */,
+				06DC9ED123FB9DC600E721E5 /* dungdinhky@3x.png in Resources */,
 				06A440EB23F3FAFF00E201AE /* home_selected@2x.png in Resources */,
 				83D0FE5523BCC4A500688924 /* Roboto-BlackItalic.ttf in Resources */,
 				063A1C3D23BDA04100456CBC /* dungle.png in Resources */,
 				0612A38623961D7E00A82BB9 /* NoticeCell.xib in Resources */,
 				06CF638B23CC6C9000F95329 /* FAQ.png in Resources */,
 				83D0FE4023BCA14900688924 /* Comfortaa-Medium.ttf in Resources */,
+				06DC9ED023FB9DC600E721E5 /* dungdinhky@2x.png in Resources */,
+				06DC9ED823FBA0DE00E721E5 /* dungle@3x.png in Resources */,
 				065E904523E81CFA0083C1BD /* menu@3x.png in Resources */,
 				83D0FE4223BCA14900688924 /* Comfortaa-Light.ttf in Resources */,
 				06A440F323F3FBCC00E201AE /* History_selected@3x.png in Resources */,
@@ -1052,6 +1082,8 @@
 				83D0FE4523BCACB000688924 /* buttonrect.png in Resources */,
 				06EC9F222396784100474EE3 /* HomePromotionCell.xib in Resources */,
 				06A440EC23F3FAFF00E201AE /* home_selected@3x.png in Resources */,
+				06DC9ED523FB9EFD00E721E5 /* giatsofa@3x.png in Resources */,
+				06DC9ED923FBA0DE00E721E5 /* dungle@2x.png in Resources */,
 				0667ECA623B47867004AAA5E /* welcome.png in Resources */,
 				06A4410423F3FDC900E201AE /* menu_selected.png in Resources */,
 				06A4410023F3FDC900E201AE /* Profile_selected@3x.png in Resources */,

@@ -38,8 +38,8 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THÔNG BÁO/KHUYẾN MÃI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7c-gd-JjV">
-                        <rect key="frame" x="16" y="0.0" width="156.5" height="15"/>
-                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="13"/>
+                        <rect key="frame" x="16" y="0.0" width="168.5" height="16.5"/>
+                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>

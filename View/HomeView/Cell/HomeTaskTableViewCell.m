@@ -32,16 +32,16 @@
     [self setBackgroundColor:[UIColor clearColor]];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    [_txtTitle setTextColor:UIColorFromRGB(0x000000)];
+    [_txtTitle setTextColor:UIColorFromRGB(0xE4672D)];
     [_txtDescription setTextColor:UIColorFromRGB(0x5C5C5C)];
 }
 
 -(void)setFrame:(CGRect)frame
 {
-    frame.origin.x += 16;
+    frame.origin.x += 18;
     frame.origin.y -= 5;
-    frame.size.width -= 16 + 26;
-    frame.size.height -= 5 + 20;
+    frame.size.width -= 16 + 24;
+    frame.size.height -= 5 + 25;
     
     [super setFrame:frame];
 }
