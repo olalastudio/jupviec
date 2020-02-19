@@ -1,24 +1,25 @@
 //
-//  InformationDetailViewController.m
+//  InformationContactViewController.m
 //  JupViec
 //
 //  Created by KienVu on 12/3/19.
 //  Copyright © 2019 Olala. All rights reserved.
 //
 
-#import "InformationDetailViewController.h"
+#import "InformationContactViewController.h"
 
-@interface InformationDetailViewController ()
+@interface InformationContactViewController ()
 
 @end
 
-@implementation InformationDetailViewController
+@implementation InformationContactViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.view.layer.masksToBounds = YES;
+    self.title = @"Liên hệ";
 }
 
 -(void)viewDidAppear:(BOOL)animated

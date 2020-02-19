@@ -8,7 +8,7 @@
 
 #import "InformationViewController.h"
 #import "InformationTableViewCell.h"
-#import "InformationDetailViewController.h"
+#import "InformationContactViewController.h"
 
 @interface InformationViewController ()
 
@@ -98,7 +98,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell* cell = [_tbInformation cellForRowAtIndexPath:indexPath];
-    if ([cell.textLabel.text isEqualToString:@"Câu hỏi thường gặp"]) {
+    
+    if ([cell.textLabel.text isEqualToString:@"Câu hỏi thường gặp"])
+    {
         LoadingViewController *loadingview = [self.storyboard instantiateViewControllerWithIdentifier:@"idloadingview"];
         [loadingview show:self];
         APIRequest* api = [[APIRequest alloc]init];
@@ -116,6 +118,12 @@
         FeedbackViewController* feedbackVC = [self.storyboard instantiateViewControllerWithIdentifier:@"idfeedback"];
         [feedbackVC setUser:_user];
         [self.navigationController pushViewController:feedbackVC animated:YES];
+    }
+    else if ([cell.textLabel.text isEqualToString:@"Liên hệ"])
+    {
+        InformationContactViewController *contactview = [self.storyboard instantiateViewControllerWithIdentifier:@"idcontactview"];
+        
+        [self.navigationController pushViewController:contactview animated:YES];
     }
     
 }

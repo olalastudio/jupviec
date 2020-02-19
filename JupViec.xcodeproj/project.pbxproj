@@ -21,7 +21,7 @@
 		0612A390239621AE00A82BB9 /* InformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0612A38F239621AE00A82BB9 /* InformationCell.xib */; };
 		0612A393239621F500A82BB9 /* InformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0612A392239621F500A82BB9 /* InformationTableViewCell.m */; };
 		0612A3992396531500A82BB9 /* NoticeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0612A3982396531500A82BB9 /* NoticeDetailViewController.m */; };
-		0612A39C239657E700A82BB9 /* InformationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0612A39B239657E700A82BB9 /* InformationDetailViewController.m */; };
+		0612A39C239657E700A82BB9 /* InformationContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0612A39B239657E700A82BB9 /* InformationContactViewController.m */; };
 		06222E24239E489C00AE24C5 /* TextDetailPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06222E23239E489C00AE24C5 /* TextDetailPopupController.m */; };
 		06222E27239E4A7200AE24C5 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06222E26239E4A7200AE24C5 /* PopupView.m */; };
 		06222E2A239E64F100AE24C5 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 06222E29239E64F100AE24C5 /* Order.m */; };
@@ -197,8 +197,8 @@
 		0612A392239621F500A82BB9 /* InformationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InformationTableViewCell.m; sourceTree = "<group>"; };
 		0612A3972396531500A82BB9 /* NoticeDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeDetailViewController.h; sourceTree = "<group>"; };
 		0612A3982396531500A82BB9 /* NoticeDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeDetailViewController.m; sourceTree = "<group>"; };
-		0612A39A239657E700A82BB9 /* InformationDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InformationDetailViewController.h; sourceTree = "<group>"; };
-		0612A39B239657E700A82BB9 /* InformationDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InformationDetailViewController.m; sourceTree = "<group>"; };
+		0612A39A239657E700A82BB9 /* InformationContactViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InformationContactViewController.h; sourceTree = "<group>"; };
+		0612A39B239657E700A82BB9 /* InformationContactViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InformationContactViewController.m; sourceTree = "<group>"; };
 		062061C82390B94300956FF4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		06222E22239E489C00AE24C5 /* TextDetailPopupController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextDetailPopupController.h; sourceTree = "<group>"; };
 		06222E23239E489C00AE24C5 /* TextDetailPopupController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextDetailPopupController.m; sourceTree = "<group>"; };
@@ -506,8 +506,8 @@
 				0612A38F239621AE00A82BB9 /* InformationCell.xib */,
 				0612A391239621F500A82BB9 /* InformationTableViewCell.h */,
 				0612A392239621F500A82BB9 /* InformationTableViewCell.m */,
-				0612A39A239657E700A82BB9 /* InformationDetailViewController.h */,
-				0612A39B239657E700A82BB9 /* InformationDetailViewController.m */,
+				0612A39A239657E700A82BB9 /* InformationContactViewController.h */,
+				0612A39B239657E700A82BB9 /* InformationContactViewController.m */,
 				CE344EA623CF03A800824260 /* FAQTableViewCell.h */,
 				CE344EA723CF03A800824260 /* FAQTableViewCell.m */,
 				CE344EA823CF03A800824260 /* FAQTableViewCell.xib */,
@@ -1157,7 +1157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0612A39C239657E700A82BB9 /* InformationDetailViewController.m in Sources */,
+				0612A39C239657E700A82BB9 /* InformationContactViewController.m in Sources */,
 				0612A3992396531500A82BB9 /* NoticeDetailViewController.m in Sources */,
 				06222E27239E4A7200AE24C5 /* PopupView.m in Sources */,
 				063A1C4023BDA53F00456CBC /* JButton.m in Sources */,

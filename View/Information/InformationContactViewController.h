@@ -1,5 +1,5 @@
 //
-//  InformationDetailViewController.h
+//  InformationContactViewController.h
 //  JupViec
 //
 //  Created by KienVu on 12/3/19.
@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface InformationDetailViewController : JViewController
+@interface InformationContactViewController : JViewController
 
 @end
 
