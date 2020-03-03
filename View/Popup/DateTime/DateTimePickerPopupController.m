@@ -21,6 +21,7 @@
     // Do any additional setup after loading the view.
     
     [_timePicker setValue:[UIColor blackColor] forKey:@"textColor"];
+    [_timePicker setLocale:[NSLocale localeWithLocaleIdentifier:@"vi_VN"]];
 }
 
 -(void)viewDidAppear:(BOOL)animated

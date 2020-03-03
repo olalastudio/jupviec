@@ -10,6 +10,9 @@
 #import "PopupView.h"
 
 @interface TextDetailPopupController ()
+{
+    NSInteger keyboardheight;
+}
 
 @end
 
@@ -26,12 +29,19 @@
 {
     [super viewWillAppear:animated];
     
+    [_txtTitle setText:@"Số nhà,căn hộ"];
     [_txtContent setText:_strContent];
     [_txtCurrentLocation setText:_strCurrentLocation];
+    
+    [_txtTitle setFont:[UIFont fontWithName:@"Roboto" size:14]];
+    [_txtContent setFont:[UIFont fontWithName:@"Roboto" size:14]];
+    [_txtCurrentLocation setFont:[UIFont fontWithName:@"Roboto" size:14]];
     
     [self.view setBackgroundColor:[UIColor colorWithRed:85.0f/255.0f green:80.0f/255.0f blue:80.0f/255.0f alpha:0.38]];
     
     self.popupView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.5, 0.5);
+    
+    [self registerFromKeyboardNotification];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -58,6 +68,8 @@
     [super viewWillDisappear:animated];
     
     [self.view setBackgroundColor:[UIColor clearColor]];
+    
+    [self unregisterFromKeyboardNotification];
 }
 /*
 #pragma mark - Navigation
@@ -116,5 +128,50 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
+}
+
+-(void)registerFromKeyboardNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+-(void)unregisterFromKeyboardNotification
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+-(void)keyboardDidShow:(NSNotification*)notification
+{
+    NSDictionary *userinfo = [notification userInfo];
+    NSValue *keyboardbeginrect = [userinfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    NSValue *keyboardendrect = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect beginrect = [keyboardbeginrect CGRectValue];
+    CGRect endrect = [keyboardendrect CGRectValue];
+ 
+    keyboardheight = beginrect.origin.y - endrect.origin.y;
+    
+    if (keyboardheight > self.popupView.frame.origin.y)
+    {
+        _verticalConstraint.constant = self.popupView.frame.origin.y - keyboardheight;
+    }
+    
+    [self.view layoutIfNeeded];
+}
+
+-(void)keyboardDidHide:(NSNotification*)notification
+{
+    NSDictionary *userinfo = [notification userInfo];
+    NSValue *keyboardbeginrect = [userinfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    NSValue *keyboardendrect = [userinfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect beginrect = [keyboardbeginrect CGRectValue];
+    CGRect endrect = [keyboardendrect CGRectValue];
+    
+    keyboardheight = endrect.origin.y - beginrect.origin.y;
+    
+    _verticalConstraint.constant = 0;
+    
+    [self.view layoutIfNeeded];
 }
 @end

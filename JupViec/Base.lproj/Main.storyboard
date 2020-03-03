@@ -2126,6 +2126,7 @@
                         <outlet property="txtContent" destination="i4h-CK-Mu5" id="LT0-pe-Ewb"/>
                         <outlet property="txtCurrentLocation" destination="u9n-yP-dJ6" id="EbA-fx-vxd"/>
                         <outlet property="txtTitle" destination="7ku-6A-bdI" id="NC9-WH-jcV"/>
+                        <outlet property="verticalConstraint" destination="Xy2-mi-NgC" id="KSD-fk-WXy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ld-Vf-Lhn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

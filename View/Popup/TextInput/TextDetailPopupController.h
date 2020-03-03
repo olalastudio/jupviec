@@ -35,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *txtTitle;
 @property (weak, nonatomic) IBOutlet UITextView *txtContent;
 @property (weak, nonatomic) IBOutlet UILabel *txtCurrentLocation;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *verticalConstraint;
 
 - (IBAction)didPressClosePopupButtom:(id)sender;
 - (IBAction)didPressConfirmButtom:(id)sender;

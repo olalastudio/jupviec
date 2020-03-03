@@ -152,7 +152,7 @@
             break;
         case ATTRIBUTE_GHICHU:
             [_txtTitle setText:@"Ghi chú"];
-            [_txtContent setText:@"- ghi chú"];
+            [_txtContent setText:[_order note]];
             break;
         default:
             break;
