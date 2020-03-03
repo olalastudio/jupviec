@@ -46,8 +46,15 @@
 {
     [super viewWillAppear:animated];
     
-    [self reverseGeocodeCoordinate:selectedLocation];
-    [self setupLocationMaker:selectedLocation];
+    if (selectedLocation.latitude != 0 && selectedLocation.longitude != 0)
+    {
+        [self reverseGeocodeCoordinate:selectedLocation];
+        [self setupLocationMaker:selectedLocation];
+    }
+    else
+    {
+        [_locationManager requestLocation];
+    }
 }
 
 - (IBAction)didPressConfirmLocationButton:(id)sender
@@ -89,8 +96,20 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
     CLLocation* location = [locations firstObject];
-    _mapView.camera = [[GMSCameraPosition alloc]initWithTarget:location.coordinate zoom:15 bearing:0 viewingAngle:0];
+    selectedLocation = location.coordinate;
+    
+    _locationMaker.map = nil;
+    _mapView.camera = [[GMSCameraPosition alloc] initWithTarget:selectedLocation zoom:15 bearing:0 viewingAngle:0];
+    
+    [self reverseGeocodeCoordinate:selectedLocation];
+    [self setupLocationMaker:selectedLocation];
+    
     [_locationManager stopUpdatingLocation];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"request location did fail with error %@",error);
 }
 
 - (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate
