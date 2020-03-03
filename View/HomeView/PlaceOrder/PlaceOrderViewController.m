@@ -266,17 +266,22 @@
 
 - (IBAction)didPressNextToConfirmOrder:(id)sender
 {
-    if ((![_order paymentMethod] || [[_order workAddress] isEqualToString:@""]) && ([_order orderType] == TYPE_DUNGLE || [_order orderType] == TYPE_DUNGDINHKY))
+    if (![[_order workAddress] isEqualToString:@""])
     {
-        [JUntil showPopup:self responsecode:RESPONSE_CODE_MISSING_VALUE];
+        if (![_order paymentMethod] && ([_order orderType] == TYPE_DUNGLE || [_order orderType] == TYPE_DUNGDINHKY))
+        {
+            [JUntil showPopup:self responsecode:RESPONSE_CODE_MISSING_VALUE];
+        }
+        else{
+            ConfirmOrderViewController *confirmorderview = [self.storyboard instantiateViewControllerWithIdentifier:@"idconfirmorder"];
+            [confirmorderview setOrder:_order];
+            [confirmorderview setUser:_user];
+            
+            [self.navigationController pushViewController:confirmorderview animated:YES];
+        }
     }
-    else
-    {
-        ConfirmOrderViewController *confirmorderview = [self.storyboard instantiateViewControllerWithIdentifier:@"idconfirmorder"];
-        [confirmorderview setOrder:_order];
-        [confirmorderview setUser:_user];
-        
-        [self.navigationController pushViewController:confirmorderview animated:YES];
+    else{
+        [JUntil showPopup:self responsecode:RESPONSE_CODE_MISSING_VALUE];
     }
 }
 
